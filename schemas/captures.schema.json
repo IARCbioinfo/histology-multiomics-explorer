@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "schemas/captures.schema.json",
  "title": "captures",
- "description": "Located spatial transcriptomics tissue sections with original H&E, expression and coordinates, one record per section",
+ "description": "Located spatial transcriptomics tissue section records, one per study and section, with measured expression, coordinates and the original H&E or a preview image (image_level)",
  "type": "array",
  "items": {
   "type": "object",
@@ -24,7 +24,11 @@
     ]
    },
    "patient": {
-    "type": "string"
+    "type": [
+     "null",
+     "string"
+    ],
+    "description": "Study-local patient ID given by the source, or null when the source does not establish the donor"
    },
    "capture": {
     "type": "string"
@@ -58,7 +62,10 @@
     ]
    },
    "site_source": {
-    "type": "string"
+    "type": [
+     "null",
+     "string"
+    ]
    },
    "treatment": {
     "type": "string",
@@ -70,13 +77,22 @@
     ]
    },
    "treatment_note": {
-    "type": "string"
+    "type": [
+     "null",
+     "string"
+    ]
    },
    "diagnosis": {
-    "type": "string"
+    "type": [
+     "null",
+     "string"
+    ]
    },
    "histology": {
-    "type": "string"
+    "type": [
+     "null",
+     "string"
+    ]
    },
    "technique": {
     "type": "string"
@@ -248,18 +264,75 @@
       ]
      }
     },
-    "required": [
-     "age",
-     "sex",
-     "stage",
-     "grade",
-     "subsite",
-     "markers"
-    ],
+    "required": [],
     "additionalProperties": false
+   },
+   "image_level": {
+    "type": "string",
+    "description": "original: the original H&E scan was located; preview: only a preview image released with the data",
+    "enum": [
+     "original",
+     "preview"
+    ]
    },
    "source_name": {
     "type": "string"
+   },
+   "review_batch": {
+    "type": "string"
+   },
+   "compartment": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "donor_mapping": {
+    "type": "string",
+    "description": "How the patient ID was established; unresolved means no patient ID is assigned",
+    "enum": [
+     "source-established",
+     "source-patient-column",
+     "unresolved"
+    ]
+   },
+   "open_checks": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "out_of_tissue_expression_spots": {
+    "type": "integer"
+   },
+   "assay_area_id": {
+    "type": "string",
+    "description": "Array area shared with other sections; use the record's expression_subset or region_label"
+   },
+   "region_label": {
+    "type": "string"
+   },
+   "expression_subset": {
+    "type": "object",
+    "properties": {
+     "slide": {
+      "type": "string"
+     },
+     "tissues": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "slide",
+     "tissues"
+    ],
+    "additionalProperties": false
+   },
+   "recurrence_outcome": {
+    "type": "string"
+   },
+   "original_crosswalk_inferred": {
+    "type": "boolean"
    }
   },
   "required": [
@@ -290,7 +363,8 @@
    "access",
    "verification",
    "verified_on",
-   "clinical"
+   "clinical",
+   "image_level"
   ],
   "additionalProperties": false
  }

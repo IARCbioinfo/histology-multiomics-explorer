@@ -1,6 +1,6 @@
 # Kidney renal papillary cell carcinoma
 
-Code `KIRP`. Molecular screen; not screened by Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=KIRP](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRP). Data: [data/by-cancer/KIRP.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRP.json).
+Code `KIRP`. Molecular screen; not screened by Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=KIRP](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRP). Data: [data/by-cancer/KIRP.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRP.json).
 
 Papillary renal cell carcinoma is a separate TCGA project from clear cell carcinoma. It was not among the cancer types screened by Hausser et al. and is included because it meets the molecular screen.
 
@@ -24,12 +24,12 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 2 spatial resources are catalogued. Verification of the matched image and molecular data is pending. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | 10x Genomics kidney preview, Xenium (papillary RCC) (`kirp-10x-xenium-preview`); includes normal or adjacent tissue | Xenium | Free account | 1 papillary RCC sample | Verification pending |
 | Soupir et al., papillary RCC CosMx study (`kirp-macrophage-abstract`) | Multiplex immunofluorescence, Targeted spatial RNA (960 transcripts) | Open download | 11 mixed-RCC patients prepared for spatial RNA | Verification pending |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
 ## Selection history: published archetype evidence
 

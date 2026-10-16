@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "THCA",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -227,7 +228,7 @@
     "THCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -240,7 +241,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE250521",
    "access": {
@@ -257,12 +260,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "16 checked Visium previews; four ATC sections outside selected histology",
+    "molecular_finding": "All 16 Visium packages exact; nine scRNA samples excluded from spatial counts",
+    "next_step": "Original scans; four anaplastic thyroid carcinoma sections and nine single-cell samples stay outside this selection.",
+    "sections_listed": 12,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-loberg-2026-jci191990",
@@ -315,7 +333,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "access-dependent",
+    "depth": "access boundary reached",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Article explicitly restricts individual spatial data under IRB policy",
+    "molecular_finding": "No individual package public",
+    "next_step": "Lead-contact/institutional permission required for individual data; aggregate results on request do not replace spatial package.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-yan-2024-hra003537",
@@ -369,7 +400,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "access-dependent",
+    "depth": "access boundary reached",
+    "states": [
+     "dac-approval"
+    ],
+    "image_finding": "Primary paper and public code found; raw HRA route",
+    "molecular_finding": "No matched processed original-image package inspected",
+    "next_step": "Locate processed public supplement/image package independently of controlled raw reads.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-zhang-2025-prjca021247",
@@ -422,7 +466,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "release-unresolved",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Primary paper identifies PRJCA021247 for scRNA/ST",
+    "molecular_finding": "Public processed image package unverified",
+    "next_step": "Resolve project-to-spatial accession and processed original-image/coordinate release.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-wang-2024-hra005594",
@@ -475,7 +532,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "author-release",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Primary article says data on reasonable request; HRA raw route separate",
+    "molecular_finding": "No public matched package",
+    "next_step": "Author/repository release of processed matrix, coordinates and original image.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-seok-2025-cii",
@@ -524,7 +594,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "author-release",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Primary full text retrieved; no reusable file package established",
+    "molecular_finding": "Unverified",
+    "next_step": "Locate a released processed-data accession or obtain author release later.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-li-2025-s12967-07566",
@@ -577,7 +660,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "author-release",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Metaspace is released metabolomics, not spatial RNA",
+    "molecular_finding": "Paper explicitly says spatial RNA not publicly deposited",
+    "next_step": "Processed spatial-RNA and matched-image release needed.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-tourneur-2026-legacyst",
@@ -595,7 +691,7 @@
     "THCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna"
    ],
@@ -609,7 +705,9 @@
    "linkage": "unverified",
    "gates": [
     "platform",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "EGAS00001007574 / EGAD00001011365",
    "access": {
@@ -626,12 +724,26 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "original-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "25 PTC original TIFFs indexed and headers checked, about 28k-36k pixels",
+    "molecular_finding": "All 25 PTC Seurat count-column/coordinate label sets exact and finite; legacy ST, not Visium",
+    "next_step": "Overlay and calibration QC for the legacy arrays; section treatment and site unknown; 12 anaplastic sections excluded.",
+    "sections_listed": 25,
+    "study_local_donors": 10
+   }
   }
  ],
  "located_sections": [
@@ -642,6 +754,7 @@
    "stratum": "thca-ptc",
    "patient": "P1",
    "capture": "P1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -655,7 +768,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "zhang-2024-thca:P2",
@@ -664,6 +779,7 @@
    "stratum": "thca-ptc",
    "patient": "P2",
    "capture": "P2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -677,7 +793,934 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980860",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980860",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980861",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980861",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980862",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980862",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980863",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980863",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980864",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980864",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980865",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980865",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980866",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980866",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980867",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980867",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980868",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980868",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980869",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980869",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980870",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980870",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-liao-2025-gse250521:GSM7980871",
+   "cohort": "cand-liao-2025-gse250521",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7980871",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC0S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC0",
+   "capture": "PTC0S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC0S2",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC0",
+   "capture": "PTC0S2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC0S3",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC0",
+   "capture": "PTC0S3",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC0S4",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC0",
+   "capture": "PTC0S4",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC0S5",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC0",
+   "capture": "PTC0S5",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC0S6",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC0",
+   "capture": "PTC0S6",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC1S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC1",
+   "capture": "PTC1S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC1S2",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC1",
+   "capture": "PTC1S2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC1S3",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC1",
+   "capture": "PTC1S3",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC2S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC2",
+   "capture": "PTC2S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC2S2",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC2",
+   "capture": "PTC2S2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC2S3",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC2",
+   "capture": "PTC2S3",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC2S4",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC2",
+   "capture": "PTC2S4",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC2S5",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC2",
+   "capture": "PTC2S5",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC2S6",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC2",
+   "capture": "PTC2S6",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC3S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC3",
+   "capture": "PTC3S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC3S2",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC3",
+   "capture": "PTC3S2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC3S3",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC3",
+   "capture": "PTC3S3",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC3S4",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC3",
+   "capture": "PTC3S4",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC4S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC4",
+   "capture": "PTC4S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC5S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC5",
+   "capture": "PTC5S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC6S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC6",
+   "capture": "PTC6S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC7S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC7",
+   "capture": "PTC7S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC8S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC8",
+   "capture": "PTC8S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst:PTC9S1",
+   "cohort": "cand-tourneur-2026-legacyst",
+   "cancer": "THCA",
+   "stratum": null,
+   "patient": "PTC9",
+   "capture": "PTC9S1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Spatial Transcriptomics (legacy arrays)",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
   }
  ],
  "other_resources": [

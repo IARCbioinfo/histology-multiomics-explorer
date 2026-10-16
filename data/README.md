@@ -38,7 +38,7 @@ One object per underlying study or resource.
 | `related_citations` | Further publications describing the same cohort |
 | `cancers` | Cancer codes |
 | `layer` | `matched-spatial`, `wsi-bulk`, `bulk-rna`, `single-cell`, `image-only` |
-| `status` | `verified` (matched packages located), `screened` (TCGA project in the molecular screen panel; READ and GBM are included through pooled cohorts), `excluded` (TCGA project kept for provenance but excluded from the study), `candidate`, `reference`, `listed` |
+| `status` | `verified` (original H&E located: the original scan, expression and coordinates were found, for at least the stated subset of sections), `preview` (matched data with preview image: expression and coordinates match a preview released with them, and the original scan was not located), `screened` (TCGA project in the molecular screen panel; READ and GBM are included through pooled cohorts), `excluded` (TCGA project kept for provenance but excluded from the study), `candidate`, `reference`, `listed` |
 | `tcga_project`, `analysis_cohort` | For TCGA entries, the project code used in the `tcga_*` files and the analysis cohort it contributes to |
 | `compartments` | Tissue compartments: `primary-tumour`, `metastatic-tumour`, `tumour-unspecified`, `solid-normal` (tumour-adjacent), `peritumoral`, `normal` (not tumour-adjacent or adjacency not stated) and `precursor` |
 | `modalities`, `techniques`, `preservation` | What was measured and how |
@@ -49,7 +49,8 @@ One object per underlying study or resource.
 | `access` | `category`, `route` (text) and `links` (`[label, url]` pairs) |
 | `reported` | `[value, unit, basis]` or `[value, unit, basis, cancer]` counts in the source's own units (sections, slides, samples, donor labels, patients); a fourth element limits the count to one of the entry's cancers. Not deduplicated, not patient counts unless stated, never added across studies; an unknown count is absent rather than zero |
 | `spatial_review` | For the 26 spatial resources reviewed on 15 October 2026: review `id` and `date`, `analysis_cohort` (selected histology, for example `CSCC` shown on the CESC page), `assay_classes` (`whole-transcriptome`, `targeted-rna`, `rna-protein`, `roi`, `protein-imaging`, `unverified`), reported `platform`, `role`, `image_status`, `treatment_status` with `treatment_class` (`unknown`, `reported-untreated`, `treated`, `baseline-and-on-treatment`), `eligible_patients` (always null: unknown), `strict_core_promoted` (false), `sample_ids` by role (selected, excluded, normal or precursor, tumour, adjacent, metastatic) and specimen details where given. Written by `scripts/import_spatial_review.py`; three earlier entries keep their IDs and are enriched |
-| `spatial_review.route_review` | Public-route review of 15 October 2026, written by `scripts/import_spatial_route_review.py`: `date`, a plain `status`, `states` (open dependencies: `public-download`, `download-failure` for a technical download failure, `vendor-terms`, `dac-approval`, `author-release` for a release or metadata the authors still have to provide, `local-qc`), `next_step` and `sections_with_matching_coordinates` (sections whose expression barcodes match the in-tissue coordinates exactly; null when not checked). Not a patient count or final QC |
+| `spatial_review.route_review` | Public-route review of 15 October 2026, written by `scripts/import_spatial_route_review.py`: `date`, a plain `status`, `states` (open dependencies: `public-download`, `download-failure` for a technical download failure, `vendor-terms`, `account-registration` for a free account, `dac-approval`, `author-release` for a release or metadata the authors still have to provide, `local-qc`), `next_step` and `sections_with_matching_coordinates` (sections whose expression barcodes match the in-tissue coordinates exactly; null when not checked). Not a patient count or final QC |
+| `backlog_review` | Package review of the 77 candidates not checked file by file before, written by `scripts/import_spatial_backlog_review.py`: `date`, `outcome` (`original-ready`, `preview-ready`, `bounded-public-work`, `access-dependent`, `release-unresolved`, `author-release`, `release-gap`, `code-only-lead`, `technical-gap`, `coordinate-gap`, `registration-gap`, `linkage-gap`, `account-route`, `unspecified-vendor-lead`, `vendor-boundary`), `depth` of the check, `states` (open dependencies, as in `route_review`), `image_finding`, `molecular_finding`, `next_step`, `sections_listed` (section records it added, or null) and `study_local_donors` (donor labels the source establishes for the reviewed selection, or null; for a resource with original and preview sections, the original-image sections). Eligible patients are not given |
 | `derived_from` | Cohort IDs this resource reuses |
 | `verification`, `verified_on` | Verification label and date |
 | `description`, `notes` | Curated text |
@@ -60,19 +61,27 @@ Related leads that add no resources or patients: releases whose patients cannot 
 
 ## captures.json
 
-One object per matched capture (an assayed section with its own H&E, expression and coordinates).
+One object per study–section record: an assayed section or capture area of one study with its own measured expression, coordinates and H&E image, either the original scan (`image_level` `original`) or only a preview released with the data (`preview`). Records are not globally unique physical sections: several specimens can share one array area, and reused data can repeat a physical section.
 
 | Field | Meaning |
 | --- | --- |
 | `id` | `<cohort>:<capture>` |
 | `cohort`, `cancer`, `stratum` | Cross-references; `stratum` is null when no stratum applies |
-| `patient`, `capture`, `accession`, `source_name` | Source identifiers |
+| `patient`, `capture`, `accession`, `source_name` | Source identifiers; `patient` is null when the source does not establish the donor |
+| `image_level` | `original` (original H&E scan located) or `preview` (preview image only; not for whole-slide or tile models, morphology, distances or registration sign-off) |
+| `donor_mapping` | Package-review records: `source-established`, `source-patient-column` or `unresolved` (no patient ID) |
+| `assay_area_id`, `region_label`, `expression_subset` | For sections that share an array area: the area, the source region and the slide and tissue labels of this section's expression subset |
+| `compartment` | Tissue compartment where it is not the primary or metastatic tumour (for example `precursor` or `normal`) |
+| `open_checks` | Checks still open for this section |
+| `out_of_tissue_expression_spots`, `recurrence_outcome`, `original_crosswalk_inferred` | Expression spots outside the tissue to filter; a recurrence recorded as a later outcome; whether the original-image match was inferred (then held at preview level) |
+| `review_batch` | The review that added the record, where it was not curated by hand |
 | `tier` | `core`, `metastatic`, `review`, `outside-stratum`, `held`; `tier_reason` gives the source-backed reason |
 | `site`, `site_source` | `Primary`, `Metastasis` or `Unknown`, with the source wording |
 | `treatment`, `treatment_note` | `Untreated`, `Post-treatment` or `Unknown` before sampling, with the evidence |
 | `diagnosis`, `histology` | Source wording |
 | `technique`, `preservation` | Assay and tissue preparation |
 | `linkage`, `registration` | H&E–RNA linkage level and alignment status |
+| `expression_type` | The expression data and how they were checked against the coordinates |
 | `he_mpp`, `he_mpp_basis` | Image resolution in µm/pixel where established, and how it was obtained |
 | `he_file` | Original image filename where recorded |
 | `links` | `he`, `expression`, `coordinates` and `raw` (list) URLs |
@@ -80,7 +89,7 @@ One object per matched capture (an assayed section with its own H&E, expression 
 | `verification`, `verified_on` | Verification label and date |
 | `clinical` | `age`, `sex`, `stage`, `grade`, `subsite`, `markers` as reported by the source |
 
-Patients are counted as unique `(cohort, patient)` pairs.
+Known patients are unique `(cohort, patient)` pairs with a patient ID; records without one are not counted as patients, and no count here is an eligible-patient count.
 
 ## TCGA molecular screen
 

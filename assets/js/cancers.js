@@ -1,4 +1,4 @@
-import { loadData, LABELS, esc, chip, fmt, tally, setFooter, showCohort, showError, rationale, tcgaSection, loadTcgaReviews, analysisSection, pooledCohortSection, cohortExtras, tcgaOverview, spatialResourcesFor, spatialSentence, cohortScopeText } from "./common.js";
+import { loadData, LABELS, esc, chip, fmt, tally, setFooter, showCohort, showError, rationale, tcgaSection, loadTcgaReviews, analysisSection, pooledCohortSection, cohortExtras, tcgaOverview, spatialResourcesFor, spatialSentence, cohortScopeText, levelCounts } from "./common.js";
 
 const root = document.getElementById("content");
 
@@ -7,6 +7,8 @@ const ACCESS_DEPENDENT = new Set(["controlled", "request", "unreleased", "unreso
 const codesOf = c => [c.code, ...(c.includes || [])];
 const resourcesUrl = codes => `explore.html?view=cohorts&layer=matched-spatial&cancer=${codes.join(",")}`;
 const located = list => list.filter(x => x.status === "verified").length;
+const previewOnly = list => list.filter(x => x.status === "preview").length;
+const LEVEL_CAPTION = "Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located. Neither implies completed registration, calibration or tissue QC.";
 
 // A count reported by the source: one scoped to this page, or the study total when the study spans several of the
 // page's cancers (pooled pages); never one scoped to another cancer.
@@ -45,23 +47,27 @@ function notesFor(d, c, codes) {
 function spatialTable(d, page, list) {
   if (!list.length) return "";
   const codes = codesOf(page);
-  const rank = c => (c.status === "verified" ? 0 : ACCESS_DEPENDENT.has(c.access.category) ? 2 : 1);
+  const rank = c => (c.status === "verified" ? 0 : c.status === "preview" ? 1 : ACCESS_DEPENDENT.has(c.access.category) ? 3 : 2);
   const rows = [...list].sort((a, b) => rank(a) - rank(b)).map(c => {
     const notes = notesFor(d, c, codes);
-    const pts = tally(d.captures.filter(x => x.cohort === c.id && codes.includes(x.cancer))).patients;
+    const k = levelCounts(d, c, codes);
+    const sec = n => plural(n, "section", "sections");
+    const counts = [c.status === "verified" && k.original ? `${sec(k.original)} with original H&E` : "",
+      k.preview ? `${sec(k.preview)} with a preview image${c.status === "verified" ? " only" : ""}${k.counted ? ", not listed one by one" : ""}` : "",
+      k.patients ? plural(k.patients, "known patient", "known patients") : ""].filter(Boolean).join("; ");
     const rep = reportedFor(c, codes);
     return `<tr>
       <td class="primary" data-label="Study"><div><button class="linkish" type="button" data-cohort="${esc(c.id)}">${esc(c.label)}</button>${notes.length ? `<span class="cell-sub">${esc(notes.join("; "))}</span>` : ""}</div></td>
       <td data-label="Assay"><div>${esc((c.techniques || []).join(", ") || "Not specified")}</div></td>
       <td data-label="Access"><div>${chip("access", c.access.category)}</div></td>
       <td data-label="Reported by the study"><div>${rep ? esc(rep) : '<span class="muted">No count reported</span>'}</div></td>
-      <td data-label="Matched data located"><div>${c.status === "verified" ? `Yes${pts ? `, for ${plural(pts, "patient", "patients")}` : ""}` : '<span class="muted">Verification pending</span>'}</div></td>
+      <td data-label="Image level"><div>${c.status === "verified" || c.status === "preview" ? `${chip("status", c.status)}${counts ? `<span class="cell-sub">${esc(counts)}</span>` : ""}` : '<span class="muted">Verification pending</span>'}</div></td>
     </tr>`;
   }).join("");
   return `<div class="table-wrap"><table class="stack compact">
-    <thead><tr><th scope="col">Study</th><th scope="col">Assay</th><th scope="col">Access</th><th scope="col">Reported by the study</th><th scope="col">Matched data located</th></tr></thead>
+    <thead><tr><th scope="col">Study</th><th scope="col">Assay</th><th scope="col">Access</th><th scope="col">Reported by the study</th><th scope="col">Image level</th></tr></thead>
     <tbody>${rows}</tbody>
-    <caption>Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC. Select a study for its open checks, section linkage and treatment details.</caption>
+    <caption>Study-reported numbers keep each study's own unit and are not added together. ${LEVEL_CAPTION} Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count. Select a study for its open checks, section linkage and treatment details.</caption>
   </table></div>`;
 }
 
@@ -75,18 +81,19 @@ function locatedBreakdown(d, page, caps) {
   const rows = groups.map(g => {
     const inG = caps.filter(g.sel);
     if (!inG.length && g.label === "No stratum assigned") return "";
-    const primary = inG.filter(x => x.tier === "core");
+    const primary = inG.filter(x => x.tier === "core"), other = inG.filter(x => x.tier !== "core");
     return `<tr><td class="primary" data-label="${page.includes ? "Stated site" : "Histology stratum"}"><div>${esc(g.label)}</div></td>
       <td class="num" data-label="Patients, primary tumour"><div>${fmt(tally(primary).patients)}</div></td>
-      <td class="num" data-label="Measured sections, primary tumour"><div>${fmt(primary.length)}</div></td>
-      <td class="num" data-label="Other measured sections"><div>${fmt(inG.length - primary.length)}</div></td>
+      <td class="num" data-label="Sections, primary tumour"><div>${fmt(primary.length)}</div></td>
+      <td class="num" data-label="Other sections, original H&amp;E"><div>${fmt(other.filter(x => x.image_level === "original").length)}</div></td>
+      <td class="num" data-label="Other sections, preview image"><div>${fmt(other.filter(x => x.image_level === "preview").length)}</div></td>
       <td data-label="Explore"><div>${inG.length ? `<a href="explore.html?${g.q}">View ${inG.length}</a>` : '<span class="muted">—</span>'}</div></td></tr>`;
   }).join("");
   return `<details class="disclosure"><summary>Located data by ${page.includes ? "stated site" : "histology stratum"}</summary>
     <div class="table-wrap" style="margin-top:.5rem"><table class="stack compact">
-    <thead><tr><th scope="col">${page.includes ? "Stated site" : "Histology stratum"}</th><th scope="col" class="num">Patients, primary tumour</th><th scope="col" class="num">Measured sections, primary tumour</th><th scope="col" class="num">Other measured sections</th><th scope="col">Explore</th></tr></thead>
+    <thead><tr><th scope="col">${page.includes ? "Stated site" : "Histology stratum"}</th><th scope="col" class="num">Patients, primary tumour</th><th scope="col" class="num">Sections, primary tumour</th><th scope="col" class="num">Other sections, original H&amp;E</th><th scope="col" class="num">Other sections, preview image</th><th scope="col">Explore</th></tr></thead>
     <tbody>${rows}</tbody>
-    <caption>Located data only. Primary tumour counts sections from primary tumours within the stratum with image, expression and coordinates located; other sections are metastatic, under review, held for quality control or outside the stratum. Treatment before sampling is recorded per section in the data explorer.</caption>
+    <caption>Section records listed in this release. Primary tumour counts sections from primary tumours within the stratum, all with original H&amp;E located; other sections are metastatic, under review, held for quality control or outside the stratum, and are split by image level. Patients are known study-local IDs; sections without one are not counted as patients. Checked preview packages not yet listed one by one are not included. Treatment before sampling is recorded per section in the data explorer.</caption>
   </table></div></details>`;
 }
 
@@ -140,12 +147,12 @@ function renderCancer(d, code) {
     : d.elig.cohorts[e.analysis_cohort].projects.length > 1 ? `${plural(e.selected_analysis.total, "patient", "patients")} in the selected panel, within pooled ${e.analysis_cohort}`
     : `${plural(e.selected_analysis.total, "patient", "patients")} in the selected analysis panel${cohortScopeText(e.analysis_cohort) ? `: ${cohortScopeText(e.analysis_cohort)}` : ""}`;
   const browse = c.tcga_projects ? `explore.html?view=tcga&group=${code}` : c.tcga_project ? `explore.html?view=tcga&project=${c.tcga_project}` : null;
-  const nLoc = located(spatial);
+  const nLoc = located(spatial), nPrev = previewOnly(spatial);
   const available = `<section class="route-grid" aria-label="Data available">
     <div class="card"><h3>TCGA</h3><span class="figure-line">${esc(tcgaLine)}</span>
       <span class="small"><a href="#tcga">TCGA details</a>${browse ? ` · <a href="${browse}">Browse patients</a>` : ""}</span></div>
     <div class="card"><h3>Spatial studies</h3><span class="figure-line">${spatial.length ? `${plural(spatial.length, "resource", "resources")} catalogued` : "None catalogued yet"}</span>
-      ${spatial.length ? `<span class="small muted">${nLoc ? `${fmt(nLoc)} with matched data located` : "Verification pending"}</span>` : ""}
+      ${spatial.length ? `<span class="small muted">${nLoc || nPrev ? [nLoc ? `${fmt(nLoc)} with original H&amp;E located` : "", nPrev ? `${fmt(nPrev)} with matched data and a preview image` : ""].filter(Boolean).join("; ") : "Verification pending"}</span>` : ""}
       <span class="small">${spatial.length ? `<a href="#spatial">View resources</a>` : `<a href="spatial.html">All spatial studies</a>`}${caps.length ? ` · <a href="explore.html?cancer=${codes.join(",")}">Explore located data</a>` : ""}</span></div>
     <div class="card"><h3>Other resources</h3><span class="figure-line">${others.length ? `${plural(others.length, "resource", "resources")}` : "None catalogued"}</span>
       ${others.length ? `<span class="small muted">${esc([...new Set(others.map(x => LABELS.layer[x.layer]))].join("; "))}</span>` : ""}
@@ -177,7 +184,7 @@ function renderCancer(d, code) {
     ${histology}
 
     <h2 id="spatial">Spatial studies</h2>
-    <p>${esc(spatialSentence(spatial.length, nLoc))}${spatial.length ? ` These studies usually involve patients other than those in TCGA.` : ""}</p>
+    <p>${esc(spatialSentence(spatial.length, nLoc, nPrev))}${spatial.length ? ` These studies usually involve patients other than those in TCGA.` : ""}</p>
     ${spatialTable(d, c, spatial)}
     ${locatedBreakdown(d, c, caps)}
     <p class="note">${spatial.length ? `<a href="${resourcesUrl(codes)}">List these resources in the data explorer</a>` : `<a href="spatial.html">All spatial studies</a>`}${caps.length ? ` · <a href="explore.html?cancer=${codes.join(",")}">Explore located data, with histology, site and treatment filters</a>` : ""}</p>
@@ -204,7 +211,7 @@ function renderIndex(d, message) {
   const excludedList = d.cancers.filter(c => c.group === "excluded");
   const rows = list.map(c => {
     const codes = codesOf(c);
-    const spatial = spatialResourcesFor(d, c), nLoc = located(spatial);
+    const spatial = spatialResourcesFor(d, c), nLoc = located(spatial), nPrev = previewOnly(spatial);
     const e = c.tcga_project && d.elig.projects[c.tcga_project];
     const pooled = c.tcga_projects ? d.elig.cohorts[c.code] : null;
     const tcga = pooled ? `${fmt(pooled.selected_analysis.total)}<span class="cell-sub">pooled ${c.tcga_projects.map(p => `TCGA-${p}`).join(" + ")}${pooled.role !== "discovery" ? `; ${esc(LABELS.role[pooled.role].toLowerCase())}` : ""}</span>`
@@ -214,7 +221,8 @@ function renderIndex(d, message) {
       <td class="primary" data-label="Cancer type"><div><a href="cancers.html?c=${c.code}">${esc(c.name)}</a> <span class="mono muted small">${c.code}</span></div></td>
       <td class="num" data-label="TCGA patients, selected panel"><div>${tcga}</div></td>
       <td class="num" data-label="Spatial resources"><div>${spatial.length ? `<a href="${resourcesUrl(codes)}">${fmt(spatial.length)}</a>` : '<span class="muted">None catalogued</span>'}</div></td>
-      <td class="num" data-label="With matched data located"><div>${!spatial.length ? '<span class="muted">—</span>' : nLoc ? fmt(nLoc) : '<span class="muted">Verification pending</span>'}</div></td>
+      <td class="num" data-label="Original H&amp;E located"><div>${!spatial.length ? '<span class="muted">—</span>' : fmt(nLoc)}</div></td>
+      <td class="num" data-label="Matched data with preview image"><div>${!spatial.length ? '<span class="muted">—</span>' : fmt(nPrev)}</div></td>
     </tr>`;
   }).join("");
   root.innerHTML = `
@@ -222,9 +230,9 @@ function renderIndex(d, message) {
     <div class="page-head"><h1>Cancer types</h1>
     <p class="prose muted">Each page brings together the TCGA data and the spatial studies for one cancer type, with its selection history, other resources and open checks. The list follows the current analysis panel. Eight cancer types come from Hausser et al. (2019), and the other ten are included because their TCGA projects meet the RNA and 450k methylation screen. Colorectal cancer and diffuse glioma also have pooled pages; the glioma cohort is a classification benchmark.</p></div>
     <div class="table-wrap"><table class="stack">
-      <thead><tr><th scope="col">Cancer type</th><th scope="col" class="num">TCGA patients, selected panel</th><th scope="col" class="num">Spatial resources</th><th scope="col" class="num">With matched data located</th></tr></thead>
+      <thead><tr><th scope="col">Cancer type</th><th scope="col" class="num">TCGA patients, selected panel</th><th scope="col" class="num">Spatial resources</th><th scope="col" class="num">Original H&amp;E located</th><th scope="col" class="num">Matched data with preview image</th></tr></thead>
       <tbody>${rows}</tbody>
-      <caption>TCGA counts are patients in the selected analysis panel with RNA-seq, methylation or both. The COAD, READ, LGG and GBM rows show their contributions to the pooled colorectal and glioma rows. Spatial counts are resources, not patients, and pooled pages reuse the resources of their constituent cancers, so the column should not be summed. Located does not mean that image registration or tissue QC is complete.</caption>
+      <caption>TCGA counts are patients in the selected analysis panel with RNA-seq, methylation or both. The COAD, READ, LGG and GBM rows show their contributions to the pooled colorectal and glioma rows. Spatial counts are resources, not patients: each resource counts once, at its best image level, and the rest are not yet verified. Pooled pages reuse the resources of their constituent cancers, so the columns should not be summed. Neither level means that registration, calibration or tissue QC is complete.</caption>
     </table></div>`;
 }
 

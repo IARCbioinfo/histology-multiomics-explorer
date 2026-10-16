@@ -1,6 +1,6 @@
 # Liver hepatocellular carcinoma
 
-Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
+Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
 
 Hepatocellular carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Combined hepatocellular–cholangiocarcinoma and post-treatment cohorts are kept separate.
 
@@ -22,14 +22,14 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-17 spatial resources are catalogued; matched image and molecular data have been located for 1. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+17 spatial resources are catalogued; the original H&E and matched molecular data are located for 1, and matched molecular data with a preview image only for 2. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
-| Giraud et al. 2024 (`gse245908-lihc`) | Visium | Open download | No count reported | Yes, for 2 patients |
+| Giraud et al. 2024 (`gse245908-lihc`) | Visium | Open download | No count reported | Original H&E located: 2 sections with original H&E; 2 known patients |
+| Spatial transcriptomics analysis of neoadjuvant cabozantinib and nivolumab in advanced hepatocellular carcinoma identifies independent mechanisms of resistance and recurrence (`cand-gse238264`); includes treated tissue | Visium | Open download | No count reported | Matched data with preview image: 7 sections with a preview image; 7 known patients |
+| Multiomics and multi-region spatial transcriptome analysis reveal cellular networks and pathways associated with hepatocellular carcinoma recurrence (`cand-gse281759`) | Visium | Open download | No count reported | Matched data with preview image: 17 sections with a preview image |
 | Ren et al. 2025 (`cand-spatch-hcc`) | Visium HD | Open download | No count reported | Verification pending |
-| Spatial transcriptomics analysis of neoadjuvant cabozantinib and nivolumab in advanced hepatocellular carcinoma identifies independent mechanisms of resistance and recurrence (`cand-gse238264`) | Visium | Open download | No count reported | Verification pending |
-| Multiomics and multi-region spatial transcriptome analysis reveal cellular networks and pathways associated with hepatocellular carcinoma recurrence (`cand-gse281759`) | Visium | Open download | No count reported | Verification pending |
 | Spatial multi-omics and deep learning reveal fingerprints of immunotherapy response and resistance in hepatocellular carcinoma (`cand-wu2025-zenodo`) | Visium FFPE | Open download | No count reported | Verification pending |
 | Wu et al. 2021 (`cand-wu2021-hcc`) | Visium | Open download | No count reported | Verification pending |
 | Deep versus standard spatial transcriptomic sequencing (`cand-gse283406`) | Visium CytAssist | Open download | No count reported | Verification pending |
@@ -44,13 +44,14 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Spatial maps of hepatocellular carcinoma transcriptomes reveal spatial expression patterns in tumor immune microenvironment (`cand-xin2022-hcc`) | Visium | Unresolved | No count reported | Verification pending |
 | Spatial Transcriptomics and snRNA-seq Expose CAF Niches Orchestrating Dual Stromal-Immune Barriers in Hepatocellular Carcinoma (`cand-li2025-caf`) | Visium | Author request | No count reported | Verification pending |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue sections: 2 sections from 2 patients, each with an original H&E image, measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum; other sections are metastatic, under review, held for quality control or outside the stratum.
+Located tissue section records: 26 sections (2 with original H&E, 24 with a preview image) from 9 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. Checked preview packages that are not listed one by one are not included.
 
-| Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections |
-| --- | --- | --- | --- |
-| Hepatocellular carcinoma NOS | 2 | 2 | 0 |
+| Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
+| --- | --- | --- | --- | --- |
+| Hepatocellular carcinoma NOS | 2 | 2 | 0 | 0 |
+| No stratum assigned | 0 | 0 | 0 | 24 |
 
 ## Selection history: published archetype evidence
 

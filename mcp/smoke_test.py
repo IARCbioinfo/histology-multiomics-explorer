@@ -34,6 +34,14 @@ async def main():
             assert (r["patients"], r["with_both"]) == (c["selected_analysis"]["total"], c["selected_analysis"]["paired"]), cohort
         s = payload(await session.call_tool("search_spatial_sections", {"cancer": "PDAC", "strict": True}))
         assert s["sections"] == sum(1 for x in expected._data("captures") if x["cancer"] == "PDAC" and x["tier"] == "core" and x["treatment"] == "Untreated")
+        caps = expected._data("captures")
+        for level in ("original", "preview"):
+            r = payload(await session.call_tool("search_spatial_sections", {"image_level": level, "limit": 1}))
+            assert r["sections"] == sum(x["image_level"] == level for x in caps), level
+        sp = o["spatial"]
+        assert (sp["section_records_original_he"], sp["section_records_preview_image"] + sp["preview_sections_counted_without_records"]) == (
+            sum(x["image_level"] == "original" for x in caps), sum(x["image_level"] == "preview" for x in caps) + sp["preview_sections_counted_without_records"])
+        assert sp["known_study_local_patients"] == len({(x["cohort"], x["patient"]) for x in caps if x["patient"]}) and sp["eligible_patients"] is None
         bad = payload(await session.call_tool("get_cancer_type", {"code": "XYZ"}))
         assert "error" in bad
         guide = await session.read_resource("explorer://llms.txt")

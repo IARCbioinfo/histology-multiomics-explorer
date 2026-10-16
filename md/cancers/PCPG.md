@@ -1,6 +1,6 @@
 # Pheochromocytoma and paraganglioma
 
-Code `PCPG`. Molecular screen; not screened by Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=PCPG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PCPG). Data: [data/by-cancer/PCPG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PCPG.json).
+Code `PCPG`. Molecular screen; not screened by Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=PCPG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PCPG). Data: [data/by-cancer/PCPG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PCPG.json).
 
 Pheochromocytoma and paraganglioma were not among the cancer types screened by Hausser et al. The project meets the molecular screen, with RNA-seq and 450k methylation for every selected patient, and is analysed as one pooled cohort with tumour location, published molecular subtype and adrenal-cortical admixture kept as annotations.
 
@@ -24,12 +24,12 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 2 spatial resources are catalogued. Verification of the matched image and molecular data is pending. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | Ling et al., SSRN manuscript (`pcpg-ling-ssrn`) | Spatial transcriptomics (platform unverified) | Unresolved | No count reported | Verification pending |
 | Zhu et al. 2026, preprint (`pcpg-developmental-preprint`) | Spatial transcriptomics (human assay details unverified) | Not released | 2 human PPGL specimens | Verification pending |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
 ## Selection history: published archetype evidence
 

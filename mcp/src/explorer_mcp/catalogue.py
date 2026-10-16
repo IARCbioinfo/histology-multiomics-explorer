@@ -15,7 +15,8 @@ DEFAULT_SITE_URL = "https://iarcbioinfo.github.io/histology-multiomics-explorer/
 INSTRUCTIONS = (
     "Read-only access to the Tumour Histology and Multi-omics Explorer: curated public metadata for TCGA patients "
     "with RNA-seq and 450k methylation (a dated selected analysis panel and broader availability) and published spatial "
-    "omics studies with matched H&E. Start with catalogue_overview. Keep the selected panel and broader availability apart, "
+    "omics studies with matched H&E, at two image levels (original H&E located, or matched data with a preview image only). "
+    "Start with catalogue_overview. Keep the selected panel and broader availability apart, "
     "never add counts across studies or units, and remember that spatial studies involve patients other than those in TCGA. "
     "The underlying data stay at their original repositories; listing a dataset does not mean access has been granted."
 )
@@ -23,27 +24,30 @@ INSTRUCTIONS = (
 TOOLS = [  # (method, description shown to agents)
     ("catalogue_overview", "Release, the points to read before using any count, headline figures and every cancer page with its TCGA and spatial summary. Call this first."),
     ("get_cancer_type", "One cancer page by code (for example BRCA, CRC, GLIOMA, PDAC): TCGA selected-panel and availability counts, normal reference, spatial resources, located tissue sections by stratum, other resources, selection evidence and gaps."),
-    ("search_resources", "Search catalogued studies and resources by text, cancer code, data layer, status, access category, technique or open dependency from the public-route review (public-download, download-failure, vendor-terms, dac-approval, author-release, local-qc). Pooled codes (CRC, GLIOMA) include their constituent cancers. Returns compact records and the total."),
-    ("get_resource", "Full record of one study or resource by id, with its located tissue sections counted by tier."),
-    ("search_spatial_sections", "Located spatial transcriptomics tissue sections (original H&E, measured spatial RNA and coordinates), filtered by cancer, resource, histology stratum, primary or metastatic site, treatment before sampling, curation tier or technique. strict=true keeps core primary sections documented as untreated. Returns totals (sections, unique patients, resources) and compact rows."),
+    ("search_resources", "Search catalogued studies and resources by text, cancer code, data layer, status (for spatial studies the image level: verified = original H&E located, preview = matched data with preview image, candidate = not yet verified), access category, technique, package-review result or open dependency from the spatial reviews (public-download, download-failure, vendor-terms, account-registration, dac-approval, author-release, local-qc). Pooled codes (CRC, GLIOMA) include their constituent cancers. Returns compact records and the total."),
+    ("get_resource", "Full record of one study or resource by id, with its located tissue sections counted by tier and image level, and known study-local patients."),
+    ("search_spatial_sections", "Located spatial transcriptomics tissue section records (measured spatial RNA and coordinates with the original H&E or only a preview image), filtered by cancer, resource, image level (original or preview), histology stratum, primary or metastatic site, treatment before sampling, curation tier or technique. strict=true keeps core primary sections documented as untreated. Preview-level sections do not support whole-slide or tile models, morphology or distances. Returns totals (section records, known study-local patients, sections without a patient ID, resources) and compact rows; records are not globally unique physical sections or eligible patients."),
     ("get_spatial_section", "Full record of one located tissue section by id (<resource>:<section>), with links, source wording and reported clinical fields."),
     ("get_tcga_cohort", "One TCGA analysis cohort (for example BRCA, CRC, ESCC, GLIOMA, PDAC): study role, contributing projects, selected-panel counts, per-project contributions, normal reference, sensitivity or benchmark subsets, strata and annotation value counts. Without an id, lists the cohorts."),
     ("search_tcga_patients", "TCGA patients joined across assay states and the patient screen, filtered by analysis cohort, project, selection, retained tumour assays, normal reference, screen disposition, subset, histology stratum or glioma molecular group. Returns totals (patients, RNA-seq, 450k, both) and compact rows."),
     ("get_tcga_patient", "One TCGA patient by barcode (TCGA-XX-XXXX): assay states, screen decision with reason codes, analysis cohort, subsets, published annotations and every excluded or unresolved aliquot."),
-    ("explain_term", "Definitions of the terms used for counts and curation (for example selected analysis panel, matched data located, strict subset) and the meaning of any vocabulary code shown in the other tools."),
+    ("explain_term", "Definitions of the terms used for counts and curation (for example selected analysis panel, original H&E located, matched data with preview image, section record, strict subset) and the meaning of any vocabulary code shown in the other tools."),
 ]
 
 KEY_NOTES = {
     "tcga": "Selected-panel counts and broader availability are different selections; report which one you use.",
-    "spatial": "Spatial studies involve patients other than those in TCGA. Located means the files were found; registration and tissue QC may be pending.",
+    "spatial": ("Spatial studies involve patients other than those in TCGA. Original H&E located and matched data with preview image are separate image levels; "
+                "preview-level sections do not support whole-slide or tile models, morphology or physical distances. Registration, calibration and tissue QC "
+                "may be pending at either level. Patients are study-local IDs given by the source; sections without one are not counted as patients, "
+                "and section records are not globally unique physical sections or eligible patients."),
     "reported": "Study-reported counts keep the study's own unit and are never added across studies; an unknown count is absent, not zero.",
     "normal": "Normal tissue comes from patients with cancer, not healthy donors.",
     "treated": "Withheld patients are not a treated reference set.",
     "glioma": "GLIOMA is a classification benchmark; integrated WHO CNS5 diagnoses are not adjudicated.",
 }
 RESOURCE_FIELDS = ("id", "label", "cancers", "layer", "status", "access", "techniques", "linkage", "compartments", "reported", "verification")
-SECTION_FIELDS = ("id", "cohort", "cancer", "stratum", "patient", "capture", "tier", "site", "treatment", "technique", "preservation",
-                  "linkage", "registration", "he_mpp", "verification")
+SECTION_FIELDS = ("id", "cohort", "cancer", "stratum", "patient", "capture", "image_level", "tier", "site", "treatment", "technique", "preservation",
+                  "linkage", "registration", "he_mpp", "verification", "assay_area_id", "donor_mapping")
 PATIENT_FIELDS = ("patient", "project", "analysis_cohort", "role", "selected", "tumour_assays", "normal_reference", "disposition",
                   "reasons", "subsets", "histology_stratum", "molecular_group", "published_subtype", "flagged_aliquots")
 
@@ -65,6 +69,18 @@ def views(x):
     if "rna" in x:
         return {"rna_seq": x["rna"], "methylation_450k": x["met"], "both": x["paired"], "total": x["total"]}
     return {"rna_seq": x["paired"] + x["rna_only"], "methylation_450k": x["paired"] + x["met_only"], "both": x["paired"], "total": x["union"]}
+
+
+def known_patients(caps):
+    """Study-local patients given by the source; records without a patient ID add none."""
+    return len({(x["cohort"], x["patient"]) for x in caps if x.get("patient")})
+
+
+def counted_preview(c, caps):
+    """Checked preview packages counted for a resource without individual section records."""
+    if c.get("status") != "preview" or any(x["cohort"] == c["id"] for x in caps):
+        return 0
+    return (((c.get("spatial_review") or {}).get("route_review") or {}).get("sections_with_matching_coordinates")) or 0
 
 
 def page(items, limit, offset):
@@ -205,7 +221,8 @@ class Catalogue:
                    next((v["selected_panel"]["selected_analysis"]["total"] for v in proj.values() if v["selected_panel"] and not v["selected_panel"].get("excluded_from_study")), None))
             pages.append({"code": c["code"], "name": c["name"], "in_panel": c["group"] != "excluded",
                           "tcga_analysis_cohort": ac["id"] if ac else None, "tcga_selected_patients": sel,
-                          "spatial_resources": len(sp), "spatial_with_matched_data_located": sum(x["status"] == "verified" for x in sp)})
+                          "spatial_resources": len(sp), "spatial_with_original_he": sum(x["status"] == "verified" for x in sp),
+                          "spatial_with_preview_image_only": sum(x["status"] == "preview" for x in sp)})
         layers = {}
         for c in cohorts:
             layers[c["layer"]] = layers.get(c["layer"], 0) + 1
@@ -215,8 +232,16 @@ class Catalogue:
             "tcga": {"panel_date": m["date"], "analysis_cohorts": m["analysis_cohorts"], "projects": m["projects"],
                      "selected_patients": sa["total"], "selected_with_both_assays": sa["paired"],
                      "normal_reference_rna_he": elig["panel"]["normal"]["rna_he_after"], "normal_reference_with_450k": elig["panel"]["normal"]["rna_he_met_after"]},
-            "spatial": {"resources": len(spatial), "with_matched_data_located": sum(c["status"] == "verified" for c in spatial),
-                        "located_sections": len(captures), "located_patients": len({(c["cohort"], c.get("patient") or c["capture"]) for c in captures})},
+            "spatial": {"resources": len(spatial), "with_original_he_located": sum(c["status"] == "verified" for c in spatial),
+                        "with_matched_data_and_preview_image": sum(c["status"] == "preview" for c in spatial),
+                        "candidates": sum(c["status"] == "candidate" for c in spatial),
+                        "section_records": len(captures), "section_records_original_he": sum(x["image_level"] == "original" for x in captures),
+                        "section_records_preview_image": sum(x["image_level"] == "preview" for x in captures),
+                        "preview_sections_counted_without_records": sum(counted_preview(c, captures) for c in spatial),
+                        "known_study_local_patients": known_patients(captures),
+                        "sections_without_patient_id": sum(not x.get("patient") for x in captures),
+                        "eligible_patients": None,
+                        "units": "Resources count once at their best image level. Section records are per study, not globally unique physical sections. Patients are study-local IDs given by the source; no eligible-patient total is established."},
             "resources_by_layer": layers,
             "related_leads": [{"id": x["id"], "label": x["label"], "url": x["url"], "not_counted": x["not_counted"]} for x in self._data("leads")],
             "cancer_pages": pages,
@@ -236,13 +261,16 @@ class Catalogue:
         groups = {}
         for x in caps:
             key = x["cancer"] if c.get("includes") else (strata.get(x["stratum"], "No stratum assigned") if x["stratum"] else "No stratum assigned")
-            g = groups.setdefault(key, {"sections": 0, "primary_sections": 0, "_p": set(), "_pp": set()})
+            g = groups.setdefault(key, {"sections": 0, "original": 0, "primary_sections": 0, "_p": set(), "_pp": set()})
             g["sections"] += 1
-            g["_p"].add((x["cohort"], x["patient"] or x["capture"]))
+            g["original"] += x.get("image_level") == "original"
+            if x["patient"]:
+                g["_p"].add((x["cohort"], x["patient"]))
             if x["tier"] == "core":
                 g["primary_sections"] += 1
-                g["_pp"].add((x["cohort"], x["patient"] or x["capture"]))
-        by_group = [{"group": k, "sections": v["sections"], "patients": len(v["_p"]), "primary_tumour_sections": v["primary_sections"],
+                g["_pp"].add((x["cohort"], x["patient"]))
+        by_group = [{"group": k, "sections": v["sections"], "sections_original_he": v["original"], "sections_preview_image": v["sections"] - v["original"],
+                     "known_patients": len(v["_p"]), "primary_tumour_sections": v["primary_sections"],
                      "primary_tumour_patients": len(v["_pp"])} for k, v in groups.items()]
         return self._envelope({
             "code": code, "name": c["name"], "in_panel": c["group"] != "excluded", "summary": c["summary"],
@@ -257,7 +285,9 @@ class Catalogue:
                 "panel_date": t["panel_date"], "availability_date": t["availability_date"],
             },
             "spatial_resources": [self._resource_row(x, caps) for x in bc["spatial_resources"]],
-            "located_sections": {"sections": len(caps), "patients": len({(x["cohort"], x["patient"] or x["capture"]) for x in caps}), "by_group": by_group},
+            "located_sections": {"sections": len(caps), "sections_original_he": sum(x.get("image_level") == "original" for x in caps),
+                                 "sections_preview_image": sum(x.get("image_level") == "preview" for x in caps),
+                                 "known_patients": known_patients(caps), "sections_without_patient_id": sum(not x["patient"] for x in caps), "by_group": by_group},
             "other_resources": [self._resource_row(x) for x in bc["other_resources"]],
             "selection_evidence": [{"study": e["short"], "citation": e["citation"], "doi": e["doi"],
                                     "finding": (c.get("evidence_notes") or {}).get(e["id"], e["finding"]), "limits": e["limits"]} for e in bc["evidence"]],
@@ -272,17 +302,25 @@ class Catalogue:
             rr = c["spatial_review"].get("route_review")
             if rr:
                 row["route_review"] = {"status": rr["status"], "open_dependencies": rr["states"], "next_step": rr["next_step"]}
+        if c.get("backlog_review"):
+            b = c["backlog_review"]
+            row["package_review"] = {"result": b["outcome"], "open_dependencies": b["states"], "next_step": b["next_step"]}
         if (c.get("citation") or {}).get("doi"):
             row["doi"] = c["citation"]["doi"]
         if c["layer"] == "matched-spatial":
-            mine = [x for x in (caps if caps is not None else self._data("captures")) if x["cohort"] == c["id"]]
+            allcaps = self._data("captures")
+            mine = [x for x in (caps if caps is not None else allcaps) if x["cohort"] == c["id"]]
             row["located_sections"] = len(mine)
-            row["located_patients"] = len({x["patient"] or x["capture"] for x in mine})
+            row["sections_original_he"] = sum(x.get("image_level") == "original" for x in mine)
+            row["sections_preview_image"] = sum(x.get("image_level") == "preview" for x in mine) + counted_preview(c, allcaps)
+            if counted_preview(c, allcaps):
+                row["preview_sections_counted_without_records"] = counted_preview(c, allcaps)
+            row["known_patients"] = known_patients(mine)
         return row
 
     def search_resources(self, text: str | None = None, cancer: str | None = None, layer: str | None = None, status: str | None = None,
                          access: str | None = None, technique: str | None = None, open_dependency: str | None = None,
-                         limit: int = 50, offset: int = 0) -> dict:
+                         package_review_result: str | None = None, limit: int = 50, offset: int = 0) -> dict:
         """Search catalogued studies and resources."""
         codes = self._codes(cancer) if cancer else None
         hits = []
@@ -293,7 +331,10 @@ class Catalogue:
                 continue
             if technique and not any(technique.lower() in t.lower() for t in c.get("techniques") or []):
                 continue
-            if open_dependency and open_dependency not in ((c.get("spatial_review") or {}).get("route_review") or {}).get("states", []):
+            states = (c.get("backlog_review") or {}).get("states") or ((c.get("spatial_review") or {}).get("route_review") or {}).get("states", [])
+            if open_dependency and open_dependency not in states:
+                continue
+            if package_review_result and (c.get("backlog_review") or {}).get("outcome") != package_review_result:
                 continue
             if text:
                 cit = c.get("citation") or {}
@@ -310,21 +351,27 @@ class Catalogue:
         c = next((x for x in self._data("cohorts") if x["id"] == resource_id), None)
         if not c:
             return self._envelope({"error": f"Unknown resource id {resource_id}. Use search_resources to find ids."})
-        caps = [x for x in self._data("captures") if x["cohort"] == resource_id]
-        tiers = {}
+        allcaps = self._data("captures")
+        caps = [x for x in allcaps if x["cohort"] == resource_id]
+        tiers, levels = {}, {}
         for x in caps:
             tiers[x["tier"]] = tiers.get(x["tier"], 0) + 1
-        return self._envelope({"resource": c, "located_sections": len(caps), "located_patients": len({x["patient"] or x["capture"] for x in caps}),
-                               "located_sections_by_tier": tiers}, "spatial", "reported")
+            levels[x["image_level"]] = levels.get(x["image_level"], 0) + 1
+        out = {"resource": c, "located_sections": len(caps), "known_patients": known_patients(caps),
+               "sections_without_patient_id": sum(not x["patient"] for x in caps),
+               "located_sections_by_tier": tiers, "located_sections_by_image_level": levels}
+        if counted_preview(c, allcaps):
+            out["preview_sections_counted_without_records"] = counted_preview(c, allcaps)
+        return self._envelope(out, "spatial", "reported")
 
-    def search_spatial_sections(self, cancer: str | None = None, resource: str | None = None, stratum: str | None = None, site: str | None = None,
-                                treatment: str | None = None, tier: str | None = None, technique: str | None = None, strict: bool = False,
-                                text: str | None = None, limit: int = 50, offset: int = 0) -> dict:
+    def search_spatial_sections(self, cancer: str | None = None, resource: str | None = None, image_level: str | None = None,
+                                stratum: str | None = None, site: str | None = None, treatment: str | None = None, tier: str | None = None,
+                                technique: str | None = None, strict: bool = False, text: str | None = None, limit: int = 50, offset: int = 0) -> dict:
         """Located tissue sections with totals."""
         codes = self._codes(cancer) if cancer else None
         hits = []
         for x in self._data("captures"):
-            if codes and x["cancer"] not in codes or resource and x["cohort"] != resource:
+            if codes and x["cancer"] not in codes or resource and x["cohort"] != resource or image_level and x["image_level"] != image_level:
                 continue
             if stratum and (x["stratum"] or "none") != stratum or site and x["site"].lower() != site.lower():
                 continue
@@ -341,7 +388,9 @@ class Catalogue:
         rows, meta = page(hits, limit, offset)
         total = meta.pop("total")
         return self._envelope({"sections": total, **meta,
-                               "patients": len({(x["cohort"], x["patient"] or x["capture"]) for x in hits}),
+                               "known_patients": known_patients(hits), "sections_without_patient_id": sum(not x["patient"] for x in hits),
+                               "sections_original_he": sum(x["image_level"] == "original" for x in hits),
+                               "sections_preview_image": sum(x["image_level"] == "preview" for x in hits),
                                "resources": len({x["cohort"] for x in hits}),
                                "rows": [{k: x.get(k) for k in SECTION_FIELDS} | {"he_access": x["access"]["he"]} for x in rows]}, "spatial")
 

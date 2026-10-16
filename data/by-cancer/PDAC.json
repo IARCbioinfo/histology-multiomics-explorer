@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "PDAC",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -466,7 +467,7 @@
     "PDAC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "he-downsampled",
     "spatial-rna"
@@ -480,7 +481,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "access": {
     "category": "open",
@@ -499,12 +502,27 @@
      "untreated primary resections, per the publication and SDRF"
     ]
    ],
-   "verification": "metadata-checked",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": "Fourteen untreated primary PDAC resections profiled with Visium FFPE. The original 40× scans have not been located, so the captures are not counted as matched packages.",
    "compartments": [
     "primary-tumour"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "14 preview images; no original scan in complete deposited file listing",
+    "molecular_finding": "14 barcode vectors match matrix headers/all array positions; explicit in-tissue filter",
+    "next_step": "Original scans; clinical and image QC.",
+    "sections_listed": 14,
+    "study_local_donors": 14
+   }
   }
  ],
  "located_sections": [
@@ -515,6 +533,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt1",
    "capture": "GSM8452847",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -528,7 +547,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452848",
@@ -537,6 +558,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt1",
    "capture": "GSM8452848",
+   "image_level": "original",
    "tier": "held",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -550,7 +572,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452849",
@@ -559,6 +583,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt1",
    "capture": "GSM8452849",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -572,7 +597,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452850",
@@ -581,6 +608,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt2",
    "capture": "GSM8452850",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -594,7 +622,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452851",
@@ -603,6 +633,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt2",
    "capture": "GSM8452851",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -616,7 +647,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452852",
@@ -625,6 +658,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt2",
    "capture": "GSM8452852",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -638,7 +672,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452853",
@@ -647,6 +683,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt3",
    "capture": "GSM8452853",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -660,7 +697,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452854",
@@ -669,6 +708,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt3",
    "capture": "GSM8452854",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -682,7 +722,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452855",
@@ -691,6 +733,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt3",
    "capture": "GSM8452855",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -704,7 +747,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452856",
@@ -713,6 +758,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt4",
    "capture": "GSM8452856",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -726,7 +772,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452857",
@@ -735,6 +783,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt4",
    "capture": "GSM8452857",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -748,7 +797,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452858",
@@ -757,6 +808,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt4",
    "capture": "GSM8452858",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -770,7 +822,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452859",
@@ -779,6 +833,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt4",
    "capture": "GSM8452859",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -792,7 +847,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452860",
@@ -801,6 +858,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt5",
    "capture": "GSM8452860",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -814,7 +872,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452861",
@@ -823,6 +883,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt5",
    "capture": "GSM8452861",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -836,7 +897,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452862",
@@ -845,6 +908,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt5",
    "capture": "GSM8452862",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -858,7 +922,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452863",
@@ -867,6 +933,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt6",
    "capture": "GSM8452863",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -880,7 +947,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452864",
@@ -889,6 +958,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt6",
    "capture": "GSM8452864",
+   "image_level": "original",
    "tier": "held",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -902,7 +972,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452865",
@@ -911,6 +983,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt6",
    "capture": "GSM8452865",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -924,7 +997,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452866",
@@ -933,6 +1008,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt6",
    "capture": "GSM8452866",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -946,7 +1022,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452867",
@@ -955,6 +1033,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt7",
    "capture": "GSM8452867",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -968,7 +1047,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452868",
@@ -977,6 +1058,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt7",
    "capture": "GSM8452868",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -990,7 +1072,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452869",
@@ -999,6 +1083,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt7",
    "capture": "GSM8452869",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1012,7 +1097,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452870",
@@ -1021,6 +1108,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt7",
    "capture": "GSM8452870",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1034,7 +1122,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452871",
@@ -1043,6 +1133,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt8",
    "capture": "GSM8452871",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1056,7 +1147,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452872",
@@ -1065,6 +1158,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt8",
    "capture": "GSM8452872",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1078,7 +1172,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452873",
@@ -1087,6 +1183,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt8",
    "capture": "GSM8452873",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1100,7 +1197,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452874",
@@ -1109,6 +1208,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt8",
    "capture": "GSM8452874",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1122,7 +1222,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452875",
@@ -1131,6 +1233,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt9",
    "capture": "GSM8452875",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1144,7 +1247,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452876",
@@ -1153,6 +1258,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt9",
    "capture": "GSM8452876",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1166,7 +1272,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452877",
@@ -1175,6 +1283,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt9",
    "capture": "GSM8452877",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1188,7 +1297,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452878",
@@ -1197,6 +1308,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt9",
    "capture": "GSM8452878",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1210,7 +1322,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452879",
@@ -1219,6 +1333,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt10",
    "capture": "GSM8452879",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1232,7 +1347,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452880",
@@ -1241,6 +1358,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt10",
    "capture": "GSM8452880",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1254,7 +1372,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452881",
@@ -1263,6 +1383,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt10",
    "capture": "GSM8452881",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1276,7 +1397,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452882",
@@ -1285,6 +1408,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt10",
    "capture": "GSM8452882",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1298,7 +1422,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452883",
@@ -1307,6 +1433,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt11",
    "capture": "GSM8452883",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1320,7 +1447,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452884",
@@ -1329,6 +1458,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt11",
    "capture": "GSM8452884",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1342,7 +1472,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452885",
@@ -1351,6 +1483,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt11",
    "capture": "GSM8452885",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1364,7 +1497,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452886",
@@ -1373,6 +1508,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt11",
    "capture": "GSM8452886",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1386,7 +1522,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452887",
@@ -1395,6 +1533,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt12",
    "capture": "GSM8452887",
+   "image_level": "original",
    "tier": "held",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1408,7 +1547,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452888",
@@ -1417,6 +1558,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt12",
    "capture": "GSM8452888",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1430,7 +1572,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452889",
@@ -1439,6 +1583,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt12",
    "capture": "GSM8452889",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1452,7 +1597,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452890",
@@ -1461,6 +1608,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt12",
    "capture": "GSM8452890",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1474,7 +1622,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452891",
@@ -1483,6 +1633,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt13",
    "capture": "GSM8452891",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1496,7 +1647,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452892",
@@ -1505,6 +1658,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt13",
    "capture": "GSM8452892",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1518,7 +1672,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452893",
@@ -1527,6 +1683,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt13",
    "capture": "GSM8452893",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1540,7 +1697,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452894",
@@ -1549,6 +1708,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt13",
    "capture": "GSM8452894",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1562,7 +1722,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8452895",
@@ -1571,6 +1733,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt13",
    "capture": "GSM8452895",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1584,7 +1747,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8714177",
@@ -1593,6 +1758,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt3",
    "capture": "GSM8714177",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1606,7 +1772,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8714178",
@@ -1615,6 +1783,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt6",
    "capture": "GSM8714178",
+   "image_level": "original",
    "tier": "held",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1628,7 +1797,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8714179",
@@ -1637,6 +1808,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt6",
    "capture": "GSM8714179",
+   "image_level": "original",
    "tier": "held",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1650,7 +1822,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8714180",
@@ -1659,6 +1833,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt8",
    "capture": "GSM8714180",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1672,7 +1847,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8714181",
@@ -1681,6 +1858,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt13",
    "capture": "GSM8714181",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1694,7 +1872,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "pei-2025:GSM8714182",
@@ -1703,6 +1883,7 @@
    "stratum": "pdac-conv",
    "patient": "Pt13",
    "capture": "GSM8714182",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1716,7 +1897,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT224P1-S1Fc2U1Z1Bs1-1",
@@ -1725,6 +1908,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_22",
    "capture": "HT224P1-S1Fc2U1Z1Bs1-1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1738,7 +1922,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT231P1-S1H3Fc2U1Z1Bs1-H3Bs2-Test",
@@ -1747,6 +1933,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_23",
    "capture": "HT231P1-S1H3Fc2U1Z1Bs1-H3Bs2-Test",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1760,7 +1947,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT242P1H1-S1Fc1U1Z1B1_1",
@@ -1769,6 +1958,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_25",
    "capture": "HT242P1H1-S1Fc1U1Z1B1_1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1782,7 +1972,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT242P1H2-S1Fc1U1Z1B1_1",
@@ -1791,6 +1983,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_25",
    "capture": "HT242P1H2-S1Fc1U1Z1B1_1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1804,7 +1997,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT242P1H3-S1Fc1U1Z1B1_1",
@@ -1813,6 +2008,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_25",
    "capture": "HT242P1H3-S1Fc1U1Z1B1_1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1826,7 +2022,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT242P1H4-S1Fc1U1Z1B1_1",
@@ -1835,6 +2033,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_25",
    "capture": "HT242P1H4-S1Fc1U1Z1B1_1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1848,7 +2047,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT259P1-S1H1Fc2U1Z1Bs1-1",
@@ -1857,6 +2058,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_26",
    "capture": "HT259P1-S1H1Fc2U1Z1Bs1-1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1870,7 +2072,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT259P1-S1H2Fc2U1Z1Bs1-1",
@@ -1879,6 +2083,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_26",
    "capture": "HT259P1-S1H2Fc2U1Z1Bs1-1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1892,7 +2097,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT264P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
@@ -1901,6 +2108,7 @@
    "stratum": null,
    "patient": "HTA12_27",
    "capture": "HT264P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
+   "image_level": "original",
    "tier": "outside-stratum",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1914,7 +2122,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT284P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
@@ -1923,6 +2133,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_29",
    "capture": "HT284P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1936,7 +2147,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT288P1-S1H4Fc2U1Z1Bs1-H4Bs2-Test",
@@ -1945,6 +2158,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_30",
    "capture": "HT288P1-S1H4Fc2U1Z1Bs1-H4Bs2-Test",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1958,7 +2172,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT306P1-S1H1Fc2U1Z1Bs1-H1Bs2-Test",
@@ -1967,6 +2183,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_31",
    "capture": "HT306P1-S1H1Fc2U1Z1Bs1-H1Bs2-Test",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1980,7 +2197,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT264P1-S1H2Fs1U1Bp1",
@@ -1989,6 +2208,7 @@
    "stratum": null,
    "patient": "HTA12_27",
    "capture": "HT264P1-S1H2Fs1U1Bp1",
+   "image_level": "original",
    "tier": "outside-stratum",
    "site": "Primary",
    "treatment": "Untreated",
@@ -2002,7 +2222,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT270P1-S1H1Fs5U1Bp1",
@@ -2011,6 +2233,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_28",
    "capture": "HT270P1-S1H1Fs5U1Bp1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Untreated",
@@ -2024,7 +2247,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT270P2-Fp1U1Bp1",
@@ -2033,6 +2258,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_261",
    "capture": "HT270P2-Fp1U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -2046,7 +2272,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT416P1-S1H1A1U1Bp1",
@@ -2055,6 +2283,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_264",
    "capture": "HT416P1-S1H1A1U1Bp1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Unknown",
@@ -2068,7 +2297,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT424P1-H3A1U1Bp1",
@@ -2077,6 +2308,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_265",
    "capture": "HT424P1-H3A1U1Bp1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -2090,7 +2322,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT427P1-S1H1Fp1U1Bp1",
@@ -2099,6 +2333,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_267",
    "capture": "HT427P1-S1H1Fp1U1Bp1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -2112,7 +2347,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT434P1-S1H3Fp1U1Bp1",
@@ -2121,6 +2358,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_268",
    "capture": "HT434P1-S1H3Fp1U1Bp1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Unknown",
@@ -2134,7 +2372,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT553P1-S1H2Fp1U1Bp1",
@@ -2143,6 +2383,7 @@
    "stratum": "pdac-pb",
    "patient": "HTA12_273",
    "capture": "HT553P1-S1H2Fp1U1Bp1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Unknown",
@@ -2156,7 +2397,359 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
+  },
+  {
+   "id": "schmitt-2026:A1_2",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT14, TM063",
+   "capture": "A1_2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:A1_3",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT01,TM076",
+   "capture": "A1_3",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:A1_4",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT02,TM016",
+   "capture": "A1_4",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:A1_5",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT08,TM015",
+   "capture": "A1_5",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:B1_2",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT06,TM056",
+   "capture": "B1_2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:B1_3",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT05,TM082",
+   "capture": "B1_3",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:B1_4",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT09,TM057",
+   "capture": "B1_4",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:C1_2",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT12,TM080",
+   "capture": "C1_2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:C1_3",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT11,TM138",
+   "capture": "C1_3",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:C1_4",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT07,TM046",
+   "capture": "C1_4",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:C1_5",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT13,TM004",
+   "capture": "C1_5",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:D1_2",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT10,TM087",
+   "capture": "D1_2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:D1_3",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT04,TM088",
+   "capture": "D1_3",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "schmitt-2026:D1_4",
+   "cohort": "schmitt-2026",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "PT03,TM068",
+   "capture": "D1_4",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
   }
  ],
  "other_resources": [

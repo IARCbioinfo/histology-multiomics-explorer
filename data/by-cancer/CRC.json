@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "CRC",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -652,7 +653,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "account-route",
+    "depth": "source or metadata only",
+    "states": [
+     "account-registration"
+    ],
+    "image_finding": "HTAN public manifest behind a free account",
+    "molecular_finding": "No newly downloaded package in this pass",
+    "next_step": "Pin Vanderbilt/COLON MAP section/file IDs, donor and histology crosswalk; separate from WUSTL and cottam reuse.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-orgares-gse283052",
@@ -671,7 +685,7 @@
     "READ"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -684,7 +698,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE283052",
    "access": {
@@ -701,12 +717,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "12 previews",
+    "molecular_finding": "Shared series barcode vector matches all 4,992 positions in each of 12 matrices; in-tissue filtering required",
+    "next_step": "Map donor IDs and primary or metastatic site before counting patients; keep the shared barcode-vector provenance.",
+    "sections_listed": 12,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-mahidol-gse267401",
@@ -725,7 +756,7 @@
     "READ"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -738,7 +769,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE267401",
    "access": {
@@ -755,12 +788,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Four previews",
+    "molecular_finding": "All unfiltered expression barcodes have positions; select in-tissue rows explicitly",
+    "next_step": "Original scans and treatment; the primary and metastatic sections of patients 21 and 17 stay separate sites.",
+    "sections_listed": 4,
+    "study_local_donors": 2
+   }
   },
   {
    "id": "cand-crc-miso-petacc8",
@@ -815,7 +863,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "access-dependent",
+    "depth": "access boundary reached",
+    "states": [
+     "dac-approval"
+    ],
+    "image_finding": "Primary paper retrieved; no controlled files accessed",
+    "molecular_finding": "Package not available within approved scope",
+    "next_step": "FFCD controls measured PETACC8-Visium use; separate measured packages from model-predicted outputs, and verify any public processed alternative before a permission decision.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-vri-dartmouth2025",
@@ -870,7 +931,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "release-unresolved",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Primary paper confirms measured Visium development cohort; predicted validation outputs are a different modality",
+    "molecular_finding": "No actionable measured package verified",
+    "next_step": "Locate released measured development-cohort files; do not count virtual RNA as measured spatial RNA.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-liu-maru2026",
@@ -889,7 +963,7 @@
     "READ"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -903,7 +977,9 @@
    "linkage": "unverified",
    "gates": [
     "he-not-located",
-    "pathology-review"
+    "pathology-review",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE294385; Zenodo19043057",
    "access": {
@@ -920,12 +996,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "37 previews",
+    "molecular_finding": "All 37 archive packages exact",
+    "next_step": "Donor count and treatment; all 37 tissues are colorectal metastases.",
+    "sections_listed": 37,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-spatch-ren2025",
@@ -970,17 +1061,35 @@
       "https://www.nature.com/articles/s41467-025-64292-3"
      ],
      [
-      "Data record",
+      "Images (BioImage Archive S-BIAD1900)",
       "https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1900"
+     ],
+     [
+      "Code (Zenodo 16992659)",
+      "https://zenodo.org/records/16992659"
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Original HE/CODEX/DAPI listings in S-BIAD1900, across five assays",
+    "molecular_finding": "RNA count/coordinate package not yet joined; Zenodo 16992659 is code",
+    "next_step": "Match each COAD platform to its measured RNA/coordinates; do not count CODEX/DAPI as H&E or colon specimens as READ.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-cottam-htan2025",
@@ -1029,7 +1138,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "account-route",
+    "depth": "source or metadata only",
+    "states": [
+     "account-registration"
+    ],
+    "image_finding": "HTAN public portal behind a free account",
+    "molecular_finding": "No newly inspected package",
+    "next_step": "Pin exact study/HTAN donor-capture manifest and deduplicate Heiser/COLON MAP/WUSTL; preserve primary/metastatic labels.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -1040,6 +1162,7 @@
    "stratum": "coad-conv",
    "patient": "HTA12_280",
    "capture": "S16-38794-A3U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1053,7 +1176,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN84_A120838_Rep1",
@@ -1062,6 +1187,7 @@
    "stratum": "coad-conv",
    "patient": "A120838",
    "capture": "SN84_A120838_Rep1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1075,7 +1201,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN84_A120838_Rep2",
@@ -1084,6 +1212,7 @@
    "stratum": "coad-conv",
    "patient": "A120838",
    "capture": "SN84_A120838_Rep2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1097,7 +1226,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN048_A416371_Rep1",
@@ -1106,6 +1237,7 @@
    "stratum": "coad-conv",
    "patient": "A416371",
    "capture": "SN048_A416371_Rep1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1119,7 +1251,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN048_A416371_Rep2",
@@ -1128,6 +1262,7 @@
    "stratum": "coad-conv",
    "patient": "A416371",
    "capture": "SN048_A416371_Rep2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1141,7 +1276,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN123_A595688_Rep1",
@@ -1150,6 +1287,7 @@
    "stratum": "coad-conv",
    "patient": "A595688",
    "capture": "SN123_A595688_Rep1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1163,7 +1301,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN124_A595688_Rep2",
@@ -1172,6 +1312,7 @@
    "stratum": "coad-conv",
    "patient": "A595688",
    "capture": "SN124_A595688_Rep2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1185,7 +1326,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN048_A121573_Rep1",
@@ -1194,6 +1337,7 @@
    "stratum": "read-conv",
    "patient": "A121573",
    "capture": "SN048_A121573_Rep1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1207,7 +1351,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN048_A121573_Rep2",
@@ -1216,6 +1362,7 @@
    "stratum": "read-conv",
    "patient": "A121573",
    "capture": "SN048_A121573_Rep2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1229,7 +1376,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN123_A938797_Rep1_X",
@@ -1238,6 +1387,7 @@
    "stratum": "read-conv",
    "patient": "A938797",
    "capture": "SN123_A938797_Rep1_X",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1251,7 +1401,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN124_A938797_Rep2",
@@ -1260,6 +1412,7 @@
    "stratum": "read-conv",
    "patient": "A938797",
    "capture": "SN124_A938797_Rep2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1273,7 +1426,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "oliveira-2025:GSM8594568",
@@ -1282,6 +1437,7 @@
    "stratum": null,
    "patient": "P2",
    "capture": "GSM8594568",
+   "image_level": "original",
    "tier": "review",
    "site": "Unknown",
    "treatment": "Untreated",
@@ -1295,7 +1451,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "oliveira-2025:GSM8594569",
@@ -1304,6 +1462,7 @@
    "stratum": null,
    "patient": "P5",
    "capture": "GSM8594569",
+   "image_level": "original",
    "tier": "review",
    "site": "Unknown",
    "treatment": "Untreated",
@@ -1317,7 +1476,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT472C1-S1H4Fp1U1Bp1",
@@ -1326,6 +1487,7 @@
    "stratum": null,
    "patient": "HTA12_270",
    "capture": "HT472C1-S1H4Fp1U1Bp1",
+   "image_level": "original",
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1339,7 +1501,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "oliveira-2025:GSM8594567",
@@ -1348,6 +1512,7 @@
    "stratum": "read-conv",
    "patient": "P1",
    "capture": "GSM8594567",
+   "image_level": "original",
    "tier": "review",
    "site": "Unknown",
    "treatment": "Untreated",
@@ -1361,7 +1526,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT225C1-Th1Fc1U1Z1B1",
@@ -1370,6 +1537,7 @@
    "stratum": null,
    "patient": "HTA12_132",
    "capture": "HT225C1-Th1Fc1U1Z1B1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1383,7 +1551,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT225C1-Th1Fc1U2Z1B1",
@@ -1392,6 +1562,7 @@
    "stratum": null,
    "patient": "HTA12_132",
    "capture": "HT225C1-Th1Fc1U2Z1B1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1405,7 +1576,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT225C1-Th1Fc1U3Z1B1",
@@ -1414,6 +1587,7 @@
    "stratum": null,
    "patient": "HTA12_132",
    "capture": "HT225C1-Th1Fc1U3Z1B1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1427,7 +1601,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT225C1-Th1Fc1U4Z1B1",
@@ -1436,6 +1612,7 @@
    "stratum": null,
    "patient": "HTA12_132",
    "capture": "HT225C1-Th1Fc1U4Z1B1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1449,7 +1626,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT225C1-Th1Fc1U5Z1B1",
@@ -1458,6 +1637,7 @@
    "stratum": null,
    "patient": "HTA12_132",
    "capture": "HT225C1-Th1Fc1U5Z1B1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1471,7 +1651,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT230C1-Th1Fc1U1Z1B1",
@@ -1480,6 +1662,7 @@
    "stratum": null,
    "patient": "HTA12_133",
    "capture": "HT230C1-Th1Fc1U1Z1B1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1493,7 +1676,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT250C1-Th1K1Fc2U1Z1Bs1",
@@ -1502,6 +1687,7 @@
    "stratum": null,
    "patient": "HTA12_136",
    "capture": "HT250C1-Th1K1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1515,7 +1701,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT253C1-Th1K1Fc2U1Z1Bs1",
@@ -1524,6 +1712,7 @@
    "stratum": null,
    "patient": "HTA12_137",
    "capture": "HT253C1-Th1K1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1537,7 +1726,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT260C1-Th1K1Fc2U1Z1Bs1",
@@ -1546,6 +1737,7 @@
    "stratum": null,
    "patient": "HTA12_138",
    "capture": "HT260C1-Th1K1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1559,7 +1751,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT112C1-U1_ST_Bn1",
@@ -1568,6 +1762,7 @@
    "stratum": null,
    "patient": "HTA12_257",
    "capture": "HT112C1-U1_ST_Bn1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1581,7 +1776,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT112C1-U2_ST_Bn1",
@@ -1590,6 +1787,7 @@
    "stratum": null,
    "patient": "HTA12_257",
    "capture": "HT112C1-U2_ST_Bn1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1603,7 +1801,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT165C1-Th1K3Fc2U1Z1Bs1",
@@ -1612,6 +1812,7 @@
    "stratum": null,
    "patient": "HTA12_258",
    "capture": "HT165C1-Th1K3Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1625,7 +1826,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT213C1-Th1K4Fc2U1Z1Bs1",
@@ -1634,6 +1837,7 @@
    "stratum": null,
    "patient": "HTA12_259",
    "capture": "HT213C1-Th1K4Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1647,7 +1851,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT413C1-Th1K1A4Us1_3Bp1",
@@ -1656,6 +1862,7 @@
    "stratum": null,
    "patient": "HTA12_263",
    "capture": "HT413C1-Th1K1A4Us1_3Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1669,7 +1876,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT413C1-Th1K2A1Us1_2Bp1",
@@ -1678,6 +1887,7 @@
    "stratum": null,
    "patient": "HTA12_263",
    "capture": "HT413C1-Th1K2A1Us1_2Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1691,7 +1901,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT413C1-Th1K2A4U14Bp1",
@@ -1700,6 +1912,7 @@
    "stratum": null,
    "patient": "HTA12_263",
    "capture": "HT413C1-Th1K2A4U14Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1713,7 +1926,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT413C1-Th1K2A4U1Bp1",
@@ -1722,6 +1937,7 @@
    "stratum": null,
    "patient": "HTA12_263",
    "capture": "HT413C1-Th1K2A4U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1735,7 +1951,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT413C1-Th1K2A4U2Bp1",
@@ -1744,6 +1962,7 @@
    "stratum": null,
    "patient": "HTA12_263",
    "capture": "HT413C1-Th1K2A4U2Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1757,7 +1976,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT413C1-Th1K3A1Us1_1Bp1",
@@ -1766,6 +1987,7 @@
    "stratum": null,
    "patient": "HTA12_263",
    "capture": "HT413C1-Th1K3A1Us1_1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1779,7 +2001,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT448C1-Th1K1Fp1U13Bp1",
@@ -1788,6 +2012,7 @@
    "stratum": null,
    "patient": "HTA12_269",
    "capture": "HT448C1-Th1K1Fp1U13Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1801,7 +2026,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT448C1-Th1K1Fp1U1Bp1",
@@ -1810,6 +2037,7 @@
    "stratum": null,
    "patient": "HTA12_269",
    "capture": "HT448C1-Th1K1Fp1U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1823,7 +2051,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT472C1-Th1K1Fp1U1Bp1",
@@ -1832,6 +2062,7 @@
    "stratum": null,
    "patient": "HTA12_270",
    "capture": "HT472C1-Th1K1Fp1U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1845,7 +2076,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT525C1-Th1K1Fp1U1Bp1",
@@ -1854,6 +2087,7 @@
    "stratum": null,
    "patient": "HTA12_272",
    "capture": "HT525C1-Th1K1Fp1U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Post-treatment",
@@ -1867,7 +2101,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:S15-1909-C2U1Bp1",
@@ -1876,6 +2112,7 @@
    "stratum": null,
    "patient": "HTA12_276",
    "capture": "S15-1909-C2U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Untreated",
@@ -1889,7 +2126,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:S15-21169U1Bp1",
@@ -1898,6 +2137,7 @@
    "stratum": null,
    "patient": "HTA12_277",
    "capture": "S15-21169U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1911,7 +2151,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:S15-23849U1Bp1",
@@ -1920,6 +2162,7 @@
    "stratum": null,
    "patient": "HTA12_278",
    "capture": "S15-23849U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1933,7 +2176,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:S15-32775-A1U1Bp1",
@@ -1942,6 +2187,7 @@
    "stratum": null,
    "patient": "HTA12_279",
    "capture": "S15-32775-A1U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1955,7 +2201,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:S16-38794-E3U1Bp1",
@@ -1964,6 +2212,7 @@
    "stratum": null,
    "patient": "HTA12_280",
    "capture": "S16-38794-E3U1Bp1",
+   "image_level": "original",
    "tier": "metastatic",
    "site": "Metastasis",
    "treatment": "Unknown",
@@ -1977,7 +2226,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN123_A551763_Rep1",
@@ -1986,6 +2237,7 @@
    "stratum": null,
    "patient": "A551763",
    "capture": "SN123_A551763_Rep1",
+   "image_level": "original",
    "tier": "outside-stratum",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1999,7 +2251,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN124_A551763_Rep2",
@@ -2008,6 +2262,7 @@
    "stratum": null,
    "patient": "A551763",
    "capture": "SN124_A551763_Rep2",
+   "image_level": "original",
    "tier": "outside-stratum",
    "site": "Primary",
    "treatment": "Untreated",
@@ -2021,7 +2276,1334 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655157",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655157",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655158",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655158",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655159",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655159",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655160",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655160",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655161",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655161",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655162",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655162",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655163",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655163",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655164",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655164",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655165",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655165",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655166",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655166",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655167",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655167",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-orgares-gse283052:GSM8655168",
+   "cohort": "cand-crc-orgares-gse283052",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8655168",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-mahidol-gse267401:GSM8265211",
+   "cohort": "cand-crc-mahidol-gse267401",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": "21",
+   "capture": "GSM8265211",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crc-mahidol-gse267401:GSM8265212",
+   "cohort": "cand-crc-mahidol-gse267401",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": "21",
+   "capture": "GSM8265212",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crc-mahidol-gse267401:GSM8265213",
+   "cohort": "cand-crc-mahidol-gse267401",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": "17",
+   "capture": "GSM8265213",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crc-mahidol-gse267401:GSM8265214",
+   "cohort": "cand-crc-mahidol-gse267401",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": "17",
+   "capture": "GSM8265214",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903671",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903671",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903658",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903658",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903683",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903683",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903663",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903663",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903677",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903677",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903691",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903691",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903667",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903667",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903687",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903687",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903673",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903673",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903689",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903689",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903681",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903681",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903661",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903661",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903675",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903675",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903693",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903693",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903669",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903669",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903665",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903665",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903679",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903679",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903685",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903685",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903676",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903676",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903662",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903662",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903684",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903684",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903690",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903690",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903657",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903657",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903678",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903678",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903670",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903670",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903664",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903664",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903682",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903682",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903668",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903668",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903659",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903659",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903686",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903686",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903666",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903666",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903688",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903688",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903660",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903660",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903692",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903692",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903674",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903674",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903672",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903672",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-liu-maru2026:GSM8903680",
+   "cohort": "cand-crc-liu-maru2026",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8903680",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
   }
  ],
  "other_resources": [

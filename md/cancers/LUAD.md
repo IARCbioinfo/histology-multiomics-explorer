@@ -1,6 +1,6 @@
 # Lung adenocarcinoma
 
-Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
+Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
 
 Hausser et al. described lung as borderline under their significance criterion, so it was not part of the pooled analysis. Predominant growth patterns are recorded for each tissue section where the source provides them.
 
@@ -22,29 +22,30 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-11 spatial resources are catalogued; matched image and molecular data have been located for 1. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+11 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
-| Steiner et al. 2026 (`steiner-2026`) | Visium FFPE | Open download | No count reported | Yes, for 13 patients |
-| Takano et al. 2024 (`cand-takano-suzuki-2024`) | Visium FFPE | Open download | No count reported | Verification pending |
-| De Zuani et al. 2024 (`cand-dezuani-cvejic-2024`); includes normal or adjacent tissue | Visium | Open download | 40 sections in the complete study, all histologies (all cancer sites) | Verification pending |
+| Steiner et al. 2026 (`steiner-2026`) | Visium FFPE | Open download | No count reported | Original H&E located: 15 sections with original H&E; 13 known patients |
+| Takano et al. 2024 (`cand-takano-suzuki-2024`) | Visium FFPE | Open download | No count reported | Original H&E located: 1 section with original H&E; 1 known patient |
+| De Zuani et al. 2024 (`cand-dezuani-cvejic-2024`); includes normal or adjacent tissue | Visium | Open download | 40 sections in the complete study, all histologies (all cancer sites) | Matched data with preview image |
+| Peng et al. 2026 (`cand-peng-kadara-2025`) | Visium CytAssist | Open download | No count reported | Matched data with preview image: 56 sections with a preview image |
+| Luo et al. 2024 (`cand-chen-liu-2024`) | Visium CytAssist | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
 | Zhao et al. 2025 (`cand-zhao-htapp-2025`) | Visium | Open download | No count reported | Verification pending |
-| Peng et al. 2026 (`cand-peng-kadara-2025`) | Visium CytAssist | Open download | No count reported | Verification pending |
-| Luo et al. 2024 (`cand-chen-liu-2024`) | Visium CytAssist | Open download | No count reported | Verification pending |
 | Visium HD CytAssist Gene Expression Human Lung Cancer post-Xenium experiment (`cand-10x-post-xenium-hd`) | Visium HD | Open download | No count reported | Verification pending |
 | METI lung adenocarcinoma sample LUAD-14C (`cand-meti-luad14c`) | Visium CytAssist | Open download | No count reported | Verification pending |
 | Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma (`cand-knuch-2026`) | Visium | Unresolved | No count reported | Verification pending |
 | Deng et al. 2025 (`cand-deng-micropapillary-2025`) | Visium CytAssist | Author request | No count reported | Verification pending |
 | Wang et al. 2023 (`cand-lu-cell-discovery-2023`) | Visium | Controlled access | No count reported | Verification pending |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue sections: 15 sections from 13 patients, each with an original H&E image, measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum; other sections are metastatic, under review, held for quality control or outside the stratum.
+Located tissue section records: 74 sections (16 with original H&E, 58 with a preview image) from 14 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. Checked preview packages that are not listed one by one are not included.
 
-| Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections |
-| --- | --- | --- | --- |
-| Invasive non-mucinous adenocarcinoma | 13 | 15 | 0 |
+| Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
+| --- | --- | --- | --- | --- |
+| Invasive non-mucinous adenocarcinoma | 13 | 15 | 0 | 0 |
+| No stratum assigned | 0 | 0 | 1 | 58 |
 
 ## Selection history: published archetype evidence
 

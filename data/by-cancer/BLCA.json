@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "BLCA",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -227,7 +228,7 @@
     "BLCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -240,7 +241,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE319536",
    "access": {
@@ -257,12 +260,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "22 Space Ranger previews",
+    "molecular_finding": "22 exact; one preview has one out-of-frame in-tissue spot flagged",
+    "next_step": "Clinical adjudication against the reported 22-patient denominator; one preview has an out-of-frame spot flagged.",
+    "sections_listed": 22,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-ziblat2024",
@@ -280,7 +298,7 @@
     "BLCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna"
    ],
@@ -295,7 +313,8 @@
    "linkage": "unverified",
    "gates": [
     "pathology-review",
-    "he-unverified"
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE238145",
    "access": {
@@ -312,12 +331,26 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "original-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Two 14,054 × 13,447 originals; eight CytAssist TIFFs only 3,000 × 3,000",
+    "molecular_finding": "Two original sections have all expressed spots in positions after explicit unique .1_ to -1_ normalization; extra position rows documented",
+    "next_step": "Original-image overlay and calibration QC; the ten smaller-image regions share eight array areas and need multi-specimen review.",
+    "sections_listed": 12,
+    "study_local_donors": 2
+   }
   },
   {
    "id": "cand-jiang2024meti",
@@ -365,12 +398,26 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "registration-gap",
+    "depth": "components inspected; join incomplete",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Two bladder TIFFs only 3,000 × 3,000; supplied coordinates extend beyond those pixels",
+    "molecular_finding": "9,029 and 9,963 matrix spots exactly match in-tissue barcodes",
+    "next_step": "Recover original/transform or establish source-backed scaling; TIFF extension is not original-scan proof.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-yoshihara2026erbt",
@@ -423,7 +470,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "technical-gap",
+    "depth": "public download failed",
+    "states": [
+     "download-failure"
+    ],
+    "image_finding": "DDBJ directory/error response and FTP-host timeout",
+    "molecular_finding": "No package downloaded",
+    "next_step": "Retry authoritative DDBJ/GEA release listing and specimen identifiers; technical failure is not access denial.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-pribus2026",
@@ -471,12 +531,26 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "11.05 GB data ZIP central directory checked; large combined H5AD and derived CNA files",
+    "molecular_finding": "Raw/processed/provenance still need separating; directory includes Gouin/Chen reused data",
+    "next_step": "Inspect metadata and combined measured-count object, original H&E and reuse crosswalk; raw GHGA is a separate permission route.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-xuzhou2023",
@@ -529,7 +603,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "technical-gap",
+    "depth": "public download failed",
+    "states": [
+     "download-failure"
+    ],
+    "image_finding": "Article says processed supporting tables; NODE page 403",
+    "molecular_finding": "No complete spatial package",
+    "next_step": "Inspect supporting tables and recover public NODE listing before inferring author-only access.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-zheng2025",
@@ -547,7 +634,7 @@
     "BLCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -560,8 +647,10 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE285715",
    "access": {
@@ -574,12 +663,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Six previews",
+    "molecular_finding": "All six exact",
+    "next_step": "Donor, site and treatment from the source; original image QC.",
+    "sections_listed": 6,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-lindskrog2023",
@@ -628,7 +732,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "access-dependent",
+    "depth": "access boundary reached",
+    "states": [
+     "dac-approval"
+    ],
+    "image_finding": "Primary full text retrieved; controlled route retained",
+    "molecular_finding": "No controlled package accessed",
+    "next_step": "Locate any public processed/original-image alternative; approval needed only for actually controlled files.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-dutreneo",
@@ -663,8 +780,8 @@
    ],
    "accession": "GSE328930(bulkonly);Zenodo19693316(Xeniumonly)",
    "access": {
-    "category": "request",
-    "route": null,
+    "category": "open",
+    "route": "Public targeted-RNA data in Zenodo 19693316; the earlier request-only label is corrected",
     "links": [
      [
       "Publication",
@@ -673,15 +790,33 @@
      [
       "Data record",
       "https://pmc.ncbi.nlm.nih.gov/articles/PMC13400163/"
+     ],
+     [
+      "Targeted RNA data (Zenodo 19693316)",
+      "https://zenodo.org/records/19693316"
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Primary full text corrects old request label: public Zenodo 19693316 now exists",
+    "molecular_finding": "Public 20-sample metadata; 32 GB Xenium ZIP not fully checked",
+    "next_step": "Inspect the targeted expression and centroids and their relation to the H&E; do not infer 20 independent patients.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -692,6 +827,7 @@
    "stratum": "blca-mibc",
    "patient": "Bladder1204",
    "capture": "A1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -705,7 +841,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "gouin-2021:D1",
@@ -714,6 +852,7 @@
    "stratum": "blca-mibc",
    "patient": "Bladder371",
    "capture": "D1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -727,7 +866,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "gouin-2021:C1",
@@ -736,6 +877,7 @@
    "stratum": "blca-mibc",
    "patient": "Bladder72",
    "capture": "C1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -749,7 +891,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "gouin-2021:B1",
@@ -758,6 +902,7 @@
    "stratum": "blca-mibc",
    "patient": "Bladder8",
    "capture": "B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -771,7 +916,1009 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519394",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519394",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519395",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519395",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519396",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519396",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519397",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519397",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519398",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519398",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519399",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519399",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519400",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519400",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519401",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519401",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519402",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519402",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519403",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519403",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519404",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519404",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519405",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519405",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519406",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519406",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519407",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519407",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519408",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519408",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519409",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519409",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519410",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519410",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519411",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519411",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519412",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519412",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519413",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519413",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519414",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519414",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yu2026atlas:GSM9519415",
+   "cohort": "cand-yu2026atlas",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9519415",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-zheng2025:GSM8707234",
+   "cohort": "cand-zheng2025",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8707234",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-zheng2025:GSM8707235",
+   "cohort": "cand-zheng2025",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8707235",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-zheng2025:GSM8707236",
+   "cohort": "cand-zheng2025",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8707236",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-zheng2025:GSM8707237",
+   "cohort": "cand-zheng2025",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8707237",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-zheng2025:GSM8707238",
+   "cohort": "cand-zheng2025",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8707238",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-zheng2025:GSM8707239",
+   "cohort": "cand-zheng2025",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8707239",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-ziblat2024:GSM7659430",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-10",
+   "capture": "GSM7659430",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM7659431",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-1",
+   "capture": "GSM7659431",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171241-B9",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-2",
+   "capture": "GSM8171241-B9",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171241",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171242-B10",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-3",
+   "capture": "GSM8171242-B10",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171242",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171243-B11",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-4",
+   "capture": "GSM8171243-B11",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171243",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171244-B12",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8171244-B12",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171244",
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171244-B13",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8171244-B13",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171244",
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171245-B14",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-7",
+   "capture": "GSM8171245-B14",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171245",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171246-B15",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-8",
+   "capture": "GSM8171246-B15",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171246",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171247-B16",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "patient-9",
+   "capture": "GSM8171247-B16",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171247",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171248-B17",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8171248-B17",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171248",
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-ziblat2024:GSM8171248-B18",
+   "cohort": "cand-ziblat2024",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8171248-B18",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium HD, Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "GSM8171248",
+   "donor_mapping": "unresolved"
   }
  ],
  "other_resources": [

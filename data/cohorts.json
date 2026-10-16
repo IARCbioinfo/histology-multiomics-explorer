@@ -547,7 +547,7 @@
    "PDAC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "he-downsampled",
    "spatial-rna"
@@ -561,7 +561,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "access": {
    "category": "open",
@@ -580,12 +582,27 @@
     "untreated primary resections, per the publication and SDRF"
    ]
   ],
-  "verification": "metadata-checked",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": "Fourteen untreated primary PDAC resections profiled with Visium FFPE. The original 40× scans have not been located, so the captures are not counted as matched packages.",
   "compartments": [
    "primary-tumour"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "14 preview images; no original scan in complete deposited file listing",
+   "molecular_finding": "14 barcode vectors match matrix headers/all array positions; explicit in-tissue filter",
+   "next_step": "Original scans; clinical and image QC.",
+   "sections_listed": 14,
+   "study_local_donors": 14
+  }
  },
  {
   "id": "tcga-brca",
@@ -1451,7 +1468,7 @@
    "BRCA"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -1464,7 +1481,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-unverified"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "Zenodo 4739739",
   "access": {
@@ -1481,12 +1500,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Six Space Ranger previews; large image PDF also inspected, no verified original scan/capture transform",
+   "molecular_finding": "All six expression barcode sets join positions; two exactly match in-tissue sets. Four filtered matrices retain fewer spots, and three contain 6/2/2 out-of-tissue spots; explicit in-tissue filtering and no invented expression for omitted rows. Six patientid fields verified.",
+   "next_step": "Original scans and the provenance of the image PDF; filter the out-of-tissue spots in three sections explicitly.",
+   "sections_listed": 6,
+   "study_local_donors": 6
+  }
  },
  {
   "id": "cand-bassiouni-gse210616",
@@ -1504,7 +1538,7 @@
    "BRCA"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -1517,7 +1551,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE210616",
   "access": {
@@ -1534,12 +1570,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "43 previews",
+   "molecular_finding": "All 43 exact barcode/in-tissue agreements",
+   "next_step": "Treatment, original scans and registration QC.",
+   "sections_listed": 43,
+   "study_local_donors": 22
+  }
  },
  {
   "id": "cand-bcarc-tls-hev-2026",
@@ -1588,7 +1639,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-gap",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Public record exists but lists no downloadable files",
+   "molecular_finding": "No molecular package inspectable",
+   "next_step": "Await an actionable public file release; do not count record views as released data.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-official-10x-breast-demos",
@@ -1637,7 +1701,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "unspecified-vendor-lead",
+   "depth": "source or metadata only",
+   "states": [
+    "vendor-terms"
+   ],
+   "image_finding": "Generic vendor catalogue, no pinned specimen/version",
+   "molecular_finding": "No uniquely identified package",
+   "next_step": "Pin exact dataset, specimen, assay and version; respect vendor registration/terms; deduplicate other breast entries.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-wang-venet-2024-legacy-st",
@@ -1681,17 +1758,35 @@
      "https://www.nature.com/articles/s41467-024-54145-w"
     ],
     [
-     "Data record",
+     "Code (Zenodo 13867935)",
      "https://zenodo.org/records/13867935"
+    ],
+    [
+     "Data record (Zenodo 8135721)",
+     "https://zenodo.org/records/8135721"
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Original image archive located, 25.3 GB; older catalogue link is code, not assay data",
+   "molecular_finding": "Primary paper gives distinct public data record 8135721 with counts, clinical and array archives",
+   "next_step": "Use 8135721, inspect code/data README and array-to-patient/image join; old 13867935/36 is code.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-dartmouth-aacr2026-1442",
@@ -1733,7 +1828,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Official AACR2026 abstract reports matched 40x H&E/Visium for 25 TNBC patients; no accession/reusable package identified",
+   "molecular_finding": "Source-described measured Visium, not a downloaded matrix/coordinate package",
+   "next_step": "Find final publication and released accession, then inspect patient/section/image files; 25 is a reported denominator, not available matched patients.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-crc-colonmap-heiser2023",
@@ -1787,7 +1895,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "account-route",
+   "depth": "source or metadata only",
+   "states": [
+    "account-registration"
+   ],
+   "image_finding": "HTAN public manifest behind a free account",
+   "molecular_finding": "No newly downloaded package in this pass",
+   "next_step": "Pin Vanderbilt/COLON MAP section/file IDs, donor and histology crosswalk; separate from WUSTL and cottam reuse.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-crc-orgares-gse283052",
@@ -1806,7 +1927,7 @@
    "READ"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -1819,7 +1940,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE283052",
   "access": {
@@ -1836,12 +1959,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "12 previews",
+   "molecular_finding": "Shared series barcode vector matches all 4,992 positions in each of 12 matrices; in-tissue filtering required",
+   "next_step": "Map donor IDs and primary or metastatic site before counting patients; keep the shared barcode-vector provenance.",
+   "sections_listed": 12,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-crc-mahidol-gse267401",
@@ -1860,7 +1998,7 @@
    "READ"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -1873,7 +2011,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE267401",
   "access": {
@@ -1890,12 +2030,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Four previews",
+   "molecular_finding": "All unfiltered expression barcodes have positions; select in-tissue rows explicitly",
+   "next_step": "Original scans and treatment; the primary and metastatic sections of patients 21 and 17 stay separate sites.",
+   "sections_listed": 4,
+   "study_local_donors": 2
+  }
  },
  {
   "id": "cand-crc-miso-petacc8",
@@ -1950,7 +2105,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "Primary paper retrieved; no controlled files accessed",
+   "molecular_finding": "Package not available within approved scope",
+   "next_step": "FFCD controls measured PETACC8-Visium use; separate measured packages from model-predicted outputs, and verify any public processed alternative before a permission decision.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-crc-vri-dartmouth2025",
@@ -2005,7 +2173,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary paper confirms measured Visium development cohort; predicted validation outputs are a different modality",
+   "molecular_finding": "No actionable measured package verified",
+   "next_step": "Locate released measured development-cohort files; do not count virtual RNA as measured spatial RNA.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-crc-liu-maru2026",
@@ -2024,7 +2205,7 @@
    "READ"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -2038,7 +2219,9 @@
   "linkage": "unverified",
   "gates": [
    "he-not-located",
-   "pathology-review"
+   "pathology-review",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE294385; Zenodo19043057",
   "access": {
@@ -2055,12 +2238,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "37 previews",
+   "molecular_finding": "All 37 archive packages exact",
+   "next_step": "Donor count and treatment; all 37 tissues are colorectal metastases.",
+   "sections_listed": 37,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-crc-spatch-ren2025",
@@ -2105,17 +2303,35 @@
      "https://www.nature.com/articles/s41467-025-64292-3"
     ],
     [
-     "Data record",
+     "Images (BioImage Archive S-BIAD1900)",
      "https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1900"
+    ],
+    [
+     "Code (Zenodo 16992659)",
+     "https://zenodo.org/records/16992659"
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Original HE/CODEX/DAPI listings in S-BIAD1900, across five assays",
+   "molecular_finding": "RNA count/coordinate package not yet joined; Zenodo 16992659 is code",
+   "next_step": "Match each COAD platform to its measured RNA/coordinates; do not count CODEX/DAPI as H&E or colon specimens as READ.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-crc-cottam-htan2025",
@@ -2164,7 +2380,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "account-route",
+   "depth": "source or metadata only",
+   "states": [
+    "account-registration"
+   ],
+   "image_finding": "HTAN public portal behind a free account",
+   "molecular_finding": "No newly inspected package",
+   "next_step": "Pin exact study/HTAN donor-capture manifest and deduplicate Heiser/COLON MAP/WUSTL; preserve primary/metastatic labels.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-liao-2025-gse250521",
@@ -2182,7 +2411,7 @@
    "THCA"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -2195,7 +2424,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE250521",
   "access": {
@@ -2212,12 +2443,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "16 checked Visium previews; four ATC sections outside selected histology",
+   "molecular_finding": "All 16 Visium packages exact; nine scRNA samples excluded from spatial counts",
+   "next_step": "Original scans; four anaplastic thyroid carcinoma sections and nine single-cell samples stay outside this selection.",
+   "sections_listed": 12,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-loberg-2026-jci191990",
@@ -2270,7 +2516,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Article explicitly restricts individual spatial data under IRB policy",
+   "molecular_finding": "No individual package public",
+   "next_step": "Lead-contact/institutional permission required for individual data; aggregate results on request do not replace spatial package.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-yan-2024-hra003537",
@@ -2324,7 +2583,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "Primary paper and public code found; raw HRA route",
+   "molecular_finding": "No matched processed original-image package inspected",
+   "next_step": "Locate processed public supplement/image package independently of controlled raw reads.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-zhang-2025-prjca021247",
@@ -2377,7 +2649,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary paper identifies PRJCA021247 for scRNA/ST",
+   "molecular_finding": "Public processed image package unverified",
+   "next_step": "Resolve project-to-spatial accession and processed original-image/coordinate release.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-wang-2024-hra005594",
@@ -2430,7 +2715,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "author-release",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary article says data on reasonable request; HRA raw route separate",
+   "molecular_finding": "No public matched package",
+   "next_step": "Author/repository release of processed matrix, coordinates and original image.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-seok-2025-cii",
@@ -2479,7 +2777,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "author-release",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary full text retrieved; no reusable file package established",
+   "molecular_finding": "Unverified",
+   "next_step": "Locate a released processed-data accession or obtain author release later.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-li-2025-s12967-07566",
@@ -2532,7 +2843,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "author-release",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Metaspace is released metabolomics, not spatial RNA",
+   "molecular_finding": "Paper explicitly says spatial RNA not publicly deposited",
+   "next_step": "Processed spatial-RNA and matched-image release needed.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-tourneur-2026-legacyst",
@@ -2550,7 +2874,7 @@
    "THCA"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "verified",
   "modalities": [
    "spatial-rna"
   ],
@@ -2564,7 +2888,9 @@
   "linkage": "unverified",
   "gates": [
    "platform",
-   "identity"
+   "identity",
+   "image-qc",
+   "calibration"
   ],
   "accession": "EGAS00001007574 / EGAD00001011365",
   "access": {
@@ -2581,12 +2907,26 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "original-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "25 PTC original TIFFs indexed and headers checked, about 28k-36k pixels",
+   "molecular_finding": "All 25 PTC Seurat count-column/coordinate label sets exact and finite; legacy ST, not Visium",
+   "next_step": "Overlay and calibration QC for the legacy arrays; section treatment and site unknown; 12 anaplastic sections excluded.",
+   "sections_listed": 25,
+   "study_local_donors": 10
+  }
  },
  {
   "id": "cand-yu2026atlas",
@@ -2604,7 +2944,7 @@
    "BLCA"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -2617,7 +2957,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE319536",
   "access": {
@@ -2634,12 +2976,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "22 Space Ranger previews",
+   "molecular_finding": "22 exact; one preview has one out-of-frame in-tissue spot flagged",
+   "next_step": "Clinical adjudication against the reported 22-patient denominator; one preview has an out-of-frame spot flagged.",
+   "sections_listed": 22,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-ziblat2024",
@@ -2657,7 +3014,7 @@
    "BLCA"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "verified",
   "modalities": [
    "spatial-rna"
   ],
@@ -2672,7 +3029,8 @@
   "linkage": "unverified",
   "gates": [
    "pathology-review",
-   "he-unverified"
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE238145",
   "access": {
@@ -2689,12 +3047,26 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "original-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Two 14,054 × 13,447 originals; eight CytAssist TIFFs only 3,000 × 3,000",
+   "molecular_finding": "Two original sections have all expressed spots in positions after explicit unique .1_ to -1_ normalization; extra position rows documented",
+   "next_step": "Original-image overlay and calibration QC; the ten smaller-image regions share eight array areas and need multi-specimen review.",
+   "sections_listed": 12,
+   "study_local_donors": 2
+  }
  },
  {
   "id": "cand-jiang2024meti",
@@ -2742,12 +3114,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "registration-gap",
+   "depth": "components inspected; join incomplete",
+   "states": [
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Two bladder TIFFs only 3,000 × 3,000; supplied coordinates extend beyond those pixels",
+   "molecular_finding": "9,029 and 9,963 matrix spots exactly match in-tissue barcodes",
+   "next_step": "Recover original/transform or establish source-backed scaling; TIFF extension is not original-scan proof.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-yoshihara2026erbt",
@@ -2800,7 +3186,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "technical-gap",
+   "depth": "public download failed",
+   "states": [
+    "download-failure"
+   ],
+   "image_finding": "DDBJ directory/error response and FTP-host timeout",
+   "molecular_finding": "No package downloaded",
+   "next_step": "Retry authoritative DDBJ/GEA release listing and specimen identifiers; technical failure is not access denial.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-pribus2026",
@@ -2848,12 +3247,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "11.05 GB data ZIP central directory checked; large combined H5AD and derived CNA files",
+   "molecular_finding": "Raw/processed/provenance still need separating; directory includes Gouin/Chen reused data",
+   "next_step": "Inspect metadata and combined measured-count object, original H&E and reuse crosswalk; raw GHGA is a separate permission route.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-xuzhou2023",
@@ -2906,7 +3319,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "technical-gap",
+   "depth": "public download failed",
+   "states": [
+    "download-failure"
+   ],
+   "image_finding": "Article says processed supporting tables; NODE page 403",
+   "molecular_finding": "No complete spatial package",
+   "next_step": "Inspect supporting tables and recover public NODE listing before inferring author-only access.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-zheng2025",
@@ -2924,7 +3350,7 @@
    "BLCA"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -2937,8 +3363,10 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-unverified",
-   "identity"
+   "identity",
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE285715",
   "access": {
@@ -2951,12 +3379,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Six previews",
+   "molecular_finding": "All six exact",
+   "next_step": "Donor, site and treatment from the source; original image QC.",
+   "sections_listed": 6,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-lindskrog2023",
@@ -3005,7 +3448,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "Primary full text retrieved; controlled route retained",
+   "molecular_finding": "No controlled package accessed",
+   "next_step": "Locate any public processed/original-image alternative; approval needed only for actually controlled files.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-dutreneo",
@@ -3040,8 +3496,8 @@
   ],
   "accession": "GSE328930(bulkonly);Zenodo19693316(Xeniumonly)",
   "access": {
-   "category": "request",
-   "route": null,
+   "category": "open",
+   "route": "Public targeted-RNA data in Zenodo 19693316; the earlier request-only label is corrected",
    "links": [
     [
      "Publication",
@@ -3050,15 +3506,33 @@
     [
      "Data record",
      "https://pmc.ncbi.nlm.nih.gov/articles/PMC13400163/"
+    ],
+    [
+     "Targeted RNA data (Zenodo 19693316)",
+     "https://zenodo.org/records/19693316"
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Primary full text corrects old request label: public Zenodo 19693316 now exists",
+   "molecular_finding": "Public 20-sample metadata; 32 GB Xenium ZIP not fully checked",
+   "next_step": "Inspect the targeted expression and centroids and their relation to the H&E; do not infer 20 independent patients.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-hoefflin2026",
@@ -3106,12 +3580,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Public archive has IDH-mutant spatial tar 1.69 GB and reused GBM tar 2.15 GB",
+   "molecular_finding": "Sample/conversion tables inspected; originals not validated",
+   "next_step": "Inspect IDH-mutant image/matrix packages and clinical alias map; reused Ravi GBM is not independent new patients.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-greenwald2024",
@@ -3130,7 +3618,7 @@
    "GBM"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "verified",
   "modalities": [
    "spatial-rna"
   ],
@@ -3232,7 +3720,8 @@
    "The ZH1019 rows carry the conflicting patient ID ZH1007; keep five provisional IDH-wildtype donor labels",
    "BWH23 (reported oligodendroglioma grade 4) and BWH28 (astrocytoma grade 2/3) need diagnosis and grade review",
    "Treatment and recurrence are not reported",
-   "Keep CODEX-associated H&E separate from the Visium images"
+   "Keep CODEX-associated H&E separate from the Visium images",
+   "Twelve sections have directly matched original images; the two with inferred crossed labels and the five without originals are shown at preview level"
   ],
   "spatial_review": {
    "id": "glioma-greenwald-gse237183",
@@ -3278,7 +3767,7 @@
    "LGG"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -3291,7 +3780,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE242352; EGA EGAD50000001394",
   "access": {
@@ -3308,12 +3799,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "17 previews; two sections have out-of-frame coordinates flagged",
+   "molecular_finding": "All 17 exact",
+   "next_step": "Donor independence and two image-frame checks; recurrent, oligodendroglioma and astrocytoma labels are kept.",
+   "sections_listed": 17,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-snu2026",
@@ -3494,10 +4000,11 @@
    "url": "https://doi.org/10.1038/s43018-024-00904-z"
   },
   "cancers": [
-   "LGG"
+   "LGG",
+   "GBM"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -3511,7 +4018,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "Zenodo 14064047",
   "access": {
@@ -3528,12 +4037,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "All 55 ZIPs checked; previews max 2,000 px",
+   "molecular_finding": "All 55 exact; clinical table links diagnoses, includes duplicate 110640 row",
+   "next_step": "Donor independence; 15 gliosarcoma sections are kept as glioblastoma variants, unrelated to TCGA-SARC; other CNS tumour types excluded.",
+   "sections_listed": 46,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-tang2025",
@@ -3587,7 +4111,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "technical-gap",
+   "depth": "public download failed",
+   "states": [
+    "download-failure"
+   ],
+   "image_finding": "Public STP page not a usable assay listing",
+   "molecular_finding": "Unverified",
+   "next_step": "Resolve study-specific processed-data/source image links; software page is not package evidence.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-longitudinal2026",
@@ -3605,7 +4142,7 @@
    "LGG"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -3619,7 +4156,9 @@
   "linkage": "unverified",
   "gates": [
    "he-not-located",
-   "pathology-review"
+   "pathology-review",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE318238; GSM9490659",
   "access": {
@@ -3632,12 +4171,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Three molecularly checked preview packages plus a separate unjoined multi-image sample",
+   "molecular_finding": "Three exact",
+   "next_step": "Same-patient timeline and the crosswalk of a fourth sample.",
+   "sections_listed": 3,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-he2024",
@@ -3655,7 +4209,7 @@
    "LGG"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -3668,8 +4222,10 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-unverified",
-   "pathology-review"
+   "pathology-review",
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE270355",
   "access": {
@@ -3686,12 +4242,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Four archive previews; separately listed RAW PNGs are only 867-918 by 91-104 pixels, not original scans",
+   "molecular_finding": "Four exact",
+   "next_step": "Original scans and the donor, histology, grade and reuse crosswalk.",
+   "sections_listed": 4,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-kuchroosparc2022",
@@ -3744,7 +4315,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "code-only-lead",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Public GitHub tree inspected",
+   "molecular_finding": "No source-backed original-image/count package verified",
+   "next_step": "Identify released measured specimens behind method demonstration and deduplicate reused studies.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-gaspardboulin2025",
@@ -3795,7 +4379,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Conference abstract/publisher access does not supply package",
+   "molecular_finding": "Unverified",
+   "next_step": "Find final publication and actionable accession before counts.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-spatch-hcc",
@@ -3839,17 +4436,35 @@
      "https://www.nature.com/articles/s41467-025-64292-3"
     ],
     [
-     "Data record",
+     "Images (BioImage Archive S-BIAD1900)",
      "https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1900"
+    ],
+    [
+     "Code (Zenodo 16992659)",
+     "https://zenodo.org/records/16992659"
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Five-platform HCC originals listed in S-BIAD1900",
+   "molecular_finding": "RNA/coordinate matching unverified; CODEX separate",
+   "next_step": "Join HCC assays to measured expression/coordinates; preserve multi-assay overlap and serial/same-section relation.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-gse238264",
@@ -3867,7 +4482,7 @@
    "LIHC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -3881,7 +4496,9 @@
   "linkage": "unverified",
   "gates": [
    "treated",
-   "package-unverified"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE238264",
   "access": {
@@ -3898,12 +4515,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Seven archive previews",
+   "molecular_finding": "All seven exact",
+   "next_step": "Original scans; all seven donors were treated with cabozantinib and nivolumab.",
+   "sections_listed": 7,
+   "study_local_donors": 7
+  }
  },
  {
   "id": "cand-gse281759",
@@ -3921,7 +4553,7 @@
    "LIHC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -3934,7 +4566,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE281759",
   "access": {
@@ -3951,12 +4585,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "17 previews, one adjacent-normal record",
+   "molecular_finding": "All 17 exact",
+   "next_step": "Donor total (the B0013 and B013 aliases conflict); regions, recurrent versus primary labels and one normal section are kept.",
+   "sections_listed": 17,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-times-hra006579",
@@ -4009,7 +4658,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary publication/HRA route inspected at available metadata level",
+   "molecular_finding": "No matched processed image package verified",
+   "next_step": "Resolve processed release and original-image coordinates separately from HRA raw access.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-wu2025-zenodo",
@@ -4058,12 +4720,25 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "linkage-gap",
+   "depth": "components inspected; join incomplete",
+   "states": [
+    "local-qc"
+   ],
+   "image_finding": "36 large H&E JPEGs are CODEX-region named; nested 22 Visium previews also present",
+   "molecular_finding": "104,418-spot measured H5AD with 22 sample labels/11 patient IDs and 28 extra coordinate CSVs inspected",
+   "next_step": "Join RNA sections to 22 preview image libraries and independent position tables; do not substitute 36 CODEX-region H&E images for 22 Visium sections.",
+   "sections_listed": null,
+   "study_local_donors": 11
+  }
  },
  {
   "id": "cand-wu2021-hcc",
@@ -4116,7 +4791,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "technical-gap",
+   "depth": "public download failed",
+   "states": [
+    "download-failure"
+   ],
+   "image_finding": "Author lists HCC/ICC/cHC archives; selected HCC archive truncates during first member",
+   "molecular_finding": "No complete selected matrix/image package",
+   "next_step": "Recover intact HCC-only release; keep mixed/cholangiocarcinoma out and preserve sample/donor repeats.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-he2024-new4plc",
@@ -4169,7 +4857,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "OMIX/publication metadata route",
+   "molecular_finding": "No controlled file accessed",
+   "next_step": "Public processed/original-image route or formal access decision; preserve four primary-liver histologies.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-fan2024-hra006757",
@@ -4222,7 +4923,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "HRA/publication metadata route",
+   "molecular_finding": "No controlled file accessed",
+   "next_step": "Resolve processed matrix/image/coordinates separately from raw permission.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-jgad000422-hcc",
@@ -4273,7 +4987,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "Authoritative Japanese controlled dataset route",
+   "molecular_finding": "No controlled file accessed",
+   "next_step": "Obtain approved access or public processed alternative.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-egad50000002122",
@@ -4320,7 +5047,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "Authoritative EGA metadata route",
+   "molecular_finding": "No controlled file accessed",
+   "next_step": "Approved access or public processed alternative, with specimen/image crosswalk.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-egad50000001506",
@@ -4373,7 +5113,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "EGA/publication metadata route",
+   "molecular_finding": "No controlled file accessed",
+   "next_step": "Approved access or public processed alternative; original-image promise must be checked separately.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-adapa2025-hd",
@@ -4422,7 +5175,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary full text describes two-specimen HD pilot, primary HCC versus liver metastasis",
+   "molecular_finding": "No actionable measured package verified",
+   "next_step": "Resolve original data accession and metastatic histology; do not pool liver metastasis as HCC.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-gse283406",
@@ -4470,12 +5236,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "coordinate-gap",
+   "depth": "components inspected; join incomplete",
+   "states": [
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Four preview images/count matrices; two tissues sequenced on two platforms",
+   "molecular_finding": "GEO lists no position/scale file in four packages",
+   "next_step": "Recover two physical-section coordinate/scale crosswalk; do not count platform resequencing as four independent sections/patients.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-prjna858545-hcc",
@@ -4522,12 +5302,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Two original-image candidates in public Figshare; file/API metadata retrieved",
+   "molecular_finding": "Processed RNA/coordinate linkage not verified",
+   "next_step": "Join images to actual BioProject spatial samples and processed counts/positions; raw SRA alone insufficient.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-xin2022-hcc",
@@ -4576,7 +5370,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary full text confirms two fresh HCC tissues",
+   "molecular_finding": "No released complete package established",
+   "next_step": "Find an actionable processed/image accession or later author release.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-li2025-caf",
@@ -4625,7 +5432,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "author-release",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary article explicitly says on reasonable request",
+   "molecular_finding": "No public matched package",
+   "next_step": "Processed RNA, coordinates, images and clinical/region map require release.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-takano-suzuki-2024",
@@ -4643,7 +5463,7 @@
    "LUAD"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "verified",
   "modalities": [
    "spatial-rna"
   ],
@@ -4657,7 +5477,8 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "calibration"
+   "calibration",
+   "image-qc"
   ],
   "accession": "JGAS000613 / JGAD000742 / hum0394-v1",
   "access": {
@@ -4674,12 +5495,26 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "original-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "One original 10,418 × 11,237 TIFF in selected LUAD3B component set",
+   "molecular_finding": "2,876 expression barcodes exactly match in-tissue positions and lie inside original frame",
+   "next_step": "Only LUAD3B is checked; the rest of the study and image calibration remain (the 72 DPI tag is not a micron scale).",
+   "sections_listed": 1,
+   "study_local_donors": 1
+  }
  },
  {
   "id": "cand-dezuani-cvejic-2024",
@@ -4698,7 +5533,7 @@
    "LUSC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -4713,7 +5548,9 @@
   "gates": [
    "he-not-located",
    "identity",
-   "treatment-review"
+   "treatment-review",
+   "image-qc",
+   "calibration"
   ],
   "accession": "E-MTAB-13530",
   "access": {
@@ -4773,7 +5610,8 @@
    "Preserve four adjacent sections outside tumour counts",
    "SDRF staging fields contain inconsistent values; do not interpret each row as valid TNM",
    "Staging from Supplementary Data 1: Patient 11 T2b N0 M0, Patient 19 T3 N0 M0",
-   "Prior treatment is not reported"
+   "Prior treatment is not reported",
+   "Matched data with preview image: 10 checked section packages, not yet listed as individual section records"
   ],
   "spatial_review": {
    "id": "lusc-emtab13530",
@@ -4865,12 +5703,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "20 original TIFF members indexed remotely in 30.7 GB ZIP; 8 donor-prefix labels",
+   "molecular_finding": "18.9 GB processed ZIP contains spatial_list.Rda (2.70 GB) and image/source folders",
+   "next_step": "Extract spatial_list and join the exact 20 sections and 8 reported donor labels to the image members; a directory listing alone does not verify the study.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-peng-kadara-2025",
@@ -4888,7 +5740,7 @@
    "LUAD"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -4901,7 +5753,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-unverified"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE307534",
   "access": {
@@ -4918,12 +5772,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "56 archive previews; CytAssist TIFF is instrument image",
+   "molecular_finding": "All 56 exact; 30 invasive/MIA, 25 AAH/AIS, one normal by titles",
+   "next_step": "Only the 30 invasive or minimally invasive sections are tumour; 25 precursor lesions and one normal stay separate; repeated sections of a patient stay linked.",
+   "sections_listed": 56,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-chen-liu-2024",
@@ -4941,7 +5810,7 @@
    "LUAD"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -4954,7 +5823,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-unverified"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "Zenodo13337961",
   "access": {
@@ -4971,12 +5842,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Two 2,000 px previews and 3,000 px CytAssist/technical TIFFs",
+   "molecular_finding": "Both complete RAR matrix/spatial packages exact",
+   "next_step": "Original pathology scans and the image transform; the donor relation of the solid and lepidic sections is unknown.",
+   "sections_listed": 2,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-knuch-2026",
@@ -5024,12 +5910,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Primary full text supplies KAP241022 and CELLxGENE/public code alternatives",
+   "molecular_finding": "GitHub tree is analysis code, not original image release",
+   "next_step": "Inspect the actual spatial subset; do not equate 18 scRNA donors with one source-described Visium specimen.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-deng-micropapillary-2025",
@@ -5078,7 +5978,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "author-release",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Publication route inspected; no actionable matched package",
+   "molecular_finding": "Unverified",
+   "next_step": "Locate release or later ask for processed/original-image package; histology stratum explicit.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-lu-cell-discovery-2023",
@@ -5131,7 +6044,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "HRA001238/raw and primary source links",
+   "molecular_finding": "No controlled package accessed",
+   "next_step": "Locate public processed original-image alternative or formal access route.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-10x-post-xenium-hd",
@@ -5180,7 +6106,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "vendor-boundary",
+   "depth": "source or metadata only",
+   "states": [
+    "vendor-terms"
+   ],
+   "image_finding": "Official vendor source behind registration and terms",
+   "molecular_finding": "No approved downloaded package",
+   "next_step": "Treat vendor form/terms as distinct dependency; do not count post-Xenium assay as independent donor.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-meti-luad14c",
@@ -5228,12 +6167,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "coordinate-gap",
+   "depth": "components inspected; join incomplete",
+   "states": [
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Released TIFF is only 2,000 × 1,927",
+   "molecular_finding": "Counts exist but no separate spot-coordinate file listed",
+   "next_step": "Inspect the metadata CSV for coordinates and an original-image or scale route; the released image is not an original scan.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-simkin2026-gse268014-hd",
@@ -5281,11 +6234,31 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Two source-listed HD specimens P5684/P5624; originals/Parquet listed",
+   "molecular_finding": "26 standard Visium packages inspected; all raw barcodes map, but those overlap existing resource; HD itself not yet fully checked",
+   "next_step": "Audit only GSM9701483/84 HD components; link to existing two patients, add zero new patients; resolve study-versus-assay resource counting.",
+   "sections_listed": null,
+   "study_local_donors": 0
+  },
+  "derived_from": [
+   "simkin-2026"
+  ],
+  "notes": [
+   "HD re-assays of the existing Simkin patients P5684 and P5624; they add no patients"
   ]
  },
  {
@@ -5304,7 +6277,7 @@
    "HNSC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -5317,7 +6290,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE208253",
   "access": {
@@ -5334,12 +6309,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "12 previews",
+   "molecular_finding": "All 12 exact",
+   "next_step": "Patient IDs, treatment and original scans.",
+   "sections_listed": 12,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-cheng2022-gse181300",
@@ -5357,7 +6347,7 @@
    "HNSC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -5370,7 +6360,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE181300",
   "access": {
@@ -5387,12 +6379,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Eight previews",
+   "molecular_finding": "All eight exact",
+   "next_step": "Original scans and treatment; repeated invasive-front and inner sections of two patients.",
+   "sections_listed": 8,
+   "study_local_donors": 2
+  }
  },
  {
   "id": "cand-gse281978-hpv2024",
@@ -5410,7 +6417,7 @@
    "HNSC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -5421,7 +6428,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE281978",
   "access": {
@@ -5438,12 +6447,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Six previews",
+   "molecular_finding": "All six exact",
+   "next_step": "Donor and site join before counting the three paired donors; the PT and LNMT labels conflict with the primary-tissue metadata.",
+   "sections_listed": 6,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-beyaert2025-gse289908",
@@ -5492,12 +6516,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "coordinate-gap",
+   "depth": "components inspected; join incomplete",
+   "states": [
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Original-image candidates plus Loupe alignment JSON listed",
+   "molecular_finding": "Three treated (afatinib) matrices; JSON oligo spots have array/image coordinates but no barcode IDs",
+   "next_step": "Recover validated barcode-to-grid/JSON map and original-image relation; no direct expression-coordinate verification yet.",
+   "sections_listed": null,
+   "study_local_donors": 3
+  }
  },
  {
   "id": "cand-gessain2024-e-mtab-14409",
@@ -5532,8 +6570,8 @@
   ],
   "accession": "E-MTAB-14409",
   "access": {
-   "category": "controlled",
-   "route": null,
+   "category": "open",
+   "route": "Public processed .cloupe files in E-MTAB-14409; sharing of the original institutional whole-slide images needs a separate agreement",
    "links": [
     [
      "Publication",
@@ -5545,12 +6583,26 @@
     ]
    ]
   },
-  "verification": "source-described",
+  "verification": "metadata-checked",
   "verified_on": "2026-10-09",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "bounded-public-work",
+   "depth": "public listing or archive inventoried",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Public processed ArrayExpress listing, not globally controlled; original institutional WSI sharing restricted",
+   "molecular_finding": "11 .cloupe files listed, nine patient prefixes; magic inspected, not numerically decoded",
+   "next_step": "Decode the counts, positions and preview inside the .cloupe files; transfer of the original whole-slide images needs a separate agreement.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-frontiers2026-zenodo18238293",
@@ -5568,7 +6620,7 @@
    "HNSC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "verified",
   "modalities": [
    "spatial-rna"
   ],
@@ -5581,7 +6633,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "identity"
+   "identity",
+   "image-qc",
+   "calibration"
   ],
   "accession": "Zenodo 18238293",
   "access": {
@@ -5598,12 +6652,26 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "original-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "local-qc"
+   ],
+   "image_finding": "Four original TIFFs around 10,000 px",
+   "molecular_finding": "Four VisiumV2 centroid sets cover all 13,611 expression-cell-map labels; count-layer sizes match",
+   "next_step": "Treatment and timing; 11 tissue blocks from ten donors share four array areas, and the recurrence field is a later outcome.",
+   "sections_listed": 11,
+   "study_local_donors": 10
+  }
  },
  {
   "id": "cand-causer2023-uq",
@@ -5656,7 +6724,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "technical-gap",
+   "depth": "public download failed",
+   "states": [
+    "download-failure"
+   ],
+   "image_finding": "Primary article says public processed Visium/PhenoCycler at UQ DOI; direct source 403",
+   "molecular_finding": "GSE181919 is related scRNA, not substitute spatial package",
+   "next_step": "Retrieve exact UQ processed spatial package and assayed-section H&E; separate PhenoCycler and controlled raw reads.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-li2024-hra005551-hra005576",
@@ -5707,7 +6788,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "access-dependent",
+   "depth": "access boundary reached",
+   "states": [
+    "dac-approval"
+   ],
+   "image_finding": "Primary paper says nonprofit research can be approved; accession typo HRA0005576 corrected to HRA005576",
+   "molecular_finding": "No controlled package accessed",
+   "next_step": "Processed public alternative or formal approval.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-hypopharynx2025-ccrt",
@@ -5756,7 +6850,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "author-release",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Paper explicitly restricts public sharing for privacy/ethics",
+   "molecular_finding": "No public package",
+   "next_step": "Author/institution release needed for processed RNA/image/clinical map.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-gse301720-ici2026",
@@ -5774,7 +6881,7 @@
    "HNSC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -5785,7 +6892,9 @@
   "specimen": "clinical-tumour",
   "linkage": "unverified",
   "gates": [
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE301720",
   "access": {
@@ -5802,12 +6911,27 @@
     ]
    ]
   },
-  "verification": "source-described",
-  "verified_on": "2026-10-09",
+  "verification": "file-checked",
+  "verified_on": "2026-10-16",
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "preview-ready",
+   "depth": "downloaded components checked",
+   "states": [
+    "public-download",
+    "author-release",
+    "local-qc"
+   ],
+   "image_finding": "Eight previews",
+   "molecular_finding": "All eight exact",
+   "next_step": "Clinical timing and source site; response labels do not show that samples were taken after immunotherapy.",
+   "sections_listed": 8,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cand-oraltumorigenesis2025-preprint",
@@ -5854,7 +6978,20 @@
   "description": null,
   "compartments": [
    "tumour-unspecified"
-  ]
+  ],
+  "backlog_review": {
+   "date": "2026-10-16",
+   "outcome": "release-unresolved",
+   "depth": "source or metadata only",
+   "states": [
+    "author-release"
+   ],
+   "image_finding": "Primary preprint includes human and murine precursor/invasive TMAs",
+   "molecular_finding": "No released source package verified",
+   "next_step": "Identify human invasive subset and accession; exclude mouse/precursor counts from invasive HNSC denominator.",
+   "sections_listed": null,
+   "study_local_donors": null
+  }
  },
  {
   "id": "cscc-10x-ffpe",
@@ -6492,7 +7629,7 @@
    "KIRC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -6508,7 +7645,9 @@
   "linkage": "listed-together",
   "gates": [
    "he-not-located",
-   "identity"
+   "identity",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE175540",
   "access": {
@@ -6558,7 +7697,8 @@
    "Also redistributed through HEST INT1-INT24 (verify exact IDs in retained metadata); not a separate cohort.",
    "Review TLS enrichment",
    "Study-level treatment-naive status is documented in the primary paper",
-   "Clinical Table S1 is publicly linked but its download failed: a technical gap, not author-only data"
+   "Clinical Table S1 is publicly linked but its download failed: a technical gap, not author-only data",
+   "Matched data with preview image: 24 checked section packages, not yet listed as individual section records"
   ],
   "spatial_review": {
    "id": "kirc-meylan-gse175540",
@@ -6719,7 +7859,7 @@
    "KIRC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -6733,7 +7873,9 @@
   "linkage": "listed-together",
   "gates": [
    "treated",
-   "he-unverified"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE294006",
   "access": {
@@ -6767,7 +7909,8 @@
   "notes": [
    "Keep outside untreated primary reference",
    "Two specimens are sarcomatoid ccRCC",
-   "Advanced-disease study title does not make these metastatic tissue: all GSMs say primary tumour"
+   "Advanced-disease study title does not make these metastatic tissue: all GSMs say primary tumour",
+   "Matched data with preview image: 3 checked section packages, not yet listed as individual section records"
   ],
   "spatial_review": {
    "id": "kirc-treated-gse294006",
@@ -7802,7 +8945,7 @@
    "STAD"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -7813,9 +8956,11 @@
   "specimen": "clinical-tumour",
   "linkage": "listed-together",
   "gates": [
-   "he-unverified",
    "identity",
-   "treatment-review"
+   "treatment-review",
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE251950",
   "access": {
@@ -7863,7 +9008,8 @@
   ],
   "notes": [
    "GC6 and GC6-PM are the same donor; keep GC6-PM metastatic",
-   "Preserve histology and treatment metadata; original H&E/registration required"
+   "Preserve histology and treatment metadata; original H&E/registration required",
+   "Matched data with preview image: 10 checked section packages, not yet listed as individual section records"
   ],
   "spatial_review": {
    "id": "stad-gse251950",
@@ -7913,7 +9059,7 @@
    "STAD"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -7925,7 +9071,8 @@
   "linkage": "listed-together",
   "gates": [
    "he-not-located",
-   "image-qc"
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE270678; HRA007814 (raw, controlled)",
   "access": {
@@ -7983,7 +9130,8 @@
    "Do not count 72 sections as patients",
    "Preserve intestinal/diffuse/indeterminate histology and core/edge/in-between compartments",
    "Recover original-resolution H&E",
-   "Repeat sections add sections, not patients; D30 appears only among the repeats"
+   "Repeat sections add sections, not patients; D30 appears only among the repeats",
+   "Matched data with preview image: 72 checked section packages, not yet listed as individual section records"
   ],
   "spatial_review": {
    "id": "stad-gse270678",
@@ -8030,7 +9178,7 @@
    "UCEC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -8041,9 +9189,11 @@
   "specimen": "clinical-tumour",
   "linkage": "listed-together",
   "gates": [
-   "he-unverified",
    "treatment-review",
-   "pathology-review"
+   "pathology-review",
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE203612 (UCEC spatial sample GSM6177623)",
   "access": {
@@ -8077,7 +9227,8 @@
    "Use only GSM6177623/NYU_UCEC3_Vis for UCEC spatial entry",
    "Do not count scRNA samples or other cancers as UCEC spatial",
    "Recover original scan, subtype, treatment and registration",
-   "Author-linked data folders are disabled; the archived code contains no original scan or clinical table"
+   "Author-linked data folders are disabled; the archived code contains no original scan or clinical table",
+   "Matched data with preview image: 1 checked section packages, not yet listed as individual section records"
   ],
   "spatial_review": {
    "id": "ucec-barkley-gse203612",
@@ -8127,7 +9278,7 @@
    "UCEC"
   ],
   "layer": "matched-spatial",
-  "status": "candidate",
+  "status": "preview",
   "modalities": [
    "spatial-rna"
   ],
@@ -8141,7 +9292,9 @@
   "linkage": "unverified",
   "gates": [
    "treated",
-   "he-not-located"
+   "he-not-located",
+   "image-qc",
+   "calibration"
   ],
   "accession": "GSE225690",
   "access": {
@@ -8185,7 +9338,8 @@
    "All four samples are metastatic biopsies",
    "Use for exploratory treatment effects, not untreated primary reference",
    "Two histologies: 01-034 endometrioid (initial grade 2) and 01-039 papillary serous (initial grade 3); do not pool as one endometrioid reference",
-   "Both patients had at least two earlier systemic lines; baseline means before NP137"
+   "Both patients had at least two earlier systemic lines; baseline means before NP137",
+   "Matched data with preview image: 4 checked section packages, not yet listed as individual section records"
   ],
   "spatial_review": {
    "id": "ucec-np137-gse225690",

@@ -20,7 +20,7 @@ try {
   const ev = `<section><h2>Published archetype evidence (selection history)</h2>${d.evidence.map(e => `<div class="source" data-text="${esc((e.citation + " " + e.doi).toLowerCase())}">
       <div class="chips">${e.cancers.map(x => `<span class="chip outline">${esc(x)}</span>`).join("")}</div>
       <div class="cite small" style="margin-top:.35rem">${esc(e.citation)} <a href="${esc(e.url)}" rel="noopener">doi:${esc(e.doi)}</a></div></div>`).join("")}</section>`;
-  const order = ["verified", "reference", "listed", "candidate"];
+  const order = ["verified", "preview", "reference", "listed", "candidate"];
   const layers = Object.keys(LABELS.layer).map(l => {
     const list = d.cohorts.filter(c => c.layer === l).sort((a, b) => order.indexOf(a.status) - order.indexOf(b.status));
     if (!list.length) return "";

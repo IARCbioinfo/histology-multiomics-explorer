@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spatial studies · Tumour Histology and Multi-omics Explorer</title>
-<meta name="description" content="Published spatial omics studies with matched H&amp;E: linkage level, verification status, access and open checks.">
+<meta name="description" content="Published spatial omics studies with matched H&amp;E: image level (original H&amp;E or preview image), linkage, verification status, access and open checks.">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="alternate" type="text/markdown" title="Text version" href="md/spatial.md">
@@ -31,7 +31,7 @@
     <div class="page-head">
       <h1>Spatial studies</h1>
       <p class="prose muted">Published spatial omics studies show where molecular programmes and cell states sit within a tumour and how they relate to its morphology. They usually come from patients other than those in TCGA, so they add tissue context to the reference but no measurements for TCGA patients.</p>
-      <nav class="page-nav" aria-label="On this page"><span class="page-nav-label">On this page</span><a href="#overview">At a glance</a><a href="#by-cancer">By cancer type</a><a href="#status">Verification and access</a><a href="#route">Public-route review</a><a href="#leads">Related leads</a><a href="#browse">Browse and export</a></nav>
+      <nav class="page-nav" aria-label="On this page"><span class="page-nav-label">On this page</span><a href="#overview">At a glance</a><a href="#by-cancer">By cancer type</a><a href="#levels">Image levels</a><a href="#status">Verification and access</a><a href="#package-review">Package review</a><a href="#route">Open dependencies</a><a href="#leads">Related leads</a><a href="#browse">Browse and export</a></nav>
     </div>
 
     <section id="overview" aria-labelledby="overview-h">
@@ -44,19 +44,41 @@
       <div id="spatial-table"><p class="muted">Loading…</p></div>
     </section>
 
+    <section id="levels" class="prose" aria-labelledby="levels-h">
+      <h2 id="levels-h">Image levels</h2>
+      <p>A resource with matched spatial data is shown at one of two image levels. Both have measured expression whose barcodes or cell labels were matched to their tissue coordinates; they differ in the H&amp;E image that was found.</p>
+      <div class="table-wrap"><table class="stack compact">
+        <thead><tr><th scope="col">Level</th><th scope="col">Image located</th><th scope="col">Supports</th><th scope="col">Does not support</th></tr></thead>
+        <tbody>
+          <tr><td class="primary" data-label="Level"><div><span class="chip ok">Original H&amp;E located</span></div></td><td data-label="Image located"><div>The original H&amp;E scan of the assayed tissue, with measured expression and coordinates</div></td><td data-label="Supports"><div>Molecular spatial maps; whole-slide and tile models, morphology and distance measurements once registration and scanner calibration are checked</div></td><td data-label="Does not support"><div>Any use that assumes registration, calibration or tissue QC are complete</div></td></tr>
+          <tr><td class="primary" data-label="Level"><div><span class="chip accent">Matched data with preview image</span></div></td><td data-label="Image located"><div>A reduced preview released with the data (for example a Space Ranger image); the original scan was not located</div></td><td data-label="Supports"><div>Molecular spatial visualisation and analyses of expression in tissue coordinates</div></td><td data-label="Does not support"><div>Whole-slide or tile modelling, cell morphology, physical-distance comparisons or registration sign-off</div></td></tr>
+        </tbody>
+        <caption>Image level describes image availability only. Registration, scanner calibration, clinical eligibility and assay QC are recorded separately for each resource and section.</caption>
+      </table></div>
+      <p>A resource counts once, at its best level; when only some of its sections have an original scan, that subset is stated and the other sections are shown at the preview level. Section counts are records of each study, one per tissue section or capture area. They are not globally unique physical sections: several specimens can share one array area, and reused or mirrored data are linked to their original study rather than counted again. Patients are counted only where the source gives a study-local patient ID, and no eligible-patient total is established.</p>
+      <div id="levels-counts"><p class="muted">Loading…</p></div>
+    </section>
+
     <section id="status" class="prose" aria-labelledby="status-h">
       <h2 id="status-h">Verification and access</h2>
       <dl class="defs">
-        <div><dt>Matched data located</dt><dd>The original H&amp;E image, measured expression and spatial coordinates were found for individual tissue sections, which are listed one by one in the data explorer. Image registration and tissue QC are still to be completed.</dd></div>
+        <div><dt>Original H&amp;E located</dt><dd>The original H&amp;E image, measured expression and spatial coordinates were found for individual tissue sections, which are listed one by one in the data explorer. Image registration, scanner calibration and tissue QC are still to be completed.</dd></div>
+        <div><dt>Matched data with preview image</dt><dd>Measured expression and spatial coordinates were found and match each other, with a preview image released alongside them; the original H&amp;E scan was not located. The sections are listed one by one where the review recorded them, and otherwise counted for the study.</dd></div>
         <div><dt>Verification pending</dt><dd>A catalogued study that may provide matched data but has an open check, such as original scans not located, an unconfirmed section relationship, an unresolved donor count or a pending histology review. Its eligible patients are not established.</dd></div>
         <div><dt>Access-dependent</dt><dd>Data that are controlled, available on request, not yet released or without an established release route. Listing them does not mean that access has been requested or granted.</dd></div>
       </dl>
       <p>Each resource's details record how H&amp;E and measurements are linked (same section, released together, serial section or unverified), the assay type, the tissue it comes from (primary, metastatic, adjacent-normal, normal or precursor) and treatment before sampling. <a href="methods.html#linkage">Linkage levels</a> · <a href="methods.html#spatial-review">How resources are reviewed</a>.</p>
     </section>
 
+    <section id="package-review" class="prose" aria-labelledby="package-review-h">
+      <h2 id="package-review-h">Package review</h2>
+      <p>Candidates that had not yet been checked file by file were reviewed against their public records and packages. Each result states how far the check went, what was found for the images and for the expression and coordinates, and the next step. Sections were listed only where the source supports them, and unsupported resources stay candidates with their dependencies. No author was contacted and no access was requested.</p>
+      <div id="package-table"><p class="muted">Loading…</p></div>
+    </section>
+
     <section id="route" class="prose" aria-labelledby="route-h">
-      <h2 id="route-h">Public-route review</h2>
-      <p>The named public routes of the 26 reviewed resources were followed to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. Each resource's open dependencies are kept apart below: a failed download is a technical gap, not a permission requirement. No author was contacted and no access was requested.</p>
+      <h2 id="route-h">Open dependencies</h2>
+      <p>The public routes of the reviewed resources were followed to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. Each resource's open dependencies are kept apart below: a failed download is a technical gap, not a permission requirement.</p>
       <div id="route-table"><p class="muted">Loading…</p></div>
     </section>
 
@@ -68,7 +90,7 @@
 
     <section id="browse" class="prose" aria-labelledby="browse-h">
       <h2 id="browse-h">Browse and export</h2>
-      <p>The <a href="explore.html?view=cohorts&amp;layer=matched-spatial">resource list in the data explorer</a> shows every spatial study, with filters for assay type, H&amp;E linkage, tissue, treatment and access. The <a href="explore.html">spatial transcriptomics view</a> lists every tissue section with located data, with its histology, tissue site, treatment before sampling and access, including a filter for untreated primary tumours. Both export the current selection as CSV or JSON.</p>
+      <p>The <a href="explore.html?view=cohorts&amp;layer=matched-spatial">resource list in the data explorer</a> shows every spatial study, with filters for assay type, H&amp;E linkage, tissue, treatment and access. The <a href="explore.html">spatial transcriptomics view</a> lists every tissue section record with located data, with its image level, histology, tissue site, treatment before sampling, donor mapping and access, including a filter for untreated primary tumours. Both export the current selection as CSV or JSON.</p>
     </section>
   </div>
 </main>

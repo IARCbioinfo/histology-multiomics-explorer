@@ -1,6 +1,6 @@
 # Prostate adenocarcinoma
 
-Code `PRAD`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=PRAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PRAD). Data: [data/by-cancer/PRAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PRAD.json).
+Code `PRAD`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=PRAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PRAD). Data: [data/by-cancer/PRAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PRAD.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen after a substantial number of pathology-group exclusions.
 
@@ -24,14 +24,14 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 4 spatial resources are catalogued. Verification of the matched image and molecular data is pending. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | 10x Genomics prostate acinar carcinoma, Visium FFPE (`prad-10x-acinar`) | Visium FFPE | Free account | 1 sample (vendor specimen) | Verification pending |
 | 10x Genomics prostate invasive adenocarcinoma, Visium FFPE (`prad-10x-invasive`) | Visium FFPE | Free account | 1 sample (vendor specimen) | Verification pending |
 | Hirz et al. 2023 (`prad-hirz-slideseq`); includes normal or adjacent tissue; H&E from serial sections | Slide-seqV2 | Open download | 2 prostate cancer donors | Verification pending |
 | Erickson et al. 2022 (`prad-erickson-clonal`); includes normal or adjacent tissue | Spatial Transcriptomics (legacy arrays), Visium | Open download | 2 patients with public image folders | Verification pending |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
 ## Selection history: published archetype evidence
 

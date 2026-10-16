@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "KIRC",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -176,7 +177,7 @@
     "KIRC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -192,7 +193,9 @@
    "linkage": "listed-together",
    "gates": [
     "he-not-located",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE175540",
    "access": {
@@ -242,7 +245,8 @@
     "Also redistributed through HEST INT1-INT24 (verify exact IDs in retained metadata); not a separate cohort.",
     "Review TLS enrichment",
     "Study-level treatment-naive status is documented in the primary paper",
-    "Clinical Table S1 is publicly linked but its download failed: a technical gap, not author-only data"
+    "Clinical Table S1 is publicly linked but its download failed: a technical gap, not author-only data",
+    "Matched data with preview image: 24 checked section packages, not yet listed as individual section records"
    ],
    "spatial_review": {
     "id": "kirc-meylan-gse175540",
@@ -403,7 +407,7 @@
     "KIRC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -417,7 +421,9 @@
    "linkage": "listed-together",
    "gates": [
     "treated",
-    "he-unverified"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE294006",
    "access": {
@@ -451,7 +457,8 @@
    "notes": [
     "Keep outside untreated primary reference",
     "Two specimens are sarcomatoid ccRCC",
-    "Advanced-disease study title does not make these metastatic tissue: all GSMs say primary tumour"
+    "Advanced-disease study title does not make these metastatic tissue: all GSMs say primary tumour",
+    "Matched data with preview image: 3 checked section packages, not yet listed as individual section records"
    ],
    "spatial_review": {
     "id": "kirc-treated-gse294006",

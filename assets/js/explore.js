@@ -1,11 +1,12 @@
 import {
   loadData, LABELS, esc, chip, fmt, tally, cancerName, stratumLabel, setFooter,
-  showCapture, showCohort, cohortCounts, showError, loadTcgaPatients, tcgaTally, showTcgaPatient, tcgaPasses, cohortName,
+  showCapture, showCohort, cohortCounts, showError, loadTcgaPatients, tcgaTally, showTcgaPatient, tcgaPasses, cohortName, countedPreview,
 } from "./common.js";
 
 const PAGE = 60;
 
 const CAPTURE_FACETS = [
+  { key: "level", label: "Image level", get: c => [c.image_level] },
   { key: "cancer", label: "Cancer", get: c => [c.cancer] },
   { key: "stratum", label: "Histology stratum", get: c => [c.stratum ?? "none"] },
   { key: "site", label: "Primary or metastatic", get: c => [c.site] },
@@ -15,6 +16,8 @@ const CAPTURE_FACETS = [
   { key: "preservation", label: "Preservation", get: c => [c.preservation ?? "Unknown"] },
   { key: "access", label: "H&E access", get: c => [c.access.he] },
   { key: "verification", label: "Verification", get: c => [c.verification] },
+  { key: "pid", label: "Patient ID", get: c => [c.patient ? "known" : "unknown"] },
+  { key: "area", label: "Array area", get: c => [c.assay_area_id ? "shared" : "own"] },
   { key: "cohort", label: "Cohort", get: c => [c.cohort] },
 ];
 
@@ -22,7 +25,7 @@ const COHORT_FACETS = [
   { key: "cancer", label: "Cancer", get: c => c.cancers },
   { key: "layer", label: "Data layer", get: c => [c.layer] },
   { key: "modality", label: "Modality", get: c => c.modalities || [] },
-  { key: "status", label: "Resource status", get: c => [c.status] },
+  { key: "status", label: "Resource status and image level", get: c => [c.status] },
   { key: "technique", label: "Technique", get: c => (c.techniques && c.techniques.length ? c.techniques : ["Not specified"]) },
   { key: "access", label: "Access", get: c => [c.access.category] },
   { key: "compartment", label: "Tissue compartment", get: c => c.compartments || [] },
@@ -30,7 +33,8 @@ const COHORT_FACETS = [
   { key: "linkage", label: "H&E linkage", get: c => [c.linkage] },
   { key: "treat", label: "Treatment (spatial review)", get: c => [c.spatial_review ? c.spatial_review.treatment_class : "na"] },
   { key: "sreview", label: "Spatial review", get: c => [c.spatial_review ? c.spatial_review.analysis_cohort : "none"] },
-  { key: "route", label: "Open dependency (route review)", get: c => (c.spatial_review?.route_review ? c.spatial_review.route_review.states : ["na"]) },
+  { key: "outcome", label: "Package review result", get: c => [c.backlog_review ? c.backlog_review.outcome : "na"] },
+  { key: "route", label: "Open dependency (spatial reviews)", get: c => c.backlog_review?.states || c.spatial_review?.route_review?.states || ["na"] },
   { key: "specimen", label: "Specimens", get: c => [c.specimen] },
   { key: "verification", label: "Verification", get: c => [c.verification] },
 ];
@@ -71,7 +75,10 @@ const VOCAB = {
   disp: LABELS.disposition, selected: LABELS.selected, reason: { ...LABELS.reason, none: "None" }, covariate: { ...LABELS.reason, none: "None" },
   tctx: LABELS.treatmentContext, nctx: LABELS.normalContext, sover: LABELS.siteOverride,
   role: LABELS.role, subset: LABELS.subset, pexcl: LABELS.panelExclusion, conflict: { yes: "Yes", no: "No" },
-  assay: LABELS.assayClass, treat: LABELS.treatmentClass, linkage: LABELS.linkageShort, route: { ...LABELS.routeState, na: "Not in the route review" },
+  assay: LABELS.assayClass, treat: LABELS.treatmentClass, linkage: LABELS.linkageShort, route: { ...LABELS.routeState, na: "Not reviewed" },
+  level: LABELS.imageLevel, pid: { known: "Given by the source", unknown: "Not given or not mapped" },
+  area: { own: "One section per array area", shared: "Array area shared with other sections" },
+  outcome: { ...LABELS.backlogOutcome, na: "Not in the package review" },
   sreview: { ...Object.fromEntries(Object.keys(LABELS.spatialScope).map(k => [k, `Reviewed for ${k}`])), none: "Not in the spatial review" },
 };
 
@@ -216,11 +223,11 @@ function renderFacets() {
 function captureRow(c) {
   const co = D.cohortById.get(c.cohort);
   return `<tr class="clickable" tabindex="0" data-id="${esc(c.id)}">
-    <td class="primary" data-label="Section"><div><span class="mono">${esc(c.capture)}</span><span class="cell-sub">Patient ${esc(c.patient ?? "not stated")} · ${esc(co?.label ?? c.cohort)}</span></div></td>
+    <td class="primary" data-label="Section"><div><span class="mono">${esc(c.capture)}</span><span class="cell-sub">Patient ${esc(c.patient ?? "not mapped")} · ${esc(co?.label ?? c.cohort)}</span></div></td>
     <td data-label="Cancer"><div>${esc(c.cancer)}<span class="cell-sub">${esc(stratumLabel(D, c.stratum))}</span></div></td>
     <td data-label="Site / treatment"><div>${esc(c.site)}<span class="cell-sub">${chip("treatment", c.treatment)}</span></div></td>
     <td data-label="Technique"><div>${esc(c.technique)}<span class="cell-sub">${esc(c.preservation ?? "")}</span></div></td>
-    <td data-label="Tier / H&E access"><div>${chip("tier", c.tier)}<span class="cell-sub">${chip("access", c.access.he)}</span></div></td>
+    <td data-label="Image level / tier"><div>${chip("imageLevel", c.image_level)}<span class="cell-sub">${chip("tier", c.tier)} ${chip("access", c.access.he)}</span></div></td>
   </tr>`;
 }
 
@@ -234,7 +241,8 @@ function cohortCountCell(c) {
     return `<span class="num">${fmt(x.post_qc.union)} / ${fmt(x.post_qc.paired)}</span><span class="cell-sub">tumour patients, RNA and/or 450k / both, after exclusions; normal reference ${fmt(x.normal.rna_he)}</span>`;
   }
   const k = cohortCounts(D, c);
-  if (k) return `<span class="num">${fmt(k.all.patients)}</span> patients with matched data located<span class="cell-sub">${fmt(k.all.captures)} measured tissue sections; ${fmt(k.core.patients)} patients with primary-tumour sections in a defined histology stratum</span>`;
+  if (k) return `<span class="num">${fmt(k.all.captures)}</span> tissue section records<span class="cell-sub">${[k.original.captures ? `${fmt(k.original.captures)} with original H&E` : "", k.preview.captures ? `${fmt(k.preview.captures)} with a preview image` : ""].filter(Boolean).join(", ")}; ${fmt(k.all.patients)} known ${k.all.patients === 1 ? "patient" : "patients"}${k.all.unknown ? `, ${fmt(k.all.unknown)} sections without a patient ID` : ""}; ${fmt(k.core.patients)} with primary-tumour sections in a defined histology stratum</span>`;
+  if (countedPreview(D, c)) return `<span class="num">${fmt(countedPreview(D, c))}</span> checked section packages<span class="cell-sub">preview image; not listed one by one, so no patients are counted; eligible patients unknown</span>`;
   if (c.reported && c.reported.length) {
     const [n, unit, , scope] = c.reported[0];
     return `<span class="num">${fmt(n)}</span> ${esc(unit)}<span class="cell-sub">reported by source${scope ? `, ${esc(scope)} only` : c.cancers.length > 1 ? ", all cancer sites" : ""}${c.reported.length > 1 ? `; ${c.reported.length - 1} more ${c.reported.length === 2 ? "unit" : "units"}` : ""}${c.spatial_review ? "; eligible patients unknown" : ""}</span>`;
@@ -276,7 +284,7 @@ function renderTable(list) {
   }
   const page = list.slice(0, state.shown);
   const head = state.view === "captures"
-    ? ["Section / patient / study", "Cancer / stratum", "Site / treatment", "Technique", "Tier / H&E access"]
+    ? ["Section / patient / study", "Cancer / stratum", "Site / treatment", "Technique", "Image level / tier / H&E access"]
     : state.view === "tcga" ? ["Patient", "Primary tumour (assay QC)", "Patient screen", "Normal reference", "Flagged aliquots"]
     : ["Resource", "Cancers", "Layer", "Status / access", "Counts"];
   t.innerHTML = `<div class="table-wrap"><table class="stack">
@@ -301,8 +309,9 @@ function renderSummary(list) {
   if (state.view === "captures") {
     const t = tally(list);
     const pl = (n, one, many) => `<strong>${fmt(n)}</strong> ${n === 1 ? one : many}`;
-    el.innerHTML = `${pl(t.captures, "tissue section", "tissue sections")} from ${pl(t.patients, "patient", "patients")} in ${pl(t.cohorts, "study", "studies")}`;
-    note.textContent = "Each row is one tissue section with a located original H&E image, measured spatial RNA and coordinates, such as one Visium capture area. Patients are counted once per study; no patient is known to appear in more than one study. Counts are lower bounds before image registration and tissue QC.";
+    const nOrig = list.filter(c => c.image_level === "original").length;
+    el.innerHTML = `${pl(t.captures, "tissue section record", "tissue section records")} <span class="small muted">(${fmt(nOrig)} with original H&amp;E, ${fmt(t.captures - nOrig)} with a preview image)</span> from ${pl(t.patients, "known patient", "known patients")} in ${pl(t.cohorts, "study", "studies")}${t.unknown ? ` <span class="small muted">· ${fmt(t.unknown)} without a patient ID</span>` : ""}`;
+    note.textContent = "Each row is one tissue section record with measured spatial RNA and coordinates, such as one Visium capture area, and either the original H&E scan or only a preview image (see the image level; preview sections are not suited to whole-slide or tile models, morphology or distance measurements). Known patients are study-local IDs given by the source, counted once per study; sections without one are not counted as patients, and no patient is known to appear in more than one study. Records are not globally unique physical sections, and they are not eligible-patient counts. Counts are lower bounds before image registration and tissue QC. Checked preview packages of seven studies are counted for their study on the spatial page and are not listed here.";
   } else if (state.view === "tcga") {
     const t = tcgaTally(list);
     el.innerHTML = `<strong>${fmt(t.union)}</strong> tumour patients after assay QC → <strong>${fmt(t.eligible)}</strong> after the patient screen →
@@ -312,9 +321,9 @@ function renderSummary(list) {
     note.textContent = `Assay states use current GDC files after exact aliquot matching to the PanCanAtlas quality annotations. The patient screen adds treatment, diagnosis, identity and recurrence decisions and does not change assay states. The selected set uses histology-defined cohorts for ESCC, PDAC and CSCC, pools TCGA-COAD and TCGA-READ as CRC, and pools TCGA-LGG and TCGA-GBM as the GLIOMA classification benchmark. Filter by analysis cohort or study role to count each patient once. Normal-reference patients are cancer patients, most of them also in the tumour set, so the two groups should not be added. Patients listed with nothing retained have only excluded or unresolved aliquots. Treatment-flagged patients are not a treated reference set.`;
   } else {
     const n = list.length;
-    const byStatus = ["verified", "screened", "candidate", "reference", "listed"].map(s => [s, list.filter(c => c.status === s).length]).filter(([, k]) => k);
+    const byStatus = ["verified", "preview", "screened", "candidate", "reference", "listed"].map(s => [s, list.filter(c => c.status === s).length]).filter(([, k]) => k);
     el.innerHTML = `<strong>${fmt(n)}</strong> ${n === 1 ? "resource" : "resources"} <span class="small muted">(${byStatus.map(([s, k]) => `${k} ${LABELS.status[s].toLowerCase()}`).join(", ")})</span>`;
-    note.textContent = "Each underlying study appears once. Counts are computed from catalogued tissue sections where they exist; otherwise the source's own count is shown and labelled. Candidate studies are listed without patient counts.";
+    note.textContent = "Each underlying study appears once, at its best image level. Counts are computed from catalogued tissue section records where they exist; otherwise the source's own count is shown and labelled. Candidate studies are listed without patient counts.";
   }
 }
 
@@ -349,10 +358,17 @@ function captureRecord(c) {
   return {
     catalogue_release: D.release.version, record_id: c.id, cohort_id: c.cohort, cohort: co?.label,
     citation_doi: co?.citation?.doi ?? "", cancer: c.cancer, histology_stratum: c.stratum ? stratumLabel(D, c.stratum) : "",
-    patient_id: c.patient, capture_id: c.capture, accession: c.accession, catalogue_tier: LABELS.tier[c.tier],
+    patient_id: c.patient, patient_id_mapping: c.donor_mapping ? LABELS.donorMapping[c.donor_mapping] : (c.patient ? "Curated from the source" : ""),
+    capture_id: c.capture, accession: c.accession, image_level: LABELS.imageLevel[c.image_level],
+    shared_array_area: c.assay_area_id ?? "", source_region: c.region_label ?? "",
+    expression_subset: c.expression_subset ? `slide ${c.expression_subset.slide}, tissue ${c.expression_subset.tissues}` : "",
+    catalogue_tier: LABELS.tier[c.tier],
     tier_reason: c.tier_reason, site: c.site, site_source: c.site_source, treatment_before_sampling: c.treatment,
     treatment_note: c.treatment_note, diagnosis_source: c.diagnosis, histology_source: c.histology,
-    technique: c.technique, preservation: c.preservation, he_rna_linkage: LABELS.linkage[c.linkage],
+    tissue: c.compartment ? (LABELS.compartment[c.compartment] ?? c.compartment) : "",
+    technique: c.technique, preservation: c.preservation, he_rna_linkage: LABELS.linkage[c.linkage], expression_data: c.expression_type,
+    out_of_tissue_expression_spots: c.out_of_tissue_expression_spots ?? "", recurrence_later_outcome: c.recurrence_outcome ?? "",
+    original_image_match_inferred: c.original_crosswalk_inferred ?? "", open_checks: c.open_checks || [],
     he_um_per_pixel: c.he_mpp, he_resolution_basis: c.he_mpp_basis, he_url: c.links.he, expression_url: c.links.expression,
     coordinates_url: c.links.coordinates, raw_urls: c.links.raw, access_he: LABELS.access[c.access.he],
     access_processed: LABELS.access[c.access.processed], access_raw: LABELS.access[c.access.raw],
@@ -369,7 +385,10 @@ function cohortRecord(c) {
     techniques: c.techniques, preservation: c.preservation, specimens: LABELS.specimen[c.specimen], linkage: LABELS.linkage[c.linkage],
     accession: c.accession, access: LABELS.access[c.access.category], access_route: c.access.route,
     access_links: (c.access.links || []).map(([, u]) => u), open_checks: (c.gates || []).map(g => LABELS.gate[g] ?? g),
-    catalogued_patients: k?.all.patients ?? "", catalogued_captures: k?.all.captures ?? "",
+    image_level: c.status === "verified" || c.status === "preview" ? LABELS.status[c.status] : "",
+    known_patients: k?.all.patients ?? "", section_records: k?.all.captures ?? "",
+    section_records_original_he: k?.original.captures ?? "", section_records_preview_image: k?.preview.captures ?? "",
+    preview_sections_counted_without_records: countedPreview(D, c) || "", sections_without_patient_id: k?.all.unknown ?? "",
     core_patients: k?.core.patients ?? "", core_captures: k?.core.captures ?? "",
     reported_counts: (c.reported || []).map(([n, u, b, sc]) => `${n} ${u} (${b}${sc ? `; ${sc}` : ""})`),
     spatial_review_id: c.spatial_review?.id ?? "", spatial_review_date: c.spatial_review?.date ?? "",
@@ -377,12 +396,17 @@ function cohortRecord(c) {
     route_open_dependencies: (c.spatial_review?.route_review?.states || []).map(x => LABELS.routeState[x] ?? x),
     route_next_step: c.spatial_review?.route_review?.next_step ?? "",
     route_sections_with_matching_coordinates: c.spatial_review?.route_review?.sections_with_matching_coordinates ?? "",
+    package_review_result: c.backlog_review ? LABELS.backlogOutcome[c.backlog_review.outcome] : "",
+    package_review_depth: c.backlog_review?.depth ?? "", package_review_images: c.backlog_review?.image_finding ?? "",
+    package_review_expression_and_coordinates: c.backlog_review?.molecular_finding ?? "",
+    package_review_open_dependencies: (c.backlog_review?.states || []).map(x => LABELS.routeState[x] ?? x),
+    package_review_next_step: c.backlog_review?.next_step ?? "",
     spatial_analysis_scope: c.spatial_review?.analysis_cohort ?? "",
     spatial_assay_classes: (c.spatial_review?.assay_classes || []).map(a => LABELS.assayClass[a]),
     spatial_platform_reported: c.spatial_review?.platform ?? "", spatial_image_status: c.spatial_review?.image_status ?? "",
     treatment_class: c.spatial_review ? LABELS.treatmentClass[c.spatial_review.treatment_class] : "",
     treatment_status_reported: c.spatial_review?.treatment_status ?? "",
-    eligible_patients: c.spatial_review ? "unknown" : "",
+    eligible_patients: c.spatial_review || c.backlog_review ? "unknown" : "",
     sample_ids: c.spatial_review ? Object.entries(c.spatial_review.sample_ids || {}).map(([k, v]) => `${LABELS.sampleIds[k] ?? k}: ${v.join(" ")}`) : [],
     notes: c.notes || [],
     compartments: (c.compartments || []).map(x => LABELS.compartment[x] ?? x),

@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "HNSC",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -271,11 +272,31 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Two source-listed HD specimens P5684/P5624; originals/Parquet listed",
+    "molecular_finding": "26 standard Visium packages inspected; all raw barcodes map, but those overlap existing resource; HD itself not yet fully checked",
+    "next_step": "Audit only GSM9701483/84 HD components; link to existing two patients, add zero new patients; resolve study-versus-assay resource counting.",
+    "sections_listed": null,
+    "study_local_donors": 0
+   },
+   "derived_from": [
+    "simkin-2026"
+   ],
+   "notes": [
+    "HD re-assays of the existing Simkin patients P5684 and P5624; they add no patients"
    ]
   },
   {
@@ -294,7 +315,7 @@
     "HNSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -307,7 +328,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE208253",
    "access": {
@@ -324,12 +347,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "12 previews",
+    "molecular_finding": "All 12 exact",
+    "next_step": "Patient IDs, treatment and original scans.",
+    "sections_listed": 12,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-cheng2022-gse181300",
@@ -347,7 +385,7 @@
     "HNSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -360,7 +398,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE181300",
    "access": {
@@ -377,12 +417,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Eight previews",
+    "molecular_finding": "All eight exact",
+    "next_step": "Original scans and treatment; repeated invasive-front and inner sections of two patients.",
+    "sections_listed": 8,
+    "study_local_donors": 2
+   }
   },
   {
    "id": "cand-gse281978-hpv2024",
@@ -400,7 +455,7 @@
     "HNSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -411,7 +466,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE281978",
    "access": {
@@ -428,12 +485,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Six previews",
+    "molecular_finding": "All six exact",
+    "next_step": "Donor and site join before counting the three paired donors; the PT and LNMT labels conflict with the primary-tissue metadata.",
+    "sections_listed": 6,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-beyaert2025-gse289908",
@@ -482,12 +554,26 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "coordinate-gap",
+    "depth": "components inspected; join incomplete",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Original-image candidates plus Loupe alignment JSON listed",
+    "molecular_finding": "Three treated (afatinib) matrices; JSON oligo spots have array/image coordinates but no barcode IDs",
+    "next_step": "Recover validated barcode-to-grid/JSON map and original-image relation; no direct expression-coordinate verification yet.",
+    "sections_listed": null,
+    "study_local_donors": 3
+   }
   },
   {
    "id": "cand-gessain2024-e-mtab-14409",
@@ -522,8 +608,8 @@
    ],
    "accession": "E-MTAB-14409",
    "access": {
-    "category": "controlled",
-    "route": null,
+    "category": "open",
+    "route": "Public processed .cloupe files in E-MTAB-14409; sharing of the original institutional whole-slide images needs a separate agreement",
     "links": [
      [
       "Publication",
@@ -535,12 +621,26 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Public processed ArrayExpress listing, not globally controlled; original institutional WSI sharing restricted",
+    "molecular_finding": "11 .cloupe files listed, nine patient prefixes; magic inspected, not numerically decoded",
+    "next_step": "Decode the counts, positions and preview inside the .cloupe files; transfer of the original whole-slide images needs a separate agreement.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-frontiers2026-zenodo18238293",
@@ -558,7 +658,7 @@
     "HNSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna"
    ],
@@ -571,7 +671,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "Zenodo 18238293",
    "access": {
@@ -588,12 +690,26 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "original-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Four original TIFFs around 10,000 px",
+    "molecular_finding": "Four VisiumV2 centroid sets cover all 13,611 expression-cell-map labels; count-layer sizes match",
+    "next_step": "Treatment and timing; 11 tissue blocks from ten donors share four array areas, and the recurrence field is a later outcome.",
+    "sections_listed": 11,
+    "study_local_donors": 10
+   }
   },
   {
    "id": "cand-causer2023-uq",
@@ -646,7 +762,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "technical-gap",
+    "depth": "public download failed",
+    "states": [
+     "download-failure"
+    ],
+    "image_finding": "Primary article says public processed Visium/PhenoCycler at UQ DOI; direct source 403",
+    "molecular_finding": "GSE181919 is related scRNA, not substitute spatial package",
+    "next_step": "Retrieve exact UQ processed spatial package and assayed-section H&E; separate PhenoCycler and controlled raw reads.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-li2024-hra005551-hra005576",
@@ -697,7 +826,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "access-dependent",
+    "depth": "access boundary reached",
+    "states": [
+     "dac-approval"
+    ],
+    "image_finding": "Primary paper says nonprofit research can be approved; accession typo HRA0005576 corrected to HRA005576",
+    "molecular_finding": "No controlled package accessed",
+    "next_step": "Processed public alternative or formal approval.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-hypopharynx2025-ccrt",
@@ -746,7 +888,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "author-release",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Paper explicitly restricts public sharing for privacy/ethics",
+    "molecular_finding": "No public package",
+    "next_step": "Author/institution release needed for processed RNA/image/clinical map.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-gse301720-ici2026",
@@ -764,7 +919,7 @@
     "HNSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -775,7 +930,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE301720",
    "access": {
@@ -792,12 +949,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Eight previews",
+    "molecular_finding": "All eight exact",
+    "next_step": "Clinical timing and source site; response labels do not show that samples were taken after immunotherapy.",
+    "sections_listed": 8,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-oraltumorigenesis2025-preprint",
@@ -844,7 +1016,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "release-unresolved",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Primary preprint includes human and murine precursor/invasive TMAs",
+    "molecular_finding": "No released source package verified",
+    "next_step": "Identify human invasive subset and accession; exclude mouse/precursor counts from invasive HNSC denominator.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -855,6 +1040,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5636",
    "capture": "P5636",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -868,7 +1054,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5692",
@@ -877,6 +1065,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5692",
    "capture": "P5692",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -890,7 +1079,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5710",
@@ -899,6 +1090,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5710",
    "capture": "P5710",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -912,7 +1104,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5735",
@@ -921,6 +1115,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5735",
    "capture": "P5735",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -934,7 +1129,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5764",
@@ -943,6 +1140,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5764",
    "capture": "P5764",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -956,7 +1154,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5766",
@@ -965,6 +1165,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5766",
    "capture": "P5766",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -978,7 +1179,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5767",
@@ -987,6 +1190,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5767",
    "capture": "P5767",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1000,7 +1204,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5903",
@@ -1009,6 +1215,7 @@
    "stratum": "hnsc-hpvpos-nk",
    "patient": "P5903",
    "capture": "P5903",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1022,7 +1229,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5418",
@@ -1031,6 +1240,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5418",
    "capture": "P5418",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1044,7 +1254,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5456",
@@ -1053,6 +1265,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5456",
    "capture": "P5456",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1066,7 +1279,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5612",
@@ -1075,6 +1290,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5612",
    "capture": "P5612",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1088,7 +1304,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5624",
@@ -1097,6 +1315,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5624",
    "capture": "P5624",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1110,7 +1329,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5659",
@@ -1119,6 +1340,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5659",
    "capture": "P5659",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1132,7 +1354,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5684",
@@ -1141,6 +1365,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5684",
    "capture": "P5684",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1154,7 +1379,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5707",
@@ -1163,6 +1390,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5707",
    "capture": "P5707",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1176,7 +1404,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5709",
@@ -1185,6 +1415,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5709",
    "capture": "P5709",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1198,7 +1429,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5736",
@@ -1207,6 +1440,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5736",
    "capture": "P5736",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1220,7 +1454,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5751",
@@ -1229,6 +1465,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5751",
    "capture": "P5751",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1242,7 +1479,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5756",
@@ -1251,6 +1490,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5756",
    "capture": "P5756",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1264,7 +1504,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "simkin-2026:P5909",
@@ -1273,6 +1515,7 @@
    "stratum": "hnsc-hpvneg-k",
    "patient": "P5909",
    "capture": "P5909",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1286,7 +1529,1134 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
+  },
+  {
+   "id": "cand-gse281978-hpv2024:GSM8633891",
+   "cohort": "cand-gse281978-hpv2024",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8633891",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse281978-hpv2024:GSM8633892",
+   "cohort": "cand-gse281978-hpv2024",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8633892",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse281978-hpv2024:GSM8633893",
+   "cohort": "cand-gse281978-hpv2024",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8633893",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse281978-hpv2024:GSM8633894",
+   "cohort": "cand-gse281978-hpv2024",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8633894",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse281978-hpv2024:GSM8633895",
+   "cohort": "cand-gse281978-hpv2024",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8633895",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse281978-hpv2024:GSM8633896",
+   "cohort": "cand-gse281978-hpv2024",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8633896",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087747",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087747",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087748",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087748",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087749",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087749",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087750",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087750",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087751",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087751",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087752",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087752",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087753",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087753",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-gse301720-ici2026:GSM9087754",
+   "cohort": "cand-gse301720-ici2026",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9087754",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494475",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "1",
+   "capture": "GSM5494475",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494476",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "1",
+   "capture": "GSM5494476",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494477",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "1",
+   "capture": "GSM5494477",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494478",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "1",
+   "capture": "GSM5494478",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494479",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "2",
+   "capture": "GSM5494479",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494480",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "2",
+   "capture": "GSM5494480",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494481",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "2",
+   "capture": "GSM5494481",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-cheng2022-gse181300:GSM5494482",
+   "cohort": "cand-cheng2022-gse181300",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "2",
+   "capture": "GSM5494482",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339631",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339631",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339632",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339632",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339633",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339633",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339634",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339634",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339635",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339635",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339636",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339636",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339637",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339637",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339638",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339638",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339639",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339639",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339640",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339640",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339641",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339641",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-arora2023-gse208253:GSM6339642",
+   "cohort": "cand-arora2023-gse208253",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6339642",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-A-A1",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "NR1",
+   "capture": "VLP39-A-A1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-A",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-A-A3",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "NR3",
+   "capture": "VLP39-A-A3",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-A",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-A-A2",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "R2",
+   "capture": "VLP39-A-A2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-A",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-B-B1",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "NR4",
+   "capture": "VLP39-B-B1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-B",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-B-B2",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "R1",
+   "capture": "VLP39-B-B2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-B",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-C-C1",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "R3",
+   "capture": "VLP39-C-C1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-C",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-C-C4",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "NR2",
+   "capture": "VLP39-C-C4",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-C",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-C-C2",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "R3",
+   "capture": "VLP39-C-C2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-C",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-C-C3",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "NR5",
+   "capture": "VLP39-C-C3",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-C",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-D-D1",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "NR6",
+   "capture": "VLP39-D-D1",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-D",
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293:VLP39-D-D2",
+   "cohort": "cand-frontiers2026-zenodo18238293",
+   "cancer": "HNSC",
+   "stratum": null,
+   "patient": "R4",
+   "capture": "VLP39-D-D2",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": "VLP39-D",
+   "donor_mapping": "source-established"
   }
  ],
  "other_resources": [

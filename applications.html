@@ -36,7 +36,7 @@
     <div class="prose">
       <h2 id="heterogeneity">Tumour heterogeneity</h2>
       <p>The TCGA analysis cohorts support studies of how tumours of one cancer type differ in RNA expression and DNA methylation. Histologically distinct diseases are kept in separate cohorts, patients with only one of the two measurements are identified, and withheld patients are listed with their reasons. Spatial studies add variation within a single tumour.</p>
-      <p class="small"><strong>Relevant data:</strong> <a href="tcga.html#panel">TCGA analysis cohorts</a>, <a href="spatial.html">spatial studies with matched data located</a>. <strong>Limits:</strong> the cohorts follow one set of selection criteria; patients outside them may suit other designs.</p>
+      <p class="small"><strong>Relevant data:</strong> <a href="tcga.html#panel">TCGA analysis cohorts</a>, <a href="spatial.html#levels">spatial studies with matched data located</a>. <strong>Limits:</strong> the cohorts follow one set of selection criteria; patients outside them may suit other designs.</p>
 
       <h2 id="classification">Molecular classification</h2>
       <p>Where they have been curated, published subtype annotations are kept beside each TCGA patient: glioma IDH and 1p/19q groups, endometrial molecular groups, PCPG molecular subtypes and cervical HPV status. The pooled glioma cohort is a classification benchmark: it compares historical diagnoses and grades with independently curated integrated diagnoses, which have not yet been adjudicated.</p>
@@ -47,11 +47,11 @@
       <p class="small"><strong>Relevant data:</strong> <a href="spatial.html">spatial studies</a>; no single-cell reference is catalogued yet. <strong>Limits:</strong> references from other patients do not give per-patient composition.</p>
 
       <h2 id="spatial-organisation">Spatial organisation</h2>
-      <p>Tissue sections with original H&amp;E, measured expression and coordinates allow molecular programmes and cell states to be located within tissue and related to its architecture, such as the tumour core, invasive edge, stroma or immune aggregates.</p>
-      <p class="small"><strong>Relevant data:</strong> <a href="spatial.html">spatial studies</a>. <strong>Limits:</strong> the section relationship, image resolution and registration must be checked per section; targeted panels and ROI-based assays answer different questions from whole-transcriptome data.</p>
+      <p>Tissue sections with measured expression and coordinates allow molecular programmes and cell states to be located within tissue. With the original H&amp;E, they can also be related to its architecture, such as the tumour core, invasive edge, stroma or immune aggregates; sections with only a preview image support molecular maps but not morphology or distance measurements.</p>
+      <p class="small"><strong>Relevant data:</strong> <a href="spatial.html">spatial studies</a>. <strong>Limits:</strong> the <a href="methods.html#image-levels">image level</a>, section relationship, image resolution and registration must be checked per section; targeted panels and ROI-based assays answer different questions from whole-transcriptome data.</p>
 
       <h2 id="histology-modelling">Histology-to-molecular modelling</h2>
-      <p>TCGA slide images with patient-level RNA-seq and methylation support models that predict molecular features from morphology across many patients. Spatial studies give local, section-level supervision for the same kind of model.</p>
+      <p>TCGA slide images with patient-level RNA-seq and methylation support models that predict molecular features from morphology across many patients. Spatial studies with the original H&amp;E give local, section-level supervision for the same kind of model; preview images are not suitable for it.</p>
       <p class="small"><strong>Relevant data:</strong> <a href="tcga.html">TCGA reference</a>, <a href="spatial.html">spatial studies</a>. <strong>Limits:</strong> in TCGA, slide images and molecular aliquots are linked through the patient and sample, not the same section, and slide linkage for the selected panel is still to be checked.</p>
 
       <h2 id="archetypes">Archetype analysis</h2>

@@ -1,6 +1,6 @@
 # Oesophageal carcinoma
 
-Code `ESCA`. Molecular screen; not screened by Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=ESCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=ESCA). Data: [data/by-cancer/ESCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/ESCA.json).
+Code `ESCA`. Molecular screen; not screened by Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=ESCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=ESCA). Data: [data/by-cancer/ESCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/ESCA.json).
 
 Oesophageal carcinoma combines two distinct diseases, squamous cell carcinoma and adenocarcinoma. It was not among the cancer types screened by Hausser et al. The project meets the molecular screen; analyses use a histology-defined squamous cell carcinoma cohort rather than the pooled project.
 
@@ -24,13 +24,13 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 3 spatial resources are catalogued. Verification of the matched image and molecular data is pending. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | HRA007162, ESCC single-cell and spatial (`escc-hra007162`) | Visium | Open download | 5 cancer tissues | Verification pending |
 | HRA000776 / OMIX009524, multistage ESCC (`escc-hra000776-omix009524`) | Visium (library details to verify) | Controlled access | 5 named tumour image packages | Verification pending |
 | Liu et al. 2023, GeoMx precancer (`escc-precancer-geomx`); includes precursor lesions; H&E from serial sections | GeoMx WTA (ROI) | Author request | 7 patients with invasive ESCC | Verification pending |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
 ## Selection history: published archetype evidence
 

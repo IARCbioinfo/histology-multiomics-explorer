@@ -120,8 +120,10 @@ for c in captures:
     if not co:
         err(f"{w}: unknown cohort {c['cohort']}")
         continue
-    if co["status"] != "verified":
-        err(f"{w}: captures must belong to a cohort with located packages")
+    if co["status"] not in ("verified", "preview"):
+        err(f"{w}: section records must belong to a study at one of the two image levels")
+    if c.get("image_level") not in ENUMS["image_level"] or (co["status"] == "preview" and c["image_level"] != "preview"):
+        err(f"{w}: image level must be original or preview, and a preview-level study holds only preview sections")
     if c["cancer"] not in codes:
         err(f"{w}: unknown cancer {c['cancer']}")
     if c["stratum"] is not None and strata.get(c["stratum"]) != c["cancer"]:
@@ -145,6 +147,33 @@ for c in captures:
         check_url(w, u)
     if not c.get("patient") and c["tier"] == "core":
         err(f"{w}: core capture without patient ID")
+    if c.get("review_batch") == "backlog-2026-10-16":
+        if c["tier"] not in ("review", "metastatic") or c["stratum"] or (c["tier"] == "metastatic") != (c["site"] == "Metastasis"):
+            err(f"{w}: backlog sections stay outside the core and any histology stratum")
+        if c.get("donor_mapping") not in ENUMS["donor_mapping"] or (c["patient"] is not None) != (c["donor_mapping"] != "unresolved"):
+            err(f"{w}: a patient ID needs a source-backed donor mapping, and an unresolved mapping has none")
+        if c["registration"] != "Not yet checked" or c["he_mpp"] is not None or not c["tier_reason"].startswith(
+                "Original H&E located" if c["image_level"] == "original" else "Matched data with preview image"):
+            err(f"{w}: registration and calibration stay unchecked, and the tier reason states the image level")
+    elif c.get("image_level") != "original" or "donor_mapping" in c:
+        err(f"{w}: section records before the backlog review are at the original level")
+    if "ftp://" in json.dumps(c["links"]):
+        err(f"{w}: links must use https")
+
+# Section records imported before the backlog review keep their maintained values (image_level was added).
+import hashlib  # noqa: E402
+_base = [{k: v for k, v in c.items() if k != "image_level"} for c in captures if not c.get("review_batch")]
+if len(_base) != 204 or hashlib.sha256(json.dumps(_base, sort_keys=True, ensure_ascii=False).encode()).hexdigest() != \
+        "be1d9cc7e17a79699213b75938adf6fa2c756f2ac50fe54597f3d9b0b729e630":
+    err("captures: the 204 section records from before the backlog review changed; update this pin only for a deliberate edit")
+# A source section (GEO sample or capture ID) belongs to one study.
+_owner = defaultdict(set)
+for c in captures:
+    for k in {c["capture"], c.get("accession")} - {None}:
+        _owner[k].add(c["cohort"])
+for k, v in _owner.items():
+    if len(v) > 1:
+        err(f"captures: section {k} is listed under several studies {sorted(v)}")
 
 # Spatial resources reviewed on 15 October 2026 (candidates only)
 SPATIAL_REVIEW = {
@@ -158,6 +187,9 @@ SPATIAL_REVIEW = {
 SPATIAL_EXISTING = {"lusc-emtab13530": "cand-dezuani-cvejic-2024", "glioma-greenwald-gse237183": "cand-greenwald2024",
                     "glioma-2026-niche-atlas": "cand-snu2026"}
 SCOPE_CANCERS = {"CSCC": {"CESC"}, "ESCC": {"ESCA"}, "GLIOMA": {"LGG", "GBM"}}
+# Checked preview packages counted at study level, without individual section records (backlog review of 16 October 2026).
+PREVIEW_COUNTED = {"stad-gse270678": 72, "kirc-meylan-gse175540": 24, "lusc-emtab13530": 10, "stad-gse251950": 10,
+                   "ucec-np137-gse225690": 4, "kirc-treated-gse294006": 3, "ucec-barkley-gse203612": 1}
 SR = {c["spatial_review"]["id"]: c for c in cohorts if c.get("spatial_review")}
 if set(SR) != set(SPATIAL_REVIEW) or len(SR) != len([c for c in cohorts if c.get("spatial_review")]):
     err(f"spatial review: {len(SR)} records differ from the 26 reviewed")
@@ -172,10 +204,11 @@ for rid, scope in SPATIAL_REVIEW.items():
         err(f"{w}: catalogue ID {c['id']} is not the expected one")
     if sr["analysis_cohort"] != scope or not (SCOPE_CANCERS.get(scope, {scope}) & set(c["cancers"])) or "SARC" in c["cancers"]:
         err(f"{w}: analysis scope or cancer pages do not match {scope}")
-    if c["layer"] != "matched-spatial" or c["status"] != "candidate" or not c.get("gates"):
-        err(f"{w}: must stay a gated matched-spatial candidate")
-    if sr["eligible_patients"] is not None or sr["strict_core_promoted"] or any(x["cohort"] == c["id"] for x in captures):
-        err(f"{w}: no eligible-patient count, core promotion or capture rows are allowed")
+    level = "verified" if rid == "glioma-greenwald-gse237183" else "preview" if rid in PREVIEW_COUNTED else "candidate"
+    if c["layer"] != "matched-spatial" or c["status"] != level or not c.get("gates"):
+        err(f"{w}: must stay a gated matched-spatial entry with status {level}")
+    if sr["eligible_patients"] is not None or sr["strict_core_promoted"] or (rid != "glioma-greenwald-gse237183" and any(x["cohort"] == c["id"] for x in captures)):
+        err(f"{w}: no eligible-patient count, core promotion or (apart from Greenwald) section records are allowed")
     if not sr["assay_classes"] or any(a not in ENUMS["assay_class"] for a in sr["assay_classes"]) or sr["treatment_class"] not in ENUMS["treatment_class"]:
         err(f"{w}: invalid assay or treatment class")
     if sr["date"] != "2026-10-15" or c["verified_on"] != "2026-10-15":
@@ -274,8 +307,53 @@ for c in sorted(cohorts, key=lambda c: c["id"] not in reviewed_ids):
         if k in owner and owner[k] != c["id"] and (owner[k] in reviewed_ids or c["id"] in reviewed_ids):
             err(f"spatial review: {k} appears in both {owner[k]} and {c['id']}")
         owner.setdefault(k, c["id"])
-if len(captures) != 204 or sum(c["status"] == "verified" for c in cohorts if c["layer"] == "matched-spatial") != 10:
-    err("spatial: the 204 existing captures and 10 verified spatial studies must be unchanged")
+# Backlog review of 16 October 2026 (scripts/import_spatial_backlog_review.py): two image levels.
+spatial = [c for c in cohorts if c["layer"] == "matched-spatial"]
+BL = [c for c in spatial if c.get("backlog_review")]
+if len(BL) != 77 or any(c.get("spatial_review") for c in BL):
+    err(f"backlog review: {len(BL)} studies carry it, expected the 77 never package-reviewed before")
+for c in BL:
+    w, b = f"backlog {c['id']}", c["backlog_review"]
+    rows = [x for x in captures if x["cohort"] == c["id"]]
+    if b["date"] != "2026-10-16" or b["outcome"] not in ENUMS["backlog_outcome"] or not b["states"] or any(x not in ENUMS["route_state"] for x in b["states"]) \
+            or not all(b.get(k) for k in ("depth", "image_finding", "molecular_finding", "next_step")):
+        err(f"{w}: backlog review needs a date, a known outcome, valid dependencies and its findings")
+    sel = [x for x in rows if x["image_level"] == "original"] if len({x["image_level"] for x in rows}) > 1 else rows
+    if rows and b["study_local_donors"] is not None and len({x["patient"] for x in sel if x["patient"]}) != b["study_local_donors"]:
+        err(f"{w}: {b['study_local_donors']} established donors in the review, but the records give a different number")
+    if (b["sections_listed"] or 0) != len(rows):
+        err(f"{w}: {len(rows)} section records but {b['sections_listed']} listed")
+    want = ("verified" if any(x["image_level"] == "original" for x in rows) else "preview") if rows else "candidate"
+    if c["status"] != want or (rows and c["verified_on"] != "2026-10-16"):
+        err(f"{w}: status {c['status']} does not follow its section records ({want})")
+    if ("dac-approval" in b["states"]) and c["access"]["category"] != "controlled":
+        err(f"{w}: data access committee approval needs controlled access")
+    if re.search(r"\b(no (new )?account|registration created|contact made|terms accepted)\b", " ".join(str(v) for v in b.values()), re.I):
+        err(f"{w}: process notes must not appear in the public review text")
+orig = [c for c in spatial if c["status"] == "verified"]
+prev = [c for c in spatial if c["status"] == "preview"]
+n_orig = sum(x["image_level"] == "original" for x in captures)
+n_prev_rows = sum(x["image_level"] == "preview" for x in captures)
+n_prev_counted = sum((c["spatial_review"]["route_review"]["sections_with_matching_coordinates"] or 0) for c in prev if not any(x["cohort"] == c["id"] for x in captures))
+if {c["id"] for c in prev if not any(x["cohort"] == c["id"] for x in captures)} != {SR[k]["id"] for k in PREVIEW_COUNTED if k in SR} \
+        or any(SR[k]["spatial_review"]["route_review"]["sections_with_matching_coordinates"] != n for k, n in PREVIEW_COUNTED.items() if k in SR):
+    err("spatial: the preview studies without section records must be the seven route-reviewed packages, with their checked counts")
+if (len(orig), len(prev), n_orig, n_prev_rows, n_prev_counted) != (15, 28, 255, 359, 124):
+    err(f"spatial: {len(orig)} original-level and {len(prev)} preview-level studies, {n_orig} original and {n_prev_rows} + {n_prev_counted} preview sections; "
+        "expected 15, 28, 255 and 359 + 124 (738 study–section records)")
+for cid, n_sec, n_area in (("cand-frontiers2026-zenodo18238293", 11, 4),):
+    rows = [x for x in captures if x["cohort"] == cid]
+    if len(rows) != n_sec or len({x.get("assay_area_id") for x in rows}) != n_area or len({x["patient"] for x in rows}) != 10:
+        err(f"spatial {cid}: {n_sec} sections from ten donors on {n_area} shared array areas expected")
+zb = [x for x in captures if x["cohort"] == "cand-ziblat2024"]
+if sum(x["image_level"] == "original" for x in zb) != 2 or len([x for x in zb if x["image_level"] == "preview"]) != 10 \
+        or len({x.get("assay_area_id") for x in zb if x["image_level"] == "preview"}) != 8:
+    err("spatial Ziblat: two original sections and ten preview regions on eight array areas expected")
+gw = [x for x in captures if x["cohort"] == "cand-greenwald2024"]
+if (sum(x["image_level"] == "original" for x in gw), sum(x["image_level"] == "preview" for x in gw)) != (12, 7):
+    err("spatial Greenwald: 12 direct original matches and 7 preview-level sections expected")
+if any(c["cancers"] == ["SARC"] or "SARC" in c["cancers"] for c in spatial):
+    err("spatial: no resource is assigned to TCGA-SARC")
 
 # TCGA molecular screen
 meta = tcga["meta"]
@@ -766,13 +844,16 @@ if eligibility["meta"]["treated_reference"] or eligibility["meta"]["integrated_w
 
 # Summary
 def tally(rows):
-    return len({(r["cohort"], r["patient"]) for r in rows}), len(rows)
+    return len({(r["cohort"], r["patient"]) for r in rows if r["patient"]}), len(rows)
 
 print(f"Release {release['version']} ({release['date']})")
 print(f"Cohorts: {len(cohorts)}  " + ", ".join(f"{k}={v}" for k, v in sorted(Counter(c['status'] for c in cohorts).items())))
 p, n = tally(captures)
 print(f"Spatial review: {len(SR)} records ({sum(SR[k]['id'] != k for k in SR)} enriching existing entries) across {len(set(SPATIAL_REVIEW.values()))} tumour groups; eligible patients unknown for all")
-print(f"Captures: {n} from {p} patients  " + ", ".join(f"{k}={v}" for k, v in sorted(Counter(c['tier'] for c in captures).items())))
+print(f"Captures: {n} section records, {p} known study-local patients, {sum(not c['patient'] for c in captures)} without a patient ID  "
+      + ", ".join(f"{k}={v}" for k, v in sorted(Counter(c['tier'] for c in captures).items())))
+print(f"Image levels: original H&E located {len(orig)} studies / {n_orig} sections; matched data with preview image {len(prev)} studies / "
+      f"{n_prev_rows + n_prev_counted} sections ({n_prev_counted} counted without records); {len(spatial) - len(orig) - len(prev)} candidates")
 print()
 print(f"{'stratum':<16}{'core':>10}{'untreated':>12}{'post':>10}{'unknown':>10}")
 by = defaultdict(list)

@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "concepts": [
@@ -43,12 +44,32 @@
    "definition": "A published spatial omics study or vendor example with matched H&E. Spatial studies come from patients other than those in TCGA."
   },
   {
+   "term": "image level",
+   "definition": "How far the H&E image of matched spatial data was located: original H&E located, or matched data with preview image. A resource counts once, at its best level, with the supporting subset stated. Image level is separate from registration, scanner calibration, clinical eligibility and assay QC."
+  },
+  {
+   "term": "original H&E located",
+   "definition": "The original H&E scan of the assayed tissue, measured expression and spot or cell coordinates were found. Registration, scanner calibration and tissue QC may still be pending."
+  },
+  {
+   "term": "matched data with preview image",
+   "definition": "Measured expression and coordinates match a reduced preview image released with them (for example a Space Ranger image), and the original scan was not located. Supports molecular spatial visualisation; not whole-slide or tile modelling, cell morphology, physical-distance comparisons or registration sign-off."
+  },
+  {
    "term": "matched data located",
-   "definition": "The original H&E image, measured expression and spot or cell coordinates were found for a resource. Image registration and tissue QC may still be pending."
+   "definition": "The image and molecular files of a resource were found, at one of the two image levels (original H&E located, or matched data with preview image). Registration and tissue QC may still be pending."
   },
   {
    "term": "tissue section",
    "definition": "One assayed section or capture area with its own expression matrix, coordinates and H&E image (a capture). Repeated or serial sections add sections, not patients."
+  },
+  {
+   "term": "section record",
+   "definition": "One tissue section listed for one study. Records are not globally unique physical sections: several specimens can share one array area (assay_area_id), and reused data can repeat a physical section. They are not independent assays or eligible patients."
+  },
+  {
+   "term": "known patients",
+   "definition": "Study-local patient IDs that the source establishes, counted once per study. Section records without a patient ID are not counted as patients, and they are not eligible-patient counts."
   },
   {
    "term": "strict subset",
@@ -56,7 +77,7 @@
   },
   {
    "term": "reported counts",
-   "definition": "Counts in a study's own units (sections, slides, samples, donor labels) for resources not verified at section level. They are not patient counts unless stated, are never added across studies, and an unknown count is absent, not zero."
+   "definition": "Counts in a study's own units (sections, slides, samples, donor labels) for resources without section records. They are not patient counts unless stated, are never added across studies, and an unknown count is absent, not zero."
   },
   {
    "term": "size threshold",
@@ -76,7 +97,8 @@
    "image-only": "Histology images only"
   },
   "status": {
-   "verified": "Matched packages located",
+   "verified": "Original H&E located",
+   "preview": "Matched data with preview image",
    "candidate": "Candidate, not yet verified",
    "reference": "Published reference",
    "listed": "Listed, not yet curated",
@@ -419,9 +441,40 @@
    "public-download": "Public download works",
    "download-failure": "Public files listed, download failed (technical)",
    "vendor-terms": "Vendor registration and terms",
+   "account-registration": "Free account registration",
    "dac-approval": "Data access committee approval",
    "author-release": "Author release or metadata needed",
    "local-qc": "Local scientific QC remaining"
+  },
+  "imageLevel": {
+   "original": "Original H&E located",
+   "preview": "Matched data with preview image"
+  },
+  "imageLevelNote": {
+   "original": "The original H&E scan, measured expression and coordinates were located. Registration and scanner calibration are separate checks.",
+   "preview": "Measured expression and coordinates match a preview image released with them (such as a Space Ranger image). The original H&E scan was not located, so the section supports molecular spatial maps but not whole-slide or tile models, cell morphology, physical distances or registration sign-off."
+  },
+  "backlogOutcome": {
+   "original-ready": "Original H&E and matched data checked",
+   "preview-ready": "Matched data checked; preview image only",
+   "bounded-public-work": "Public files listed; inspection not finished",
+   "access-dependent": "Access needs approval or permission",
+   "release-unresolved": "Data release not identified",
+   "author-release": "Release by the authors needed",
+   "release-gap": "Public record without downloadable files",
+   "code-only-lead": "Code only; no data package identified",
+   "technical-gap": "Public download failed (technical)",
+   "coordinate-gap": "Coordinates or image scale missing",
+   "registration-gap": "Original image or its transform missing",
+   "linkage-gap": "Image and expression files not yet joined",
+   "account-route": "Free account needed",
+   "unspecified-vendor-lead": "Vendor catalogue without a specific dataset",
+   "vendor-boundary": "Vendor registration and terms"
+  },
+  "donorMapping": {
+   "source-established": "Established within the source",
+   "source-patient-column": "From the source's patient ID column",
+   "unresolved": "Not mapped: the source does not establish the donor"
   },
   "gate": {
    "coordinates": "Spot or bead coordinates missing or defective",

@@ -37,7 +37,7 @@ The site is static HTML, CSS and JavaScript with no build step and no dependenci
 | `LICENSE`, `DATA-LICENSE.md` | GPL-3.0 for the code; CC BY 4.0 for the curated metadata and generated text files |
 | `index.html` | Introduction, how measurements are linked, what was curated, routes and cancer types |
 | `tcga.html` | TCGA reference: general availability versus the dated analysis panel, cohort table and coverage by project |
-| `spatial.html` | Spatial studies: verification and access tiers, located packages and status by cancer type |
+| `spatial.html` | Spatial studies: the two image levels (original H&E located, matched data with preview image), verification and access, the package and public-route reviews and status by cancer type |
 | `applications.html` | Research applications, including archetype analysis and published archetype studies |
 | `explore.html` | Data explorer: searchable, filterable captures, cohorts and TCGA patients with CSV/JSON export |
 | `cancers.html` | Cancer index; `cancers.html?c=BRCA` shows one cancer, `cancers.html?c=CRC` the pooled colorectal cohort |
@@ -52,6 +52,7 @@ The site is static HTML, CSS and JavaScript with no build step and no dependenci
 | `scripts/import_tcga_review.py` | Imports the structured fields of the TCGA-ESCA/PAAD histology review and the patient scope review |
 | `scripts/import_spatial_review.py` | Imports reviewed spatial-resource records into `data/cohorts.json`, enriching existing entries and checking counts against the review's metadata |
 | `scripts/import_spatial_route_review.py` | Run after the previous script: applies the public-route review to the 26 reviewed resources and writes the related leads (`data/leads.json`), checking the review ledger's checksum, IDs and totals |
+| `scripts/import_spatial_backlog_review.py` | Run after the previous script: applies the package review of the other 77 candidates (image levels, section records, outcomes and access corrections), checking the review files' checksums and every count, donor and array join; running it again changes nothing |
 | `scripts/remove_excluded_projects.py` | Run after the TCGA imports: removes projects outside the study (TCGA-SARC) from the patient-level files, keeping their project-level availability |
 | `scripts/import_patient_review.py` | Imports the TCGA patient review (treatment and diagnosis screen, histology panel revision, analysis cohorts and subsets) and recomputes eligibility counts |
 

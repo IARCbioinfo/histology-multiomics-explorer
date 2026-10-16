@@ -1,6 +1,6 @@
 # Cervical squamous cell carcinoma and endocervical adenocarcinoma
 
-Code `CESC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=CESC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CESC). Data: [data/by-cancer/CESC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CESC.json).
+Code `CESC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=CESC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CESC). Data: [data/by-cancer/CESC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CESC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation; that result does not rule out archetypes under another representation. It is included because it meets the RNA and 450k methylation screen. Analyses use cervical squamous cell carcinoma (CSCC), selected by histology from the TCGA cervical study with the GDC label as an explicit fallback; adenocarcinomas and adenosquamous carcinomas are outside the selected cohort.
 
@@ -24,13 +24,13 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 3 spatial resources are catalogued. Verification of the matched image and molecular data is pending. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | 10x Genomics cervical SCC, Visium FFPE (`cscc-10x-ffpe`) | Visium FFPE | Free account | 1 section (vendor specimen) | Verification pending |
 | Guo et al. 2023, HPV progression series (`cscc-hpv-gse208654`); includes normal or adjacent tissue; includes precursor lesions | Spatial transcriptomics array (platform to confirm) | Open download | 1 squamous cell carcinoma section (GSM6360691) | Verification pending |
 | Ou et al. 2022 (`cscc-ou-stereo`); includes normal or adjacent tissue; H&E from serial sections | Stereo-seq | Unresolved | 14 tumour patients | Verification pending |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
 ## Selection history: published archetype evidence
 

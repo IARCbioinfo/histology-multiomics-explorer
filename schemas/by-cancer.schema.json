@@ -1009,6 +1009,59 @@
        "string"
       ]
      },
+     "backlog_review": {
+      "type": "object",
+      "properties": {
+       "date": {
+        "type": "string"
+       },
+       "outcome": {
+        "type": "string"
+       },
+       "depth": {
+        "type": "string"
+       },
+       "states": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "image_finding": {
+        "type": "string"
+       },
+       "molecular_finding": {
+        "type": "string"
+       },
+       "next_step": {
+        "type": "string"
+       },
+       "sections_listed": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "study_local_donors": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "date",
+       "outcome",
+       "depth",
+       "states",
+       "image_finding",
+       "molecular_finding",
+       "next_step",
+       "sections_listed",
+       "study_local_donors"
+      ],
+      "additionalProperties": false
+     },
      "reported": {
       "type": "array",
       "items": {
@@ -1181,6 +1234,12 @@
        "route_review"
       ],
       "additionalProperties": false
+     },
+     "derived_from": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
      }
     },
     "required": [
@@ -1225,9 +1284,15 @@
       ]
      },
      "patient": {
-      "type": "string"
+      "type": [
+       "null",
+       "string"
+      ]
      },
      "capture": {
+      "type": "string"
+     },
+     "image_level": {
       "type": "string"
      },
      "tier": {
@@ -1279,6 +1344,18 @@
      },
      "verification": {
       "type": "string"
+     },
+     "assay_area_id": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "donor_mapping": {
+      "type": [
+       "null",
+       "string"
+      ]
      }
     },
     "required": [
@@ -1288,6 +1365,7 @@
      "stratum",
      "patient",
      "capture",
+     "image_level",
      "tier",
      "site",
      "treatment",
@@ -1297,7 +1375,9 @@
      "registration",
      "he_mpp",
      "access",
-     "verification"
+     "verification",
+     "assay_area_id",
+     "donor_mapping"
     ],
     "additionalProperties": false
    }

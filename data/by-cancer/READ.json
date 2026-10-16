@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "READ",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -567,7 +568,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "account-route",
+    "depth": "source or metadata only",
+    "states": [
+     "account-registration"
+    ],
+    "image_finding": "HTAN public manifest behind a free account",
+    "molecular_finding": "No newly downloaded package in this pass",
+    "next_step": "Pin Vanderbilt/COLON MAP section/file IDs, donor and histology crosswalk; separate from WUSTL and cottam reuse.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-orgares-gse283052",
@@ -586,7 +600,7 @@
     "READ"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -599,7 +613,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE283052",
    "access": {
@@ -616,12 +632,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "12 previews",
+    "molecular_finding": "Shared series barcode vector matches all 4,992 positions in each of 12 matrices; in-tissue filtering required",
+    "next_step": "Map donor IDs and primary or metastatic site before counting patients; keep the shared barcode-vector provenance.",
+    "sections_listed": 12,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-mahidol-gse267401",
@@ -640,7 +671,7 @@
     "READ"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -653,7 +684,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE267401",
    "access": {
@@ -670,12 +703,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Four previews",
+    "molecular_finding": "All unfiltered expression barcodes have positions; select in-tissue rows explicitly",
+    "next_step": "Original scans and treatment; the primary and metastatic sections of patients 21 and 17 stay separate sites.",
+    "sections_listed": 4,
+    "study_local_donors": 2
+   }
   },
   {
    "id": "cand-crc-miso-petacc8",
@@ -730,7 +778,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "access-dependent",
+    "depth": "access boundary reached",
+    "states": [
+     "dac-approval"
+    ],
+    "image_finding": "Primary paper retrieved; no controlled files accessed",
+    "molecular_finding": "Package not available within approved scope",
+    "next_step": "FFCD controls measured PETACC8-Visium use; separate measured packages from model-predicted outputs, and verify any public processed alternative before a permission decision.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-vri-dartmouth2025",
@@ -785,7 +846,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "release-unresolved",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Primary paper confirms measured Visium development cohort; predicted validation outputs are a different modality",
+    "molecular_finding": "No actionable measured package verified",
+    "next_step": "Locate released measured development-cohort files; do not count virtual RNA as measured spatial RNA.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-liu-maru2026",
@@ -804,7 +878,7 @@
     "READ"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -818,7 +892,9 @@
    "linkage": "unverified",
    "gates": [
     "he-not-located",
-    "pathology-review"
+    "pathology-review",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE294385; Zenodo19043057",
    "access": {
@@ -835,12 +911,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "37 previews",
+    "molecular_finding": "All 37 archive packages exact",
+    "next_step": "Donor count and treatment; all 37 tissues are colorectal metastases.",
+    "sections_listed": 37,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-spatch-ren2025",
@@ -885,17 +976,35 @@
       "https://www.nature.com/articles/s41467-025-64292-3"
      ],
      [
-      "Data record",
+      "Images (BioImage Archive S-BIAD1900)",
       "https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1900"
+     ],
+     [
+      "Code (Zenodo 16992659)",
+      "https://zenodo.org/records/16992659"
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Original HE/CODEX/DAPI listings in S-BIAD1900, across five assays",
+    "molecular_finding": "RNA count/coordinate package not yet joined; Zenodo 16992659 is code",
+    "next_step": "Match each COAD platform to its measured RNA/coordinates; do not count CODEX/DAPI as H&E or colon specimens as READ.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crc-cottam-htan2025",
@@ -944,7 +1053,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "account-route",
+    "depth": "source or metadata only",
+    "states": [
+     "account-registration"
+    ],
+    "image_finding": "HTAN public portal behind a free account",
+    "molecular_finding": "No newly inspected package",
+    "next_step": "Pin exact study/HTAN donor-capture manifest and deduplicate Heiser/COLON MAP/WUSTL; preserve primary/metastatic labels.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -955,6 +1077,7 @@
    "stratum": "read-conv",
    "patient": "A121573",
    "capture": "SN048_A121573_Rep1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -968,7 +1091,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN048_A121573_Rep2",
@@ -977,6 +1102,7 @@
    "stratum": "read-conv",
    "patient": "A121573",
    "capture": "SN048_A121573_Rep2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -990,7 +1116,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN123_A938797_Rep1_X",
@@ -999,6 +1127,7 @@
    "stratum": "read-conv",
    "patient": "A938797",
    "capture": "SN123_A938797_Rep1_X",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1012,7 +1141,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "valdeolivas-2024:SN124_A938797_Rep2",
@@ -1021,6 +1152,7 @@
    "stratum": "read-conv",
    "patient": "A938797",
    "capture": "SN124_A938797_Rep2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1034,7 +1166,9 @@
     "processed": "open",
     "raw": "unresolved"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "oliveira-2025:GSM8594567",
@@ -1043,6 +1177,7 @@
    "stratum": "read-conv",
    "patient": "P1",
    "capture": "GSM8594567",
+   "image_level": "original",
    "tier": "review",
    "site": "Unknown",
    "treatment": "Untreated",
@@ -1056,7 +1191,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "file-checked"
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   }
  ],
  "other_resources": [

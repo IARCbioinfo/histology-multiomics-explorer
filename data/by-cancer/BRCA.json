@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "BRCA",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -305,7 +306,7 @@
     "BRCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -318,7 +319,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-unverified"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "Zenodo 4739739",
    "access": {
@@ -335,12 +338,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Six Space Ranger previews; large image PDF also inspected, no verified original scan/capture transform",
+    "molecular_finding": "All six expression barcode sets join positions; two exactly match in-tissue sets. Four filtered matrices retain fewer spots, and three contain 6/2/2 out-of-tissue spots; explicit in-tissue filtering and no invented expression for omitted rows. Six patientid fields verified.",
+    "next_step": "Original scans and the provenance of the image PDF; filter the out-of-tissue spots in three sections explicitly.",
+    "sections_listed": 6,
+    "study_local_donors": 6
+   }
   },
   {
    "id": "cand-bassiouni-gse210616",
@@ -358,7 +376,7 @@
     "BRCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -371,7 +389,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE210616",
    "access": {
@@ -388,12 +408,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "43 previews",
+    "molecular_finding": "All 43 exact barcode/in-tissue agreements",
+    "next_step": "Treatment, original scans and registration QC.",
+    "sections_listed": 43,
+    "study_local_donors": 22
+   }
   },
   {
    "id": "cand-bcarc-tls-hev-2026",
@@ -442,7 +477,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "release-gap",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Public record exists but lists no downloadable files",
+    "molecular_finding": "No molecular package inspectable",
+    "next_step": "Await an actionable public file release; do not count record views as released data.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-official-10x-breast-demos",
@@ -491,7 +539,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "unspecified-vendor-lead",
+    "depth": "source or metadata only",
+    "states": [
+     "vendor-terms"
+    ],
+    "image_finding": "Generic vendor catalogue, no pinned specimen/version",
+    "molecular_finding": "No uniquely identified package",
+    "next_step": "Pin exact dataset, specimen, assay and version; respect vendor registration/terms; deduplicate other breast entries.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-wang-venet-2024-legacy-st",
@@ -535,17 +596,35 @@
       "https://www.nature.com/articles/s41467-024-54145-w"
      ],
      [
-      "Data record",
+      "Code (Zenodo 13867935)",
       "https://zenodo.org/records/13867935"
+     ],
+     [
+      "Data record (Zenodo 8135721)",
+      "https://zenodo.org/records/8135721"
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Original image archive located, 25.3 GB; older catalogue link is code, not assay data",
+    "molecular_finding": "Primary paper gives distinct public data record 8135721 with counts, clinical and array archives",
+    "next_step": "Use 8135721, inspect code/data README and array-to-patient/image join; old 13867935/36 is code.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-dartmouth-aacr2026-1442",
@@ -587,7 +666,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "release-unresolved",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Official AACR2026 abstract reports matched 40x H&E/Visium for 25 TNBC patients; no accession/reusable package identified",
+    "molecular_finding": "Source-described measured Visium, not a downloaded matrix/coordinate package",
+    "next_step": "Find final publication and released accession, then inspect patient/section/image files; 25 is a reported denominator, not available matched patients.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -598,6 +690,7 @@
    "stratum": "brca-idc",
    "patient": "HT206B1",
    "capture": "HT206B1-S1Fc1U2Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -611,7 +704,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT206B1-S1Fc1U3Z1B1",
@@ -620,6 +715,7 @@
    "stratum": "brca-idc",
    "patient": "HT206B1",
    "capture": "HT206B1-S1Fc1U3Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -633,7 +729,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT206B1-S1Fc1U4Z1B1",
@@ -642,6 +740,7 @@
    "stratum": "brca-idc",
    "patient": "HT206B1",
    "capture": "HT206B1-S1Fc1U4Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -655,7 +754,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT206B1-S1Fc1U5Z1B1",
@@ -664,6 +765,7 @@
    "stratum": "brca-idc",
    "patient": "HT206B1",
    "capture": "HT206B1-S1Fc1U5Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -677,7 +779,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT206B1-U1_ST_Bn1",
@@ -686,6 +790,7 @@
    "stratum": "brca-idc",
    "patient": "HT206B1",
    "capture": "HT206B1-U1_ST_Bn1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -699,7 +804,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT235B1H2-S1Fc1U1Z1B1",
@@ -708,6 +815,7 @@
    "stratum": "brca-idc",
    "patient": "HT235B1",
    "capture": "HT235B1H2-S1Fc1U1Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -721,7 +829,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT235B1H3-S1Fc1U1Z1B1",
@@ -730,6 +840,7 @@
    "stratum": "brca-idc",
    "patient": "HT235B1",
    "capture": "HT235B1H3-S1Fc1U1Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -743,7 +854,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT243B1H3A2-S1Fc1U1Z1B1",
@@ -752,6 +865,7 @@
    "stratum": "brca-idc",
    "patient": "HT243B1",
    "capture": "HT243B1H3A2-S1Fc1U1Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -765,7 +879,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT243B1H3A2-S1Fc1U2Z1B1",
@@ -774,6 +890,7 @@
    "stratum": "brca-idc",
    "patient": "HT243B1",
    "capture": "HT243B1H3A2-S1Fc1U2Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -787,7 +904,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT243B1H3A2-S1Fc1U3Z1B1",
@@ -796,6 +915,7 @@
    "stratum": "brca-idc",
    "patient": "HT243B1",
    "capture": "HT243B1H3A2-S1Fc1U3Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -809,7 +929,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT243B1H3A2-S1Fc1U4Z1B1",
@@ -818,6 +940,7 @@
    "stratum": "brca-idc",
    "patient": "HT243B1",
    "capture": "HT243B1H3A2-S1Fc1U4Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -831,7 +954,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT243B1H4A2-S1Fc1U1Z1B1",
@@ -840,6 +965,7 @@
    "stratum": "brca-idc",
    "patient": "HT243B1",
    "capture": "HT243B1H4A2-S1Fc1U1Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -853,7 +979,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT243B1H4A2-S1Fc1U2Z1B1",
@@ -862,6 +990,7 @@
    "stratum": "brca-idc",
    "patient": "HT243B1",
    "capture": "HT243B1H4A2-S1Fc1U2Z1B1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -875,7 +1004,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT271B1-S1H3Fc2U1Z1Bs1",
@@ -884,6 +1015,7 @@
    "stratum": "brca-idc",
    "patient": "HT271B1",
    "capture": "HT271B1-S1H3Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -897,7 +1029,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT271B1-S1H3Fc2U2Z1Bs1",
@@ -906,6 +1040,7 @@
    "stratum": "brca-idc",
    "patient": "HT271B1",
    "capture": "HT271B1-S1H3Fc2U2Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -919,7 +1054,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT271B1-S1H3Fc2U3Z1Bs1",
@@ -928,6 +1065,7 @@
    "stratum": "brca-idc",
    "patient": "HT271B1",
    "capture": "HT271B1-S1H3Fc2U3Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -941,7 +1079,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT271B1-S1H3Fc2U4Z1Bs1",
@@ -950,6 +1090,7 @@
    "stratum": "brca-idc",
    "patient": "HT271B1",
    "capture": "HT271B1-S1H3Fc2U4Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -963,7 +1104,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT297B1-S1H1Fc2U1Z1Bs1",
@@ -972,6 +1115,7 @@
    "stratum": "brca-idc",
    "patient": "HT297B1",
    "capture": "HT297B1-S1H1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -985,7 +1129,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT305B1-S1H1Fc2U1Z1Bs1",
@@ -994,6 +1140,7 @@
    "stratum": "brca-idc",
    "patient": "HT305B1",
    "capture": "HT305B1-S1H1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1007,7 +1154,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT308B1-S1H1Fc2U1Z1Bs1",
@@ -1016,6 +1165,7 @@
    "stratum": "brca-idc",
    "patient": "HT308B1",
    "capture": "HT308B1-S1H1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1029,7 +1179,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT308B1-S1H4Fc2U1Z1Bs1",
@@ -1038,6 +1190,7 @@
    "stratum": "brca-idc",
    "patient": "HT308B1",
    "capture": "HT308B1-S1H4Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1051,7 +1204,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT308B1-S1H5Fc2U1Z1Bs1",
@@ -1060,6 +1215,7 @@
    "stratum": "brca-idc",
    "patient": "HT308B1",
    "capture": "HT308B1-S1H5Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1073,7 +1229,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT308B1-S2H5Fc2U1Z1Bs1",
@@ -1082,6 +1240,7 @@
    "stratum": "brca-idc",
    "patient": "HT308B1",
    "capture": "HT308B1-S2H5Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1095,7 +1254,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT323B1-S1H1Fc2U1Z1Bs1",
@@ -1104,6 +1265,7 @@
    "stratum": "brca-idc",
    "patient": "HT323B1",
    "capture": "HT323B1-S1H1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1117,7 +1279,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT323B1-S1H3Fc2U1Z1Bs1",
@@ -1126,6 +1290,7 @@
    "stratum": "brca-idc",
    "patient": "HT323B1",
    "capture": "HT323B1-S1H3Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1139,7 +1304,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT365B1-S1H1Fc2U1Z1Bs1",
@@ -1148,6 +1315,7 @@
    "stratum": "brca-idc",
    "patient": "HT365B1",
    "capture": "HT365B1-S1H1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1161,7 +1329,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT397B1-S1H2Fs4U1Bp1",
@@ -1170,6 +1340,7 @@
    "stratum": "brca-idc",
    "patient": "HT397B1",
    "capture": "HT397B1-S1H2Fs4U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1183,7 +1354,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT397B1-S1H3A1U1Bp1",
@@ -1192,6 +1365,7 @@
    "stratum": "brca-idc",
    "patient": "HT397B1",
    "capture": "HT397B1-S1H3A1U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1205,7 +1379,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT397B1-S1H3A1U21Bp1",
@@ -1214,6 +1390,7 @@
    "stratum": "brca-idc",
    "patient": "HT397B1",
    "capture": "HT397B1-S1H3A1U21Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1227,7 +1404,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT397B1-S1H3A1U41Bp1",
@@ -1236,6 +1415,7 @@
    "stratum": "brca-idc",
    "patient": "HT397B1",
    "capture": "HT397B1-S1H3A1U41Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1249,7 +1429,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT397B1-S1H3A1U61Bp1",
@@ -1258,6 +1440,7 @@
    "stratum": "brca-idc",
    "patient": "HT397B1",
    "capture": "HT397B1-S1H3A1U61Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1271,7 +1454,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT397B1-S1H3Fs1U1Bp1",
@@ -1280,6 +1465,7 @@
    "stratum": "brca-idc",
    "patient": "HT397B1",
    "capture": "HT397B1-S1H3Fs1U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1293,7 +1479,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT480B1-S1H1Fs1U1Bp1",
@@ -1302,6 +1490,7 @@
    "stratum": "brca-idc",
    "patient": "HT480B1",
    "capture": "HT480B1-S1H1Fs1U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1315,7 +1504,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT480B1-S1H1Fs1U2Bp1",
@@ -1324,6 +1515,7 @@
    "stratum": "brca-idc",
    "patient": "HT480B1",
    "capture": "HT480B1-S1H1Fs1U2Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1337,7 +1529,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT480B1-S1H3Fs1U1Bp1",
@@ -1346,6 +1540,7 @@
    "stratum": "brca-idc",
    "patient": "HT480B1",
    "capture": "HT480B1-S1H3Fs1U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1359,7 +1554,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT480B1-S1H3Fs1U2Bp1",
@@ -1368,6 +1565,7 @@
    "stratum": "brca-idc",
    "patient": "HT480B1",
    "capture": "HT480B1-S1H3Fs1U2Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1381,7 +1579,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT486B1-S1H1Fs1U1Bp1",
@@ -1390,6 +1590,7 @@
    "stratum": "brca-idc",
    "patient": "HT486B1",
    "capture": "HT486B1-S1H1Fs1U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Post-treatment",
@@ -1403,7 +1604,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "janesick-2023:GSM7782699",
@@ -1412,6 +1615,7 @@
    "stratum": "brca-idc",
    "patient": "Janesick_sample_1",
    "capture": "GSM7782699",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Unknown",
@@ -1425,7 +1629,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT262B1-S1H2Fc2U1Z1Bs1",
@@ -1434,6 +1640,7 @@
    "stratum": "brca-ilc",
    "patient": "HT262B1",
    "capture": "HT262B1-S1H2Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1447,7 +1654,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT263B1-S1H1Fc2U1Z1Bs1",
@@ -1456,6 +1665,7 @@
    "stratum": "brca-ilc",
    "patient": "HT263B1",
    "capture": "HT263B1-S1H1Fc2U1Z1Bs1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1469,7 +1679,9 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "htan-wustl:HT425B1-S1H2Fs1U1Bp1",
@@ -1478,6 +1690,7 @@
    "stratum": "brca-ilc",
    "patient": "HT425B1",
    "capture": "HT425B1-S1H2Fs1U1Bp1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1491,7 +1704,1234 @@
     "processed": "account",
     "raw": "controlled"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433585",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-9",
+   "capture": "GSM6433585",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433586",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-9",
+   "capture": "GSM6433586",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433587",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-11",
+   "capture": "GSM6433587",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433588",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-11",
+   "capture": "GSM6433588",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433589",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-12",
+   "capture": "GSM6433589",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433590",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-12",
+   "capture": "GSM6433590",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433591",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-13",
+   "capture": "GSM6433591",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433592",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-13",
+   "capture": "GSM6433592",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433593",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-14",
+   "capture": "GSM6433593",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433594",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-14",
+   "capture": "GSM6433594",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433595",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-15",
+   "capture": "GSM6433595",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433596",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-15",
+   "capture": "GSM6433596",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433597",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-1",
+   "capture": "GSM6433597",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433598",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-1",
+   "capture": "GSM6433598",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433599",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-2",
+   "capture": "GSM6433599",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433600",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-2",
+   "capture": "GSM6433600",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433601",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-3",
+   "capture": "GSM6433601",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433602",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-3",
+   "capture": "GSM6433602",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433603",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-4",
+   "capture": "GSM6433603",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433604",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-4",
+   "capture": "GSM6433604",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433605",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-5",
+   "capture": "GSM6433605",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433606",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-5",
+   "capture": "GSM6433606",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433607",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-6",
+   "capture": "GSM6433607",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433608",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-6",
+   "capture": "GSM6433608",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433609",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-7",
+   "capture": "GSM6433609",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433610",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-7",
+   "capture": "GSM6433610",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433611",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-8",
+   "capture": "GSM6433611",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433612",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-8",
+   "capture": "GSM6433612",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433613",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-17",
+   "capture": "GSM6433613",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433614",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-17",
+   "capture": "GSM6433614",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433615",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-18",
+   "capture": "GSM6433615",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433616",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-18",
+   "capture": "GSM6433616",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433617",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-19",
+   "capture": "GSM6433617",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433618",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-20",
+   "capture": "GSM6433618",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433619",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-20",
+   "capture": "GSM6433619",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433620",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-21",
+   "capture": "GSM6433620",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433621",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-21",
+   "capture": "GSM6433621",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433622",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-22",
+   "capture": "GSM6433622",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433623",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-22",
+   "capture": "GSM6433623",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433624",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-23",
+   "capture": "GSM6433624",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433625",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-23",
+   "capture": "GSM6433625",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433626",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-24",
+   "capture": "GSM6433626",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-bassiouni-gse210616:GSM6433627",
+   "cohort": "cand-bassiouni-gse210616",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "patient-24",
+   "capture": "GSM6433627",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-wu-2021:1142243F_spatial",
+   "cohort": "cand-wu-2021",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "1142243F",
+   "capture": "1142243F_spatial",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-patient-column"
+  },
+  {
+   "id": "cand-wu-2021:1160920F_spatial",
+   "cohort": "cand-wu-2021",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "1160920F",
+   "capture": "1160920F_spatial",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-patient-column"
+  },
+  {
+   "id": "cand-wu-2021:CID4290_spatial",
+   "cohort": "cand-wu-2021",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "CID4290",
+   "capture": "CID4290_spatial",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-patient-column"
+  },
+  {
+   "id": "cand-wu-2021:CID4465_spatial",
+   "cohort": "cand-wu-2021",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "CID4465",
+   "capture": "CID4465_spatial",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-patient-column"
+  },
+  {
+   "id": "cand-wu-2021:CID44971_spatial",
+   "cohort": "cand-wu-2021",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "CID44971",
+   "capture": "CID44971_spatial",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-patient-column"
+  },
+  {
+   "id": "cand-wu-2021:CID4535_spatial",
+   "cohort": "cand-wu-2021",
+   "cancer": "BRCA",
+   "stratum": null,
+   "patient": "CID4535",
+   "capture": "CID4535_spatial",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-patient-column"
   }
  ],
  "other_resources": [

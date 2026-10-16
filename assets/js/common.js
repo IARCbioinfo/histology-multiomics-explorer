@@ -21,7 +21,8 @@ export const LABELS = {
     "image-only": "Histology images only",
   },
   status: {
-    verified: "Matched packages located",
+    verified: "Original H&E located",
+    preview: "Matched data with preview image",
     candidate: "Candidate, not yet verified",
     reference: "Published reference",
     listed: "Listed, not yet curated",
@@ -323,9 +324,41 @@ export const LABELS = {
     "public-download": "Public download works",
     "download-failure": "Public files listed, download failed (technical)",
     "vendor-terms": "Vendor registration and terms",
+    "account-registration": "Free account registration",
     "dac-approval": "Data access committee approval",
     "author-release": "Author release or metadata needed",
     "local-qc": "Local scientific QC remaining",
+  },
+  // Image level of a study (its best level) or of one section record.
+  imageLevel: {
+    original: "Original H&E located",
+    preview: "Matched data with preview image",
+  },
+  imageLevelNote: {
+    original: "The original H&E scan, measured expression and coordinates were located. Registration and scanner calibration are separate checks.",
+    preview: "Measured expression and coordinates match a preview image released with them (such as a Space Ranger image). The original H&E scan was not located, so the section supports molecular spatial maps but not whole-slide or tile models, cell morphology, physical distances or registration sign-off.",
+  },
+  backlogOutcome: {
+    "original-ready": "Original H&E and matched data checked",
+    "preview-ready": "Matched data checked; preview image only",
+    "bounded-public-work": "Public files listed; inspection not finished",
+    "access-dependent": "Access needs approval or permission",
+    "release-unresolved": "Data release not identified",
+    "author-release": "Release by the authors needed",
+    "release-gap": "Public record without downloadable files",
+    "code-only-lead": "Code only; no data package identified",
+    "technical-gap": "Public download failed (technical)",
+    "coordinate-gap": "Coordinates or image scale missing",
+    "registration-gap": "Original image or its transform missing",
+    "linkage-gap": "Image and expression files not yet joined",
+    "account-route": "Free account needed",
+    "unspecified-vendor-lead": "Vendor catalogue without a specific dataset",
+    "vendor-boundary": "Vendor registration and terms",
+  },
+  donorMapping: {
+    "source-established": "Established within the source",
+    "source-patient-column": "From the source's patient ID column",
+    unresolved: "Not mapped: the source does not establish the donor",
   },
   gate: {
     "coordinates": "Spot or bead coordinates missing or defective",
@@ -359,7 +392,8 @@ export const LABELS = {
 };
 
 const TONE = {
-  status: { verified: "ok", candidate: "warn", reference: "accent", listed: "", screened: "accent", excluded: "" },
+  status: { verified: "ok", preview: "accent", candidate: "warn", reference: "accent", listed: "", screened: "accent", excluded: "" },
+  imageLevel: { original: "ok", preview: "accent" },
   tcgaState: { retained: "ok", excluded: "eosin", unresolved: "warn", absent: "" },
   tumourLayers: { both: "ok", "rna-only": "accent", "met-only": "accent", none: "" },
   normalRef: { "rna-he-met": "ok", "rna-he": "accent", none: "", withheld: "warn", inactive: "" },
@@ -592,10 +626,39 @@ export const fmt = n => (n == null ? "—" : Number(n).toLocaleString("en-GB"));
 
 export function patientKey(c) { return `${c.cohort}::${c.patient ?? c.capture}`; }
 
+// Sections, known study-local patients (records without a patient ID are not counted as patients) and studies.
 export function tally(captures) {
-  const patients = new Set(captures.map(patientKey));
+  const known = captures.filter(c => c.patient);
   const cohorts = new Set(captures.map(c => c.cohort));
-  return { captures: captures.length, patients: patients.size, cohorts: cohorts.size };
+  return { captures: captures.length, patients: new Set(known.map(patientKey)).size, unknown: captures.length - known.length, cohorts: cohorts.size };
+}
+
+// Checked preview packages counted for a study without individual section records (from its public-route review).
+export function countedPreview(d, c, codes = null) {
+  if (c.status !== "preview" || capturesOf(d, c.id).length) return 0;
+  const sr = c.spatial_review;
+  if (codes && !(sr && codes.includes(sr.analysis_cohort))) return 0;
+  return (sr && sr.route_review && sr.route_review.sections_with_matching_coordinates) || 0;
+}
+
+// Section records of a study at each image level, optionally limited to some cancer codes.
+export function levelCounts(d, c, codes = null) {
+  const caps = capturesOf(d, c.id).filter(x => !codes || codes.includes(x.cancer));
+  const counted = countedPreview(d, c, codes);
+  const orig = caps.filter(x => x.image_level === "original"), prev = caps.filter(x => x.image_level === "preview");
+  return { original: orig.length, preview: prev.length + counted, listedPreview: prev.length, counted, patients: tally(caps).patients, unknown: tally(caps).unknown };
+}
+
+// Plain text for a study's image level with its section counts, e.g. "Original H&E located: 12 sections; 7 more with a preview image".
+export function levelText(d, c, codes = null) {
+  if (c.status !== "verified" && c.status !== "preview") return "";
+  const k = levelCounts(d, c, codes);
+  const sec = n => `${fmt(n)} ${n === 1 ? "section" : "sections"}`;
+  const parts = c.status === "verified"
+    ? [k.original ? `${sec(k.original)} with original H&E` : "", k.preview ? `${sec(k.preview)} with a preview image only` : ""]
+    : [k.preview ? `${sec(k.preview)} with a preview image${k.counted ? " (checked packages, not listed one by one)" : ""}` : ""];
+  const pts = k.patients ? `${fmt(k.patients)} known ${k.patients === 1 ? "patient" : "patients"}` : "";
+  return parts.filter(Boolean).concat(pts ? [pts] : []).join("; ");
 }
 
 export function cancerName(d, code) {
@@ -679,35 +742,39 @@ export function showCapture(d, id) {
   const cohort = d.cohortById.get(c.cohort);
   const raw = (c.links.raw || []);
   const links = [
-    linkButton("Original H&E", c.links.he),
+    linkButton(c.image_level === "preview" ? "Preview image" : "Original H&E", c.links.he),
     linkButton("Expression matrix", c.links.expression),
     linkButton("Coordinates", c.links.coordinates),
     ...raw.slice(0, 3).map((u, i) => linkButton(raw.length > 1 ? `Raw data ${i + 1}` : "Raw data", u)),
   ].join("");
   const clin = c.clinical || {};
   const body = `
-    <div class="chips" style="margin-bottom:1rem">${chip("tier", c.tier)} ${chip("treatment", c.treatment, `Treatment: ${c.treatment}`)} ${chip("site", c.site, `Site: ${c.site}`)} ${chip("verification", c.verification)}</div>
+    <div class="chips" style="margin-bottom:1rem">${chip("imageLevel", c.image_level)} ${chip("tier", c.tier)} ${chip("treatment", c.treatment, `Treatment: ${c.treatment}`)} ${chip("site", c.site, `Site: ${c.site}`)} ${chip("verification", c.verification)}</div>
     ${kv([
       ["Cohort", `<button class="btn small" type="button" data-open-cohort="${esc(c.cohort)}">${esc(cohort?.label ?? c.cohort)}</button>`],
       ["Cancer", esc(cancerName(d, c.cancer))],
       ["Histology stratum", esc(stratumLabel(d, c.stratum))],
-      ["Patient (source ID)", esc(c.patient ?? "Not stated")],
+      ["Patient (source ID)", c.patient ? `${esc(c.patient)}${c.donor_mapping ? `<span class="cell-sub">${esc(LABELS.donorMapping[c.donor_mapping])}</span>` : ""}` : esc(c.donor_mapping ? LABELS.donorMapping[c.donor_mapping] : "Not stated")],
       ["Capture (source ID)", `<span class="mono">${esc(c.capture)}</span>`],
       ["Accession", c.accession ? `<span class="mono">${esc(c.accession)}</span>` : ""],
       ["Source sample name", c.source_name && c.source_name !== c.capture ? esc(c.source_name) : ""],
       ["Diagnosis (source)", esc(c.diagnosis)],
       ["Histology (source)", c.histology !== c.diagnosis ? esc(c.histology) : ""],
       ["Site (source wording)", esc(c.site_source)],
+      ["Tissue", c.compartment && !["primary-tumour", "metastatic-tumour"].includes(c.compartment) ? esc(LABELS.compartment[c.compartment] ?? c.compartment) : ""],
     ])}
     <h3 class="section-title">Data</h3>
     <div class="links">${links}</div>
     ${kv([
+      ["Image level", `${esc(LABELS.imageLevel[c.image_level])}<span class="cell-sub">${esc(LABELS.imageLevelNote[c.image_level])}</span>`],
+      ["Shared assay area", c.assay_area_id ? `<span class="mono">${esc(c.assay_area_id)}</span><span class="cell-sub">Several sections share this array area; use only this section's expression subset${c.expression_subset ? ` (slide ${esc(c.expression_subset.slide)}, tissue ${esc(c.expression_subset.tissues)})` : ""}${c.region_label ? ` (source region ${esc(c.region_label)})` : ""}.</span>` : ""],
       ["Technique", esc(c.technique)],
       ["Preservation", esc(c.preservation)],
       ["H&E–RNA linkage", esc(LABELS.linkage[c.linkage] ?? c.linkage)],
       ["H&E resolution", c.he_mpp ? `${c.he_mpp} µm/pixel <span class="cell-sub">${esc(c.he_mpp_basis || "")}</span>` : esc(c.he_mpp_basis || "Unknown")],
       ["H&E file", c.he_file ? `<span class="mono">${esc(c.he_file)}</span>` : ""],
       ["Expression data", esc(c.expression_type)],
+      ["Out-of-tissue spots", c.out_of_tissue_expression_spots ? `${fmt(c.out_of_tissue_expression_spots)}<span class="cell-sub">Expression spots outside the tissue; filter them explicitly.</span>` : ""],
       ["Registration", esc(c.registration)],
       ["Access", `H&E: ${esc(LABELS.access[c.access.he])} · processed data: ${esc(LABELS.access[c.access.processed])} · raw reads: ${esc(LABELS.access[c.access.raw])}`],
     ])}
@@ -716,7 +783,10 @@ export function showCapture(d, id) {
       ["Capture tier", `${esc(LABELS.tier[c.tier])}${c.tier_reason ? `<span class="cell-sub">${esc(c.tier_reason)}</span>` : ""}`],
       ["Treatment before sampling", `${esc(c.treatment)}${c.treatment_note ? `<span class="cell-sub">${esc(c.treatment_note)}</span>` : ""}`],
       ["Verification", esc(LABELS.verification[c.verification])],
+      ["Recurrence (later outcome)", c.recurrence_outcome ? esc(c.recurrence_outcome === "N" ? "No recurrence reported" : c.recurrence_outcome) : ""],
+      ["Original image match", c.original_crosswalk_inferred === true ? "Inferred from crossed labels; held at preview level" : ""],
     ])}
+    ${c.open_checks && c.open_checks.length ? `<h3 class="section-title">Open checks for this section</h3><ul class="notes">${c.open_checks.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
     <h3 class="section-title">Clinical fields reported by the source</h3>
     ${kv([["Age", esc(clin.age)], ["Sex", esc(clin.sex)], ["Stage / TNM", esc(clin.stage)], ["Grade", esc(clin.grade)], ["Subsite", esc(clin.subsite)], ["Markers", esc(clin.markers)]]) || '<p class="muted small">None extracted for this section.</p>'}
     <p class="muted small">Values are copied from the source with their original wording; missing fields were not reported or not extracted. Consult the source tables before analysis.</p>`;
@@ -727,7 +797,8 @@ export function cohortCounts(d, cohort) {
   const caps = capturesOf(d, cohort.id);
   if (!caps.length) return null;
   const core = caps.filter(c => c.tier === "core");
-  return { all: tally(caps), core: tally(core), coreUntreated: tally(core.filter(c => c.treatment === "Untreated")) };
+  return { all: tally(caps), core: tally(core), coreUntreated: tally(core.filter(c => c.treatment === "Untreated")),
+    original: tally(caps.filter(c => c.image_level === "original")), preview: tally(caps.filter(c => c.image_level === "preview")) };
 }
 
 export function showCohort(d, id) {
@@ -739,11 +810,16 @@ export function showCohort(d, id) {
   const derived = (c.derived_from || []).map(x => `<button class="btn small" type="button" data-open-cohort="${esc(x)}">${esc(d.cohortById.get(x)?.label ?? x)}</button>`).join(" ");
   let countHtml = "";
   if (counts) {
-    countHtml = `<div class="table-wrap"><table><thead><tr><th>Subset</th><th class="num">Patients</th><th class="num">Sections</th></tr></thead><tbody>
+    const both = counts.original.captures && counts.preview.captures;
+    countHtml = `<div class="table-wrap"><table><thead><tr><th>Subset</th><th class="num">Known patients</th><th class="num">Sections</th></tr></thead><tbody>
       <tr><td>All catalogued sections</td><td class="num">${counts.all.patients}</td><td class="num">${counts.all.captures}</td></tr>
+      ${both ? `<tr><td>… with original H&amp;E</td><td class="num">${counts.original.patients}</td><td class="num">${counts.original.captures}</td></tr>
+      <tr><td>… with a preview image only</td><td class="num">${counts.preview.patients}</td><td class="num">${counts.preview.captures}</td></tr>` : ""}
       <tr><td>Core primary</td><td class="num">${counts.core.patients}</td><td class="num">${counts.core.captures}</td></tr>
       <tr><td>Core primary, untreated</td><td class="num">${counts.coreUntreated.patients}</td><td class="num">${counts.coreUntreated.captures}</td></tr>
-      </tbody></table></div><p class="muted small">Computed from the section records in this release. Patients are counted once per cohort.</p>`;
+      </tbody></table></div><p class="muted small">Computed from the section records in this release. Known patients are study-local patient IDs given by the source, counted once per study${counts.all.unknown ? `; ${fmt(counts.all.unknown)} ${counts.all.unknown === 1 ? "section has" : "sections have"} no patient ID and ${counts.all.unknown === 1 ? "is" : "are"} not counted as patients` : ""}. Sections are records of this study, not globally unique physical sections, and they are not eligible-patient counts.</p>`;
+  } else if (countedPreview(d, c)) {
+    countHtml = `<p class="small"><strong class="num">${fmt(countedPreview(d, c))}</strong> checked section packages with a preview image: their expression barcodes match their tissue coordinates, but they are not yet listed as individual section records, so no patients are counted.</p>`;
   }
   const reported = (c.reported || []).map(([n, unit, basis, scope]) => `<li><strong class="num">${fmt(n)}</strong> ${esc(unit)} <span class="muted">(${esc(basis)}${scope ? `; ${esc(scope)}` : ""})</span></li>`).join("");
   const sr = c.spatial_review;
@@ -766,8 +842,22 @@ export function showCohort(d, id) {
       ["Next step", esc(sr.route_review.next_step)],
       ["Section packages checked", sr.route_review.sections_with_matching_coordinates ? `${fmt(sr.route_review.sections_with_matching_coordinates)}<span class="cell-sub">sections whose expression barcodes match their tissue coordinates exactly; not a patient count or final QC</span>` : "Not part of this check"],
     ])}` : ""}` : "";
+  const b = c.backlog_review;
+  const backlogHtml = b ? `<h3 class="section-title">Package review</h3>
+    ${kv([
+      ["Result", esc(LABELS.backlogOutcome[b.outcome] ?? b.outcome)],
+      ["How far it was checked", esc(b.depth)],
+      ["Images", esc(b.image_finding)],
+      ["Expression and coordinates", esc(b.molecular_finding)],
+      ["Section records listed", b.sections_listed ? `${fmt(b.sections_listed)}<span class="cell-sub">${esc(levelText(d, c))}</span>` : "None"],
+      ["Open dependencies", esc(b.states.map(x => LABELS.routeState[x] ?? x).join("; "))],
+      ["Next step", esc(b.next_step)],
+      ["Eligible patients", "Unknown: no patient is promoted into the strict core by this review"],
+    ])}` : "";
+  const level = c.status === "verified" || c.status === "preview" ? `<p class="small">${esc(LABELS.imageLevelNote[c.status === "verified" ? "original" : "preview"])}${levelText(d, c) ? ` <strong>${esc(levelText(d, c))}.</strong>` : ""}</p>` : "";
   const body = `
     <div class="chips" style="margin-bottom:1rem">${chip("status", c.status)} ${chip("access", c.access.category)} ${chip("verification", c.verification)}</div>
+    ${level}
     ${c.description ? `<p>${esc(c.description)}</p>` : ""}
     <h3 class="section-title">Source</h3>
     <p class="small">${citationText(c.citation)}</p>
@@ -787,13 +877,14 @@ export function showCohort(d, id) {
     ])}
     ${c.tcga_project ? tcgaSection(d, c.tcga_project) : ""}
     ${reviewHtml}
+    ${backlogHtml}
     ${c.gates && c.gates.length ? `<h3 class="section-title">${c.status === "screened" ? "Checks still open" : "Open checks before inclusion"}</h3><ul class="notes">${c.gates.map(g => `<li>${esc(LABELS.gate[g] ?? g)}</li>`).join("")}</ul>` : ""}
     <h3 class="section-title">Access</h3>
     <p class="small">${chip("access", c.access.category)} ${esc(c.access.route || "")}</p>
     <div class="links">${links || '<span class="unavailable">No data link recorded</span>'}</div>
-    ${counts ? `<h3 class="section-title">Catalogued spatial transcriptomics sections</h3>${countHtml}` : ""}
+    ${countHtml ? `<h3 class="section-title">Catalogued spatial transcriptomics sections</h3>${countHtml}` : ""}
     ${reported ? `<h3 class="section-title">Counts reported by the source</h3><ul class="notes">${reported}</ul><p class="muted small">Reported counts describe the source as published. They are not deduplicated or checked for eligibility.</p>` : ""}
-    ${!counts && !reported ? `<p class="muted small">No counts are given for this entry in this release.</p>` : ""}
+    ${!countHtml && !reported ? `<p class="muted small">No counts are given for this entry in this release.</p>` : ""}
     ${c.notes && c.notes.length ? `<h3 class="section-title">Notes</h3><ul class="notes">${c.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
     <p class="muted small">Listing in the explorer does not mean that access has been granted or requested.</p>`;
   openDialog(esc(c.label), esc(LABELS.layer[c.layer]), body);
@@ -1135,12 +1226,15 @@ export function spatialResourcesFor(d, page) {
 }
 
 // One plain sentence on what is catalogued and what is verified.
-export function spatialSentence(n, located) {
+export function spatialSentence(n, original, preview = 0) {
   if (!n) return "No spatial resources are catalogued for this cancer type yet.";
   const head = `${numberWord(n)} spatial ${n === 1 ? "resource is" : "resources are"} catalogued`;
-  if (!located) return `${head}. Verification of the matched image and molecular data is pending.`;
-  if (located === n) return `${head}, and matched image and molecular data have been located for ${n === 1 ? "it" : located === 2 ? "both" : "all of them"}.`;
-  return `${head}; matched image and molecular data have been located for ${numberWord(located).toLowerCase()}. Verification is pending for the others.`;
+  if (!original && !preview) return `${head}. Verification of the matched image and molecular data is pending.`;
+  const who = k => (k === n ? (n === 1 ? "it" : k === 2 ? "both" : "all of them") : numberWord(k).toLowerCase());
+  const bits = [original ? `the original H&E and matched molecular data are located for ${who(original)}` : "",
+    preview ? `matched molecular data with a preview image only for ${who(preview)}` : ""].filter(Boolean);
+  const rest = n - original - preview;
+  return `${head}; ${bits.join(", and ")}.${rest ? ` Verification is pending for the ${rest === 1 ? "other" : "others"}.` : ""}`;
 }
 
 // The cancer page that holds an analysis cohort (CSCC on CESC, ESCC on ESCA; pooled cohorts have their own pages).
@@ -1156,6 +1250,7 @@ export function spatialStatus(d, c) {
   const caps = d.captures.filter(x => codes.includes(x.cancer));
   return {
     located: spatial.filter(x => x.status === "verified").length,
+    preview: spatial.filter(x => x.status === "preview").length,
     candidates: spatial.filter(x => x.status === "candidate").length,
     openCandidates: spatial.filter(x => x.status === "candidate" && !access.has(x.access.category)).length,
     accessCandidates: spatial.filter(x => x.status === "candidate" && access.has(x.access.category)).length,

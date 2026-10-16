@@ -1,6 +1,6 @@
 # Stomach adenocarcinoma
 
-Code `STAD`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.9.3, 16 October 2026. Web page: [cancers.html?c=STAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=STAD). Data: [data/by-cancer/STAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/STAD.json).
+Code `STAD`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=STAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=STAD). Data: [data/by-cancer/STAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/STAD.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen.
 
@@ -22,14 +22,14 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-2 spatial resources are catalogued. Verification of the matched image and molecular data is pending. These studies usually involve patients other than those in TCGA.
+2 spatial resources are catalogued; matched molecular data with a preview image only for both. These studies usually involve patients other than those in TCGA.
 
-| Study | Assay | Access | Reported by the study | Matched data located |
+| Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
-| Lee et al. 2024 (`stad-gse251950`); includes metastases | Visium | Open download | 9 donor labels | Verification pending |
-| Gao et al. 2026 (`stad-gse270678`) | Visium | Open download | 19 patients with main sections | Verification pending |
+| Lee et al. 2024 (`stad-gse251950`); includes metastases | Visium | Open download | 9 donor labels | Matched data with preview image: 10 sections with a preview image, not listed one by one |
+| Gao et al. 2026 (`stad-gse270678`) | Visium | Open download | 19 patients with main sections | Matched data with preview image: 72 sections with a preview image, not listed one by one |
 
-Study-reported numbers keep each study's own unit and are not added together. Located means the image and molecular files were found; it does not imply completed image registration or tissue QC.
+Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
 ## Selection history: published archetype evidence
 

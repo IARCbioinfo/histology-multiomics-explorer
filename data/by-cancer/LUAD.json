@@ -1,12 +1,13 @@
 {
  "release": {
-  "version": "0.9.3",
+  "version": "0.10.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
-   "2026-10-15"
+   "2026-10-15",
+   "2026-10-16"
   ]
  },
  "code": "LUAD",
@@ -15,9 +16,9 @@
  "notes": [
   "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
   "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
-  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
+  "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
   "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-  "Normal tissue comes from patients with cancer, not healthy donors.",
   "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
  ],
  "cancer": {
@@ -235,7 +236,7 @@
     "LUAD"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna"
    ],
@@ -249,7 +250,8 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "calibration"
+    "calibration",
+    "image-qc"
    ],
    "accession": "JGAS000613 / JGAD000742 / hum0394-v1",
    "access": {
@@ -266,12 +268,26 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "original-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "One original 10,418 × 11,237 TIFF in selected LUAD3B component set",
+    "molecular_finding": "2,876 expression barcodes exactly match in-tissue positions and lie inside original frame",
+    "next_step": "Only LUAD3B is checked; the rest of the study and image calibration remain (the 72 DPI tag is not a micron scale).",
+    "sections_listed": 1,
+    "study_local_donors": 1
+   }
   },
   {
    "id": "cand-dezuani-cvejic-2024",
@@ -290,7 +306,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -305,7 +321,9 @@
    "gates": [
     "he-not-located",
     "identity",
-    "treatment-review"
+    "treatment-review",
+    "image-qc",
+    "calibration"
    ],
    "accession": "E-MTAB-13530",
    "access": {
@@ -365,7 +383,8 @@
     "Preserve four adjacent sections outside tumour counts",
     "SDRF staging fields contain inconsistent values; do not interpret each row as valid TNM",
     "Staging from Supplementary Data 1: Patient 11 T2b N0 M0, Patient 19 T3 N0 M0",
-    "Prior treatment is not reported"
+    "Prior treatment is not reported",
+    "Matched data with preview image: 10 checked section packages, not yet listed as individual section records"
    ],
    "spatial_review": {
     "id": "lusc-emtab13530",
@@ -457,12 +476,26 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "20 original TIFF members indexed remotely in 30.7 GB ZIP; 8 donor-prefix labels",
+    "molecular_finding": "18.9 GB processed ZIP contains spatial_list.Rda (2.70 GB) and image/source folders",
+    "next_step": "Extract spatial_list and join the exact 20 sections and 8 reported donor labels to the image members; a directory listing alone does not verify the study.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-peng-kadara-2025",
@@ -480,7 +513,7 @@
     "LUAD"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -493,7 +526,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-unverified"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE307534",
    "access": {
@@ -510,12 +545,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "56 archive previews; CytAssist TIFF is instrument image",
+    "molecular_finding": "All 56 exact; 30 invasive/MIA, 25 AAH/AIS, one normal by titles",
+    "next_step": "Only the 30 invasive or minimally invasive sections are tumour; 25 precursor lesions and one normal stay separate; repeated sections of a patient stay linked.",
+    "sections_listed": 56,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-chen-liu-2024",
@@ -533,7 +583,7 @@
     "LUAD"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -546,7 +596,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-unverified"
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "Zenodo13337961",
    "access": {
@@ -563,12 +615,27 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "downloaded components checked",
+    "states": [
+     "public-download",
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Two 2,000 px previews and 3,000 px CytAssist/technical TIFFs",
+    "molecular_finding": "Both complete RAR matrix/spatial packages exact",
+    "next_step": "Original pathology scans and the image transform; the donor relation of the solid and lepidic sections is unknown.",
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-knuch-2026",
@@ -616,12 +683,26 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "public listing or archive inventoried",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "image_finding": "Primary full text supplies KAP241022 and CELLxGENE/public code alternatives",
+    "molecular_finding": "GitHub tree is analysis code, not original image release",
+    "next_step": "Inspect the actual spatial subset; do not equate 18 scRNA donors with one source-described Visium specimen.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-deng-micropapillary-2025",
@@ -670,7 +751,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "author-release",
+    "depth": "source or metadata only",
+    "states": [
+     "author-release"
+    ],
+    "image_finding": "Publication route inspected; no actionable matched package",
+    "molecular_finding": "Unverified",
+    "next_step": "Locate release or later ask for processed/original-image package; histology stratum explicit.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-lu-cell-discovery-2023",
@@ -723,7 +817,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "access-dependent",
+    "depth": "access boundary reached",
+    "states": [
+     "dac-approval"
+    ],
+    "image_finding": "HRA001238/raw and primary source links",
+    "molecular_finding": "No controlled package accessed",
+    "next_step": "Locate public processed original-image alternative or formal access route.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-10x-post-xenium-hd",
@@ -772,7 +879,20 @@
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "vendor-boundary",
+    "depth": "source or metadata only",
+    "states": [
+     "vendor-terms"
+    ],
+    "image_finding": "Official vendor source behind registration and terms",
+    "molecular_finding": "No approved downloaded package",
+    "next_step": "Treat vendor form/terms as distinct dependency; do not count post-Xenium assay as independent donor.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-meti-luad14c",
@@ -820,12 +940,26 @@
      ]
     ]
    },
-   "verification": "source-described",
+   "verification": "metadata-checked",
    "verified_on": "2026-10-09",
    "description": null,
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "backlog_review": {
+    "date": "2026-10-16",
+    "outcome": "coordinate-gap",
+    "depth": "components inspected; join incomplete",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "image_finding": "Released TIFF is only 2,000 × 1,927",
+    "molecular_finding": "Counts exist but no separate spot-coordinate file listed",
+    "next_step": "Inspect the metadata CSV for coordinates and an original-image or scale route; the released image is not an original scan.",
+    "sections_listed": null,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -836,6 +970,7 @@
    "stratum": "luad-nonmuc",
    "patient": "11980",
    "capture": "LM_SD_1216_8",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -849,7 +984,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_1216_12",
@@ -858,6 +995,7 @@
    "stratum": "luad-nonmuc",
    "patient": "13034",
    "capture": "LM_SD_1216_12",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -871,7 +1009,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_7",
@@ -880,6 +1020,7 @@
    "stratum": "luad-nonmuc",
    "patient": "1984",
    "capture": "LM_SD_7",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -893,7 +1034,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_11",
@@ -902,6 +1045,7 @@
    "stratum": "luad-nonmuc",
    "patient": "21448",
    "capture": "LM_SD_11",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -915,7 +1059,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_2",
@@ -924,6 +1070,7 @@
    "stratum": "luad-nonmuc",
    "patient": "21448",
    "capture": "LM_SD_2",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -937,7 +1084,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_1216_14",
@@ -946,6 +1095,7 @@
    "stratum": "luad-nonmuc",
    "patient": "22809",
    "capture": "LM_SD_1216_14",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -959,7 +1109,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_15",
@@ -968,6 +1120,7 @@
    "stratum": "luad-nonmuc",
    "patient": "25115",
    "capture": "LM_SD_15",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -981,7 +1134,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_3",
@@ -990,6 +1145,7 @@
    "stratum": "luad-nonmuc",
    "patient": "27086",
    "capture": "LM_SD_3",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1003,7 +1159,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_10",
@@ -1012,6 +1170,7 @@
    "stratum": "luad-nonmuc",
    "patient": "29063",
    "capture": "LM_SD_10",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1025,7 +1184,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_1216_1",
@@ -1034,6 +1195,7 @@
    "stratum": "luad-nonmuc",
    "patient": "30868",
    "capture": "LM_SD_1216_1",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1047,7 +1209,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_16",
@@ -1056,6 +1220,7 @@
    "stratum": "luad-nonmuc",
    "patient": "30868",
    "capture": "LM_SD_16",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1069,7 +1234,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_9",
@@ -1078,6 +1245,7 @@
    "stratum": "luad-nonmuc",
    "patient": "3255",
    "capture": "LM_SD_9",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1091,7 +1259,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_4",
@@ -1100,6 +1270,7 @@
    "stratum": "luad-nonmuc",
    "patient": "4710",
    "capture": "LM_SD_4",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1113,7 +1284,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_5",
@@ -1122,6 +1295,7 @@
    "stratum": "luad-nonmuc",
    "patient": "611",
    "capture": "LM_SD_5",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1135,7 +1309,9 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
   },
   {
    "id": "steiner-2026:LM_SD_13",
@@ -1144,6 +1320,7 @@
    "stratum": "luad-nonmuc",
    "patient": "915",
    "capture": "LM_SD_13",
+   "image_level": "original",
    "tier": "core",
    "site": "Primary",
    "treatment": "Untreated",
@@ -1157,7 +1334,1484 @@
     "processed": "open",
     "raw": "open"
    },
-   "verification": "metadata-checked"
+   "verification": "metadata-checked",
+   "assay_area_id": null,
+   "donor_mapping": null
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226208",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226208",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226200",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226200",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226176",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226176",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226220",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226220",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226180",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226180",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226199",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226199",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226216",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226216",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226214",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226214",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226191",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226191",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226211",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226211",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226207",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226207",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226182",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226182",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226177",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226177",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226193",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226193",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226217",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226217",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226189",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226189",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226201",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226201",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226169",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226169",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226218",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226218",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226171",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226171",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226204",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226204",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226184",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226184",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226209",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226209",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226172",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226172",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226185",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226185",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226198",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226198",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226219",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226219",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226194",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226194",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226221",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226221",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226195",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226195",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226173",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226173",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226215",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226215",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226170",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226170",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226203",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226203",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226186",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226186",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226188",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226188",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226192",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226192",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226179",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226179",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226175",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226175",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226213",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226213",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226210",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226210",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226202",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226202",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226197",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226197",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226178",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226178",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226174",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226174",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226206",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226206",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226205",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226205",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226181",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226181",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226190",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226190",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226222",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226222",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226183",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226183",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226212",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226212",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226168",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226168",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226196",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226196",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226223",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226223",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-peng-kadara-2025:GSM9226187",
+   "cohort": "cand-peng-kadara-2025",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM9226187",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-chen-liu-2024:solid",
+   "cohort": "cand-chen-liu-2024",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "solid",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-chen-liu-2024:lepidic",
+   "cohort": "cand-chen-liu-2024",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "lepidic",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-takano-suzuki-2024:LUAD_3_B",
+   "cohort": "cand-takano-suzuki-2024",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "LUAD3",
+   "capture": "LUAD_3_B",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
   }
  ],
  "other_resources": [

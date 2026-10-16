@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "schemas/cohorts.schema.json",
  "title": "cohorts",
- "description": "Studies and resources in every data layer, with linkage, access, open checks, reported counts and the spatial review details",
+ "description": "Studies and resources in every data layer, with image level, linkage, access, open checks, reported counts and the spatial and package review details",
  "type": "array",
  "items": {
   "type": "object",
@@ -120,11 +120,12 @@
    },
    "status": {
     "type": "string",
-    "description": "verified means matched packages were located; candidate means not yet verified",
+    "description": "For spatial studies the image level: verified = original H&E located; preview = matched data with preview image (original scan not located); candidate = not yet verified",
     "enum": [
      "candidate",
      "excluded",
      "listed",
+     "preview",
      "reference",
      "screened",
      "verified"
@@ -288,6 +289,86 @@
      }
     }
    },
+   "backlog_review": {
+    "type": "object",
+    "description": "Package review: outcome, depth of the check, image and molecular findings, open dependencies, next step and the section records it listed",
+    "properties": {
+     "date": {
+      "type": "string"
+     },
+     "outcome": {
+      "type": "string",
+      "enum": [
+       "access-dependent",
+       "account-route",
+       "author-release",
+       "bounded-public-work",
+       "code-only-lead",
+       "coordinate-gap",
+       "linkage-gap",
+       "original-ready",
+       "preview-ready",
+       "registration-gap",
+       "release-gap",
+       "release-unresolved",
+       "technical-gap",
+       "unspecified-vendor-lead",
+       "vendor-boundary"
+      ]
+     },
+     "depth": {
+      "type": "string"
+     },
+     "states": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "enum": [
+        "account-registration",
+        "author-release",
+        "dac-approval",
+        "download-failure",
+        "local-qc",
+        "public-download",
+        "vendor-terms"
+       ]
+      }
+     },
+     "image_finding": {
+      "type": "string"
+     },
+     "molecular_finding": {
+      "type": "string"
+     },
+     "next_step": {
+      "type": "string"
+     },
+     "sections_listed": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "study_local_donors": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     }
+    },
+    "required": [
+     "date",
+     "outcome",
+     "depth",
+     "states",
+     "image_finding",
+     "molecular_finding",
+     "next_step",
+     "sections_listed",
+     "study_local_donors"
+    ],
+    "additionalProperties": false
+   },
    "tcga_project": {
     "type": "string"
    },
@@ -411,7 +492,16 @@
        "states": {
         "type": "array",
         "items": {
-         "type": "string"
+         "type": "string",
+         "enum": [
+          "account-registration",
+          "author-release",
+          "dac-approval",
+          "download-failure",
+          "local-qc",
+          "public-download",
+          "vendor-terms"
+         ]
         }
        },
        "next_step": {
@@ -477,6 +567,12 @@
      "route_review"
     ],
     "additionalProperties": false
+   },
+   "derived_from": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
    }
   },
   "required": [

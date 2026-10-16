@@ -1,14 +1,15 @@
 # Tumour Histology and Multi-omics Explorer
 
-> A curated catalogue of public tumour datasets that link histology with molecular measurements: TCGA patients with RNA-seq and DNA methylation (450k), and published spatial omics studies with matched H&E images. Release 0.9.3, 16 October 2026.
+> A curated catalogue of public tumour datasets that link histology with molecular measurements: TCGA patients with RNA-seq and DNA methylation (450k), and published spatial omics studies with matched H&E images. Release 0.10.0, 16 October 2026.
 
-The selected TCGA analysis panel has 7,826 patients in 18 analysis cohorts, 6,561 with both RNA-seq and 450k methylation. 113 spatial omics resources are catalogued, 10 with matched image and molecular data located, and 22 cancer types have their own page. The web pages draw their tables with JavaScript; the Markdown and JSON files below hold the same content as text.
+The selected TCGA analysis panel has 7,826 patients in 18 analysis cohorts, 6,561 with both RNA-seq and 450k methylation. 113 spatial omics resources are catalogued: 15 with the original H&E and matched molecular data located, and 28 more with matched molecular data and a preview image only. 22 cancer types have their own page. The web pages draw their tables with JavaScript; the Markdown and JSON files below hold the same content as text.
 
 Read these points before using any count:
 
 - The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.
 - Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.
-- "Matched data located" means the image and molecular files were found; image registration and tissue QC may still be pending.
+- Spatial resources are shown at two image levels. "Original H&E located": the original scan, measured expression and coordinates were found. "Matched data with preview image": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.
+- Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.
 - Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.
 - Normal tissue comes from patients with cancer, not healthy donors.
 - There is no treated TCGA reference set: treatment-flagged patients were withheld, not collected as a treated group.
@@ -20,7 +21,7 @@ Licence: the curated metadata and these text files are [CC BY 4.0](https://creat
 ## Pages as Markdown
 
 - [TCGA reference](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/tcga.md): the selected analysis panel by cohort, the patient screen and coverage by TCGA project
-- [Spatial studies](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/spatial.md): spatial resources by cancer type, with status, access and assay for each
+- [Spatial studies](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/spatial.md): spatial resources by cancer type and image level, the package and public-route reviews, and status, access and assay for each
 - [Cancer types](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/index.md): one page per cancer type with its TCGA data, spatial studies, selection history and gaps
 - [Curation and methods](https://iarcbioinfo.github.io/histology-multiomics-explorer/methods.html): definitions of count units, linkage levels, exclusions, pooling and limitations (static HTML)
 - [Research applications](https://iarcbioinfo.github.io/histology-multiomics-explorer/applications.html): study designs the data can support, with their limits (static HTML)
@@ -39,8 +40,8 @@ Licence: the curated metadata and these text files are [CC BY 4.0](https://creat
 - [release.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/release.json): Release version, date and the dates on which sources were checked
 - [cancers.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cancers.json): Cancer types: page codes, panel rationale, linked TCGA project and analysis cohort, histology strata, summary and gaps
 - [evidence.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/evidence.json): Published archetype studies used as the panel's selection history
-- [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json): Studies and resources in every data layer, with linkage, access, open checks, reported counts and the spatial review details
-- [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json): Located spatial transcriptomics tissue sections with original H&E, expression and coordinates, one record per section
+- [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json): Studies and resources in every data layer, with image level, linkage, access, open checks, reported counts and the spatial and package review details
+- [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json): Located spatial transcriptomics tissue section records, one per study and section, with measured expression, coordinates and the original H&E or a preview image (image_level)
 - [tcga_counts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/tcga_counts.json): TCGA molecular screen: patients with RNA-seq and 450k methylation per project, before and after assay-quality exclusions, with normal tissue
 - [tcga_eligibility.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/tcga_eligibility.json): TCGA selected analysis panel: counts per project after assay QC, after the patient screen and selected, and the 18 analysis cohorts
 - [tcga_patients.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/tcga_patients.json): Per-patient RNA-seq and 450k states (retained, excluded, unresolved, absent) for tumour and normal tissue
@@ -52,28 +53,28 @@ Licence: the curated metadata and these text files are [CC BY 4.0](https://creat
 
 ## Cancer pages
 
-- [Breast invasive carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BRCA.md) (`BRCA`): 1,062 TCGA patients in the selected panel; 8 spatial resources, 2 with matched data located
-- [Colon adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/COAD.md) (`COAD`): 427 TCGA patients in the selected panel, within pooled CRC; 11 spatial resources, 3 with matched data located
-- [Rectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/READ.md) (`READ`): 154 TCGA patients in the selected panel, within pooled CRC; 11 spatial resources, 3 with matched data located
-- [Colorectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CRC.md) (`CRC`): 581 TCGA patients in the selected panel (pooled TCGA-COAD + TCGA-READ); 11 spatial resources, 3 with matched data located
-- [Thyroid carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/THCA.md) (`THCA`): 495 TCGA patients in the selected panel; 9 spatial resources, 1 with matched data located
-- [Bladder urothelial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BLCA.md) (`BLCA`): 388 TCGA patients in the selected panel; 10 spatial resources, 1 with matched data located
-- [Lower-grade glioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LGG.md) (`LGG`): 502 TCGA patients in the selected panel, within pooled GLIOMA; 10 spatial resources, verification pending
-- [Glioblastoma (historical TCGA diagnosis)](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GBM.md) (`GBM`): 225 TCGA patients in the selected panel, within pooled GLIOMA; 2 spatial resources, verification pending
-- [Diffuse glioma classification benchmark](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GLIOMA.md) (`GLIOMA`): 727 TCGA patients in the selected panel (pooled TCGA-LGG + TCGA-GBM); 10 spatial resources, verification pending
-- [Liver hepatocellular carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LIHC.md) (`LIHC`): 357 TCGA patients in the selected panel; 17 spatial resources, 1 with matched data located
-- [Lung adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUAD.md) (`LUAD`): 457 TCGA patients in the selected panel; 11 spatial resources, 1 with matched data located
-- [Head and neck squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/HNSC.md) (`HNSC`): 514 TCGA patients in the selected panel; 13 spatial resources, 1 with matched data located
+- [Breast invasive carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BRCA.md) (`BRCA`): 1,062 TCGA patients in the selected panel; 8 spatial resources, 2 with original H&E located, 2 with matched data and a preview image
+- [Colon adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/COAD.md) (`COAD`): 427 TCGA patients in the selected panel, within pooled CRC; 11 spatial resources, 3 with original H&E located, 3 with matched data and a preview image
+- [Rectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/READ.md) (`READ`): 154 TCGA patients in the selected panel, within pooled CRC; 11 spatial resources, 3 with original H&E located, 3 with matched data and a preview image
+- [Colorectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CRC.md) (`CRC`): 581 TCGA patients in the selected panel (pooled TCGA-COAD + TCGA-READ); 11 spatial resources, 3 with original H&E located, 3 with matched data and a preview image
+- [Thyroid carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/THCA.md) (`THCA`): 495 TCGA patients in the selected panel; 9 spatial resources, 2 with original H&E located, 1 with matched data and a preview image
+- [Bladder urothelial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BLCA.md) (`BLCA`): 388 TCGA patients in the selected panel; 10 spatial resources, 2 with original H&E located, 2 with matched data and a preview image
+- [Lower-grade glioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LGG.md) (`LGG`): 502 TCGA patients in the selected panel, within pooled GLIOMA; 10 spatial resources, 1 with original H&E located, 4 with matched data and a preview image
+- [Glioblastoma (historical TCGA diagnosis)](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GBM.md) (`GBM`): 225 TCGA patients in the selected panel, within pooled GLIOMA; 3 spatial resources, 1 with original H&E located, 1 with matched data and a preview image
+- [Diffuse glioma classification benchmark](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GLIOMA.md) (`GLIOMA`): 727 TCGA patients in the selected panel (pooled TCGA-LGG + TCGA-GBM); 10 spatial resources, 1 with original H&E located, 4 with matched data and a preview image
+- [Liver hepatocellular carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LIHC.md) (`LIHC`): 357 TCGA patients in the selected panel; 17 spatial resources, 1 with original H&E located, 2 with matched data and a preview image
+- [Lung adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUAD.md) (`LUAD`): 457 TCGA patients in the selected panel; 11 spatial resources, 2 with original H&E located, 3 with matched data and a preview image
+- [Head and neck squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/HNSC.md) (`HNSC`): 514 TCGA patients in the selected panel; 13 spatial resources, 2 with original H&E located, 4 with matched data and a preview image
 - [Cervical squamous cell carcinoma and endocervical adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CESC.md) (`CESC`): 249 TCGA patients in the selected panel, squamous cell carcinoma only (CSCC); 3 spatial resources, verification pending
 - [Oesophageal carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/ESCA.md) (`ESCA`): 90 TCGA patients in the selected panel, squamous cell carcinoma only (ESCC); 3 spatial resources, verification pending
-- [Kidney renal clear cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRC.md) (`KIRC`): 494 TCGA patients in the selected panel; 4 spatial resources, verification pending
+- [Kidney renal clear cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRC.md) (`KIRC`): 494 TCGA patients in the selected panel; 4 spatial resources, 2 with matched data and a preview image
 - [Kidney renal papillary cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRP.md) (`KIRP`): 275 TCGA patients in the selected panel; 2 spatial resources, verification pending
-- [Lung squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUSC.md) (`LUSC`): 471 TCGA patients in the selected panel; 2 spatial resources, verification pending
+- [Lung squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUSC.md) (`LUSC`): 471 TCGA patients in the selected panel; 2 spatial resources, 1 with matched data and a preview image
 - [Pheochromocytoma and paraganglioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PCPG.md) (`PCPG`): 178 TCGA patients in the selected panel; 2 spatial resources, verification pending
 - [Prostate adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PRAD.md) (`PRAD`): 402 TCGA patients in the selected panel; 4 spatial resources, verification pending
-- [Stomach adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/STAD.md) (`STAD`): 414 TCGA patients in the selected panel; 2 spatial resources, verification pending
-- [Uterine corpus endometrial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/UCEC.md) (`UCEC`): 523 TCGA patients in the selected panel; 2 spatial resources, verification pending
-- [Pancreatic ductal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PDAC.md) (`PDAC`): 149 TCGA patients in the selected panel, ductal adenocarcinoma only (PDAC); 3 spatial resources, 2 with matched data located
+- [Stomach adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/STAD.md) (`STAD`): 414 TCGA patients in the selected panel; 2 spatial resources, 2 with matched data and a preview image
+- [Uterine corpus endometrial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/UCEC.md) (`UCEC`): 523 TCGA patients in the selected panel; 2 spatial resources, 2 with matched data and a preview image
+- [Pancreatic ductal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PDAC.md) (`PDAC`): 149 TCGA patients in the selected panel, ductal adenocarcinoma only (PDAC); 3 spatial resources, 2 with original H&E located, 1 with matched data and a preview image
 
 ## Optional
 
