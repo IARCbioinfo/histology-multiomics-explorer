@@ -1,0 +1,1203 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "LIHC",
+ "page": "cancers.html?c=LIHC",
+ "markdown": "md/cancers/LIHC.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "LIHC",
+  "gaps": [
+   "Only two patients have primary-tumour sections located, and their image calibration estimates disagree.",
+   "Several larger cohorts are controlled, post-treatment or lack original scans."
+  ],
+  "name": "Liver hepatocellular carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "lihc-hcc",
+    "Hepatocellular carcinoma NOS"
+   ]
+  ],
+  "summary": "Hepatocellular carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Combined hepatocellular–cholangiocarcinoma and post-treatment cohorts are kept separate.",
+  "tcga_project": "LIHC",
+  "analysis_cohort": "LIHC"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "LIHC",
+   "label": "LIHC",
+   "role": "discovery",
+   "projects": [
+    "LIHC"
+   ],
+   "selected_analysis": {
+    "total": 357,
+    "rna": 351,
+    "met": 357,
+    "paired": 351,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "contributions": {
+    "LIHC": {
+     "total": 357,
+     "rna": 351,
+     "met": 357,
+     "paired": 351,
+     "rna_only": 0,
+     "met_only": 6
+    }
+   },
+   "normal": {
+    "rna_he_before": 50,
+    "rna_he_after": 50,
+    "rna_he_met_after": 41,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "non_target_or_uncertain_or_recurrent_donor": 3,
+     "target_project_donor": 47
+    },
+    "context_met": {
+     "non_target_or_uncertain_or_recurrent_donor": 1,
+     "target_project_donor": 40
+    }
+   }
+  },
+  "projects": {
+   "LIHC": {
+    "selected_panel": {
+     "analysis_cohort": "LIHC",
+     "role": "discovery",
+     "reviewed_patients": 371,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 368,
+      "rna": 362,
+      "met": 368,
+      "paired": 362,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "after_patient_screen": {
+      "total": 357,
+      "rna": 351,
+      "met": 357,
+      "paired": 351,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "selected_analysis": {
+      "total": 357,
+      "rna": 351,
+      "met": 357,
+      "paired": 351,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "dispositions": {
+      "pass_annotation_screen": 357,
+      "diagnosis_identity_or_episode_exclusion_hold": 10,
+      "known_treatment_exclusion": 1
+     },
+     "normal": {
+      "rna_he_before": 50,
+      "rna_he_after": 50,
+      "rna_he_met_after": 41,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "non_target_or_uncertain_or_recurrent_donor": 3,
+       "target_project_donor": 47
+      },
+      "context_met": {
+       "non_target_or_uncertain_or_recurrent_donor": 1,
+       "target_project_donor": 40
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 377,
+      "paired": 371,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "post_qc": {
+      "union": 368,
+      "paired": 362,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "normal": {
+      "rna_he": 50,
+      "rna_he_met": 41,
+      "also_in_tumour_union": 47,
+      "normal_only": 3
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "LIHC"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "gse245908-lihc",
+   "label": "Giraud et al. 2024",
+   "citation": {
+    "authors": "Giraud J, et al.",
+    "title": "THBS1+ myeloid cells expand in SLD hepatocellular carcinoma and contribute to immunosuppression and unfavorable prognosis through TREM1",
+    "journal": "Cell Reports",
+    "year": 2024,
+    "doi": "10.1016/j.celrep.2024.113773",
+    "url": "https://doi.org/10.1016/j.celrep.2024.113773"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Processed counts, coordinates, original TIFF and raw reads on GEO/SRA without registration.",
+    "links": [
+     [
+      "GEO GSE245908",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245908"
+     ]
+    ]
+   },
+   "verification": "file-checked",
+   "verified_on": "2026-10-09",
+   "description": "Two untreated hepatocellular carcinoma resections.",
+   "notes": [
+    "Original H&E files are attached to a different GSM record than their expression data; the series' own mapping table resolves this.",
+    "TIFF calibration and the spot-based estimate differ (about 0.45 and 0.38 µm/pixel)."
+   ],
+   "compartments": [
+    "primary-tumour"
+   ]
+  },
+  {
+   "id": "cand-spatch-hcc",
+   "label": "Ren et al. 2025",
+   "title": "Systematic benchmarking of high-throughput subcellular spatial transcriptomics platforms across human tumors (liver sample)",
+   "citation": {
+    "authors": "Ren P, et al.",
+    "title": "Systematic benchmarking of high-throughput subcellular spatial transcriptomics platforms across human tumors",
+    "journal": "Nature Communications",
+    "year": 2025,
+    "doi": "10.1038/s41467-025-64292-3",
+    "url": "https://www.nature.com/articles/s41467-025-64292-3"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "calibration"
+   ],
+   "accession": "S-BIAD1900; HRA011129",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-025-64292-3"
+     ],
+     [
+      "Data record",
+      "https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1900"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-gse238264",
+   "label": "Spatial transcriptomics analysis of neoadjuvant cabozantinib and nivolumab in advanced hepatocellular carcinoma identifies independent mechanisms of resistance and recurrence",
+   "title": "Spatial transcriptomics analysis of neoadjuvant cabozantinib and nivolumab in advanced hepatocellular carcinoma identifies independent mechanisms of resistance and recurrence",
+   "citation": {
+    "authors": null,
+    "title": "Spatial transcriptomics analysis of neoadjuvant cabozantinib and nivolumab in advanced hepatocellular carcinoma identifies independent mechanisms of resistance and recurrence",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10506285/"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "treated",
+    "package-unverified"
+   ],
+   "accession": "GSE238264",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10506285/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE238264"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-gse281759",
+   "label": "Multiomics and multi-region spatial transcriptome analysis reveal cellular networks and pathways associated with hepatocellular carcinoma recurrence",
+   "title": "Multiomics and multi-region spatial transcriptome analysis reveal cellular networks and pathways associated with hepatocellular carcinoma recurrence",
+   "citation": {
+    "authors": null,
+    "title": "Multiomics and multi-region spatial transcriptome analysis reveal cellular networks and pathways associated with hepatocellular carcinoma recurrence",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13087693/"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE281759",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC13087693/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281759"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-times-hra006579",
+   "label": "Jia et al. 2025",
+   "title": "Spatial immune scoring system predicts hepatocellular carcinoma recurrence",
+   "citation": {
+    "authors": "Jia G, et al.",
+    "title": "Spatial immune scoring system predicts hepatocellular carcinoma recurrence",
+    "journal": "Nature",
+    "year": 2025,
+    "doi": "10.1038/s41586-025-08668-x",
+    "url": "https://www.nature.com/articles/s41586-025-08668-x"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified"
+   ],
+   "accession": "HRA006579; OSF db3uf",
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41586-025-08668-x"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/gsa-human/browse/HRA006579"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-wu2025-zenodo",
+   "label": "Spatial multi-omics and deep learning reveal fingerprints of immunotherapy response and resistance in hepatocellular carcinoma",
+   "title": "Spatial multi-omics and deep learning reveal fingerprints of immunotherapy response and resistance in hepatocellular carcinoma",
+   "citation": {
+    "authors": null,
+    "title": "Spatial multi-omics and deep learning reveal fingerprints of immunotherapy response and resistance in hepatocellular carcinoma",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12259099/"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "serial-section",
+    "treated"
+   ],
+   "accession": "Zenodo19123188;15392699",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12259099/"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/19123188"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-wu2021-hcc",
+   "label": "Wu et al. 2021",
+   "title": "A comprehensive analysis of the spatial architecture of primary liver cancer",
+   "citation": {
+    "authors": "Wu R, et al.",
+    "title": "Comprehensive analysis of spatial architecture in primary liver cancer",
+    "journal": "Science Advances",
+    "year": 2021,
+    "doi": "10.1126/sciadv.abg3750",
+    "url": "https://doi.org/10.1126/sciadv.abg3750"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "HRA000437;author Lifeome portal",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1126/sciadv.abg3750"
+     ],
+     [
+      "Data record",
+      "http://lifeome.net/supp/livercancer-st/data.htm"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-he2024-new4plc",
+   "label": "Jing et al. 2024",
+   "title": "Spatial multiomics reveals a subpopulation of fibroblasts associated with cancer stemness in human hepatocellular carcinoma",
+   "citation": {
+    "authors": "Jing Sy, et al.",
+    "title": "Spatial multiomics reveals a subpopulation of fibroblasts associated with cancer stemness in human hepatocellular carcinoma",
+    "journal": "Genome Medicine",
+    "year": 2024,
+    "doi": "10.1186/s13073-024-01367-8",
+    "url": "https://link.springer.com/article/10.1186/s13073-024-01367-8"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "OMIX006870",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://link.springer.com/article/10.1186/s13073-024-01367-8"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/omix/release/OMIX006870"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-fan2024-hra006757",
+   "label": "Fan et al. 2024",
+   "title": "Spatial transcriptomics of hepatocellular carcinoma",
+   "citation": {
+    "authors": "Fan G, et al.",
+    "title": "Single-cell and spatial analyses revealed the co-location of cancer stem cells and SPP1+ macrophage in hypoxic region that determines the poor prognosis in hepatocellular carcinoma",
+    "journal": "npj Precision Oncology",
+    "year": 2024,
+    "doi": "10.1038/s41698-024-00564-3",
+    "url": "https://www.nature.com/articles/s41698-024-00564-3"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "HRA006757",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41698-024-00564-3"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/gsa-human/browse/HRA006757"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-jgad000422-hcc",
+   "label": "Murai et al. 2022",
+   "title": "Multiomics identifies the link between intratumor steatosis and the exhausted tumor immune microenvironment in hepatocellular carcinoma",
+   "citation": {
+    "authors": "Murai H, et al.",
+    "title": "Multiomics identifies the link between intratumor steatosis and the exhausted tumor immune microenvironment in hepatocellular carcinoma",
+    "journal": "Hepatology",
+    "year": 2022,
+    "doi": "10.1002/hep.32573",
+    "url": "https://doi.org/10.1002/hep.32573"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "JGAD000422;JGAS000311;hum0286v2",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1002/hep.32573"
+     ],
+     [
+      "Data record",
+      "https://humandbs-production.ddbj.nig.ac.jp/en/dataset/JGAD000422"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-egad50000002122",
+   "label": "10x Visium Spatial Transcriptomics of 61 Human HCC Samples",
+   "title": "10x Visium Spatial Transcriptomics of 61 Human HCC Samples",
+   "citation": {
+    "authors": null,
+    "title": "10x Visium Spatial Transcriptomics of 61 Human HCC Samples",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": null
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "EGAD50000002122",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Data record",
+      "https://ega-archive.org/datasets/EGAD50000002122"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-egad50000001506",
+   "label": "Targeting Treg–fibroblast interaction to enhance immunotherapy in SLD-related HCC",
+   "title": "Targeting Treg–fibroblast interaction to enhance immunotherapy in SLD-related HCC",
+   "citation": {
+    "authors": null,
+    "title": "Targeting Treg–fibroblast interaction to enhance immunotherapy in SLD-related HCC",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://gut.bmj.com/content/early/2025/07/30/gutjnl-2025-335084"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "EGAD50000001506;EGAS50000001034",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://gut.bmj.com/content/early/2025/07/30/gutjnl-2025-335084"
+     ],
+     [
+      "Data record",
+      "https://ega-archive.org/datasets/EGAD50000001506"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-adapa2025-hd",
+   "label": "Spatial Transcriptomics Reveals Distinct Architectures but Shared Vulnerabilities in Primary and Metastatic Liver Tumors",
+   "title": "Spatial Transcriptomics Reveals Distinct Architectures but Shared Vulnerabilities in Primary and Metastatic Liver Tumors",
+   "citation": {
+    "authors": null,
+    "title": "Spatial Transcriptomics Reveals Distinct Architectures but Shared Vulnerabilities in Primary and Metastatic Liver Tumors",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12523610/"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved"
+   ],
+   "accession": "Humanaccessionnotidentified",
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12523610/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-gse283406",
+   "label": "Deep versus standard spatial transcriptomic sequencing",
+   "title": "Deep versus standard spatial transcriptomic sequencing",
+   "citation": {
+    "authors": null,
+    "title": "Deep versus standard spatial transcriptomic sequencing",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11974817/"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE283406;GSE283404/405",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11974817/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283406"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-prjna858545-hcc",
+   "label": "Lau et al. 2022",
+   "title": "Spatial Transcriptomic of HCC and CRC Patients with COVID-19 Co-Morbidity",
+   "citation": {
+    "authors": "Lau MC, et al.",
+    "title": "Case report: Understanding the impact of persistent tissue-localization of SARS-CoV-2 on immune response activity via spatial transcriptomic analysis of two cancer patients with COVID-19 co-morbidity",
+    "journal": "Frontiers in Immunology",
+    "year": 2022,
+    "doi": "10.3389/fimmu.2022.978760",
+    "url": "https://doi.org/10.3389/fimmu.2022.978760"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "identity"
+   ],
+   "accession": "PRJNA858545;figshare21061990",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.3389/fimmu.2022.978760"
+     ],
+     [
+      "Data record",
+      "https://figshare.com/articles/figure/H_E_images_for_the_Spatial_Transcriptomics_10X_Visium_samples_deposited_in_the_BioProject_PRJNA858545/21061990"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-xin2022-hcc",
+   "label": "Spatial maps of hepatocellular carcinoma transcriptomes reveal spatial expression patterns in tumor immune microenvironment",
+   "title": "Spatial maps of hepatocellular carcinoma transcriptomes reveal spatial expression patterns in tumor immune microenvironment",
+   "citation": {
+    "authors": null,
+    "title": "Spatial maps of hepatocellular carcinoma transcriptomes reveal spatial expression patterns in tumor immune microenvironment",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9169356/"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved"
+   ],
+   "accession": null,
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9169356/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-li2025-caf",
+   "label": "Spatial Transcriptomics and snRNA-seq Expose CAF Niches Orchestrating Dual Stromal-Immune Barriers in Hepatocellular Carcinoma",
+   "title": "Spatial Transcriptomics and snRNA-seq Expose CAF Niches Orchestrating Dual Stromal-Immune Barriers in Hepatocellular Carcinoma",
+   "citation": {
+    "authors": null,
+    "title": "Spatial Transcriptomics and snRNA-seq Expose CAF Niches Orchestrating Dual Stromal-Immune Barriers in Hepatocellular Carcinoma",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12752642/"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": null,
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12752642/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "gse245908-lihc:CHC20",
+   "cohort": "gse245908-lihc",
+   "cancer": "LIHC",
+   "stratum": "lihc-hcc",
+   "patient": "CHC20",
+   "capture": "CHC20",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Space Ranger coordinates/scalefactors and fiducial images provided. Identity confirmed; alignment not replayed/QC-tested. Original image is attached under other GSM.",
+   "he_mpp": 0.454,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "gse245908-lihc:CHC23",
+   "cohort": "gse245908-lihc",
+   "cancer": "LIHC",
+   "stratum": "lihc-hcc",
+   "patient": "CHC23",
+   "capture": "CHC23",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Space Ranger coordinates/scalefactors and fiducial images provided. Identity confirmed; alignment not replayed/QC-tested. Original image is attached under other GSM.",
+   "he_mpp": 0.454,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-lihc",
+   "label": "TCGA-LIHC",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-LIHC"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "LIHC",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-LIHC"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Liver hepatocellular carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "LIHC"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

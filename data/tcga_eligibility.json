@@ -1,0 +1,4801 @@
+{
+ "meta": {
+  "date": "2026-10-15",
+  "reviewed_patients": 8187,
+  "audited_projects": 20,
+  "projects": 20,
+  "analysis_cohorts": 18,
+  "discovery_cohorts": 17,
+  "benchmark_cohorts": 1,
+  "treated_reference": false,
+  "integrated_who_diagnosis_adjudicated": false
+ },
+ "projects": {
+  "BLCA": {
+   "analysis_cohort": "BLCA",
+   "role": "discovery",
+   "reviewed_patients": 404,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 401,
+    "rna": 395,
+    "met": 401,
+    "paired": 395,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "after_patient_screen": {
+    "total": 388,
+    "rna": 382,
+    "met": 388,
+    "paired": 382,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "selected_analysis": {
+    "total": 388,
+    "rna": 382,
+    "met": 388,
+    "paired": 382,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "dispositions": {
+    "pass_annotation_screen": 388,
+    "known_treatment_exclusion": 11,
+    "diagnosis_identity_or_episode_exclusion_hold": 2
+   },
+   "normal": {
+    "rna_he_before": 19,
+    "rna_he_after": 19,
+    "rna_he_met_after": 17,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 19
+    },
+    "context_met": {
+     "target_project_donor": 17
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "BRCA": {
+   "analysis_cohort": "BRCA",
+   "role": "discovery",
+   "reviewed_patients": 1085,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 1085,
+    "rna": 1082,
+    "met": 778,
+    "paired": 775,
+    "rna_only": 307,
+    "met_only": 3
+   },
+   "after_patient_screen": {
+    "total": 1062,
+    "rna": 1060,
+    "met": 764,
+    "paired": 762,
+    "rna_only": 298,
+    "met_only": 2
+   },
+   "selected_analysis": {
+    "total": 1062,
+    "rna": 1060,
+    "met": 764,
+    "paired": 762,
+    "rna_only": 298,
+    "met_only": 2
+   },
+   "dispositions": {
+    "pass_annotation_screen": 1062,
+    "diagnosis_identity_or_episode_exclusion_hold": 5,
+    "treatment_unknown_hold": 10,
+    "known_treatment_exclusion": 8
+   },
+   "normal": {
+    "rna_he_before": 98,
+    "rna_he_after": 98,
+    "rna_he_met_after": 73,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 98
+    },
+    "context_met": {
+     "target_project_donor": 73
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "CESC": {
+   "analysis_cohort": "CSCC",
+   "role": "discovery",
+   "reviewed_patients": 302,
+   "histology_reviewed": true,
+   "assay_qc": {
+    "total": 302,
+    "rna": 300,
+    "met": 302,
+    "paired": 300,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "after_patient_screen": {
+    "total": 301,
+    "rna": 299,
+    "met": 301,
+    "paired": 299,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "selected_analysis": {
+    "total": 249,
+    "rna": 248,
+    "met": 249,
+    "paired": 248,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "dispositions": {
+    "pass_annotation_screen": 301,
+    "diagnosis_identity_or_episode_exclusion_hold": 1
+   },
+   "normal": {
+    "rna_he_before": 3,
+    "rna_he_after": 3,
+    "rna_he_met_after": 3,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 3
+    },
+    "context_met": {
+     "target_project_donor": 3
+    },
+    "outside_cohort": [
+     "TCGA-FU-A3EO"
+    ],
+    "outside_cohort_histology": {
+     "TCGA-FU-A3EO": "Adenocarcinoma"
+    }
+   },
+   "label_conflicts": [
+    {
+     "patient": "TCGA-DG-A2KK",
+     "gdc": "Adenocarcinoma, NOS",
+     "publication": "Squamous",
+     "stratum": "Squamous",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-EA-A5ZF",
+     "gdc": "Squamous cell carcinoma, NOS",
+     "publication": "Adenosquamous",
+     "stratum": "Adenosquamous",
+     "selected": false
+    },
+    {
+     "patient": "TCGA-HM-A6W2",
+     "gdc": "Squamous cell carcinoma, NOS",
+     "publication": "Adenosquamous",
+     "stratum": "Adenosquamous",
+     "selected": false
+    }
+   ]
+  },
+  "COAD": {
+   "analysis_cohort": "CRC",
+   "role": "discovery",
+   "reviewed_patients": 443,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 443,
+    "rna": 441,
+    "met": 287,
+    "paired": 285,
+    "rna_only": 156,
+    "met_only": 2
+   },
+   "after_patient_screen": {
+    "total": 427,
+    "rna": 425,
+    "met": 281,
+    "paired": 279,
+    "rna_only": 146,
+    "met_only": 2
+   },
+   "selected_analysis": {
+    "total": 427,
+    "rna": 425,
+    "met": 281,
+    "paired": 279,
+    "rna_only": 146,
+    "met_only": 2
+   },
+   "dispositions": {
+    "pass_annotation_screen": 427,
+    "diagnosis_identity_or_episode_exclusion_hold": 7,
+    "known_treatment_exclusion": 5,
+    "treatment_unknown_hold": 4
+   },
+   "normal": {
+    "rna_he_before": 37,
+    "rna_he_after": 37,
+    "rna_he_met_after": 17,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 36,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    },
+    "context_met": {
+     "target_project_donor": 17
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "ESCA": {
+   "analysis_cohort": "ESCC",
+   "role": "discovery",
+   "reviewed_patients": 174,
+   "histology_reviewed": true,
+   "assay_qc": {
+    "total": 174,
+    "rna": 173,
+    "met": 174,
+    "paired": 173,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "after_patient_screen": {
+    "total": 174,
+    "rna": 173,
+    "met": 174,
+    "paired": 173,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "selected_analysis": {
+    "total": 90,
+    "rna": 90,
+    "met": 90,
+    "paired": 90,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "dispositions": {
+    "pass_annotation_screen": 174
+   },
+   "normal": {
+    "rna_he_before": 10,
+    "rna_he_after": 10,
+    "rna_he_met_after": 8,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 10
+    },
+    "context_met": {
+     "target_project_donor": 8
+    },
+    "outside_cohort": [
+     "TCGA-IC-A6RE",
+     "TCGA-L5-A43C",
+     "TCGA-L5-A4OF",
+     "TCGA-L5-A4OG",
+     "TCGA-L5-A4OJ",
+     "TCGA-L5-A4OO",
+     "TCGA-L5-A4OQ",
+     "TCGA-L5-A4OR"
+    ]
+   },
+   "label_conflicts": []
+  },
+  "GBM": {
+   "analysis_cohort": "GLIOMA",
+   "role": "classification-benchmark",
+   "reviewed_patients": 247,
+   "histology_reviewed": true,
+   "assay_qc": {
+    "total": 242,
+    "rna": 154,
+    "met": 139,
+    "paired": 51,
+    "rna_only": 103,
+    "met_only": 88
+   },
+   "after_patient_screen": {
+    "total": 225,
+    "rna": 141,
+    "met": 130,
+    "paired": 46,
+    "rna_only": 95,
+    "met_only": 84
+   },
+   "selected_analysis": {
+    "total": 225,
+    "rna": 141,
+    "met": 130,
+    "paired": 46,
+    "rna_only": 95,
+    "met_only": 84
+   },
+   "dispositions": {
+    "pass_annotation_screen": 225,
+    "known_treatment_exclusion": 3,
+    "diagnosis_identity_or_episode_exclusion_hold": 10,
+    "treatment_unknown_hold": 4
+   },
+   "normal": {
+    "rna_he_before": 5,
+    "rna_he_after": 5,
+    "rna_he_met_after": 1,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "normal_only_donor_primary_diagnosis_unreported": 5
+    },
+    "context_met": {
+     "normal_only_donor_primary_diagnosis_unreported": 1
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "HNSC": {
+   "analysis_cohort": "HNSC",
+   "role": "discovery",
+   "reviewed_patients": 522,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 522,
+    "rna": 514,
+    "met": 522,
+    "paired": 514,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "after_patient_screen": {
+    "total": 514,
+    "rna": 506,
+    "met": 514,
+    "paired": 506,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "selected_analysis": {
+    "total": 514,
+    "rna": 506,
+    "met": 514,
+    "paired": 506,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "dispositions": {
+    "pass_annotation_screen": 514,
+    "diagnosis_identity_or_episode_exclusion_hold": 4,
+    "known_treatment_exclusion": 4
+   },
+   "normal": {
+    "rna_he_before": 43,
+    "rna_he_after": 39,
+    "rna_he_met_after": 20,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-CV-7406",
+     "TCGA-CV-7416",
+     "TCGA-CV-7437",
+     "TCGA-CV-7440"
+    ],
+    "context": {
+     "target_project_donor": 39
+    },
+    "context_met": {
+     "target_project_donor": 20
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "KIRC": {
+   "analysis_cohort": "KIRC",
+   "role": "discovery",
+   "reviewed_patients": 516,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 516,
+    "rna": 515,
+    "met": 312,
+    "paired": 311,
+    "rna_only": 204,
+    "met_only": 1
+   },
+   "after_patient_screen": {
+    "total": 494,
+    "rna": 493,
+    "met": 306,
+    "paired": 305,
+    "rna_only": 188,
+    "met_only": 1
+   },
+   "selected_analysis": {
+    "total": 494,
+    "rna": 493,
+    "met": 306,
+    "paired": 305,
+    "rna_only": 188,
+    "met_only": 1
+   },
+   "dispositions": {
+    "pass_annotation_screen": 494,
+    "treatment_unknown_hold": 6,
+    "known_treatment_exclusion": 12,
+    "diagnosis_identity_or_episode_exclusion_hold": 4
+   },
+   "normal": {
+    "rna_he_before": 71,
+    "rna_he_after": 71,
+    "rna_he_met_after": 23,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 70,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    },
+    "context_met": {
+     "target_project_donor": 22,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "KIRP": {
+   "analysis_cohort": "KIRP",
+   "role": "discovery",
+   "reviewed_patients": 280,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 280,
+    "rna": 279,
+    "met": 267,
+    "paired": 266,
+    "rna_only": 13,
+    "met_only": 1
+   },
+   "after_patient_screen": {
+    "total": 275,
+    "rna": 274,
+    "met": 262,
+    "paired": 261,
+    "rna_only": 13,
+    "met_only": 1
+   },
+   "selected_analysis": {
+    "total": 275,
+    "rna": 274,
+    "met": 262,
+    "paired": 261,
+    "rna_only": 13,
+    "met_only": 1
+   },
+   "dispositions": {
+    "pass_annotation_screen": 275,
+    "treatment_unknown_hold": 2,
+    "known_treatment_exclusion": 1,
+    "diagnosis_identity_or_episode_exclusion_hold": 2
+   },
+   "normal": {
+    "rna_he_before": 32,
+    "rna_he_after": 32,
+    "rna_he_met_after": 23,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 32
+    },
+    "context_met": {
+     "target_project_donor": 23
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "LGG": {
+   "analysis_cohort": "GLIOMA",
+   "role": "classification-benchmark",
+   "reviewed_patients": 514,
+   "histology_reviewed": true,
+   "assay_qc": {
+    "total": 514,
+    "rna": 514,
+    "met": 514,
+    "paired": 514,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "after_patient_screen": {
+    "total": 502,
+    "rna": 502,
+    "met": 502,
+    "paired": 502,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "selected_analysis": {
+    "total": 502,
+    "rna": 502,
+    "met": 502,
+    "paired": 502,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "dispositions": {
+    "pass_annotation_screen": 502,
+    "known_treatment_exclusion": 5,
+    "diagnosis_identity_or_episode_exclusion_hold": 7
+   },
+   "normal": {
+    "rna_he_before": 0,
+    "rna_he_after": 0,
+    "rna_he_met_after": 0,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {},
+    "context_met": {},
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "LIHC": {
+   "analysis_cohort": "LIHC",
+   "role": "discovery",
+   "reviewed_patients": 371,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 368,
+    "rna": 362,
+    "met": 368,
+    "paired": 362,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "after_patient_screen": {
+    "total": 357,
+    "rna": 351,
+    "met": 357,
+    "paired": 351,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "selected_analysis": {
+    "total": 357,
+    "rna": 351,
+    "met": 357,
+    "paired": 351,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "dispositions": {
+    "pass_annotation_screen": 357,
+    "diagnosis_identity_or_episode_exclusion_hold": 10,
+    "known_treatment_exclusion": 1
+   },
+   "normal": {
+    "rna_he_before": 50,
+    "rna_he_after": 50,
+    "rna_he_met_after": 41,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "non_target_or_uncertain_or_recurrent_donor": 3,
+     "target_project_donor": 47
+    },
+    "context_met": {
+     "non_target_or_uncertain_or_recurrent_donor": 1,
+     "target_project_donor": 40
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "LUAD": {
+   "analysis_cohort": "LUAD",
+   "role": "discovery",
+   "reviewed_patients": 474,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 461,
+    "rna": 457,
+    "met": 410,
+    "paired": 406,
+    "rna_only": 51,
+    "met_only": 4
+   },
+   "after_patient_screen": {
+    "total": 457,
+    "rna": 453,
+    "met": 407,
+    "paired": 403,
+    "rna_only": 50,
+    "met_only": 4
+   },
+   "selected_analysis": {
+    "total": 457,
+    "rna": 453,
+    "met": 407,
+    "paired": 403,
+    "rna_only": 50,
+    "met_only": 4
+   },
+   "dispositions": {
+    "pass_annotation_screen": 457,
+    "known_treatment_exclusion": 3,
+    "treatment_unknown_hold": 1
+   },
+   "normal": {
+    "rna_he_before": 57,
+    "rna_he_after": 56,
+    "rna_he_met_after": 19,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-73-4676"
+    ],
+    "context": {
+     "target_project_donor": 56
+    },
+    "context_met": {
+     "target_project_donor": 19
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "LUSC": {
+   "analysis_cohort": "LUSC",
+   "role": "discovery",
+   "reviewed_patients": 486,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 486,
+    "rna": 486,
+    "met": 363,
+    "paired": 363,
+    "rna_only": 123,
+    "met_only": 0
+   },
+   "after_patient_screen": {
+    "total": 471,
+    "rna": 471,
+    "met": 358,
+    "paired": 358,
+    "rna_only": 113,
+    "met_only": 0
+   },
+   "selected_analysis": {
+    "total": 471,
+    "rna": 471,
+    "met": 358,
+    "paired": 358,
+    "rna_only": 113,
+    "met_only": 0
+   },
+   "dispositions": {
+    "pass_annotation_screen": 471,
+    "treatment_unknown_hold": 5,
+    "known_treatment_exclusion": 6,
+    "diagnosis_identity_or_episode_exclusion_hold": 4
+   },
+   "normal": {
+    "rna_he_before": 47,
+    "rna_he_after": 45,
+    "rna_he_met_after": 8,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-56-8623",
+     "TCGA-90-6837"
+    ],
+    "context": {
+     "target_project_donor": 45
+    },
+    "context_met": {
+     "target_project_donor": 8
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "PAAD": {
+   "analysis_cohort": "PDAC",
+   "role": "discovery",
+   "reviewed_patients": 157,
+   "histology_reviewed": true,
+   "assay_qc": {
+    "total": 157,
+    "rna": 151,
+    "met": 157,
+    "paired": 151,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "after_patient_screen": {
+    "total": 157,
+    "rna": 151,
+    "met": 157,
+    "paired": 151,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "selected_analysis": {
+    "total": 149,
+    "rna": 143,
+    "met": 149,
+    "paired": 143,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "dispositions": {
+    "pass_annotation_screen": 157
+   },
+   "normal": {
+    "rna_he_before": 4,
+    "rna_he_after": 4,
+    "rna_he_met_after": 4,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 4
+    },
+    "context_met": {
+     "target_project_donor": 4
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "PCPG": {
+   "analysis_cohort": "PCPG",
+   "role": "discovery",
+   "reviewed_patients": 178,
+   "histology_reviewed": true,
+   "assay_qc": {
+    "total": 178,
+    "rna": 178,
+    "met": 178,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "after_patient_screen": {
+    "total": 178,
+    "rna": 178,
+    "met": 178,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "selected_analysis": {
+    "total": 178,
+    "rna": 178,
+    "met": 178,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "dispositions": {
+    "pass_annotation_screen": 178
+   },
+   "normal": {
+    "rna_he_before": 3,
+    "rna_he_after": 3,
+    "rna_he_met_after": 3,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 3
+    },
+    "context_met": {
+     "target_project_donor": 3
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": [
+    {
+     "patient": "TCGA-QR-A6GT",
+     "gdc": "Pheochromocytoma, NOS",
+     "publication": "paraganglioma",
+     "stratum": "paraganglioma",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-SR-A6MQ",
+     "gdc": "Pheochromocytoma, malignant",
+     "publication": "paraganglioma",
+     "stratum": "paraganglioma",
+     "selected": true
+    }
+   ]
+  },
+  "PRAD": {
+   "analysis_cohort": "PRAD",
+   "role": "discovery",
+   "reviewed_patients": 414,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 406,
+    "rna": 405,
+    "met": 406,
+    "paired": 405,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "after_patient_screen": {
+    "total": 402,
+    "rna": 401,
+    "met": 402,
+    "paired": 401,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "selected_analysis": {
+    "total": 402,
+    "rna": 401,
+    "met": 402,
+    "paired": 401,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "dispositions": {
+    "pass_annotation_screen": 402,
+    "treatment_unknown_hold": 1,
+    "known_treatment_exclusion": 3
+   },
+   "normal": {
+    "rna_he_before": 48,
+    "rna_he_after": 48,
+    "rna_he_met_after": 32,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 48
+    },
+    "context_met": {
+     "target_project_donor": 32
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "READ": {
+   "analysis_cohort": "CRC",
+   "role": "discovery",
+   "reviewed_patients": 157,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 156,
+    "rna": 156,
+    "met": 94,
+    "paired": 94,
+    "rna_only": 62,
+    "met_only": 0
+   },
+   "after_patient_screen": {
+    "total": 154,
+    "rna": 154,
+    "met": 92,
+    "paired": 92,
+    "rna_only": 62,
+    "met_only": 0
+   },
+   "selected_analysis": {
+    "total": 154,
+    "rna": 154,
+    "met": 92,
+    "paired": 92,
+    "rna_only": 62,
+    "met_only": 0
+   },
+   "dispositions": {
+    "pass_annotation_screen": 154,
+    "known_treatment_exclusion": 1,
+    "diagnosis_identity_or_episode_exclusion_hold": 1
+   },
+   "normal": {
+    "rna_he_before": 10,
+    "rna_he_after": 10,
+    "rna_he_met_after": 2,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 10
+    },
+    "context_met": {
+     "target_project_donor": 2
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "STAD": {
+   "analysis_cohort": "STAD",
+   "role": "discovery",
+   "reviewed_patients": 419,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 416,
+    "rna": 387,
+    "met": 378,
+    "paired": 349,
+    "rna_only": 38,
+    "met_only": 29
+   },
+   "after_patient_screen": {
+    "total": 414,
+    "rna": 385,
+    "met": 377,
+    "paired": 348,
+    "rna_only": 37,
+    "met_only": 29
+   },
+   "selected_analysis": {
+    "total": 414,
+    "rna": 385,
+    "met": 377,
+    "paired": 348,
+    "rna_only": 37,
+    "met_only": 29
+   },
+   "dispositions": {
+    "pass_annotation_screen": 414,
+    "diagnosis_identity_or_episode_exclusion_hold": 1,
+    "treatment_unknown_hold": 1
+   },
+   "normal": {
+    "rna_he_before": 34,
+    "rna_he_after": 34,
+    "rna_he_met_after": 0,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 34
+    },
+    "context_met": {},
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "THCA": {
+   "analysis_cohort": "THCA",
+   "role": "discovery",
+   "reviewed_patients": 502,
+   "histology_reviewed": false,
+   "assay_qc": {
+    "total": 502,
+    "rna": 500,
+    "met": 502,
+    "paired": 500,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "after_patient_screen": {
+    "total": 495,
+    "rna": 493,
+    "met": 495,
+    "paired": 493,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "selected_analysis": {
+    "total": 495,
+    "rna": 493,
+    "met": 495,
+    "paired": 493,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "dispositions": {
+    "pass_annotation_screen": 495,
+    "diagnosis_identity_or_episode_exclusion_hold": 4,
+    "known_treatment_exclusion": 2,
+    "treatment_unknown_hold": 1
+   },
+   "normal": {
+    "rna_he_before": 58,
+    "rna_he_after": 58,
+    "rna_he_met_after": 50,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 58
+    },
+    "context_met": {
+     "target_project_donor": 50
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": []
+  },
+  "UCEC": {
+   "analysis_cohort": "UCEC",
+   "role": "discovery",
+   "reviewed_patients": 542,
+   "histology_reviewed": true,
+   "assay_qc": {
+    "total": 530,
+    "rna": 528,
+    "met": 418,
+    "paired": 416,
+    "rna_only": 112,
+    "met_only": 2
+   },
+   "after_patient_screen": {
+    "total": 523,
+    "rna": 521,
+    "met": 415,
+    "paired": 413,
+    "rna_only": 108,
+    "met_only": 2
+   },
+   "selected_analysis": {
+    "total": 523,
+    "rna": 521,
+    "met": 415,
+    "paired": 413,
+    "rna_only": 108,
+    "met_only": 2
+   },
+   "dispositions": {
+    "treatment_unknown_hold": 5,
+    "pass_annotation_screen": 523,
+    "known_treatment_exclusion": 2
+   },
+   "normal": {
+    "rna_he_before": 34,
+    "rna_he_after": 34,
+    "rna_he_met_after": 33,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 22,
+     "organ_specific_control": 12
+    },
+    "context_met": {
+     "target_project_donor": 21,
+     "organ_specific_control": 12
+    },
+    "outside_cohort": []
+   },
+   "label_conflicts": [
+    {
+     "patient": "TCGA-A5-A0G5",
+     "gdc": "Clear cell adenocarcinoma, NOS",
+     "publication": "Serous",
+     "stratum": "Serous",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-A5-A1OF",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-AP-A0LH",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-AP-A1DP",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Endometrioid",
+     "stratum": "Endometrioid",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-AP-A1DQ",
+     "gdc": "Endometrioid adenocarcinoma, NOS",
+     "publication": "Serous",
+     "stratum": "Serous",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-B5-A0JY",
+     "gdc": "Carcinoma, undifferentiated, NOS",
+     "publication": "Endometrioid",
+     "stratum": "Endometrioid",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-B5-A11I",
+     "gdc": "Adenocarcinoma, NOS",
+     "publication": "Endometrioid",
+     "stratum": "Endometrioid",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-B5-A11X",
+     "gdc": "Carcinoma, undifferentiated, NOS",
+     "publication": "Endometrioid",
+     "stratum": "Endometrioid",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-BG-A2AE",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Endometrioid",
+     "stratum": "Endometrioid",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-BK-A0CA",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-D1-A0ZZ",
+     "gdc": "Endometrioid adenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-D1-A1NW",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-D1-A2G0",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-DI-A1BU",
+     "gdc": "Endometrioid adenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-EY-A1GM",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-EY-A1GV",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-EY-A210",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-FI-A2CY",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    },
+    {
+     "patient": "TCGA-FI-A2D2",
+     "gdc": "Serous cystadenocarcinoma, NOS",
+     "publication": "Mixed",
+     "stratum": "Mixed",
+     "selected": true
+    }
+   ]
+  }
+ },
+ "cohorts": {
+  "BLCA": {
+   "label": "BLCA",
+   "role": "discovery",
+   "projects": [
+    "BLCA"
+   ],
+   "selected_analysis": {
+    "total": 388,
+    "rna": 382,
+    "met": 388,
+    "paired": 382,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "contributions": {
+    "BLCA": {
+     "total": 388,
+     "rna": 382,
+     "met": 388,
+     "paired": 382,
+     "rna_only": 0,
+     "met_only": 6
+    }
+   },
+   "normal": {
+    "rna_he_before": 19,
+    "rna_he_after": 19,
+    "rna_he_met_after": 17,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 19
+    },
+    "context_met": {
+     "target_project_donor": 17
+    }
+   }
+  },
+  "BRCA": {
+   "label": "BRCA",
+   "role": "discovery",
+   "projects": [
+    "BRCA"
+   ],
+   "selected_analysis": {
+    "total": 1062,
+    "rna": 1060,
+    "met": 764,
+    "paired": 762,
+    "rna_only": 298,
+    "met_only": 2
+   },
+   "contributions": {
+    "BRCA": {
+     "total": 1062,
+     "rna": 1060,
+     "met": 764,
+     "paired": 762,
+     "rna_only": 298,
+     "met_only": 2
+    }
+   },
+   "normal": {
+    "rna_he_before": 98,
+    "rna_he_after": 98,
+    "rna_he_met_after": 73,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 98
+    },
+    "context_met": {
+     "target_project_donor": 73
+    }
+   }
+  },
+  "CRC": {
+   "label": "Colorectal adenocarcinoma (COAD + READ)",
+   "role": "discovery",
+   "projects": [
+    "COAD",
+    "READ"
+   ],
+   "selected_analysis": {
+    "total": 581,
+    "rna": 579,
+    "met": 373,
+    "paired": 371,
+    "rna_only": 208,
+    "met_only": 2
+   },
+   "contributions": {
+    "COAD": {
+     "total": 427,
+     "rna": 425,
+     "met": 281,
+     "paired": 279,
+     "rna_only": 146,
+     "met_only": 2
+    },
+    "READ": {
+     "total": 154,
+     "rna": 154,
+     "met": 92,
+     "paired": 92,
+     "rna_only": 62,
+     "met_only": 0
+    }
+   },
+   "normal": {
+    "rna_he_before": 47,
+    "rna_he_after": 47,
+    "rna_he_met_after": 19,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 46,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    },
+    "context_met": {
+     "target_project_donor": 19
+    }
+   },
+   "reported_sites": {
+    "Sigmoid colon": {
+     "COAD": 103
+    },
+    "Ascending colon": {
+     "COAD": 97
+    },
+    "Colon, NOS": {
+     "COAD": 89,
+     "READ": 6
+    },
+    "Rectum, NOS": {
+     "READ": 81
+    },
+    "Cecum": {
+     "COAD": 79
+    },
+    "Rectosigmoid junction": {
+     "COAD": 7,
+     "READ": 64
+    },
+    "Transverse colon": {
+     "COAD": 20
+    },
+    "Descending colon": {
+     "COAD": 17
+    },
+    "Hepatic flexure of colon": {
+     "COAD": 10
+    },
+    "Splenic flexure of colon": {
+     "COAD": 5
+    },
+    "Connective, subcutaneous and other soft tissues of abdomen": {
+     "READ": 2
+    },
+    "Unknown primary site": {
+     "READ": 1
+    }
+   },
+   "site_overrides": [
+    {
+     "patient": "TCGA-AF-2692",
+     "project": "READ",
+     "site_reported": "Rectum, NOS",
+     "resection_site_reported": "Not Reported",
+     "override": "colon_unspecified",
+     "selected": true,
+     "layers": "rna-only"
+    },
+    {
+     "patient": "TCGA-AF-2693",
+     "project": "READ",
+     "site_reported": "Rectosigmoid junction",
+     "resection_site_reported": "Sigmoid colon",
+     "override": "colon_unspecified",
+     "selected": true,
+     "layers": "both"
+    },
+    {
+     "patient": "TCGA-AY-4071",
+     "project": "COAD",
+     "site_reported": "Sigmoid colon",
+     "resection_site_reported": "Colon, NOS",
+     "override": "rectum",
+     "selected": true,
+     "layers": "rna-only"
+    },
+    {
+     "patient": "TCGA-CM-4750",
+     "project": "COAD",
+     "site_reported": "Rectosigmoid junction",
+     "resection_site_reported": "Colon, NOS",
+     "override": "rectum",
+     "selected": true,
+     "layers": "both"
+    }
+   ],
+   "withheld": [
+    {
+     "patient": "TCGA-5M-AAT5",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-5M-AATA",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3521",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3524",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3525",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3543",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3552",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3675",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-AA-3715",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3811",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3814",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-A00Z",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-CI-6620",
+     "project": "READ",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-CM-5863",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-F5-6810",
+     "project": "READ",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-G4-6294",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-G4-6298",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-G4-6321",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    }
+   ]
+  },
+  "CSCC": {
+   "label": "Cervical squamous cell carcinoma",
+   "role": "discovery",
+   "projects": [
+    "CESC"
+   ],
+   "selected_analysis": {
+    "total": 249,
+    "rna": 248,
+    "met": 249,
+    "paired": 248,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "contributions": {
+    "CESC": {
+     "total": 249,
+     "rna": 248,
+     "met": 249,
+     "paired": 248,
+     "rna_only": 0,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 2,
+    "rna_he_after": 2,
+    "rna_he_met_after": 2,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 2
+    },
+    "context_met": {
+     "target_project_donor": 2
+    }
+   },
+   "strata": [
+    {
+     "stratum": "Squamous",
+     "project": "CESC",
+     "total": 249,
+     "rna": 248,
+     "met": 249,
+     "paired": 248,
+     "rna_only": 0,
+     "met_only": 1,
+     "publication_members": 142,
+     "selected": 249
+    },
+    {
+     "stratum": "Adenocarcinoma",
+     "project": "CESC",
+     "total": 46,
+     "rna": 46,
+     "met": 46,
+     "paired": 46,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 30,
+     "selected": 0
+    },
+    {
+     "stratum": "Adenosquamous",
+     "project": "CESC",
+     "total": 6,
+     "rna": 5,
+     "met": 6,
+     "paired": 5,
+     "rna_only": 0,
+     "met_only": 1,
+     "publication_members": 3,
+     "selected": 0
+    }
+   ],
+   "annotations": {
+    "histology_evidence": [
+     [
+      "TCGA cervical publication table CLIN:Dx_merged",
+      142,
+      142
+     ],
+     [
+      "GDC morphology fallback",
+      107,
+      106
+     ]
+    ],
+    "hpv_status_publication": [
+     [
+      "positive",
+      138,
+      138
+     ],
+     [
+      null,
+      107,
+      106
+     ],
+     [
+      "negative",
+      4,
+      4
+     ]
+    ],
+    "endometrial_like_publication": [
+     [
+      "No",
+      140,
+      140
+     ],
+     [
+      null,
+      107,
+      106
+     ],
+     [
+      "Yes",
+      2,
+      2
+     ]
+    ]
+   }
+  },
+  "ESCC": {
+   "label": "Confirmed oesophageal squamous cell carcinoma",
+   "role": "discovery",
+   "projects": [
+    "ESCA"
+   ],
+   "selected_analysis": {
+    "total": 90,
+    "rna": 90,
+    "met": 90,
+    "paired": 90,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "contributions": {
+    "ESCA": {
+     "total": 90,
+     "rna": 90,
+     "met": 90,
+     "paired": 90,
+     "rna_only": 0,
+     "met_only": 0
+    }
+   },
+   "normal": {
+    "rna_he_before": 2,
+    "rna_he_after": 2,
+    "rna_he_met_after": 2,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 2
+    },
+    "context_met": {
+     "target_project_donor": 2
+    }
+   }
+  },
+  "GLIOMA": {
+   "label": "Diffuse glioma classification benchmark (LGG + GBM)",
+   "role": "classification-benchmark",
+   "projects": [
+    "LGG",
+    "GBM"
+   ],
+   "selected_analysis": {
+    "total": 727,
+    "rna": 643,
+    "met": 632,
+    "paired": 548,
+    "rna_only": 95,
+    "met_only": 84
+   },
+   "contributions": {
+    "LGG": {
+     "total": 502,
+     "rna": 502,
+     "met": 502,
+     "paired": 502,
+     "rna_only": 0,
+     "met_only": 0
+    },
+    "GBM": {
+     "total": 225,
+     "rna": 141,
+     "met": 130,
+     "paired": 46,
+     "rna_only": 95,
+     "met_only": 84
+    }
+   },
+   "normal": {
+    "rna_he_before": 5,
+    "rna_he_after": 5,
+    "rna_he_met_after": 1,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "normal_only_donor_primary_diagnosis_unreported": 5
+    },
+    "context_met": {
+     "normal_only_donor_primary_diagnosis_unreported": 1
+    }
+   },
+   "subsets": [
+    {
+     "id": "GLIOMA-LGG-only",
+     "label": "TCGA-LGG patients only",
+     "total": 502,
+     "rna": 502,
+     "met": 502,
+     "paired": 502,
+     "rna_only": 0,
+     "met_only": 0,
+     "patients": [
+      "TCGA-CS-4938",
+      "TCGA-CS-4941",
+      "TCGA-CS-4942",
+      "TCGA-CS-4943",
+      "TCGA-CS-4944",
+      "TCGA-CS-5390",
+      "TCGA-CS-5394",
+      "TCGA-CS-5395",
+      "TCGA-CS-5396",
+      "TCGA-CS-5397",
+      "TCGA-CS-6186",
+      "TCGA-CS-6188",
+      "TCGA-CS-6290",
+      "TCGA-CS-6665",
+      "TCGA-CS-6666",
+      "TCGA-CS-6667",
+      "TCGA-CS-6668",
+      "TCGA-CS-6669",
+      "TCGA-DB-5273",
+      "TCGA-DB-5274",
+      "TCGA-DB-5275",
+      "TCGA-DB-5276",
+      "TCGA-DB-5277",
+      "TCGA-DB-5278",
+      "TCGA-DB-5279",
+      "TCGA-DB-5280",
+      "TCGA-DB-5281",
+      "TCGA-DB-A4X9",
+      "TCGA-DB-A4XA",
+      "TCGA-DB-A4XB",
+      "TCGA-DB-A4XC",
+      "TCGA-DB-A4XD",
+      "TCGA-DB-A4XE",
+      "TCGA-DB-A4XF",
+      "TCGA-DB-A4XG",
+      "TCGA-DB-A4XH",
+      "TCGA-DB-A64L",
+      "TCGA-DB-A64O",
+      "TCGA-DB-A64P",
+      "TCGA-DB-A64Q",
+      "TCGA-DB-A64R",
+      "TCGA-DB-A64S",
+      "TCGA-DB-A64U",
+      "TCGA-DB-A64V",
+      "TCGA-DB-A64W",
+      "TCGA-DB-A64X",
+      "TCGA-DB-A75K",
+      "TCGA-DB-A75L",
+      "TCGA-DB-A75M",
+      "TCGA-DB-A75O",
+      "TCGA-DB-A75P",
+      "TCGA-DH-5140",
+      "TCGA-DH-5142",
+      "TCGA-DH-5143",
+      "TCGA-DH-5144",
+      "TCGA-DH-A669",
+      "TCGA-DH-A66B",
+      "TCGA-DH-A66D",
+      "TCGA-DH-A66F",
+      "TCGA-DH-A66G",
+      "TCGA-DH-A7UR",
+      "TCGA-DH-A7US",
+      "TCGA-DH-A7UT",
+      "TCGA-DH-A7UU",
+      "TCGA-DH-A7UV",
+      "TCGA-DU-5847",
+      "TCGA-DU-5849",
+      "TCGA-DU-5851",
+      "TCGA-DU-5852",
+      "TCGA-DU-5853",
+      "TCGA-DU-5854",
+      "TCGA-DU-5855",
+      "TCGA-DU-5870",
+      "TCGA-DU-5871",
+      "TCGA-DU-5872",
+      "TCGA-DU-5874",
+      "TCGA-DU-6392",
+      "TCGA-DU-6393",
+      "TCGA-DU-6394",
+      "TCGA-DU-6395",
+      "TCGA-DU-6396",
+      "TCGA-DU-6397",
+      "TCGA-DU-6399",
+      "TCGA-DU-6400",
+      "TCGA-DU-6401",
+      "TCGA-DU-6402",
+      "TCGA-DU-6403",
+      "TCGA-DU-6404",
+      "TCGA-DU-6405",
+      "TCGA-DU-6406",
+      "TCGA-DU-6407",
+      "TCGA-DU-6408",
+      "TCGA-DU-6410",
+      "TCGA-DU-6542",
+      "TCGA-DU-7006",
+      "TCGA-DU-7007",
+      "TCGA-DU-7008",
+      "TCGA-DU-7009",
+      "TCGA-DU-7010",
+      "TCGA-DU-7012",
+      "TCGA-DU-7013",
+      "TCGA-DU-7014",
+      "TCGA-DU-7015",
+      "TCGA-DU-7018",
+      "TCGA-DU-7019",
+      "TCGA-DU-7290",
+      "TCGA-DU-7292",
+      "TCGA-DU-7294",
+      "TCGA-DU-7298",
+      "TCGA-DU-7299",
+      "TCGA-DU-7300",
+      "TCGA-DU-7301",
+      "TCGA-DU-7302",
+      "TCGA-DU-7304",
+      "TCGA-DU-7306",
+      "TCGA-DU-7309",
+      "TCGA-DU-8158",
+      "TCGA-DU-8161",
+      "TCGA-DU-8162",
+      "TCGA-DU-8163",
+      "TCGA-DU-8164",
+      "TCGA-DU-8165",
+      "TCGA-DU-8166",
+      "TCGA-DU-8167",
+      "TCGA-DU-8168",
+      "TCGA-DU-A5TR",
+      "TCGA-DU-A5TS",
+      "TCGA-DU-A5TT",
+      "TCGA-DU-A5TU",
+      "TCGA-DU-A5TW",
+      "TCGA-DU-A5TY",
+      "TCGA-DU-A6S2",
+      "TCGA-DU-A6S3",
+      "TCGA-DU-A6S6",
+      "TCGA-DU-A6S7",
+      "TCGA-DU-A6S8",
+      "TCGA-DU-A76K",
+      "TCGA-DU-A76L",
+      "TCGA-DU-A76O",
+      "TCGA-DU-A76R",
+      "TCGA-DU-A7T6",
+      "TCGA-DU-A7T8",
+      "TCGA-DU-A7TA",
+      "TCGA-DU-A7TB",
+      "TCGA-DU-A7TC",
+      "TCGA-DU-A7TD",
+      "TCGA-DU-A7TG",
+      "TCGA-DU-A7TI",
+      "TCGA-DU-A7TJ",
+      "TCGA-E1-5302",
+      "TCGA-E1-5303",
+      "TCGA-E1-5304",
+      "TCGA-E1-5305",
+      "TCGA-E1-5307",
+      "TCGA-E1-5311",
+      "TCGA-E1-5318",
+      "TCGA-E1-5319",
+      "TCGA-E1-5322",
+      "TCGA-E1-A7YD",
+      "TCGA-E1-A7YE",
+      "TCGA-E1-A7YH",
+      "TCGA-E1-A7YI",
+      "TCGA-E1-A7YJ",
+      "TCGA-E1-A7YK",
+      "TCGA-E1-A7YL",
+      "TCGA-E1-A7YM",
+      "TCGA-E1-A7YN",
+      "TCGA-E1-A7YO",
+      "TCGA-E1-A7YQ",
+      "TCGA-E1-A7YS",
+      "TCGA-E1-A7YU",
+      "TCGA-E1-A7YV",
+      "TCGA-E1-A7YW",
+      "TCGA-E1-A7YY",
+      "TCGA-E1-A7Z2",
+      "TCGA-E1-A7Z3",
+      "TCGA-E1-A7Z4",
+      "TCGA-E1-A7Z6",
+      "TCGA-EZ-7264",
+      "TCGA-F6-A8O3",
+      "TCGA-F6-A8O4",
+      "TCGA-FG-5962",
+      "TCGA-FG-5963",
+      "TCGA-FG-5964",
+      "TCGA-FG-5965",
+      "TCGA-FG-6688",
+      "TCGA-FG-6689",
+      "TCGA-FG-6690",
+      "TCGA-FG-6691",
+      "TCGA-FG-6692",
+      "TCGA-FG-7634",
+      "TCGA-FG-7636",
+      "TCGA-FG-7637",
+      "TCGA-FG-7638",
+      "TCGA-FG-7641",
+      "TCGA-FG-7643",
+      "TCGA-FG-8181",
+      "TCGA-FG-8182",
+      "TCGA-FG-8185",
+      "TCGA-FG-8186",
+      "TCGA-FG-8187",
+      "TCGA-FG-8188",
+      "TCGA-FG-8189",
+      "TCGA-FG-8191",
+      "TCGA-FG-A4MT",
+      "TCGA-FG-A4MU",
+      "TCGA-FG-A4MW",
+      "TCGA-FG-A4MX",
+      "TCGA-FG-A4MY",
+      "TCGA-FG-A60J",
+      "TCGA-FG-A60K",
+      "TCGA-FG-A60L",
+      "TCGA-FG-A6IZ",
+      "TCGA-FG-A6J1",
+      "TCGA-FG-A6J3",
+      "TCGA-FG-A70Y",
+      "TCGA-FG-A70Z",
+      "TCGA-FG-A710",
+      "TCGA-FG-A711",
+      "TCGA-FG-A713",
+      "TCGA-FG-A87N",
+      "TCGA-FG-A87Q",
+      "TCGA-FN-7833",
+      "TCGA-HT-7467",
+      "TCGA-HT-7468",
+      "TCGA-HT-7469",
+      "TCGA-HT-7470",
+      "TCGA-HT-7471",
+      "TCGA-HT-7472",
+      "TCGA-HT-7473",
+      "TCGA-HT-7474",
+      "TCGA-HT-7475",
+      "TCGA-HT-7476",
+      "TCGA-HT-7477",
+      "TCGA-HT-7478",
+      "TCGA-HT-7479",
+      "TCGA-HT-7480",
+      "TCGA-HT-7481",
+      "TCGA-HT-7482",
+      "TCGA-HT-7485",
+      "TCGA-HT-7601",
+      "TCGA-HT-7602",
+      "TCGA-HT-7603",
+      "TCGA-HT-7605",
+      "TCGA-HT-7606",
+      "TCGA-HT-7607",
+      "TCGA-HT-7608",
+      "TCGA-HT-7609",
+      "TCGA-HT-7610",
+      "TCGA-HT-7611",
+      "TCGA-HT-7616",
+      "TCGA-HT-7620",
+      "TCGA-HT-7676",
+      "TCGA-HT-7677",
+      "TCGA-HT-7680",
+      "TCGA-HT-7681",
+      "TCGA-HT-7684",
+      "TCGA-HT-7686",
+      "TCGA-HT-7687",
+      "TCGA-HT-7688",
+      "TCGA-HT-7689",
+      "TCGA-HT-7690",
+      "TCGA-HT-7691",
+      "TCGA-HT-7692",
+      "TCGA-HT-7693",
+      "TCGA-HT-7694",
+      "TCGA-HT-7695",
+      "TCGA-HT-7854",
+      "TCGA-HT-7855",
+      "TCGA-HT-7856",
+      "TCGA-HT-7857",
+      "TCGA-HT-7858",
+      "TCGA-HT-7860",
+      "TCGA-HT-7873",
+      "TCGA-HT-7874",
+      "TCGA-HT-7875",
+      "TCGA-HT-7877",
+      "TCGA-HT-7879",
+      "TCGA-HT-7880",
+      "TCGA-HT-7881",
+      "TCGA-HT-7882",
+      "TCGA-HT-7884",
+      "TCGA-HT-7902",
+      "TCGA-HT-8010",
+      "TCGA-HT-8011",
+      "TCGA-HT-8012",
+      "TCGA-HT-8013",
+      "TCGA-HT-8015",
+      "TCGA-HT-8018",
+      "TCGA-HT-8019",
+      "TCGA-HT-8104",
+      "TCGA-HT-8105",
+      "TCGA-HT-8106",
+      "TCGA-HT-8107",
+      "TCGA-HT-8108",
+      "TCGA-HT-8109",
+      "TCGA-HT-8110",
+      "TCGA-HT-8111",
+      "TCGA-HT-8113",
+      "TCGA-HT-8114",
+      "TCGA-HT-8558",
+      "TCGA-HT-8563",
+      "TCGA-HT-8564",
+      "TCGA-HT-A4DS",
+      "TCGA-HT-A4DV",
+      "TCGA-HT-A5R5",
+      "TCGA-HT-A5R7",
+      "TCGA-HT-A5R9",
+      "TCGA-HT-A5RA",
+      "TCGA-HT-A5RB",
+      "TCGA-HT-A5RC",
+      "TCGA-HT-A614",
+      "TCGA-HT-A615",
+      "TCGA-HT-A616",
+      "TCGA-HT-A617",
+      "TCGA-HT-A618",
+      "TCGA-HT-A61A",
+      "TCGA-HT-A61B",
+      "TCGA-HT-A61C",
+      "TCGA-HT-A74H",
+      "TCGA-HT-A74J",
+      "TCGA-HT-A74K",
+      "TCGA-HT-A74L",
+      "TCGA-HT-A74O",
+      "TCGA-HW-7486",
+      "TCGA-HW-7487",
+      "TCGA-HW-7489",
+      "TCGA-HW-7490",
+      "TCGA-HW-7491",
+      "TCGA-HW-7493",
+      "TCGA-HW-7495",
+      "TCGA-HW-8319",
+      "TCGA-HW-8320",
+      "TCGA-HW-8321",
+      "TCGA-HW-8322",
+      "TCGA-HW-A5KJ",
+      "TCGA-HW-A5KK",
+      "TCGA-HW-A5KL",
+      "TCGA-HW-A5KM",
+      "TCGA-IK-7675",
+      "TCGA-IK-8125",
+      "TCGA-KT-A74X",
+      "TCGA-KT-A7W1",
+      "TCGA-P5-A5ET",
+      "TCGA-P5-A5EU",
+      "TCGA-P5-A5EV",
+      "TCGA-P5-A5EW",
+      "TCGA-P5-A5EX",
+      "TCGA-P5-A5EZ",
+      "TCGA-P5-A5F0",
+      "TCGA-P5-A5F1",
+      "TCGA-P5-A5F2",
+      "TCGA-P5-A5F4",
+      "TCGA-P5-A5F6",
+      "TCGA-P5-A72U",
+      "TCGA-P5-A72W",
+      "TCGA-P5-A72X",
+      "TCGA-P5-A72Z",
+      "TCGA-P5-A730",
+      "TCGA-P5-A731",
+      "TCGA-P5-A733",
+      "TCGA-P5-A735",
+      "TCGA-P5-A736",
+      "TCGA-P5-A737",
+      "TCGA-P5-A77W",
+      "TCGA-P5-A77X",
+      "TCGA-P5-A780",
+      "TCGA-P5-A781",
+      "TCGA-QH-A65R",
+      "TCGA-QH-A65S",
+      "TCGA-QH-A65V",
+      "TCGA-QH-A65X",
+      "TCGA-QH-A65Z",
+      "TCGA-QH-A6CS",
+      "TCGA-QH-A6CU",
+      "TCGA-QH-A6CV",
+      "TCGA-QH-A6CW",
+      "TCGA-QH-A6CX",
+      "TCGA-QH-A6CY",
+      "TCGA-QH-A6CZ",
+      "TCGA-QH-A6X3",
+      "TCGA-QH-A6X4",
+      "TCGA-QH-A6X5",
+      "TCGA-QH-A6X8",
+      "TCGA-QH-A6X9",
+      "TCGA-QH-A6XA",
+      "TCGA-QH-A6XC",
+      "TCGA-QH-A86X",
+      "TCGA-QH-A870",
+      "TCGA-R8-A6MK",
+      "TCGA-R8-A6MO",
+      "TCGA-RY-A83X",
+      "TCGA-RY-A83Y",
+      "TCGA-RY-A83Z",
+      "TCGA-RY-A840",
+      "TCGA-RY-A843",
+      "TCGA-RY-A845",
+      "TCGA-RY-A847",
+      "TCGA-S9-A6TS",
+      "TCGA-S9-A6TU",
+      "TCGA-S9-A6TV",
+      "TCGA-S9-A6TW",
+      "TCGA-S9-A6TX",
+      "TCGA-S9-A6TY",
+      "TCGA-S9-A6TZ",
+      "TCGA-S9-A6U0",
+      "TCGA-S9-A6U1",
+      "TCGA-S9-A6U2",
+      "TCGA-S9-A6U5",
+      "TCGA-S9-A6U6",
+      "TCGA-S9-A6U8",
+      "TCGA-S9-A6U9",
+      "TCGA-S9-A6UA",
+      "TCGA-S9-A6UB",
+      "TCGA-S9-A6WD",
+      "TCGA-S9-A6WE",
+      "TCGA-S9-A6WG",
+      "TCGA-S9-A6WH",
+      "TCGA-S9-A6WI",
+      "TCGA-S9-A6WL",
+      "TCGA-S9-A6WM",
+      "TCGA-S9-A6WN",
+      "TCGA-S9-A6WO",
+      "TCGA-S9-A6WP",
+      "TCGA-S9-A6WQ",
+      "TCGA-S9-A7IQ",
+      "TCGA-S9-A7IS",
+      "TCGA-S9-A7IX",
+      "TCGA-S9-A7IY",
+      "TCGA-S9-A7IZ",
+      "TCGA-S9-A7J0",
+      "TCGA-S9-A7J1",
+      "TCGA-S9-A7J2",
+      "TCGA-S9-A7J3",
+      "TCGA-S9-A7QW",
+      "TCGA-S9-A7QX",
+      "TCGA-S9-A7QY",
+      "TCGA-S9-A7QZ",
+      "TCGA-S9-A7R1",
+      "TCGA-S9-A7R2",
+      "TCGA-S9-A7R3",
+      "TCGA-S9-A7R4",
+      "TCGA-S9-A7R7",
+      "TCGA-S9-A7R8",
+      "TCGA-S9-A89V",
+      "TCGA-S9-A89Z",
+      "TCGA-TM-A7C3",
+      "TCGA-TM-A7C4",
+      "TCGA-TM-A7C5",
+      "TCGA-TM-A7CA",
+      "TCGA-TM-A7CF",
+      "TCGA-TM-A84B",
+      "TCGA-TM-A84C",
+      "TCGA-TM-A84F",
+      "TCGA-TM-A84G",
+      "TCGA-TM-A84H",
+      "TCGA-TM-A84I",
+      "TCGA-TM-A84J",
+      "TCGA-TM-A84L",
+      "TCGA-TM-A84M",
+      "TCGA-TM-A84O",
+      "TCGA-TM-A84Q",
+      "TCGA-TM-A84R",
+      "TCGA-TM-A84S",
+      "TCGA-TM-A84T",
+      "TCGA-TQ-A7RF",
+      "TCGA-TQ-A7RG",
+      "TCGA-TQ-A7RH",
+      "TCGA-TQ-A7RI",
+      "TCGA-TQ-A7RJ",
+      "TCGA-TQ-A7RK",
+      "TCGA-TQ-A7RM",
+      "TCGA-TQ-A7RN",
+      "TCGA-TQ-A7RP",
+      "TCGA-TQ-A7RQ",
+      "TCGA-TQ-A7RR",
+      "TCGA-TQ-A7RS",
+      "TCGA-TQ-A7RU",
+      "TCGA-TQ-A7RV",
+      "TCGA-TQ-A7RW",
+      "TCGA-TQ-A8XE",
+      "TCGA-VM-A8C8",
+      "TCGA-VM-A8C9",
+      "TCGA-VM-A8CA",
+      "TCGA-VM-A8CB",
+      "TCGA-VM-A8CD",
+      "TCGA-VM-A8CE",
+      "TCGA-VM-A8CF",
+      "TCGA-VM-A8CH",
+      "TCGA-VV-A829",
+      "TCGA-VV-A86M",
+      "TCGA-VW-A7QS",
+      "TCGA-VW-A8FI",
+      "TCGA-W9-A837",
+      "TCGA-WH-A86K",
+      "TCGA-WY-A858",
+      "TCGA-WY-A859",
+      "TCGA-WY-A85A",
+      "TCGA-WY-A85B",
+      "TCGA-WY-A85C",
+      "TCGA-WY-A85D",
+      "TCGA-WY-A85E"
+     ]
+    },
+    {
+     "id": "GLIOMA-paired-only",
+     "label": "Patients with both RNA-seq and 450k",
+     "total": 548,
+     "rna": 548,
+     "met": 548,
+     "paired": 548,
+     "rna_only": 0,
+     "met_only": 0,
+     "patients": [
+      "TCGA-06-0125",
+      "TCGA-06-0190",
+      "TCGA-06-0210",
+      "TCGA-06-0211",
+      "TCGA-06-1804",
+      "TCGA-06-5408",
+      "TCGA-06-5410",
+      "TCGA-06-5411",
+      "TCGA-06-5412",
+      "TCGA-06-5413",
+      "TCGA-06-5414",
+      "TCGA-06-5415",
+      "TCGA-06-5416",
+      "TCGA-06-5417",
+      "TCGA-06-5418",
+      "TCGA-06-5856",
+      "TCGA-06-5858",
+      "TCGA-06-5859",
+      "TCGA-12-5295",
+      "TCGA-12-5299",
+      "TCGA-14-0781",
+      "TCGA-19-4065",
+      "TCGA-19-5960",
+      "TCGA-26-5133",
+      "TCGA-26-5134",
+      "TCGA-26-5135",
+      "TCGA-26-5136",
+      "TCGA-26-5139",
+      "TCGA-28-5204",
+      "TCGA-28-5207",
+      "TCGA-28-5208",
+      "TCGA-28-5209",
+      "TCGA-28-5213",
+      "TCGA-28-5215",
+      "TCGA-28-5216",
+      "TCGA-28-5218",
+      "TCGA-28-5220",
+      "TCGA-32-1980",
+      "TCGA-32-5222",
+      "TCGA-41-5651",
+      "TCGA-76-4925",
+      "TCGA-76-4926",
+      "TCGA-76-4927",
+      "TCGA-76-4928",
+      "TCGA-76-4929",
+      "TCGA-76-4931",
+      "TCGA-CS-4938",
+      "TCGA-CS-4941",
+      "TCGA-CS-4942",
+      "TCGA-CS-4943",
+      "TCGA-CS-4944",
+      "TCGA-CS-5390",
+      "TCGA-CS-5394",
+      "TCGA-CS-5395",
+      "TCGA-CS-5396",
+      "TCGA-CS-5397",
+      "TCGA-CS-6186",
+      "TCGA-CS-6188",
+      "TCGA-CS-6290",
+      "TCGA-CS-6665",
+      "TCGA-CS-6666",
+      "TCGA-CS-6667",
+      "TCGA-CS-6668",
+      "TCGA-CS-6669",
+      "TCGA-DB-5273",
+      "TCGA-DB-5274",
+      "TCGA-DB-5275",
+      "TCGA-DB-5276",
+      "TCGA-DB-5277",
+      "TCGA-DB-5278",
+      "TCGA-DB-5279",
+      "TCGA-DB-5280",
+      "TCGA-DB-5281",
+      "TCGA-DB-A4X9",
+      "TCGA-DB-A4XA",
+      "TCGA-DB-A4XB",
+      "TCGA-DB-A4XC",
+      "TCGA-DB-A4XD",
+      "TCGA-DB-A4XE",
+      "TCGA-DB-A4XF",
+      "TCGA-DB-A4XG",
+      "TCGA-DB-A4XH",
+      "TCGA-DB-A64L",
+      "TCGA-DB-A64O",
+      "TCGA-DB-A64P",
+      "TCGA-DB-A64Q",
+      "TCGA-DB-A64R",
+      "TCGA-DB-A64S",
+      "TCGA-DB-A64U",
+      "TCGA-DB-A64V",
+      "TCGA-DB-A64W",
+      "TCGA-DB-A64X",
+      "TCGA-DB-A75K",
+      "TCGA-DB-A75L",
+      "TCGA-DB-A75M",
+      "TCGA-DB-A75O",
+      "TCGA-DB-A75P",
+      "TCGA-DH-5140",
+      "TCGA-DH-5142",
+      "TCGA-DH-5143",
+      "TCGA-DH-5144",
+      "TCGA-DH-A669",
+      "TCGA-DH-A66B",
+      "TCGA-DH-A66D",
+      "TCGA-DH-A66F",
+      "TCGA-DH-A66G",
+      "TCGA-DH-A7UR",
+      "TCGA-DH-A7US",
+      "TCGA-DH-A7UT",
+      "TCGA-DH-A7UU",
+      "TCGA-DH-A7UV",
+      "TCGA-DU-5847",
+      "TCGA-DU-5849",
+      "TCGA-DU-5851",
+      "TCGA-DU-5852",
+      "TCGA-DU-5853",
+      "TCGA-DU-5854",
+      "TCGA-DU-5855",
+      "TCGA-DU-5870",
+      "TCGA-DU-5871",
+      "TCGA-DU-5872",
+      "TCGA-DU-5874",
+      "TCGA-DU-6392",
+      "TCGA-DU-6393",
+      "TCGA-DU-6394",
+      "TCGA-DU-6395",
+      "TCGA-DU-6396",
+      "TCGA-DU-6397",
+      "TCGA-DU-6399",
+      "TCGA-DU-6400",
+      "TCGA-DU-6401",
+      "TCGA-DU-6402",
+      "TCGA-DU-6403",
+      "TCGA-DU-6404",
+      "TCGA-DU-6405",
+      "TCGA-DU-6406",
+      "TCGA-DU-6407",
+      "TCGA-DU-6408",
+      "TCGA-DU-6410",
+      "TCGA-DU-6542",
+      "TCGA-DU-7006",
+      "TCGA-DU-7007",
+      "TCGA-DU-7008",
+      "TCGA-DU-7009",
+      "TCGA-DU-7010",
+      "TCGA-DU-7012",
+      "TCGA-DU-7013",
+      "TCGA-DU-7014",
+      "TCGA-DU-7015",
+      "TCGA-DU-7018",
+      "TCGA-DU-7019",
+      "TCGA-DU-7290",
+      "TCGA-DU-7292",
+      "TCGA-DU-7294",
+      "TCGA-DU-7298",
+      "TCGA-DU-7299",
+      "TCGA-DU-7300",
+      "TCGA-DU-7301",
+      "TCGA-DU-7302",
+      "TCGA-DU-7304",
+      "TCGA-DU-7306",
+      "TCGA-DU-7309",
+      "TCGA-DU-8158",
+      "TCGA-DU-8161",
+      "TCGA-DU-8162",
+      "TCGA-DU-8163",
+      "TCGA-DU-8164",
+      "TCGA-DU-8165",
+      "TCGA-DU-8166",
+      "TCGA-DU-8167",
+      "TCGA-DU-8168",
+      "TCGA-DU-A5TR",
+      "TCGA-DU-A5TS",
+      "TCGA-DU-A5TT",
+      "TCGA-DU-A5TU",
+      "TCGA-DU-A5TW",
+      "TCGA-DU-A5TY",
+      "TCGA-DU-A6S2",
+      "TCGA-DU-A6S3",
+      "TCGA-DU-A6S6",
+      "TCGA-DU-A6S7",
+      "TCGA-DU-A6S8",
+      "TCGA-DU-A76K",
+      "TCGA-DU-A76L",
+      "TCGA-DU-A76O",
+      "TCGA-DU-A76R",
+      "TCGA-DU-A7T6",
+      "TCGA-DU-A7T8",
+      "TCGA-DU-A7TA",
+      "TCGA-DU-A7TB",
+      "TCGA-DU-A7TC",
+      "TCGA-DU-A7TD",
+      "TCGA-DU-A7TG",
+      "TCGA-DU-A7TI",
+      "TCGA-DU-A7TJ",
+      "TCGA-E1-5302",
+      "TCGA-E1-5303",
+      "TCGA-E1-5304",
+      "TCGA-E1-5305",
+      "TCGA-E1-5307",
+      "TCGA-E1-5311",
+      "TCGA-E1-5318",
+      "TCGA-E1-5319",
+      "TCGA-E1-5322",
+      "TCGA-E1-A7YD",
+      "TCGA-E1-A7YE",
+      "TCGA-E1-A7YH",
+      "TCGA-E1-A7YI",
+      "TCGA-E1-A7YJ",
+      "TCGA-E1-A7YK",
+      "TCGA-E1-A7YL",
+      "TCGA-E1-A7YM",
+      "TCGA-E1-A7YN",
+      "TCGA-E1-A7YO",
+      "TCGA-E1-A7YQ",
+      "TCGA-E1-A7YS",
+      "TCGA-E1-A7YU",
+      "TCGA-E1-A7YV",
+      "TCGA-E1-A7YW",
+      "TCGA-E1-A7YY",
+      "TCGA-E1-A7Z2",
+      "TCGA-E1-A7Z3",
+      "TCGA-E1-A7Z4",
+      "TCGA-E1-A7Z6",
+      "TCGA-EZ-7264",
+      "TCGA-F6-A8O3",
+      "TCGA-F6-A8O4",
+      "TCGA-FG-5962",
+      "TCGA-FG-5963",
+      "TCGA-FG-5964",
+      "TCGA-FG-5965",
+      "TCGA-FG-6688",
+      "TCGA-FG-6689",
+      "TCGA-FG-6690",
+      "TCGA-FG-6691",
+      "TCGA-FG-6692",
+      "TCGA-FG-7634",
+      "TCGA-FG-7636",
+      "TCGA-FG-7637",
+      "TCGA-FG-7638",
+      "TCGA-FG-7641",
+      "TCGA-FG-7643",
+      "TCGA-FG-8181",
+      "TCGA-FG-8182",
+      "TCGA-FG-8185",
+      "TCGA-FG-8186",
+      "TCGA-FG-8187",
+      "TCGA-FG-8188",
+      "TCGA-FG-8189",
+      "TCGA-FG-8191",
+      "TCGA-FG-A4MT",
+      "TCGA-FG-A4MU",
+      "TCGA-FG-A4MW",
+      "TCGA-FG-A4MX",
+      "TCGA-FG-A4MY",
+      "TCGA-FG-A60J",
+      "TCGA-FG-A60K",
+      "TCGA-FG-A60L",
+      "TCGA-FG-A6IZ",
+      "TCGA-FG-A6J1",
+      "TCGA-FG-A6J3",
+      "TCGA-FG-A70Y",
+      "TCGA-FG-A70Z",
+      "TCGA-FG-A710",
+      "TCGA-FG-A711",
+      "TCGA-FG-A713",
+      "TCGA-FG-A87N",
+      "TCGA-FG-A87Q",
+      "TCGA-FN-7833",
+      "TCGA-HT-7467",
+      "TCGA-HT-7468",
+      "TCGA-HT-7469",
+      "TCGA-HT-7470",
+      "TCGA-HT-7471",
+      "TCGA-HT-7472",
+      "TCGA-HT-7473",
+      "TCGA-HT-7474",
+      "TCGA-HT-7475",
+      "TCGA-HT-7476",
+      "TCGA-HT-7477",
+      "TCGA-HT-7478",
+      "TCGA-HT-7479",
+      "TCGA-HT-7480",
+      "TCGA-HT-7481",
+      "TCGA-HT-7482",
+      "TCGA-HT-7485",
+      "TCGA-HT-7601",
+      "TCGA-HT-7602",
+      "TCGA-HT-7603",
+      "TCGA-HT-7605",
+      "TCGA-HT-7606",
+      "TCGA-HT-7607",
+      "TCGA-HT-7608",
+      "TCGA-HT-7609",
+      "TCGA-HT-7610",
+      "TCGA-HT-7611",
+      "TCGA-HT-7616",
+      "TCGA-HT-7620",
+      "TCGA-HT-7676",
+      "TCGA-HT-7677",
+      "TCGA-HT-7680",
+      "TCGA-HT-7681",
+      "TCGA-HT-7684",
+      "TCGA-HT-7686",
+      "TCGA-HT-7687",
+      "TCGA-HT-7688",
+      "TCGA-HT-7689",
+      "TCGA-HT-7690",
+      "TCGA-HT-7691",
+      "TCGA-HT-7692",
+      "TCGA-HT-7693",
+      "TCGA-HT-7694",
+      "TCGA-HT-7695",
+      "TCGA-HT-7854",
+      "TCGA-HT-7855",
+      "TCGA-HT-7856",
+      "TCGA-HT-7857",
+      "TCGA-HT-7858",
+      "TCGA-HT-7860",
+      "TCGA-HT-7873",
+      "TCGA-HT-7874",
+      "TCGA-HT-7875",
+      "TCGA-HT-7877",
+      "TCGA-HT-7879",
+      "TCGA-HT-7880",
+      "TCGA-HT-7881",
+      "TCGA-HT-7882",
+      "TCGA-HT-7884",
+      "TCGA-HT-7902",
+      "TCGA-HT-8010",
+      "TCGA-HT-8011",
+      "TCGA-HT-8012",
+      "TCGA-HT-8013",
+      "TCGA-HT-8015",
+      "TCGA-HT-8018",
+      "TCGA-HT-8019",
+      "TCGA-HT-8104",
+      "TCGA-HT-8105",
+      "TCGA-HT-8106",
+      "TCGA-HT-8107",
+      "TCGA-HT-8108",
+      "TCGA-HT-8109",
+      "TCGA-HT-8110",
+      "TCGA-HT-8111",
+      "TCGA-HT-8113",
+      "TCGA-HT-8114",
+      "TCGA-HT-8558",
+      "TCGA-HT-8563",
+      "TCGA-HT-8564",
+      "TCGA-HT-A4DS",
+      "TCGA-HT-A4DV",
+      "TCGA-HT-A5R5",
+      "TCGA-HT-A5R7",
+      "TCGA-HT-A5R9",
+      "TCGA-HT-A5RA",
+      "TCGA-HT-A5RB",
+      "TCGA-HT-A5RC",
+      "TCGA-HT-A614",
+      "TCGA-HT-A615",
+      "TCGA-HT-A616",
+      "TCGA-HT-A617",
+      "TCGA-HT-A618",
+      "TCGA-HT-A61A",
+      "TCGA-HT-A61B",
+      "TCGA-HT-A61C",
+      "TCGA-HT-A74H",
+      "TCGA-HT-A74J",
+      "TCGA-HT-A74K",
+      "TCGA-HT-A74L",
+      "TCGA-HT-A74O",
+      "TCGA-HW-7486",
+      "TCGA-HW-7487",
+      "TCGA-HW-7489",
+      "TCGA-HW-7490",
+      "TCGA-HW-7491",
+      "TCGA-HW-7493",
+      "TCGA-HW-7495",
+      "TCGA-HW-8319",
+      "TCGA-HW-8320",
+      "TCGA-HW-8321",
+      "TCGA-HW-8322",
+      "TCGA-HW-A5KJ",
+      "TCGA-HW-A5KK",
+      "TCGA-HW-A5KL",
+      "TCGA-HW-A5KM",
+      "TCGA-IK-7675",
+      "TCGA-IK-8125",
+      "TCGA-KT-A74X",
+      "TCGA-KT-A7W1",
+      "TCGA-P5-A5ET",
+      "TCGA-P5-A5EU",
+      "TCGA-P5-A5EV",
+      "TCGA-P5-A5EW",
+      "TCGA-P5-A5EX",
+      "TCGA-P5-A5EZ",
+      "TCGA-P5-A5F0",
+      "TCGA-P5-A5F1",
+      "TCGA-P5-A5F2",
+      "TCGA-P5-A5F4",
+      "TCGA-P5-A5F6",
+      "TCGA-P5-A72U",
+      "TCGA-P5-A72W",
+      "TCGA-P5-A72X",
+      "TCGA-P5-A72Z",
+      "TCGA-P5-A730",
+      "TCGA-P5-A731",
+      "TCGA-P5-A733",
+      "TCGA-P5-A735",
+      "TCGA-P5-A736",
+      "TCGA-P5-A737",
+      "TCGA-P5-A77W",
+      "TCGA-P5-A77X",
+      "TCGA-P5-A780",
+      "TCGA-P5-A781",
+      "TCGA-QH-A65R",
+      "TCGA-QH-A65S",
+      "TCGA-QH-A65V",
+      "TCGA-QH-A65X",
+      "TCGA-QH-A65Z",
+      "TCGA-QH-A6CS",
+      "TCGA-QH-A6CU",
+      "TCGA-QH-A6CV",
+      "TCGA-QH-A6CW",
+      "TCGA-QH-A6CX",
+      "TCGA-QH-A6CY",
+      "TCGA-QH-A6CZ",
+      "TCGA-QH-A6X3",
+      "TCGA-QH-A6X4",
+      "TCGA-QH-A6X5",
+      "TCGA-QH-A6X8",
+      "TCGA-QH-A6X9",
+      "TCGA-QH-A6XA",
+      "TCGA-QH-A6XC",
+      "TCGA-QH-A86X",
+      "TCGA-QH-A870",
+      "TCGA-R8-A6MK",
+      "TCGA-R8-A6MO",
+      "TCGA-RY-A83X",
+      "TCGA-RY-A83Y",
+      "TCGA-RY-A83Z",
+      "TCGA-RY-A840",
+      "TCGA-RY-A843",
+      "TCGA-RY-A845",
+      "TCGA-RY-A847",
+      "TCGA-S9-A6TS",
+      "TCGA-S9-A6TU",
+      "TCGA-S9-A6TV",
+      "TCGA-S9-A6TW",
+      "TCGA-S9-A6TX",
+      "TCGA-S9-A6TY",
+      "TCGA-S9-A6TZ",
+      "TCGA-S9-A6U0",
+      "TCGA-S9-A6U1",
+      "TCGA-S9-A6U2",
+      "TCGA-S9-A6U5",
+      "TCGA-S9-A6U6",
+      "TCGA-S9-A6U8",
+      "TCGA-S9-A6U9",
+      "TCGA-S9-A6UA",
+      "TCGA-S9-A6UB",
+      "TCGA-S9-A6WD",
+      "TCGA-S9-A6WE",
+      "TCGA-S9-A6WG",
+      "TCGA-S9-A6WH",
+      "TCGA-S9-A6WI",
+      "TCGA-S9-A6WL",
+      "TCGA-S9-A6WM",
+      "TCGA-S9-A6WN",
+      "TCGA-S9-A6WO",
+      "TCGA-S9-A6WP",
+      "TCGA-S9-A6WQ",
+      "TCGA-S9-A7IQ",
+      "TCGA-S9-A7IS",
+      "TCGA-S9-A7IX",
+      "TCGA-S9-A7IY",
+      "TCGA-S9-A7IZ",
+      "TCGA-S9-A7J0",
+      "TCGA-S9-A7J1",
+      "TCGA-S9-A7J2",
+      "TCGA-S9-A7J3",
+      "TCGA-S9-A7QW",
+      "TCGA-S9-A7QX",
+      "TCGA-S9-A7QY",
+      "TCGA-S9-A7QZ",
+      "TCGA-S9-A7R1",
+      "TCGA-S9-A7R2",
+      "TCGA-S9-A7R3",
+      "TCGA-S9-A7R4",
+      "TCGA-S9-A7R7",
+      "TCGA-S9-A7R8",
+      "TCGA-S9-A89V",
+      "TCGA-S9-A89Z",
+      "TCGA-TM-A7C3",
+      "TCGA-TM-A7C4",
+      "TCGA-TM-A7C5",
+      "TCGA-TM-A7CA",
+      "TCGA-TM-A7CF",
+      "TCGA-TM-A84B",
+      "TCGA-TM-A84C",
+      "TCGA-TM-A84F",
+      "TCGA-TM-A84G",
+      "TCGA-TM-A84H",
+      "TCGA-TM-A84I",
+      "TCGA-TM-A84J",
+      "TCGA-TM-A84L",
+      "TCGA-TM-A84M",
+      "TCGA-TM-A84O",
+      "TCGA-TM-A84Q",
+      "TCGA-TM-A84R",
+      "TCGA-TM-A84S",
+      "TCGA-TM-A84T",
+      "TCGA-TQ-A7RF",
+      "TCGA-TQ-A7RG",
+      "TCGA-TQ-A7RH",
+      "TCGA-TQ-A7RI",
+      "TCGA-TQ-A7RJ",
+      "TCGA-TQ-A7RK",
+      "TCGA-TQ-A7RM",
+      "TCGA-TQ-A7RN",
+      "TCGA-TQ-A7RP",
+      "TCGA-TQ-A7RQ",
+      "TCGA-TQ-A7RR",
+      "TCGA-TQ-A7RS",
+      "TCGA-TQ-A7RU",
+      "TCGA-TQ-A7RV",
+      "TCGA-TQ-A7RW",
+      "TCGA-TQ-A8XE",
+      "TCGA-VM-A8C8",
+      "TCGA-VM-A8C9",
+      "TCGA-VM-A8CA",
+      "TCGA-VM-A8CB",
+      "TCGA-VM-A8CD",
+      "TCGA-VM-A8CE",
+      "TCGA-VM-A8CF",
+      "TCGA-VM-A8CH",
+      "TCGA-VV-A829",
+      "TCGA-VV-A86M",
+      "TCGA-VW-A7QS",
+      "TCGA-VW-A8FI",
+      "TCGA-W9-A837",
+      "TCGA-WH-A86K",
+      "TCGA-WY-A858",
+      "TCGA-WY-A859",
+      "TCGA-WY-A85A",
+      "TCGA-WY-A85B",
+      "TCGA-WY-A85C",
+      "TCGA-WY-A85D",
+      "TCGA-WY-A85E"
+     ]
+    }
+   ],
+   "strata": [
+    {
+     "stratum": "IDHmut-non-codel",
+     "project": "LGG",
+     "total": 243,
+     "rna": 243,
+     "met": 243,
+     "paired": 243,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 243,
+     "selected": 243
+    },
+    {
+     "stratum": "IDHmut-codel",
+     "project": "LGG",
+     "total": 163,
+     "rna": 163,
+     "met": 163,
+     "paired": 163,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 163,
+     "selected": 163
+    },
+    {
+     "stratum": "IDHwt",
+     "project": "LGG",
+     "total": 93,
+     "rna": 93,
+     "met": 93,
+     "paired": 93,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 93,
+     "selected": 93
+    },
+    {
+     "stratum": "unassigned",
+     "project": "LGG",
+     "total": 3,
+     "rna": 3,
+     "met": 3,
+     "paired": 3,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 3,
+     "selected": 3
+    },
+    {
+     "stratum": "IDHwt",
+     "project": "GBM",
+     "total": 202,
+     "rna": 127,
+     "met": 117,
+     "paired": 42,
+     "rna_only": 85,
+     "met_only": 75,
+     "publication_members": 202,
+     "selected": 202
+    },
+    {
+     "stratum": "unassigned",
+     "project": "GBM",
+     "total": 12,
+     "rna": 8,
+     "met": 8,
+     "paired": 4,
+     "rna_only": 4,
+     "met_only": 4,
+     "publication_members": 12,
+     "selected": 12
+    },
+    {
+     "stratum": "IDHmut-non-codel",
+     "project": "GBM",
+     "total": 11,
+     "rna": 6,
+     "met": 5,
+     "paired": 0,
+     "rna_only": 6,
+     "met_only": 5,
+     "publication_members": 11,
+     "selected": 11
+    }
+   ],
+   "annotations": {
+    "molecular_group": [
+     [
+      "IDHwt",
+      295,
+      135
+     ],
+     [
+      "IDHmut-non-codel",
+      254,
+      243
+     ],
+     [
+      "IDHmut-codel",
+      163,
+      163
+     ],
+     [
+      "unassigned",
+      15,
+      7
+     ]
+    ],
+    "idh_status": [
+     [
+      "Mutant",
+      419,
+      407
+     ],
+     [
+      "WT",
+      297,
+      136
+     ],
+     [
+      "",
+      11,
+      5
+     ]
+    ],
+    "codeletion_1p19q": [
+     [
+      "non-codel",
+      560,
+      383
+     ],
+     [
+      "codel",
+      163,
+      163
+     ],
+     [
+      "",
+      4,
+      2
+     ]
+    ],
+    "histology_publication": [
+     [
+      "glioblastoma",
+      220,
+      46
+     ],
+     [
+      "oligodendroglioma",
+      169,
+      169
+     ],
+     [
+      "astrocytoma",
+      165,
+      165
+     ],
+     [
+      "oligoastrocytoma",
+      111,
+      111
+     ],
+     [
+      "",
+      62,
+      57
+     ]
+    ],
+    "grade_publication": [
+     [
+      "G3",
+      234,
+      234
+     ],
+     [
+      "G4",
+      220,
+      46
+     ],
+     [
+      "G2",
+      211,
+      211
+     ],
+     [
+      "",
+      62,
+      57
+     ]
+    ],
+    "published_subtype": [
+     [
+      "IDHmut-non-codel",
+      242,
+      242
+     ],
+     [
+      "IDHmut-codel",
+      163,
+      163
+     ],
+     [
+      "IDHwt",
+      94,
+      94
+     ],
+     [
+      "",
+      56,
+      4
+     ],
+     [
+      "Mesenchymal",
+      53,
+      16
+     ],
+     [
+      "Classical",
+      49,
+      12
+     ],
+     [
+      "Proneural",
+      34,
+      7
+     ],
+     [
+      "Neural",
+      28,
+      8
+     ],
+     [
+      "G-CIMP",
+      8,
+      2
+     ]
+    ]
+   },
+   "withheld": [
+    {
+     "patient": "TCGA-02-0055",
+     "project": "GBM",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-06-0744",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-06-2557",
+     "project": "GBM",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-06-6700",
+     "project": "GBM",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-14-1823",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-15-1444",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-16-1045",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-19-2619",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-19-5947",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-26-1442",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-26-5132",
+     "project": "GBM",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-27-2526",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-28-2499",
+     "project": "GBM",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-28-2501",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-28-2510",
+     "project": "GBM",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-76-4932",
+     "project": "GBM",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-76-6656",
+     "project": "GBM",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-CS-5393",
+     "project": "LGG",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-CS-6670",
+     "project": "LGG",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-DB-5270",
+     "project": "LGG",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-DH-5141",
+     "project": "LGG",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-DU-7011",
+     "project": "LGG",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-DU-A5TP",
+     "project": "LGG",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-HT-7483",
+     "project": "LGG",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-HT-7604",
+     "project": "LGG",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-P5-A5EY",
+     "project": "LGG",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-R8-A6ML",
+     "project": "LGG",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-R8-A6YH",
+     "project": "LGG",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-TQ-A7RO",
+     "project": "LGG",
+     "disposition": "known_treatment_exclusion"
+    }
+   ]
+  },
+  "HNSC": {
+   "label": "HNSC",
+   "role": "discovery",
+   "projects": [
+    "HNSC"
+   ],
+   "selected_analysis": {
+    "total": 514,
+    "rna": 506,
+    "met": 514,
+    "paired": 506,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "contributions": {
+    "HNSC": {
+     "total": 514,
+     "rna": 506,
+     "met": 514,
+     "paired": 506,
+     "rna_only": 0,
+     "met_only": 8
+    }
+   },
+   "normal": {
+    "rna_he_before": 43,
+    "rna_he_after": 39,
+    "rna_he_met_after": 20,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-CV-7406",
+     "TCGA-CV-7416",
+     "TCGA-CV-7437",
+     "TCGA-CV-7440"
+    ],
+    "context": {
+     "target_project_donor": 39
+    },
+    "context_met": {
+     "target_project_donor": 20
+    }
+   }
+  },
+  "KIRC": {
+   "label": "KIRC",
+   "role": "discovery",
+   "projects": [
+    "KIRC"
+   ],
+   "selected_analysis": {
+    "total": 494,
+    "rna": 493,
+    "met": 306,
+    "paired": 305,
+    "rna_only": 188,
+    "met_only": 1
+   },
+   "contributions": {
+    "KIRC": {
+     "total": 494,
+     "rna": 493,
+     "met": 306,
+     "paired": 305,
+     "rna_only": 188,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 71,
+    "rna_he_after": 71,
+    "rna_he_met_after": 23,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 70,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    },
+    "context_met": {
+     "target_project_donor": 22,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    }
+   }
+  },
+  "KIRP": {
+   "label": "KIRP",
+   "role": "discovery",
+   "projects": [
+    "KIRP"
+   ],
+   "selected_analysis": {
+    "total": 275,
+    "rna": 274,
+    "met": 262,
+    "paired": 261,
+    "rna_only": 13,
+    "met_only": 1
+   },
+   "contributions": {
+    "KIRP": {
+     "total": 275,
+     "rna": 274,
+     "met": 262,
+     "paired": 261,
+     "rna_only": 13,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 32,
+    "rna_he_after": 32,
+    "rna_he_met_after": 23,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 32
+    },
+    "context_met": {
+     "target_project_donor": 23
+    }
+   }
+  },
+  "LIHC": {
+   "label": "LIHC",
+   "role": "discovery",
+   "projects": [
+    "LIHC"
+   ],
+   "selected_analysis": {
+    "total": 357,
+    "rna": 351,
+    "met": 357,
+    "paired": 351,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "contributions": {
+    "LIHC": {
+     "total": 357,
+     "rna": 351,
+     "met": 357,
+     "paired": 351,
+     "rna_only": 0,
+     "met_only": 6
+    }
+   },
+   "normal": {
+    "rna_he_before": 50,
+    "rna_he_after": 50,
+    "rna_he_met_after": 41,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "non_target_or_uncertain_or_recurrent_donor": 3,
+     "target_project_donor": 47
+    },
+    "context_met": {
+     "non_target_or_uncertain_or_recurrent_donor": 1,
+     "target_project_donor": 40
+    }
+   }
+  },
+  "LUAD": {
+   "label": "LUAD",
+   "role": "discovery",
+   "projects": [
+    "LUAD"
+   ],
+   "selected_analysis": {
+    "total": 457,
+    "rna": 453,
+    "met": 407,
+    "paired": 403,
+    "rna_only": 50,
+    "met_only": 4
+   },
+   "contributions": {
+    "LUAD": {
+     "total": 457,
+     "rna": 453,
+     "met": 407,
+     "paired": 403,
+     "rna_only": 50,
+     "met_only": 4
+    }
+   },
+   "normal": {
+    "rna_he_before": 57,
+    "rna_he_after": 56,
+    "rna_he_met_after": 19,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-73-4676"
+    ],
+    "context": {
+     "target_project_donor": 56
+    },
+    "context_met": {
+     "target_project_donor": 19
+    }
+   }
+  },
+  "LUSC": {
+   "label": "LUSC",
+   "role": "discovery",
+   "projects": [
+    "LUSC"
+   ],
+   "selected_analysis": {
+    "total": 471,
+    "rna": 471,
+    "met": 358,
+    "paired": 358,
+    "rna_only": 113,
+    "met_only": 0
+   },
+   "contributions": {
+    "LUSC": {
+     "total": 471,
+     "rna": 471,
+     "met": 358,
+     "paired": 358,
+     "rna_only": 113,
+     "met_only": 0
+    }
+   },
+   "normal": {
+    "rna_he_before": 47,
+    "rna_he_after": 45,
+    "rna_he_met_after": 8,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-56-8623",
+     "TCGA-90-6837"
+    ],
+    "context": {
+     "target_project_donor": 45
+    },
+    "context_met": {
+     "target_project_donor": 8
+    }
+   }
+  },
+  "PCPG": {
+   "label": "PCPG",
+   "role": "discovery",
+   "projects": [
+    "PCPG"
+   ],
+   "selected_analysis": {
+    "total": 178,
+    "rna": 178,
+    "met": 178,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "contributions": {
+    "PCPG": {
+     "total": 178,
+     "rna": 178,
+     "met": 178,
+     "paired": 178,
+     "rna_only": 0,
+     "met_only": 0
+    }
+   },
+   "normal": {
+    "rna_he_before": 3,
+    "rna_he_after": 3,
+    "rna_he_met_after": 3,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 3
+    },
+    "context_met": {
+     "target_project_donor": 3
+    }
+   },
+   "subsets": [
+    {
+     "id": "PCPG-without-neck",
+     "label": "Without the two head and neck paragangliomas",
+     "total": 176,
+     "rna": 176,
+     "met": 176,
+     "paired": 176,
+     "rna_only": 0,
+     "met_only": 0,
+     "patients": [
+      "TCGA-P7-A5NX",
+      "TCGA-P7-A5NY",
+      "TCGA-P8-A5KC",
+      "TCGA-P8-A5KD",
+      "TCGA-P8-A6RX",
+      "TCGA-P8-A6RY",
+      "TCGA-PR-A5PF",
+      "TCGA-PR-A5PG",
+      "TCGA-PR-A5PH",
+      "TCGA-QR-A6GO",
+      "TCGA-QR-A6GR",
+      "TCGA-QR-A6GS",
+      "TCGA-QR-A6GT",
+      "TCGA-QR-A6GU",
+      "TCGA-QR-A6GW",
+      "TCGA-QR-A6GX",
+      "TCGA-QR-A6GY",
+      "TCGA-QR-A6GZ",
+      "TCGA-QR-A6H0",
+      "TCGA-QR-A6H1",
+      "TCGA-QR-A6H2",
+      "TCGA-QR-A6H3",
+      "TCGA-QR-A6H4",
+      "TCGA-QR-A6H5",
+      "TCGA-QR-A6H6",
+      "TCGA-QR-A6ZZ",
+      "TCGA-QR-A700",
+      "TCGA-QR-A702",
+      "TCGA-QR-A703",
+      "TCGA-QR-A705",
+      "TCGA-QR-A706",
+      "TCGA-QR-A707",
+      "TCGA-QR-A708",
+      "TCGA-QR-A70A",
+      "TCGA-QR-A70C",
+      "TCGA-QR-A70D",
+      "TCGA-QR-A70E",
+      "TCGA-QR-A70G",
+      "TCGA-QR-A70H",
+      "TCGA-QR-A70I",
+      "TCGA-QR-A70J",
+      "TCGA-QR-A70K",
+      "TCGA-QR-A70M",
+      "TCGA-QR-A70N",
+      "TCGA-QR-A70O",
+      "TCGA-QR-A70P",
+      "TCGA-QR-A70Q",
+      "TCGA-QR-A70R",
+      "TCGA-QR-A70T",
+      "TCGA-QR-A70U",
+      "TCGA-QR-A70V",
+      "TCGA-QR-A70W",
+      "TCGA-QR-A70X",
+      "TCGA-QR-A7IN",
+      "TCGA-QR-A7IP",
+      "TCGA-QT-A5XJ",
+      "TCGA-QT-A5XK",
+      "TCGA-QT-A5XL",
+      "TCGA-QT-A5XM",
+      "TCGA-QT-A5XN",
+      "TCGA-QT-A5XO",
+      "TCGA-QT-A5XP",
+      "TCGA-QT-A69Q",
+      "TCGA-QT-A7U0",
+      "TCGA-RT-A6Y9",
+      "TCGA-RT-A6YA",
+      "TCGA-RT-A6YC",
+      "TCGA-RW-A67V",
+      "TCGA-RW-A67W",
+      "TCGA-RW-A67X",
+      "TCGA-RW-A67Y",
+      "TCGA-RW-A680",
+      "TCGA-RW-A681",
+      "TCGA-RW-A684",
+      "TCGA-RW-A685",
+      "TCGA-RW-A686",
+      "TCGA-RW-A688",
+      "TCGA-RW-A689",
+      "TCGA-RW-A68A",
+      "TCGA-RW-A68B",
+      "TCGA-RW-A68C",
+      "TCGA-RW-A68D",
+      "TCGA-RW-A68F",
+      "TCGA-RW-A68G",
+      "TCGA-RW-A7CZ",
+      "TCGA-RW-A7D0",
+      "TCGA-RW-A8AZ",
+      "TCGA-RX-A8JQ",
+      "TCGA-S7-A7WL",
+      "TCGA-S7-A7WM",
+      "TCGA-S7-A7WN",
+      "TCGA-S7-A7WO",
+      "TCGA-S7-A7WP",
+      "TCGA-S7-A7WQ",
+      "TCGA-S7-A7WR",
+      "TCGA-S7-A7WT",
+      "TCGA-S7-A7WU",
+      "TCGA-S7-A7WV",
+      "TCGA-S7-A7WW",
+      "TCGA-S7-A7WX",
+      "TCGA-S7-A7X0",
+      "TCGA-S7-A7X1",
+      "TCGA-S7-A7X2",
+      "TCGA-SA-A6C2",
+      "TCGA-SP-A6QC",
+      "TCGA-SP-A6QD",
+      "TCGA-SP-A6QF",
+      "TCGA-SP-A6QG",
+      "TCGA-SP-A6QH",
+      "TCGA-SP-A6QI",
+      "TCGA-SP-A6QJ",
+      "TCGA-SP-A6QK",
+      "TCGA-SQ-A6I4",
+      "TCGA-SQ-A6I6",
+      "TCGA-SR-A6MP",
+      "TCGA-SR-A6MQ",
+      "TCGA-SR-A6MR",
+      "TCGA-SR-A6MS",
+      "TCGA-SR-A6MT",
+      "TCGA-SR-A6MU",
+      "TCGA-SR-A6MV",
+      "TCGA-SR-A6MX",
+      "TCGA-SR-A6MY",
+      "TCGA-SR-A6MZ",
+      "TCGA-SR-A6N0",
+      "TCGA-TT-A6YJ",
+      "TCGA-TT-A6YK",
+      "TCGA-TT-A6YN",
+      "TCGA-TT-A6YO",
+      "TCGA-TT-A6YP",
+      "TCGA-W2-A7H5",
+      "TCGA-W2-A7H7",
+      "TCGA-W2-A7HA",
+      "TCGA-W2-A7HB",
+      "TCGA-W2-A7HC",
+      "TCGA-W2-A7HD",
+      "TCGA-W2-A7HE",
+      "TCGA-W2-A7HF",
+      "TCGA-W2-A7HH",
+      "TCGA-W2-A7UY",
+      "TCGA-WB-A80K",
+      "TCGA-WB-A80L",
+      "TCGA-WB-A80M",
+      "TCGA-WB-A80N",
+      "TCGA-WB-A80O",
+      "TCGA-WB-A80P",
+      "TCGA-WB-A80Q",
+      "TCGA-WB-A80V",
+      "TCGA-WB-A80Y",
+      "TCGA-WB-A814",
+      "TCGA-WB-A815",
+      "TCGA-WB-A816",
+      "TCGA-WB-A817",
+      "TCGA-WB-A818",
+      "TCGA-WB-A819",
+      "TCGA-WB-A81A",
+      "TCGA-WB-A81D",
+      "TCGA-WB-A81E",
+      "TCGA-WB-A81F",
+      "TCGA-WB-A81G",
+      "TCGA-WB-A81H",
+      "TCGA-WB-A81I",
+      "TCGA-WB-A81J",
+      "TCGA-WB-A81K",
+      "TCGA-WB-A81M",
+      "TCGA-WB-A81N",
+      "TCGA-WB-A81P",
+      "TCGA-WB-A81Q",
+      "TCGA-WB-A81R",
+      "TCGA-WB-A81S",
+      "TCGA-WB-A81T",
+      "TCGA-WB-A81V",
+      "TCGA-WB-A81W",
+      "TCGA-WB-A821",
+      "TCGA-WB-A822",
+      "TCGA-XG-A823"
+     ]
+    }
+   ],
+   "strata": [
+    {
+     "stratum": "pheochromocytoma",
+     "project": "PCPG",
+     "total": 146,
+     "rna": 146,
+     "met": 146,
+     "paired": 146,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 144,
+     "selected": 146
+    },
+    {
+     "stratum": "paraganglioma",
+     "project": "PCPG",
+     "total": 32,
+     "rna": 32,
+     "met": 32,
+     "paired": 32,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 29,
+     "selected": 32
+    }
+   ],
+   "annotations": {
+    "histology_stratum": [
+     [
+      "pheochromocytoma",
+      146,
+      146
+     ],
+     [
+      "paraganglioma",
+      32,
+      32
+     ]
+    ],
+    "histology_evidence": [
+     [
+      "TCGA PCPG publication table",
+      173,
+      173
+     ],
+     [
+      "GDC morphology fallback",
+      5,
+      5
+     ]
+    ],
+    "site_reported": [
+     [
+      "Adrenal gland, NOS",
+      143,
+      143
+     ],
+     [
+      "Retroperitoneum",
+      16,
+      16
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of thorax",
+      3,
+      3
+     ],
+     [
+      "Medulla of adrenal gland",
+      2,
+      2
+     ],
+     [
+      "Thorax, NOS",
+      2,
+      2
+     ],
+     [
+      "Head, face or neck, NOS",
+      2,
+      2
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of abdomen",
+      2,
+      2
+     ],
+     [
+      "Cortex of adrenal gland",
+      2,
+      2
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of trunk, NOS",
+      1,
+      1
+     ],
+     [
+      "Heart",
+      1,
+      1
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of pelvis",
+      1,
+      1
+     ],
+     [
+      "Aortic body and other paraganglia",
+      1,
+      1
+     ],
+     [
+      "Nervous system, NOS",
+      1,
+      1
+     ],
+     [
+      "Mediastinum, NOS",
+      1,
+      1
+     ]
+    ],
+    "published_subtype": [
+     [
+      "Kinase signaling",
+      68,
+      68
+     ],
+     [
+      "Pseudohypoxia",
+      61,
+      61
+     ],
+     [
+      "Wnt-altered",
+      22,
+      22
+     ],
+     [
+      "Cortical admixture",
+      22,
+      22
+     ],
+     [
+      null,
+      5,
+      5
+     ]
+    ],
+    "adrenal_cortical_admixture": [
+     [
+      false,
+      157,
+      157
+     ],
+     [
+      true,
+      16,
+      16
+     ],
+     [
+      null,
+      5,
+      5
+     ]
+    ]
+   }
+  },
+  "PDAC": {
+   "label": "Confirmed pancreatic ductal adenocarcinoma",
+   "role": "discovery",
+   "projects": [
+    "PAAD"
+   ],
+   "selected_analysis": {
+    "total": 149,
+    "rna": 143,
+    "met": 149,
+    "paired": 143,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "contributions": {
+    "PAAD": {
+     "total": 149,
+     "rna": 143,
+     "met": 149,
+     "paired": 143,
+     "rna_only": 0,
+     "met_only": 6
+    }
+   },
+   "normal": {
+    "rna_he_before": 4,
+    "rna_he_after": 4,
+    "rna_he_met_after": 4,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 4
+    },
+    "context_met": {
+     "target_project_donor": 4
+    }
+   },
+   "subsets": [
+    {
+     "id": "PDAC-sensitivity",
+     "label": "Without the focal squamous component case",
+     "total": 148,
+     "rna": 142,
+     "met": 148,
+     "paired": 142,
+     "rna_only": 0,
+     "met_only": 6,
+     "patients": [
+      "TCGA-2J-AAB1",
+      "TCGA-2J-AAB4",
+      "TCGA-2J-AAB6",
+      "TCGA-2J-AAB8",
+      "TCGA-2J-AAB9",
+      "TCGA-2J-AABA",
+      "TCGA-2J-AABE",
+      "TCGA-2J-AABF",
+      "TCGA-2J-AABH",
+      "TCGA-2J-AABK",
+      "TCGA-2J-AABO",
+      "TCGA-2J-AABR",
+      "TCGA-2J-AABT",
+      "TCGA-2J-AABU",
+      "TCGA-2J-AABV",
+      "TCGA-2L-AAQA",
+      "TCGA-2L-AAQE",
+      "TCGA-2L-AAQI",
+      "TCGA-2L-AAQJ",
+      "TCGA-2L-AAQL",
+      "TCGA-3A-A9I5",
+      "TCGA-3A-A9I7",
+      "TCGA-3A-A9I9",
+      "TCGA-3A-A9IC",
+      "TCGA-3A-A9IH",
+      "TCGA-3A-A9IU",
+      "TCGA-3A-A9IX",
+      "TCGA-3A-A9IZ",
+      "TCGA-3A-A9J0",
+      "TCGA-3E-AAAY",
+      "TCGA-3E-AAAZ",
+      "TCGA-F2-6879",
+      "TCGA-F2-A44G",
+      "TCGA-F2-A44H",
+      "TCGA-F2-A7TX",
+      "TCGA-F2-A8YN",
+      "TCGA-FB-A4P5",
+      "TCGA-FB-A4P6",
+      "TCGA-FB-A545",
+      "TCGA-FB-A5VM",
+      "TCGA-FB-A78T",
+      "TCGA-FB-AAPQ",
+      "TCGA-FB-AAPS",
+      "TCGA-FB-AAPY",
+      "TCGA-FB-AAPZ",
+      "TCGA-FB-AAQ0",
+      "TCGA-FB-AAQ1",
+      "TCGA-FB-AAQ2",
+      "TCGA-FB-AAQ3",
+      "TCGA-FB-AAQ6",
+      "TCGA-FZ-5919",
+      "TCGA-FZ-5920",
+      "TCGA-FZ-5922",
+      "TCGA-FZ-5923",
+      "TCGA-FZ-5924",
+      "TCGA-FZ-5926",
+      "TCGA-H6-8124",
+      "TCGA-H6-A45N",
+      "TCGA-HV-A5A3",
+      "TCGA-HV-A5A4",
+      "TCGA-HV-A5A5",
+      "TCGA-HV-A5A6",
+      "TCGA-HV-A7OL",
+      "TCGA-HV-AA8V",
+      "TCGA-HV-AA8X",
+      "TCGA-HZ-7919",
+      "TCGA-HZ-7922",
+      "TCGA-HZ-7925",
+      "TCGA-HZ-7926",
+      "TCGA-HZ-8001",
+      "TCGA-HZ-8002",
+      "TCGA-HZ-8003",
+      "TCGA-HZ-8005",
+      "TCGA-HZ-8315",
+      "TCGA-HZ-8317",
+      "TCGA-HZ-8519",
+      "TCGA-HZ-8636",
+      "TCGA-HZ-8637",
+      "TCGA-HZ-A49G",
+      "TCGA-HZ-A49H",
+      "TCGA-HZ-A4BH",
+      "TCGA-HZ-A4BK",
+      "TCGA-HZ-A77O",
+      "TCGA-HZ-A77P",
+      "TCGA-HZ-A77Q",
+      "TCGA-HZ-A8P0",
+      "TCGA-HZ-A8P1",
+      "TCGA-HZ-A9TJ",
+      "TCGA-IB-7644",
+      "TCGA-IB-7645",
+      "TCGA-IB-7646",
+      "TCGA-IB-7647",
+      "TCGA-IB-7649",
+      "TCGA-IB-7651",
+      "TCGA-IB-7652",
+      "TCGA-IB-7885",
+      "TCGA-IB-7886",
+      "TCGA-IB-7887",
+      "TCGA-IB-7888",
+      "TCGA-IB-7889",
+      "TCGA-IB-7890",
+      "TCGA-IB-7891",
+      "TCGA-IB-7893",
+      "TCGA-IB-7897",
+      "TCGA-IB-8126",
+      "TCGA-IB-8127",
+      "TCGA-IB-A5SO",
+      "TCGA-IB-A5SP",
+      "TCGA-IB-A5SQ",
+      "TCGA-IB-A5SS",
+      "TCGA-IB-A5ST",
+      "TCGA-IB-A6UF",
+      "TCGA-IB-A6UG",
+      "TCGA-IB-A7M4",
+      "TCGA-IB-AAUM",
+      "TCGA-IB-AAUN",
+      "TCGA-IB-AAUO",
+      "TCGA-IB-AAUP",
+      "TCGA-IB-AAUQ",
+      "TCGA-IB-AAUR",
+      "TCGA-IB-AAUS",
+      "TCGA-IB-AAUU",
+      "TCGA-LB-A7SX",
+      "TCGA-LB-A8F3",
+      "TCGA-LB-A9Q5",
+      "TCGA-M8-A5N4",
+      "TCGA-OE-A75W",
+      "TCGA-PZ-A5RE",
+      "TCGA-Q3-A5QY",
+      "TCGA-Q3-AA2A",
+      "TCGA-RB-A7B8",
+      "TCGA-RB-AA9M",
+      "TCGA-S4-A8RO",
+      "TCGA-S4-A8RP",
+      "TCGA-US-A774",
+      "TCGA-US-A779",
+      "TCGA-US-A77E",
+      "TCGA-US-A77G",
+      "TCGA-XD-AAUG",
+      "TCGA-XD-AAUH",
+      "TCGA-XD-AAUI",
+      "TCGA-XD-AAUL",
+      "TCGA-XN-A8T3",
+      "TCGA-XN-A8T5",
+      "TCGA-YB-A89D",
+      "TCGA-YH-A8SY",
+      "TCGA-YY-A8LH",
+      "TCGA-Z5-AAPL"
+     ]
+    }
+   ]
+  },
+  "PRAD": {
+   "label": "PRAD",
+   "role": "discovery",
+   "projects": [
+    "PRAD"
+   ],
+   "selected_analysis": {
+    "total": 402,
+    "rna": 401,
+    "met": 402,
+    "paired": 401,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "contributions": {
+    "PRAD": {
+     "total": 402,
+     "rna": 401,
+     "met": 402,
+     "paired": 401,
+     "rna_only": 0,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 48,
+    "rna_he_after": 48,
+    "rna_he_met_after": 32,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 48
+    },
+    "context_met": {
+     "target_project_donor": 32
+    }
+   }
+  },
+  "STAD": {
+   "label": "STAD",
+   "role": "discovery",
+   "projects": [
+    "STAD"
+   ],
+   "selected_analysis": {
+    "total": 414,
+    "rna": 385,
+    "met": 377,
+    "paired": 348,
+    "rna_only": 37,
+    "met_only": 29
+   },
+   "contributions": {
+    "STAD": {
+     "total": 414,
+     "rna": 385,
+     "met": 377,
+     "paired": 348,
+     "rna_only": 37,
+     "met_only": 29
+    }
+   },
+   "normal": {
+    "rna_he_before": 34,
+    "rna_he_after": 34,
+    "rna_he_met_after": 0,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 34
+    },
+    "context_met": {}
+   }
+  },
+  "THCA": {
+   "label": "THCA",
+   "role": "discovery",
+   "projects": [
+    "THCA"
+   ],
+   "selected_analysis": {
+    "total": 495,
+    "rna": 493,
+    "met": 495,
+    "paired": 493,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "contributions": {
+    "THCA": {
+     "total": 495,
+     "rna": 493,
+     "met": 495,
+     "paired": 493,
+     "rna_only": 0,
+     "met_only": 2
+    }
+   },
+   "normal": {
+    "rna_he_before": 58,
+    "rna_he_after": 58,
+    "rna_he_met_after": 50,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 58
+    },
+    "context_met": {
+     "target_project_donor": 50
+    }
+   }
+  },
+  "UCEC": {
+   "label": "UCEC",
+   "role": "discovery",
+   "projects": [
+    "UCEC"
+   ],
+   "selected_analysis": {
+    "total": 523,
+    "rna": 521,
+    "met": 415,
+    "paired": 413,
+    "rna_only": 108,
+    "met_only": 2
+   },
+   "contributions": {
+    "UCEC": {
+     "total": 523,
+     "rna": 521,
+     "met": 415,
+     "paired": 413,
+     "rna_only": 108,
+     "met_only": 2
+    }
+   },
+   "normal": {
+    "rna_he_before": 34,
+    "rna_he_after": 34,
+    "rna_he_met_after": 33,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 22,
+     "organ_specific_control": 12
+    },
+    "context_met": {
+     "target_project_donor": 21,
+     "organ_specific_control": 12
+    }
+   },
+   "subsets": [
+    {
+     "id": "UCEC-endometrioid",
+     "label": "Endometrioid only",
+     "total": 398,
+     "rna": 396,
+     "met": 305,
+     "paired": 303,
+     "rna_only": 93,
+     "met_only": 2,
+     "patients": [
+      "TCGA-4E-A92E",
+      "TCGA-5B-A90C",
+      "TCGA-5S-A9Q8",
+      "TCGA-A5-A0G9",
+      "TCGA-A5-A0GA",
+      "TCGA-A5-A0GB",
+      "TCGA-A5-A0GD",
+      "TCGA-A5-A0GE",
+      "TCGA-A5-A0GG",
+      "TCGA-A5-A0GH",
+      "TCGA-A5-A0GJ",
+      "TCGA-A5-A0GN",
+      "TCGA-A5-A0GP",
+      "TCGA-A5-A0GQ",
+      "TCGA-A5-A0GR",
+      "TCGA-A5-A0GU",
+      "TCGA-A5-A0GV",
+      "TCGA-A5-A0GW",
+      "TCGA-A5-A0GX",
+      "TCGA-A5-A0R7",
+      "TCGA-A5-A0R8",
+      "TCGA-A5-A0R9",
+      "TCGA-A5-A0RA",
+      "TCGA-A5-A0VO",
+      "TCGA-A5-A0VP",
+      "TCGA-A5-A0VQ",
+      "TCGA-A5-A1OJ",
+      "TCGA-A5-A1OK",
+      "TCGA-A5-A2K5",
+      "TCGA-A5-A2K7",
+      "TCGA-A5-A3LO",
+      "TCGA-A5-A7WJ",
+      "TCGA-A5-AB3J",
+      "TCGA-AJ-A23O",
+      "TCGA-AJ-A2QK",
+      "TCGA-AJ-A2QL",
+      "TCGA-AJ-A2QN",
+      "TCGA-AJ-A2QO",
+      "TCGA-AJ-A3BG",
+      "TCGA-AJ-A3BH",
+      "TCGA-AJ-A3BI",
+      "TCGA-AJ-A3BK",
+      "TCGA-AJ-A3EL",
+      "TCGA-AJ-A3EM",
+      "TCGA-AJ-A3I9",
+      "TCGA-AJ-A3IA",
+      "TCGA-AJ-A3NC",
+      "TCGA-AJ-A3NE",
+      "TCGA-AJ-A3OJ",
+      "TCGA-AJ-A3OL",
+      "TCGA-AJ-A5DV",
+      "TCGA-AJ-A5DW",
+      "TCGA-AJ-A6NU",
+      "TCGA-AJ-A8CT",
+      "TCGA-AJ-A8CV",
+      "TCGA-AJ-A8CW",
+      "TCGA-AP-A051",
+      "TCGA-AP-A054",
+      "TCGA-AP-A056",
+      "TCGA-AP-A059",
+      "TCGA-AP-A05N",
+      "TCGA-AP-A05O",
+      "TCGA-AP-A05P",
+      "TCGA-AP-A0LD",
+      "TCGA-AP-A0LE",
+      "TCGA-AP-A0LF",
+      "TCGA-AP-A0LG",
+      "TCGA-AP-A0LJ",
+      "TCGA-AP-A0LL",
+      "TCGA-AP-A0LM",
+      "TCGA-AP-A0LN",
+      "TCGA-AP-A0LO",
+      "TCGA-AP-A0LP",
+      "TCGA-AP-A0LS",
+      "TCGA-AP-A0LT",
+      "TCGA-AP-A0LV",
+      "TCGA-AP-A1DH",
+      "TCGA-AP-A1DK",
+      "TCGA-AP-A1DM",
+      "TCGA-AP-A1DO",
+      "TCGA-AP-A1DP",
+      "TCGA-AP-A1DR",
+      "TCGA-AP-A1DV",
+      "TCGA-AP-A1E0",
+      "TCGA-AP-A1E1",
+      "TCGA-AP-A1E3",
+      "TCGA-AP-A1E4",
+      "TCGA-AW-A1PO",
+      "TCGA-AX-A05S",
+      "TCGA-AX-A05T",
+      "TCGA-AX-A05U",
+      "TCGA-AX-A05W",
+      "TCGA-AX-A05Y",
+      "TCGA-AX-A05Z",
+      "TCGA-AX-A060",
+      "TCGA-AX-A062",
+      "TCGA-AX-A063",
+      "TCGA-AX-A064",
+      "TCGA-AX-A06B",
+      "TCGA-AX-A06F",
+      "TCGA-AX-A06H",
+      "TCGA-AX-A06J",
+      "TCGA-AX-A06L",
+      "TCGA-AX-A0IS",
+      "TCGA-AX-A0IZ",
+      "TCGA-AX-A0J0",
+      "TCGA-AX-A0J1",
+      "TCGA-AX-A1C4",
+      "TCGA-AX-A1C5",
+      "TCGA-AX-A1C9",
+      "TCGA-AX-A1CE",
+      "TCGA-AX-A1CF",
+      "TCGA-AX-A1CI",
+      "TCGA-AX-A1CJ",
+      "TCGA-AX-A1CK",
+      "TCGA-AX-A1CN",
+      "TCGA-AX-A2H7",
+      "TCGA-AX-A2HA",
+      "TCGA-AX-A2HC",
+      "TCGA-AX-A2HD",
+      "TCGA-AX-A2HG",
+      "TCGA-AX-A2HH",
+      "TCGA-AX-A2HJ",
+      "TCGA-AX-A2HK",
+      "TCGA-AX-A2IN",
+      "TCGA-AX-A3FS",
+      "TCGA-AX-A3FT",
+      "TCGA-AX-A3FV",
+      "TCGA-AX-A3FW",
+      "TCGA-AX-A3FX",
+      "TCGA-AX-A3FZ",
+      "TCGA-AX-A3G1",
+      "TCGA-AX-A3G8",
+      "TCGA-AX-A3G9",
+      "TCGA-AX-A3GB",
+      "TCGA-B5-A0JR",
+      "TCGA-B5-A0JS",
+      "TCGA-B5-A0JT",
+      "TCGA-B5-A0JU",
+      "TCGA-B5-A0JV",
+      "TCGA-B5-A0JX",
+      "TCGA-B5-A0JY",
+      "TCGA-B5-A0JZ",
+      "TCGA-B5-A0K0",
+      "TCGA-B5-A0K1",
+      "TCGA-B5-A0K2",
+      "TCGA-B5-A0K3",
+      "TCGA-B5-A0K4",
+      "TCGA-B5-A0K6",
+      "TCGA-B5-A0K7",
+      "TCGA-B5-A0K9",
+      "TCGA-B5-A11E",
+      "TCGA-B5-A11F",
+      "TCGA-B5-A11G",
+      "TCGA-B5-A11H",
+      "TCGA-B5-A11I",
+      "TCGA-B5-A11J",
+      "TCGA-B5-A11L",
+      "TCGA-B5-A11M",
+      "TCGA-B5-A11N",
+      "TCGA-B5-A11O",
+      "TCGA-B5-A11P",
+      "TCGA-B5-A11Q",
+      "TCGA-B5-A11R",
+      "TCGA-B5-A11S",
+      "TCGA-B5-A11U",
+      "TCGA-B5-A11V",
+      "TCGA-B5-A11W",
+      "TCGA-B5-A11X",
+      "TCGA-B5-A11Y",
+      "TCGA-B5-A11Z",
+      "TCGA-B5-A121",
+      "TCGA-B5-A1MR",
+      "TCGA-B5-A1MV",
+      "TCGA-B5-A1MW",
+      "TCGA-B5-A1MX",
+      "TCGA-B5-A1MZ",
+      "TCGA-B5-A3F9",
+      "TCGA-B5-A3FA",
+      "TCGA-B5-A3FB",
+      "TCGA-B5-A3FC",
+      "TCGA-B5-A3FD",
+      "TCGA-B5-A3FH",
+      "TCGA-B5-A5OC",
+      "TCGA-BG-A0LW",
+      "TCGA-BG-A0LX",
+      "TCGA-BG-A0M0",
+      "TCGA-BG-A0M2",
+      "TCGA-BG-A0M3",
+      "TCGA-BG-A0M4",
+      "TCGA-BG-A0M7",
+      "TCGA-BG-A0M9",
+      "TCGA-BG-A0MA",
+      "TCGA-BG-A0MC",
+      "TCGA-BG-A0MG",
+      "TCGA-BG-A0MH",
+      "TCGA-BG-A0MI",
+      "TCGA-BG-A0MK",
+      "TCGA-BG-A0MO",
+      "TCGA-BG-A0MQ",
+      "TCGA-BG-A0MT",
+      "TCGA-BG-A0MU",
+      "TCGA-BG-A0RY",
+      "TCGA-BG-A0VT",
+      "TCGA-BG-A0VV",
+      "TCGA-BG-A0VW",
+      "TCGA-BG-A0VX",
+      "TCGA-BG-A0VZ",
+      "TCGA-BG-A0W1",
+      "TCGA-BG-A0W2",
+      "TCGA-BG-A0YU",
+      "TCGA-BG-A186",
+      "TCGA-BG-A187",
+      "TCGA-BG-A18A",
+      "TCGA-BG-A18B",
+      "TCGA-BG-A18C",
+      "TCGA-BG-A222",
+      "TCGA-BG-A2AD",
+      "TCGA-BG-A2AE",
+      "TCGA-BG-A2L7",
+      "TCGA-BG-A3EW",
+      "TCGA-BK-A0C9",
+      "TCGA-BK-A0CB",
+      "TCGA-BK-A139",
+      "TCGA-BK-A13B",
+      "TCGA-BK-A13C",
+      "TCGA-BK-A4ZD",
+      "TCGA-BK-A56F",
+      "TCGA-BK-A6W3",
+      "TCGA-BK-A6W4",
+      "TCGA-BS-A0T9",
+      "TCGA-BS-A0TA",
+      "TCGA-BS-A0TC",
+      "TCGA-BS-A0TD",
+      "TCGA-BS-A0TE",
+      "TCGA-BS-A0TG",
+      "TCGA-BS-A0TI",
+      "TCGA-BS-A0TJ",
+      "TCGA-BS-A0U5",
+      "TCGA-BS-A0U7",
+      "TCGA-BS-A0U8",
+      "TCGA-BS-A0U9",
+      "TCGA-BS-A0UA",
+      "TCGA-BS-A0UF",
+      "TCGA-BS-A0UJ",
+      "TCGA-BS-A0UL",
+      "TCGA-BS-A0UM",
+      "TCGA-BS-A0UT",
+      "TCGA-BS-A0UV",
+      "TCGA-BS-A0V4",
+      "TCGA-BS-A0V6",
+      "TCGA-BS-A0V7",
+      "TCGA-BS-A0V8",
+      "TCGA-BS-A0VI",
+      "TCGA-BS-A0WQ",
+      "TCGA-D1-A0ZN",
+      "TCGA-D1-A0ZQ",
+      "TCGA-D1-A0ZR",
+      "TCGA-D1-A0ZS",
+      "TCGA-D1-A0ZU",
+      "TCGA-D1-A0ZV",
+      "TCGA-D1-A101",
+      "TCGA-D1-A102",
+      "TCGA-D1-A103",
+      "TCGA-D1-A15W",
+      "TCGA-D1-A15Z",
+      "TCGA-D1-A160",
+      "TCGA-D1-A161",
+      "TCGA-D1-A162",
+      "TCGA-D1-A163",
+      "TCGA-D1-A165",
+      "TCGA-D1-A167",
+      "TCGA-D1-A168",
+      "TCGA-D1-A169",
+      "TCGA-D1-A16B",
+      "TCGA-D1-A16D",
+      "TCGA-D1-A16E",
+      "TCGA-D1-A16F",
+      "TCGA-D1-A16J",
+      "TCGA-D1-A16N",
+      "TCGA-D1-A16O",
+      "TCGA-D1-A16Q",
+      "TCGA-D1-A16R",
+      "TCGA-D1-A16V",
+      "TCGA-D1-A16X",
+      "TCGA-D1-A16Y",
+      "TCGA-D1-A174",
+      "TCGA-D1-A175",
+      "TCGA-D1-A176",
+      "TCGA-D1-A177",
+      "TCGA-D1-A17A",
+      "TCGA-D1-A17B",
+      "TCGA-D1-A17C",
+      "TCGA-D1-A17D",
+      "TCGA-D1-A17F",
+      "TCGA-D1-A17H",
+      "TCGA-D1-A17K",
+      "TCGA-D1-A17L",
+      "TCGA-D1-A17M",
+      "TCGA-D1-A17N",
+      "TCGA-D1-A17Q",
+      "TCGA-D1-A17R",
+      "TCGA-D1-A17S",
+      "TCGA-D1-A17T",
+      "TCGA-D1-A17U",
+      "TCGA-D1-A1NS",
+      "TCGA-D1-A1NY",
+      "TCGA-D1-A1NZ",
+      "TCGA-D1-A1O0",
+      "TCGA-D1-A1O5",
+      "TCGA-D1-A1O7",
+      "TCGA-D1-A1O8",
+      "TCGA-D1-A2G5",
+      "TCGA-D1-A2G6",
+      "TCGA-D1-A3DA",
+      "TCGA-D1-A3DG",
+      "TCGA-D1-A3DH",
+      "TCGA-DF-A2KN",
+      "TCGA-DF-A2KR",
+      "TCGA-DF-A2KS",
+      "TCGA-DF-A2KU",
+      "TCGA-DF-A2KV",
+      "TCGA-DF-A2KY",
+      "TCGA-DF-A2KZ",
+      "TCGA-DF-A2L0",
+      "TCGA-DI-A0WH",
+      "TCGA-DI-A1BY",
+      "TCGA-DI-A1C3",
+      "TCGA-DI-A1NO",
+      "TCGA-E6-A1LX",
+      "TCGA-E6-A1M0",
+      "TCGA-E6-A2P9",
+      "TCGA-EC-A1NJ",
+      "TCGA-EC-A1QX",
+      "TCGA-EC-A24G",
+      "TCGA-EO-A1Y7",
+      "TCGA-EO-A22R",
+      "TCGA-EO-A22S",
+      "TCGA-EO-A22T",
+      "TCGA-EO-A22U",
+      "TCGA-EO-A22X",
+      "TCGA-EO-A22Y",
+      "TCGA-EO-A3AS",
+      "TCGA-EO-A3AU",
+      "TCGA-EO-A3AV",
+      "TCGA-EO-A3AY",
+      "TCGA-EO-A3B0",
+      "TCGA-EO-A3KX",
+      "TCGA-EO-A3L0",
+      "TCGA-EY-A1GC",
+      "TCGA-EY-A1GD",
+      "TCGA-EY-A1GE",
+      "TCGA-EY-A1GF",
+      "TCGA-EY-A1GH",
+      "TCGA-EY-A1GI",
+      "TCGA-EY-A1GJ",
+      "TCGA-EY-A1GK",
+      "TCGA-EY-A1GL",
+      "TCGA-EY-A1GO",
+      "TCGA-EY-A1GP",
+      "TCGA-EY-A1GQ",
+      "TCGA-EY-A1GR",
+      "TCGA-EY-A1GT",
+      "TCGA-EY-A1GU",
+      "TCGA-EY-A1GW",
+      "TCGA-EY-A1GX",
+      "TCGA-EY-A1H0",
+      "TCGA-EY-A214",
+      "TCGA-EY-A215",
+      "TCGA-EY-A2OM",
+      "TCGA-EY-A2OP",
+      "TCGA-EY-A2OQ",
+      "TCGA-EY-A3L3",
+      "TCGA-EY-A547",
+      "TCGA-EY-A548",
+      "TCGA-EY-A549",
+      "TCGA-EY-A54A",
+      "TCGA-EY-A5W2",
+      "TCGA-EY-A72D",
+      "TCGA-FI-A2CX",
+      "TCGA-FI-A2D0",
+      "TCGA-FI-A2D4",
+      "TCGA-FI-A2D5",
+      "TCGA-FI-A2D6",
+      "TCGA-FI-A2F4",
+      "TCGA-FI-A2F9",
+      "TCGA-H5-A2HR",
+      "TCGA-PG-A916",
+      "TCGA-PG-A917",
+      "TCGA-QF-A5YS",
+      "TCGA-QF-A5YT",
+      "TCGA-QS-A5YQ",
+      "TCGA-QS-A5YR",
+      "TCGA-QS-A744",
+      "TCGA-SJ-A6ZI",
+      "TCGA-SJ-A6ZJ",
+      "TCGA-SL-A6J9",
+      "TCGA-SL-A6JA"
+     ]
+    }
+   ],
+   "strata": [
+    {
+     "stratum": "Endometrioid",
+     "project": "UCEC",
+     "total": 398,
+     "rna": 396,
+     "met": 305,
+     "paired": 303,
+     "rna_only": 93,
+     "met_only": 2,
+     "publication_members": 293,
+     "selected": 398
+    },
+    {
+     "stratum": "Serous",
+     "project": "UCEC",
+     "total": 112,
+     "rna": 112,
+     "met": 98,
+     "paired": 98,
+     "rna_only": 14,
+     "met_only": 0,
+     "publication_members": 49,
+     "selected": 112
+    },
+    {
+     "stratum": "Mixed",
+     "project": "UCEC",
+     "total": 12,
+     "rna": 12,
+     "met": 11,
+     "paired": 11,
+     "rna_only": 1,
+     "met_only": 0,
+     "publication_members": 12,
+     "selected": 12
+    },
+    {
+     "stratum": "Other",
+     "project": "UCEC",
+     "total": 1,
+     "rna": 1,
+     "met": 1,
+     "paired": 1,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 0,
+     "selected": 1
+    }
+   ],
+   "annotations": {
+    "histology_stratum": [
+     [
+      "Endometrioid",
+      398,
+      303
+     ],
+     [
+      "Serous",
+      112,
+      98
+     ],
+     [
+      "Mixed",
+      12,
+      11
+     ],
+     [
+      "Other",
+      1,
+      1
+     ]
+    ],
+    "histology_evidence": [
+     [
+      "TCGA endometrial publication table histology",
+      354,
+      244
+     ],
+     [
+      "GDC morphology fallback",
+      169,
+      169
+     ]
+    ],
+    "grade_publication": [
+     [
+      null,
+      169,
+      169
+     ],
+     [
+      "Grade 3",
+      165,
+      120
+     ],
+     [
+      "Grade 2",
+      102,
+      72
+     ],
+     [
+      "Grade 1",
+      87,
+      52
+     ]
+    ],
+    "published_subtype": [
+     [
+      null,
+      169,
+      169
+     ],
+     [
+      "Notassigned",
+      131,
+      120
+     ],
+     [
+      "CN low",
+      88,
+      51
+     ],
+     [
+      "MSI",
+      63,
+      28
+     ],
+     [
+      "CN high",
+      55,
+      36
+     ],
+     [
+      "POLE",
+      17,
+      9
+     ]
+    ]
+   }
+  }
+ },
+ "panel": {
+  "assay_qc": {
+   "total": 8139,
+   "rna": 7977,
+   "met": 6970,
+   "paired": 6808,
+   "rna_only": 1169,
+   "met_only": 162
+  },
+  "after_patient_screen": {
+   "total": 7970,
+   "rna": 7813,
+   "met": 6860,
+   "paired": 6703,
+   "rna_only": 1110,
+   "met_only": 157
+  },
+  "selected_analysis": {
+   "total": 7826,
+   "rna": 7671,
+   "met": 6716,
+   "paired": 6561,
+   "rna_only": 1110,
+   "met_only": 155
+  },
+  "discovery": {
+   "total": 7099,
+   "rna": 7028,
+   "met": 6084,
+   "paired": 6013,
+   "rna_only": 1015,
+   "met_only": 71
+  },
+  "benchmark": {
+   "total": 727,
+   "rna": 643,
+   "met": 632,
+   "paired": 548,
+   "rna_only": 95,
+   "met_only": 84
+  },
+  "dispositions": {
+   "pass_annotation_screen": 7970,
+   "known_treatment_exclusion": 67,
+   "diagnosis_identity_or_episode_exclusion_hold": 62,
+   "treatment_unknown_hold": 40
+  },
+  "reason_dimensions": {
+   "treatment_exclusion": 74,
+   "treatment_hold": 47,
+   "diagnosis_identity_episode": 62
+  },
+  "normal": {
+   "rna_he_before": 663,
+   "rna_he_after": 656,
+   "rna_he_met_after": 377,
+   "in_active_scope": true,
+   "withheld": [
+    "TCGA-56-8623",
+    "TCGA-73-4676",
+    "TCGA-90-6837",
+    "TCGA-CV-7406",
+    "TCGA-CV-7416",
+    "TCGA-CV-7437",
+    "TCGA-CV-7440"
+   ],
+   "context": {
+    "normal_only_donor_primary_diagnosis_unreported": 5,
+    "target_project_donor": 634,
+    "non_target_or_uncertain_or_recurrent_donor": 5,
+    "organ_specific_control": 12
+   },
+   "context_met": {
+    "normal_only_donor_primary_diagnosis_unreported": 1,
+    "target_project_donor": 362,
+    "non_target_or_uncertain_or_recurrent_donor": 2,
+    "organ_specific_control": 12
+   }
+  }
+ }
+}

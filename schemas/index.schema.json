@@ -1,0 +1,98 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/index.schema.json",
+ "title": "index",
+ "description": "Index of the explorer's data files with checksums and schemas",
+ "type": "object",
+ "properties": {
+  "name": {
+   "type": "string"
+  },
+  "release": {
+   "type": "object",
+   "properties": {
+    "version": {
+     "type": "string"
+    },
+    "date": {
+     "type": "string"
+    },
+    "audit_dates": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "version",
+    "date",
+    "audit_dates"
+   ],
+   "additionalProperties": false
+  },
+  "description": {
+   "type": "string"
+  },
+  "agent_guide": {
+   "type": "string"
+  },
+  "field_reference": {
+   "type": "string"
+  },
+  "notes": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "files": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "records": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "bytes": {
+      "type": "integer"
+     },
+     "sha256": {
+      "type": "string"
+     },
+     "schema": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "path",
+     "description",
+     "records",
+     "bytes",
+     "sha256",
+     "schema"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "name",
+  "release",
+  "description",
+  "agent_guide",
+  "field_reference",
+  "notes",
+  "files"
+ ],
+ "additionalProperties": false
+}

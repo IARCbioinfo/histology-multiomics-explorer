@@ -1,0 +1,2242 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "PDAC",
+ "page": "cancers.html?c=PDAC",
+ "markdown": "md/cancers/PDAC.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "PDAC",
+  "gaps": [
+   "Pei et al. primary-site sections come from rapid autopsies of end-stage disease, not early surgical resections.",
+   "HTAN pancreatic sections are labelled pancreatobiliary-type and need pathology harmonisation before pooling with conventional PDAC.",
+   "Original scans for the Schmitt et al. untreated resections have not been located.",
+   "The proposed confirmed PDAC cohort (149 patients) is one patient below the general 150-patient threshold and is shown as an explicit exception.",
+   "Eight TCGA-PAAD patients with retained assays are excluded or held because their reviewed diagnosis is adenosquamous, colloid or “Other”.",
+   "The linkage of retained assays to slide images is not yet checked for the TCGA cohort."
+  ],
+  "name": "Pancreatic ductal adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "not-screened",
+  "strata": [
+   [
+    "pdac-conv",
+    "Pancreatic ductal adenocarcinoma"
+   ],
+   [
+    "pdac-pb",
+    "Pancreatobiliary-type adenocarcinoma (harmonisation pending)"
+   ]
+  ],
+  "summary": "Pancreatic ductal adenocarcinoma was not among the cancer types screened by Hausser et al. TCGA-PAAD meets the molecular screen; analyses use a histology-confirmed ductal adenocarcinoma cohort selected by documented pathology review rather than the whole project.",
+  "tcga_project": "PAAD",
+  "analysis_cohort": "PDAC"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "PDAC",
+   "label": "Confirmed pancreatic ductal adenocarcinoma",
+   "role": "discovery",
+   "projects": [
+    "PAAD"
+   ],
+   "selected_analysis": {
+    "total": 149,
+    "rna": 143,
+    "met": 149,
+    "paired": 143,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "contributions": {
+    "PAAD": {
+     "total": 149,
+     "rna": 143,
+     "met": 149,
+     "paired": 143,
+     "rna_only": 0,
+     "met_only": 6
+    }
+   },
+   "normal": {
+    "rna_he_before": 4,
+    "rna_he_after": 4,
+    "rna_he_met_after": 4,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 4
+    },
+    "context_met": {
+     "target_project_donor": 4
+    }
+   },
+   "subsets": [
+    {
+     "id": "PDAC-sensitivity",
+     "label": "Without the focal squamous component case",
+     "total": 148,
+     "rna": 142,
+     "met": 148,
+     "paired": 142,
+     "rna_only": 0,
+     "met_only": 6,
+     "patients": [
+      "TCGA-2J-AAB1",
+      "TCGA-2J-AAB4",
+      "TCGA-2J-AAB6",
+      "TCGA-2J-AAB8",
+      "TCGA-2J-AAB9",
+      "TCGA-2J-AABA",
+      "TCGA-2J-AABE",
+      "TCGA-2J-AABF",
+      "TCGA-2J-AABH",
+      "TCGA-2J-AABK",
+      "TCGA-2J-AABO",
+      "TCGA-2J-AABR",
+      "TCGA-2J-AABT",
+      "TCGA-2J-AABU",
+      "TCGA-2J-AABV",
+      "TCGA-2L-AAQA",
+      "TCGA-2L-AAQE",
+      "TCGA-2L-AAQI",
+      "TCGA-2L-AAQJ",
+      "TCGA-2L-AAQL",
+      "TCGA-3A-A9I5",
+      "TCGA-3A-A9I7",
+      "TCGA-3A-A9I9",
+      "TCGA-3A-A9IC",
+      "TCGA-3A-A9IH",
+      "TCGA-3A-A9IU",
+      "TCGA-3A-A9IX",
+      "TCGA-3A-A9IZ",
+      "TCGA-3A-A9J0",
+      "TCGA-3E-AAAY",
+      "TCGA-3E-AAAZ",
+      "TCGA-F2-6879",
+      "TCGA-F2-A44G",
+      "TCGA-F2-A44H",
+      "TCGA-F2-A7TX",
+      "TCGA-F2-A8YN",
+      "TCGA-FB-A4P5",
+      "TCGA-FB-A4P6",
+      "TCGA-FB-A545",
+      "TCGA-FB-A5VM",
+      "TCGA-FB-A78T",
+      "TCGA-FB-AAPQ",
+      "TCGA-FB-AAPS",
+      "TCGA-FB-AAPY",
+      "TCGA-FB-AAPZ",
+      "TCGA-FB-AAQ0",
+      "TCGA-FB-AAQ1",
+      "TCGA-FB-AAQ2",
+      "TCGA-FB-AAQ3",
+      "TCGA-FB-AAQ6",
+      "TCGA-FZ-5919",
+      "TCGA-FZ-5920",
+      "TCGA-FZ-5922",
+      "TCGA-FZ-5923",
+      "TCGA-FZ-5924",
+      "TCGA-FZ-5926",
+      "TCGA-H6-8124",
+      "TCGA-H6-A45N",
+      "TCGA-HV-A5A3",
+      "TCGA-HV-A5A4",
+      "TCGA-HV-A5A5",
+      "TCGA-HV-A5A6",
+      "TCGA-HV-A7OL",
+      "TCGA-HV-AA8V",
+      "TCGA-HV-AA8X",
+      "TCGA-HZ-7919",
+      "TCGA-HZ-7922",
+      "TCGA-HZ-7925",
+      "TCGA-HZ-7926",
+      "TCGA-HZ-8001",
+      "TCGA-HZ-8002",
+      "TCGA-HZ-8003",
+      "TCGA-HZ-8005",
+      "TCGA-HZ-8315",
+      "TCGA-HZ-8317",
+      "TCGA-HZ-8519",
+      "TCGA-HZ-8636",
+      "TCGA-HZ-8637",
+      "TCGA-HZ-A49G",
+      "TCGA-HZ-A49H",
+      "TCGA-HZ-A4BH",
+      "TCGA-HZ-A4BK",
+      "TCGA-HZ-A77O",
+      "TCGA-HZ-A77P",
+      "TCGA-HZ-A77Q",
+      "TCGA-HZ-A8P0",
+      "TCGA-HZ-A8P1",
+      "TCGA-HZ-A9TJ",
+      "TCGA-IB-7644",
+      "TCGA-IB-7645",
+      "TCGA-IB-7646",
+      "TCGA-IB-7647",
+      "TCGA-IB-7649",
+      "TCGA-IB-7651",
+      "TCGA-IB-7652",
+      "TCGA-IB-7885",
+      "TCGA-IB-7886",
+      "TCGA-IB-7887",
+      "TCGA-IB-7888",
+      "TCGA-IB-7889",
+      "TCGA-IB-7890",
+      "TCGA-IB-7891",
+      "TCGA-IB-7893",
+      "TCGA-IB-7897",
+      "TCGA-IB-8126",
+      "TCGA-IB-8127",
+      "TCGA-IB-A5SO",
+      "TCGA-IB-A5SP",
+      "TCGA-IB-A5SQ",
+      "TCGA-IB-A5SS",
+      "TCGA-IB-A5ST",
+      "TCGA-IB-A6UF",
+      "TCGA-IB-A6UG",
+      "TCGA-IB-A7M4",
+      "TCGA-IB-AAUM",
+      "TCGA-IB-AAUN",
+      "TCGA-IB-AAUO",
+      "TCGA-IB-AAUP",
+      "TCGA-IB-AAUQ",
+      "TCGA-IB-AAUR",
+      "TCGA-IB-AAUS",
+      "TCGA-IB-AAUU",
+      "TCGA-LB-A7SX",
+      "TCGA-LB-A8F3",
+      "TCGA-LB-A9Q5",
+      "TCGA-M8-A5N4",
+      "TCGA-OE-A75W",
+      "TCGA-PZ-A5RE",
+      "TCGA-Q3-A5QY",
+      "TCGA-Q3-AA2A",
+      "TCGA-RB-A7B8",
+      "TCGA-RB-AA9M",
+      "TCGA-S4-A8RO",
+      "TCGA-S4-A8RP",
+      "TCGA-US-A774",
+      "TCGA-US-A779",
+      "TCGA-US-A77E",
+      "TCGA-US-A77G",
+      "TCGA-XD-AAUG",
+      "TCGA-XD-AAUH",
+      "TCGA-XD-AAUI",
+      "TCGA-XD-AAUL",
+      "TCGA-XN-A8T3",
+      "TCGA-XN-A8T5",
+      "TCGA-YB-A89D",
+      "TCGA-YH-A8SY",
+      "TCGA-YY-A8LH",
+      "TCGA-Z5-AAPL"
+     ]
+    }
+   ]
+  },
+  "projects": {
+   "PAAD": {
+    "selected_panel": {
+     "analysis_cohort": "PDAC",
+     "role": "discovery",
+     "reviewed_patients": 157,
+     "histology_reviewed": true,
+     "assay_qc": {
+      "total": 157,
+      "rna": 151,
+      "met": 157,
+      "paired": 151,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "after_patient_screen": {
+      "total": 157,
+      "rna": 151,
+      "met": 157,
+      "paired": 151,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "selected_analysis": {
+      "total": 149,
+      "rna": 143,
+      "met": 149,
+      "paired": 143,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "dispositions": {
+      "pass_annotation_screen": 157
+     },
+     "normal": {
+      "rna_he_before": 4,
+      "rna_he_after": 4,
+      "rna_he_met_after": 4,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 4
+      },
+      "context_met": {
+       "target_project_donor": 4
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 184,
+      "paired": 178,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "post_qc": {
+      "union": 157,
+      "paired": 151,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "normal": {
+      "rna_he": 4,
+      "rna_he_met": 4,
+      "also_in_tumour_union": 4,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "PAAD"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "htan-wustl",
+   "label": "HTAN WUSTL (Mo et al. 2024)",
+   "citation": {
+    "authors": "Mo CK, et al.",
+    "title": "Tumour evolution and microenvironment interactions in 2D and 3D space",
+    "journal": "Nature",
+    "year": 2024,
+    "doi": "10.1038/s41586-024-08087-4",
+    "url": "https://doi.org/10.1038/s41586-024-08087-4"
+   },
+   "related_citations": [
+    {
+     "authors": "Iglesia MD, et al.",
+     "title": "Differential chromatin accessibility and transcriptional dynamics define breast cancer subtypes and their lineages",
+     "journal": "Nature Cancer",
+     "year": 2024,
+     "doi": "10.1038/s43018-024-00773-6",
+     "url": "https://doi.org/10.1038/s43018-024-00773-6"
+    }
+   ],
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "READ",
+    "PDAC"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium",
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "Fresh frozen",
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "account",
+    "route": "Original H&E TIFFs, count matrices, coordinates and scale factors are open on Synapse after free registration. Raw reads are controlled through dbGaP (phs002371).",
+    "links": [
+     [
+      "HTAN data portal",
+      "https://data.humantumoratlas.org/"
+     ],
+     [
+      "dbGaP phs002371",
+      "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs002371.v1.p1"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-09",
+   "description": "Multi-cancer atlas from the Washington University HTAN centre. Breast, colorectal and pancreatic Visium captures are linked to patient-level clinical tables. Most colorectal captures are from metastases, and several breast captures were taken after neoadjuvant therapy; both groups are listed and labelled, not removed.",
+   "notes": [
+    "H&E was imaged on the Visium section before library preparation (study methods). Image calibration and the full-resolution-to-spot transform have not been re-derived here.",
+    "Breast clinical annotation follows the Iglesia et al. supplement where portal coding and the clinical table disagree.",
+    "Pancreatic histology labels include pancreatobiliary-type and mixed carcinomas; these are not merged with conventional PDAC."
+   ],
+   "compartments": [
+    "primary-tumour",
+    "metastatic-tumour"
+   ]
+  },
+  {
+   "id": "pei-2025",
+   "label": "Pei et al. 2025",
+   "citation": {
+    "authors": "Pei G, et al.",
+    "title": "Spatial mapping of transcriptomic plasticity in metastatic pancreatic cancer",
+    "journal": "Nature",
+    "year": 2025,
+    "doi": "10.1038/s41586-025-08927-x",
+    "url": "https://doi.org/10.1038/s41586-025-08927-x"
+   },
+   "cancers": [
+    "PDAC"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Original H&E JPEGs, filtered matrices and spatial folders on GEO; raw reads on SRA.",
+    "links": [
+     [
+      "GEO GSE274557",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE274557"
+     ]
+    ]
+   },
+   "verification": "file-checked",
+   "verified_on": "2026-10-09",
+   "description": "Rapid-autopsy cohort of thirteen PDAC patients with Visium captures from primary tumours and metastatic sites. Primary-site captures come from end-stage disease, not early surgical resections.",
+   "notes": [
+    "Five patients had no treatment before collection; eight were treated.",
+    "Two patient-derived xenograft sections in the series are excluded.",
+    "Two captures are held for low tumour content or low RNA depth, and two have lower image resolution (about 0.68 µm/pixel)."
+   ],
+   "compartments": [
+    "primary-tumour",
+    "metastatic-tumour"
+   ]
+  },
+  {
+   "id": "schmitt-2026",
+   "label": "Schmitt et al. 2026",
+   "citation": {
+    "authors": "Schmitt AM, et al.",
+    "title": "Spatially-resolved subtype progression reveals metabolic vulnerabilities in pancreatic ductal adenocarcinoma",
+    "journal": "Molecular Cancer",
+    "year": 2026,
+    "doi": "10.1186/s12943-026-02628-3",
+    "url": "https://doi.org/10.1186/s12943-026-02628-3"
+   },
+   "cancers": [
+    "PDAC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "he-downsampled",
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Processed matrices, coordinates and scale factors on ArrayExpress; only downsampled H&E images are listed.",
+    "links": [
+     [
+      "ArrayExpress E-MTAB-15702",
+      "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-15702"
+     ]
+    ]
+   },
+   "reported": [
+    [
+     14,
+     "patients",
+     "untreated primary resections, per the publication and SDRF"
+    ]
+   ],
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-09",
+   "description": "Fourteen untreated primary PDAC resections profiled with Visium FFPE. The original 40× scans have not been located, so the captures are not counted as matched packages.",
+   "compartments": [
+    "primary-tumour"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "pei-2025:GSM8452847",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt1",
+   "capture": "GSM8452847",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452848",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt1",
+   "capture": "GSM8452848",
+   "tier": "held",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452849",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt1",
+   "capture": "GSM8452849",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452850",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt2",
+   "capture": "GSM8452850",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452851",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt2",
+   "capture": "GSM8452851",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452852",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt2",
+   "capture": "GSM8452852",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452853",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt3",
+   "capture": "GSM8452853",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452854",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt3",
+   "capture": "GSM8452854",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452855",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt3",
+   "capture": "GSM8452855",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452856",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt4",
+   "capture": "GSM8452856",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452857",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt4",
+   "capture": "GSM8452857",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452858",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt4",
+   "capture": "GSM8452858",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452859",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt4",
+   "capture": "GSM8452859",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452860",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt5",
+   "capture": "GSM8452860",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452861",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt5",
+   "capture": "GSM8452861",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452862",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt5",
+   "capture": "GSM8452862",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452863",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt6",
+   "capture": "GSM8452863",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452864",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt6",
+   "capture": "GSM8452864",
+   "tier": "held",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452865",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt6",
+   "capture": "GSM8452865",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452866",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt6",
+   "capture": "GSM8452866",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452867",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt7",
+   "capture": "GSM8452867",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452868",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt7",
+   "capture": "GSM8452868",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452869",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt7",
+   "capture": "GSM8452869",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452870",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt7",
+   "capture": "GSM8452870",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452871",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt8",
+   "capture": "GSM8452871",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452872",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt8",
+   "capture": "GSM8452872",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452873",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt8",
+   "capture": "GSM8452873",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452874",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt8",
+   "capture": "GSM8452874",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452875",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt9",
+   "capture": "GSM8452875",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452876",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt9",
+   "capture": "GSM8452876",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452877",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt9",
+   "capture": "GSM8452877",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452878",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt9",
+   "capture": "GSM8452878",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452879",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt10",
+   "capture": "GSM8452879",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452880",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt10",
+   "capture": "GSM8452880",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452881",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt10",
+   "capture": "GSM8452881",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452882",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt10",
+   "capture": "GSM8452882",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452883",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt11",
+   "capture": "GSM8452883",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452884",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt11",
+   "capture": "GSM8452884",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452885",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt11",
+   "capture": "GSM8452885",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452886",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt11",
+   "capture": "GSM8452886",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452887",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt12",
+   "capture": "GSM8452887",
+   "tier": "held",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452888",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt12",
+   "capture": "GSM8452888",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452889",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt12",
+   "capture": "GSM8452889",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452890",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt12",
+   "capture": "GSM8452890",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452891",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt13",
+   "capture": "GSM8452891",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452892",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt13",
+   "capture": "GSM8452892",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452893",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt13",
+   "capture": "GSM8452893",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452894",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt13",
+   "capture": "GSM8452894",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.306,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8452895",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt13",
+   "capture": "GSM8452895",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.307,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8714177",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt3",
+   "capture": "GSM8714177",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.303,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8714178",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt6",
+   "capture": "GSM8714178",
+   "tier": "held",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.676,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8714179",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt6",
+   "capture": "GSM8714179",
+   "tier": "held",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.675,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8714180",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt8",
+   "capture": "GSM8714180",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.303,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8714181",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt13",
+   "capture": "GSM8714181",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.303,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "pei-2025:GSM8714182",
+   "cohort": "pei-2025",
+   "cancer": "PDAC",
+   "stratum": "pdac-conv",
+   "patient": "Pt13",
+   "capture": "GSM8714182",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Original JPEG and spatial scaling match; full pixel-level QC pending",
+   "he_mpp": 0.303,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "htan-wustl:HT224P1-S1Fc2U1Z1Bs1-1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_22",
+   "capture": "HT224P1-S1Fc2U1Z1Bs1-1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT231P1-S1H3Fc2U1Z1Bs1-H3Bs2-Test",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_23",
+   "capture": "HT231P1-S1H3Fc2U1Z1Bs1-H3Bs2-Test",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT242P1H1-S1Fc1U1Z1B1_1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_25",
+   "capture": "HT242P1H1-S1Fc1U1Z1B1_1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT242P1H2-S1Fc1U1Z1B1_1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_25",
+   "capture": "HT242P1H2-S1Fc1U1Z1B1_1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT242P1H3-S1Fc1U1Z1B1_1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_25",
+   "capture": "HT242P1H3-S1Fc1U1Z1B1_1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT242P1H4-S1Fc1U1Z1B1_1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_25",
+   "capture": "HT242P1H4-S1Fc1U1Z1B1_1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT259P1-S1H1Fc2U1Z1Bs1-1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_26",
+   "capture": "HT259P1-S1H1Fc2U1Z1Bs1-1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT259P1-S1H2Fc2U1Z1Bs1-1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_26",
+   "capture": "HT259P1-S1H2Fc2U1Z1Bs1-1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT264P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "HTA12_27",
+   "capture": "HT264P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
+   "tier": "outside-stratum",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT284P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_29",
+   "capture": "HT284P1-S1H2Fc2U1Z1Bs1-H2Bs2-Test",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT288P1-S1H4Fc2U1Z1Bs1-H4Bs2-Test",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_30",
+   "capture": "HT288P1-S1H4Fc2U1Z1Bs1-H4Bs2-Test",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT306P1-S1H1Fc2U1Z1Bs1-H1Bs2-Test",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_31",
+   "capture": "HT306P1-S1H1Fc2U1Z1Bs1-H1Bs2-Test",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT264P1-S1H2Fs1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": null,
+   "patient": "HTA12_27",
+   "capture": "HT264P1-S1H2Fs1U1Bp1",
+   "tier": "outside-stratum",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT270P1-S1H1Fs5U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_28",
+   "capture": "HT270P1-S1H1Fs5U1Bp1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT270P2-Fp1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_261",
+   "capture": "HT270P2-Fp1U1Bp1",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT416P1-S1H1A1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_264",
+   "capture": "HT416P1-S1H1A1U1Bp1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT424P1-H3A1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_265",
+   "capture": "HT424P1-H3A1U1Bp1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT427P1-S1H1Fp1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_267",
+   "capture": "HT427P1-S1H1Fp1U1Bp1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT434P1-S1H3Fp1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_268",
+   "capture": "HT434P1-S1H3Fp1U1Bp1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT553P1-S1H2Fp1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "PDAC",
+   "stratum": "pdac-pb",
+   "patient": "HTA12_273",
+   "capture": "HT553P1-S1H2Fp1U1Bp1",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Original high-resolution TIFF, measured matrix, spot coordinates and scales listed together",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-paad",
+   "label": "TCGA-PAAD",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-PAAD"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "PDAC"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "PAAD",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-PAAD"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Pancreatic adenocarcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked beyond the histology review.",
+   "notes": [
+    "Pathology-group exclusions removed neuroendocrine and acinar tumours, intraductal papillary mucinous neoplasms, tumours of non-pancreatic origin and samples with very low neoplastic cellularity. The retained patients are still not a curated conventional PDAC series.",
+    "A proposed confirmed PDAC cohort of 149 patients (143 with RNA-seq and 450k, six with 450k only) is defined by documented pathology review; see the PDAC page. It is one patient below the general 150-patient threshold.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "PDAC"
+  }
+ ],
+ "evidence": []
+}

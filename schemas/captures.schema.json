@@ -1,0 +1,297 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/captures.schema.json",
+ "title": "captures",
+ "description": "Located spatial transcriptomics tissue sections with original H&E, expression and coordinates, one record per section",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "properties": {
+   "id": {
+    "type": "string",
+    "description": "<cohort>:<capture>"
+   },
+   "cohort": {
+    "type": "string"
+   },
+   "cancer": {
+    "type": "string"
+   },
+   "stratum": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "patient": {
+    "type": "string"
+   },
+   "capture": {
+    "type": "string"
+   },
+   "accession": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "tier": {
+    "type": "string",
+    "description": "core: primary tumour within the histology stratum; other tiers are metastatic, under review, outside the stratum or held for QC",
+    "enum": [
+     "core",
+     "held",
+     "metastatic",
+     "outside-stratum",
+     "review"
+    ]
+   },
+   "tier_reason": {
+    "type": "string"
+   },
+   "site": {
+    "type": "string",
+    "enum": [
+     "Metastasis",
+     "Primary",
+     "Unknown"
+    ]
+   },
+   "site_source": {
+    "type": "string"
+   },
+   "treatment": {
+    "type": "string",
+    "description": "Treatment before sampling",
+    "enum": [
+     "Post-treatment",
+     "Unknown",
+     "Untreated"
+    ]
+   },
+   "treatment_note": {
+    "type": "string"
+   },
+   "diagnosis": {
+    "type": "string"
+   },
+   "histology": {
+    "type": "string"
+   },
+   "technique": {
+    "type": "string"
+   },
+   "preservation": {
+    "type": "string"
+   },
+   "linkage": {
+    "type": "string",
+    "enum": [
+     "listed-together",
+     "none",
+     "same-patient",
+     "same-section",
+     "same-section-mapping-pending",
+     "serial-section",
+     "unverified"
+    ]
+   },
+   "registration": {
+    "type": "string"
+   },
+   "he_mpp": {
+    "type": [
+     "null",
+     "number"
+    ],
+    "description": "Image resolution in micrometres per pixel, where established"
+   },
+   "he_mpp_basis": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "he_file": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "links": {
+    "type": "object",
+    "properties": {
+     "he": {
+      "type": "string"
+     },
+     "expression": {
+      "type": "string"
+     },
+     "coordinates": {
+      "type": "string"
+     },
+     "raw": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    },
+    "required": [
+     "he",
+     "expression",
+     "coordinates",
+     "raw"
+    ],
+    "additionalProperties": false
+   },
+   "expression_type": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "access": {
+    "type": "object",
+    "properties": {
+     "he": {
+      "type": "string",
+      "enum": [
+       "account",
+       "controlled",
+       "open",
+       "request",
+       "unreleased",
+       "unresolved"
+      ]
+     },
+     "processed": {
+      "type": "string",
+      "enum": [
+       "account",
+       "controlled",
+       "open",
+       "request",
+       "unreleased",
+       "unresolved"
+      ]
+     },
+     "raw": {
+      "type": "string",
+      "enum": [
+       "account",
+       "controlled",
+       "open",
+       "request",
+       "unreleased",
+       "unresolved"
+      ]
+     }
+    },
+    "required": [
+     "he",
+     "processed",
+     "raw"
+    ],
+    "additionalProperties": false
+   },
+   "verification": {
+    "type": "string",
+    "enum": [
+     "file-checked",
+     "metadata-checked",
+     "not-audited",
+     "qc-complete",
+     "source-described"
+    ]
+   },
+   "verified_on": {
+    "type": "string"
+   },
+   "clinical": {
+    "type": "object",
+    "properties": {
+     "age": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "sex": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "stage": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "grade": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "subsite": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "markers": {
+      "type": [
+       "null",
+       "string"
+      ]
+     }
+    },
+    "required": [
+     "age",
+     "sex",
+     "stage",
+     "grade",
+     "subsite",
+     "markers"
+    ],
+    "additionalProperties": false
+   },
+   "source_name": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "id",
+   "cohort",
+   "cancer",
+   "stratum",
+   "patient",
+   "capture",
+   "accession",
+   "tier",
+   "tier_reason",
+   "site",
+   "site_source",
+   "treatment",
+   "treatment_note",
+   "diagnosis",
+   "histology",
+   "technique",
+   "preservation",
+   "linkage",
+   "registration",
+   "he_mpp",
+   "he_mpp_basis",
+   "he_file",
+   "links",
+   "expression_type",
+   "access",
+   "verification",
+   "verified_on",
+   "clinical"
+  ],
+  "additionalProperties": false
+ }
+}

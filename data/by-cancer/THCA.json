@@ -1,0 +1,792 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "THCA",
+ "page": "cancers.html?c=THCA",
+ "markdown": "md/cancers/THCA.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "THCA",
+  "gaps": [
+   "Both patients with primary-tumour sections located have background Hashimoto thyroiditis and no reported treatment history; no case of classical-variant papillary carcinoma alone is verified.",
+   "Further thyroid spatial cohorts lack released original-resolution scans or require requests."
+  ],
+  "name": "Thyroid carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "thca-ptc",
+    "Papillary thyroid carcinoma, variant not specified"
+   ]
+  ],
+  "summary": "Thyroid carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Papillary carcinoma variants and background thyroiditis are recorded where sources report them.",
+  "tcga_project": "THCA",
+  "analysis_cohort": "THCA"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "THCA",
+   "label": "THCA",
+   "role": "discovery",
+   "projects": [
+    "THCA"
+   ],
+   "selected_analysis": {
+    "total": 495,
+    "rna": 493,
+    "met": 495,
+    "paired": 493,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "contributions": {
+    "THCA": {
+     "total": 495,
+     "rna": 493,
+     "met": 495,
+     "paired": 493,
+     "rna_only": 0,
+     "met_only": 2
+    }
+   },
+   "normal": {
+    "rna_he_before": 58,
+    "rna_he_after": 58,
+    "rna_he_met_after": 50,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 58
+    },
+    "context_met": {
+     "target_project_donor": 50
+    }
+   }
+  },
+  "projects": {
+   "THCA": {
+    "selected_panel": {
+     "analysis_cohort": "THCA",
+     "role": "discovery",
+     "reviewed_patients": 502,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 502,
+      "rna": 500,
+      "met": 502,
+      "paired": 500,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "after_patient_screen": {
+      "total": 495,
+      "rna": 493,
+      "met": 495,
+      "paired": 493,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "selected_analysis": {
+      "total": 495,
+      "rna": 493,
+      "met": 495,
+      "paired": 493,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "dispositions": {
+      "pass_annotation_screen": 495,
+      "diagnosis_identity_or_episode_exclusion_hold": 4,
+      "known_treatment_exclusion": 2,
+      "treatment_unknown_hold": 1
+     },
+     "normal": {
+      "rna_he_before": 58,
+      "rna_he_after": 58,
+      "rna_he_met_after": 50,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 58
+      },
+      "context_met": {
+       "target_project_donor": 50
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 507,
+      "paired": 505,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "post_qc": {
+      "union": 502,
+      "paired": 500,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "normal": {
+      "rna_he": 58,
+      "rna_he_met": 50,
+      "also_in_tumour_union": 58,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "THCA"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "zhang-2024-thca",
+   "label": "Zhang et al. 2024 (thyroid)",
+   "citation": {
+    "authors": "Zhang X, et al.",
+    "title": "CD36+ Proinflammatory Macrophages Interact with ZCCHC12+ Tumor Cells in Papillary Thyroid Cancer Promoting Tumor Progression and Recurrence",
+    "journal": "Cancer Immunology Research",
+    "year": 2024,
+    "doi": "10.1158/2326-6066.CIR-23-1047",
+    "url": "https://doi.org/10.1158/2326-6066.CIR-23-1047"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Counts, coordinates and original-resolution JPEG H&E on GEO; raw reads on SRA.",
+    "links": [
+     [
+      "GEO GSE230424",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230424"
+     ]
+    ]
+   },
+   "verification": "file-checked",
+   "verified_on": "2026-10-09",
+   "description": "Two primary papillary thyroid carcinomas with Hashimoto thyroiditis in the background.",
+   "notes": [
+    "Papillary carcinoma variant and treatment history are not reported.",
+    "Two further GEO samples in the series are thyroiditis-only tissue and are not tumour captures."
+   ],
+   "compartments": [
+    "primary-tumour"
+   ]
+  },
+  {
+   "id": "cand-liao-2025-gse250521",
+   "label": "Liao et al. 2025",
+   "title": "A spatially resolved transcriptome landscape during thyroid cancer progression",
+   "citation": {
+    "authors": "Liao T, et al.",
+    "title": "A spatially resolved transcriptome landscape during thyroid cancer progression",
+    "journal": "Cell Reports Medicine",
+    "year": 2025,
+    "doi": "10.1016/j.xcrm.2025.102043",
+    "url": "https://doi.org/10.1016/j.xcrm.2025.102043"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE250521",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1016/j.xcrm.2025.102043"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250521"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-loberg-2026-jci191990",
+   "label": "An integrated single-cell and spatial transcriptomic atlas of thyroid cancer progression identifies prognostic fibroblast subpopulations",
+   "title": "An integrated single-cell and spatial transcriptomic atlas of thyroid cancer progression identifies prognostic fibroblast subpopulations",
+   "citation": {
+    "authors": null,
+    "title": "An integrated single-cell and spatial transcriptomic atlas of thyroid cancer progression identifies prognostic fibroblast subpopulations",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12890526/"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": null,
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12890526/"
+     ],
+     [
+      "Data record",
+      "https://github.com/mloberg16/THCA_Fibroblast_Atlas"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-yan-2024-hra003537",
+   "label": "Spatial transcriptomics reveals prognosis-associated cellular heterogeneity in the papillary thyroid carcinoma microenvironment",
+   "title": "Spatial transcriptomics reveals prognosis-associated cellular heterogeneity in the papillary thyroid carcinoma microenvironment",
+   "citation": {
+    "authors": null,
+    "title": "Spatial transcriptomics reveals prognosis-associated cellular heterogeneity in the papillary thyroid carcinoma microenvironment",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10905537/"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled",
+    "serial-section"
+   ],
+   "accession": "HRA003537 / PRJCA013525",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10905537/"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/gsa-human/browse/HRA003537"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-zhang-2025-prjca021247",
+   "label": "Single-cell RNA-sequencing and spatial transcriptomic analysis reveal a distinct population of APOE-negative cells yielding pathological lymph node metastasis in papillary thyroid cancer",
+   "title": "Single-cell RNA-sequencing and spatial transcriptomic analysis reveal a distinct population of APOE-negative cells yielding pathological lymph node metastasis in papillary thyroid cancer",
+   "citation": {
+    "authors": null,
+    "title": "Single-cell RNA-sequencing and spatial transcriptomic analysis reveal a distinct population of APOE-negative cells yielding pathological lymph node metastasis in papillary thyroid cancer",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11733439/"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved"
+   ],
+   "accession": "PRJCA021247",
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11733439/"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA021247"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-wang-2024-hra005594",
+   "label": "Interactions between LAMP3+ dendritic cells and T-cell subpopulations promote immune evasion in papillary thyroid carcinoma",
+   "title": "Interactions between LAMP3+ dendritic cells and T-cell subpopulations promote immune evasion in papillary thyroid carcinoma",
+   "citation": {
+    "authors": null,
+    "title": "Interactions between LAMP3+ dendritic cells and T-cell subpopulations promote immune evasion in papillary thyroid carcinoma",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141193/"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": "HRA005594",
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11141193/"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/gsa-human/browse/HRA005594"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-seok-2025-cii",
+   "label": "Tumor microenvironment remodeling across thyroid cancer differentiation states revealed by spatial transcriptomics",
+   "title": "Tumor microenvironment remodeling across thyroid cancer differentiation states revealed by spatial transcriptomics",
+   "citation": {
+    "authors": null,
+    "title": "Tumor microenvironment remodeling across thyroid cancer differentiation states revealed by spatial transcriptomics",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12583360/"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": null,
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12583360/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-li-2025-s12967-07566",
+   "label": "Integrated spatial metabolomics and transcriptomics reveal the molecular landscape of papillary thyroid cancer and its lymph node metastasis",
+   "title": "Integrated spatial metabolomics and transcriptomics reveal the molecular landscape of papillary thyroid cancer and its lymph node metastasis",
+   "citation": {
+    "authors": null,
+    "title": "Integrated spatial metabolomics and transcriptomics reveal the molecular landscape of papillary thyroid cancer and its lymph node metastasis",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12821195/"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": null,
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12821195/"
+     ],
+     [
+      "Data record",
+      "https://metaspace2020.org/project/kening-2025"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-tourneur-2026-legacyst",
+   "label": "Spatial and single-nuclei transcriptomics reveals idiosyncratic and generic patterns in papillary and anaplastic thyroid cancers",
+   "title": "Spatial and single-nuclei transcriptomics reveals idiosyncratic and generic patterns in papillary and anaplastic thyroid cancers",
+   "citation": {
+    "authors": null,
+    "title": "Spatial and single-nuclei transcriptomics reveals idiosyncratic and generic patterns in papillary and anaplastic thyroid cancers",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13459077/"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial Transcriptomics (legacy arrays)"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "platform",
+    "identity"
+   ],
+   "accession": "EGAS00001007574 / EGAD00001011365",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC13459077/"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/8431391"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "zhang-2024-thca:P1",
+   "cohort": "zhang-2024-thca",
+   "cancer": "THCA",
+   "stratum": "thca-ptc",
+   "patient": "P1",
+   "capture": "P1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Coordinates supplied in original scan pixel space; coordinate bounds verified; overlay/pixel QC still required",
+   "he_mpp": 0.469,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "zhang-2024-thca:P2",
+   "cohort": "zhang-2024-thca",
+   "cancer": "THCA",
+   "stratum": "thca-ptc",
+   "patient": "P2",
+   "capture": "P2",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Coordinates supplied in original scan pixel space; coordinate bounds verified; overlay/pixel QC still required",
+   "he_mpp": 0.469,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-thca",
+   "label": "TCGA-THCA",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-THCA"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "THCA",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-THCA"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Thyroid carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "THCA"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

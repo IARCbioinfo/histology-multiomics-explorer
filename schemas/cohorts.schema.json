@@ -1,0 +1,502 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/cohorts.schema.json",
+ "title": "cohorts",
+ "description": "Studies and resources in every data layer, with linkage, access, open checks, reported counts and the spatial review details",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "properties": {
+   "id": {
+    "type": "string"
+   },
+   "label": {
+    "type": "string"
+   },
+   "citation": {
+    "type": [
+     "null",
+     "object"
+    ],
+    "properties": {
+     "authors": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "title": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "journal": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "year": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "doi": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "url": {
+      "type": [
+       "null",
+       "string"
+      ]
+     }
+    },
+    "required": [
+     "authors",
+     "title",
+     "journal",
+     "year",
+     "doi",
+     "url"
+    ],
+    "additionalProperties": false
+   },
+   "related_citations": {
+    "type": "array",
+    "items": {
+     "type": "object",
+     "properties": {
+      "authors": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "journal": {
+       "type": "string"
+      },
+      "year": {
+       "type": "integer"
+      },
+      "doi": {
+       "type": "string"
+      },
+      "url": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "authors",
+      "title",
+      "journal",
+      "year",
+      "doi",
+      "url"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "cancers": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "layer": {
+    "type": "string",
+    "description": "Data layer: matched H&E and spatial RNA, whole-slide images with bulk data, bulk RNA, single-cell or image only",
+    "enum": [
+     "bulk-rna",
+     "image-only",
+     "matched-spatial",
+     "single-cell",
+     "wsi-bulk"
+    ]
+   },
+   "status": {
+    "type": "string",
+    "description": "verified means matched packages were located; candidate means not yet verified",
+    "enum": [
+     "candidate",
+     "excluded",
+     "listed",
+     "reference",
+     "screened",
+     "verified"
+    ]
+   },
+   "modalities": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "techniques": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "preservation": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "specimen": {
+    "type": "string",
+    "enum": [
+     "cell-line",
+     "clinical-tumour",
+     "mouse"
+    ]
+   },
+   "linkage": {
+    "type": "string",
+    "description": "Level of H&E to RNA linkage",
+    "enum": [
+     "listed-together",
+     "none",
+     "same-patient",
+     "same-section",
+     "same-section-mapping-pending",
+     "serial-section",
+     "unverified"
+    ]
+   },
+   "access": {
+    "type": "object",
+    "properties": {
+     "category": {
+      "type": "string",
+      "enum": [
+       "account",
+       "controlled",
+       "open",
+       "request",
+       "unreleased",
+       "unresolved"
+      ]
+     },
+     "route": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "links": {
+      "type": "array",
+      "items": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     }
+    },
+    "required": [
+     "category",
+     "route",
+     "links"
+    ],
+    "additionalProperties": false
+   },
+   "verification": {
+    "type": "string",
+    "enum": [
+     "file-checked",
+     "metadata-checked",
+     "not-audited",
+     "qc-complete",
+     "source-described"
+    ]
+   },
+   "verified_on": {
+    "type": "string"
+   },
+   "description": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "notes": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "compartments": {
+    "type": "array",
+    "items": {
+     "type": "string",
+     "enum": [
+      "metastatic-tumour",
+      "normal",
+      "peritumoral",
+      "precursor",
+      "primary-tumour",
+      "solid-normal",
+      "tumour-unspecified"
+     ]
+    }
+   },
+   "gates": {
+    "type": "array",
+    "description": "Open checks: what prevents inclusion, or the curation still to do",
+    "items": {
+     "type": "string",
+     "enum": [
+      "calibration",
+      "controlled",
+      "coordinates",
+      "count-reconciliation",
+      "he-not-located",
+      "he-unverified",
+      "histology-strata",
+      "identity",
+      "image-qc",
+      "integrated-diagnosis",
+      "not-released",
+      "package-unverified",
+      "pathology-review",
+      "platform",
+      "release-unresolved",
+      "request",
+      "serial-section",
+      "treated",
+      "treatment-review",
+      "tumour-slide-linkage"
+     ]
+    }
+   },
+   "reported": {
+    "type": "array",
+    "description": "[value, unit, basis] or [value, unit, basis, cancer] in the source's own units; never added across studies",
+    "items": {
+     "type": "array",
+     "items": {
+      "type": [
+       "integer",
+       "string"
+      ]
+     }
+    }
+   },
+   "tcga_project": {
+    "type": "string"
+   },
+   "analysis_cohort": {
+    "type": "string"
+   },
+   "title": {
+    "type": "string"
+   },
+   "accession": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "spatial_review": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "date": {
+      "type": "string"
+     },
+     "analysis_cohort": {
+      "type": "string"
+     },
+     "assay_classes": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "enum": [
+        "protein-imaging",
+        "rna-protein",
+        "roi",
+        "targeted-rna",
+        "unverified",
+        "whole-transcriptome"
+       ]
+      }
+     },
+     "platform": {
+      "type": "string"
+     },
+     "role": {
+      "type": "string"
+     },
+     "image_status": {
+      "type": "string"
+     },
+     "treatment_status": {
+      "type": "string"
+     },
+     "treatment_class": {
+      "type": "string",
+      "enum": [
+       "baseline-and-on-treatment",
+       "reported-untreated",
+       "treated",
+       "unknown"
+      ]
+     },
+     "eligible_patients": {
+      "type": "null"
+     },
+     "strict_core_promoted": {
+      "type": "boolean"
+     },
+     "sample_ids": {
+      "type": "object",
+      "properties": {
+       "tumour_sample_ids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "adjacent_sample_ids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "sample_ids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "exclude_sample_ids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "normal_or_precursor_ids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "metastatic_sample_ids": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       }
+      },
+      "required": [],
+      "additionalProperties": false
+     },
+     "route_review": {
+      "type": "object",
+      "properties": {
+       "date": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       },
+       "states": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "next_step": {
+        "type": "string"
+       },
+       "sections_with_matching_coordinates": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "date",
+       "status",
+       "states",
+       "next_step",
+       "sections_with_matching_coordinates"
+      ],
+      "additionalProperties": false
+     },
+     "specimen": {
+      "type": "string"
+     },
+     "block": {
+      "type": "string"
+     },
+     "reused_in": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "panel": {
+      "type": "string"
+     },
+     "slide": {
+      "type": "string"
+     },
+     "title_alias": {
+      "type": "string"
+     },
+     "reported_stage": {
+      "type": "string"
+     },
+     "reported_gleason": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "id",
+     "date",
+     "analysis_cohort",
+     "assay_classes",
+     "platform",
+     "role",
+     "image_status",
+     "treatment_status",
+     "treatment_class",
+     "eligible_patients",
+     "strict_core_promoted",
+     "sample_ids",
+     "route_review"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "required": [
+   "id",
+   "label",
+   "citation",
+   "cancers",
+   "layer",
+   "status",
+   "modalities",
+   "techniques",
+   "preservation",
+   "specimen",
+   "linkage",
+   "access",
+   "verification",
+   "verified_on",
+   "description",
+   "compartments"
+  ],
+  "additionalProperties": false
+ }
+}

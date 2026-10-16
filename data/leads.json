@@ -1,0 +1,54 @@
+[
+ {
+  "id": "lead-tls-kidney-lung",
+  "label": "Kidney and lung TLS Visium release (Zenodo 14620362)",
+  "url": "https://zenodo.org/records/14620362",
+  "doi": "10.5281/zenodo.14620362",
+  "tissues": "kidney and lung",
+  "description": "Visium FFPE release of three kidney and five lung specimens with expert tertiary lymphoid structure, immune, tumour and normal annotations. The full archive was retrieved and checksum-verified: all eight expression packages have exact barcode-coordinate agreement, and all eight original TIFF images (about 10,000 × 10,000 pixels) are readable. A relation between the preprocessed and full-resolution coordinates was fitted, which is an inference rather than a supplied calibration.",
+  "not_counted": "Histological subtype, donor independence and treatment are not established, so its specimens are not assigned to KIRC, KIRP, LUAD or LUSC.",
+  "next": "Ask the study authors for histological subtypes, donor independence and treatment mapping.",
+  "sections_checked": 8,
+  "checked_on": "2026-10-15"
+ },
+ {
+  "id": "lead-cin3-precursor",
+  "label": "CIN3 spatial study (precursor lesions)",
+  "url": "https://doi.org/10.1002/path.70002",
+  "doi": "10.1002/path.70002",
+  "tissues": "cervical precursor lesions (CIN3)",
+  "description": "Spatial transcriptomics of cervical intraepithelial neoplasia grade 3: eight biopsies were selected and seven samples analysed. The University of Queensland repository lists eight large H&E TIFFs; coordinates, expression and the patient and section matching are not verified.",
+  "not_counted": "Precursor biology: not invasive cervical squamous cell carcinoma, so it adds no CSCC patients.",
+  "next": "Verify the coordinates, expression and patient and section matching.",
+  "sections_checked": null,
+  "links": [
+   [
+    "Repository",
+    "https://espace.library.uq.edu.au/view/UQ:1bd2e07"
+   ],
+   [
+    "Code",
+    "https://github.com/BiomedicalMachineLearning/CIN3"
+   ]
+  ],
+  "checked_on": "2026-10-15"
+ },
+ {
+  "id": "lead-ravikumar-glioma",
+  "label": "Ravikumar/Al-Holou glioma release (Zenodo 16505469)",
+  "url": "https://zenodo.org/records/16505469",
+  "doi": null,
+  "tissues": "glioma",
+  "description": "Public spatial H5AD linked by a Ravikumar/Al-Holou preprint (bioRxiv 10.1101/2025.10.17.683110). Its metadata show 14 section labels with images of at most 2,000 pixels; the preprint reports seven patients and 14 new sections, eight primary and six recurrent. Its four filename prefixes are not four patients, and its pooled 44-section analysis reuses Freiburg and Broad sections, which are not new patients. The newer glioma atlas labels this record as Ravi 2022, but it belongs to this study.",
+  "not_counted": "A linked reuse record: donor mapping and original scans are unresolved, and it is not a new eligible cohort.",
+  "next": "Ask the authors for the seven-patient section crosswalk, treatment, IDH and diagnosis, and original H&E with calibration.",
+  "sections_checked": null,
+  "links": [
+   [
+    "Preprint",
+    "https://www.biorxiv.org/content/10.1101/2025.10.17.683110v2.full"
+   ]
+  ],
+  "checked_on": "2026-10-15"
+ }
+]

@@ -1,0 +1,699 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/tcga_eligibility.schema.json",
+ "title": "tcga_eligibility",
+ "description": "TCGA selected analysis panel: counts per project after assay QC, after the patient screen and selected, and the 18 analysis cohorts",
+ "type": "object",
+ "properties": {
+  "meta": {
+   "type": "object",
+   "properties": {
+    "date": {
+     "type": "string"
+    },
+    "reviewed_patients": {
+     "type": "integer"
+    },
+    "audited_projects": {
+     "type": "integer"
+    },
+    "projects": {
+     "type": "integer"
+    },
+    "analysis_cohorts": {
+     "type": "integer"
+    },
+    "discovery_cohorts": {
+     "type": "integer"
+    },
+    "benchmark_cohorts": {
+     "type": "integer"
+    },
+    "treated_reference": {
+     "type": "boolean"
+    },
+    "integrated_who_diagnosis_adjudicated": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "date",
+    "reviewed_patients",
+    "audited_projects",
+    "projects",
+    "analysis_cohorts",
+    "discovery_cohorts",
+    "benchmark_cohorts",
+    "treated_reference",
+    "integrated_who_diagnosis_adjudicated"
+   ],
+   "additionalProperties": false
+  },
+  "projects": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "properties": {
+     "analysis_cohort": {
+      "type": "string"
+     },
+     "role": {
+      "type": "string"
+     },
+     "reviewed_patients": {
+      "type": "integer"
+     },
+     "histology_reviewed": {
+      "type": "boolean"
+     },
+     "assay_qc": {
+      "type": "object",
+      "properties": {
+       "total": {
+        "type": "integer"
+       },
+       "rna": {
+        "type": "integer"
+       },
+       "met": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "total",
+       "rna",
+       "met",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "after_patient_screen": {
+      "type": "object",
+      "properties": {
+       "total": {
+        "type": "integer"
+       },
+       "rna": {
+        "type": "integer"
+       },
+       "met": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "total",
+       "rna",
+       "met",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "selected_analysis": {
+      "type": "object",
+      "properties": {
+       "total": {
+        "type": "integer"
+       },
+       "rna": {
+        "type": "integer"
+       },
+       "met": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "total",
+       "rna",
+       "met",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "dispositions": {
+      "type": "object",
+      "properties": {
+       "pass_annotation_screen": {
+        "type": "integer"
+       },
+       "known_treatment_exclusion": {
+        "type": "integer"
+       },
+       "diagnosis_identity_or_episode_exclusion_hold": {
+        "type": "integer"
+       },
+       "treatment_unknown_hold": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "pass_annotation_screen"
+      ],
+      "additionalProperties": false
+     },
+     "normal": {
+      "type": "object",
+      "properties": {
+       "rna_he_before": {
+        "type": "integer"
+       },
+       "rna_he_after": {
+        "type": "integer"
+       },
+       "rna_he_met_after": {
+        "type": "integer"
+       },
+       "in_active_scope": {
+        "type": "boolean"
+       },
+       "withheld": {
+        "type": "array"
+       },
+       "context": {
+        "type": "object"
+       },
+       "context_met": {
+        "type": "object"
+       },
+       "outside_cohort": {
+        "type": "array"
+       },
+       "outside_cohort_histology": {
+        "type": "object"
+       }
+      },
+      "required": [
+       "rna_he_before",
+       "rna_he_after",
+       "rna_he_met_after",
+       "in_active_scope",
+       "withheld",
+       "context",
+       "context_met",
+       "outside_cohort"
+      ],
+      "additionalProperties": false
+     },
+     "label_conflicts": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    },
+    "required": [
+     "analysis_cohort",
+     "role",
+     "reviewed_patients",
+     "histology_reviewed",
+     "assay_qc",
+     "after_patient_screen",
+     "selected_analysis",
+     "dispositions",
+     "normal",
+     "label_conflicts"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "cohorts": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "properties": {
+     "label": {
+      "type": "string"
+     },
+     "role": {
+      "type": "string"
+     },
+     "projects": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "selected_analysis": {
+      "type": "object",
+      "properties": {
+       "total": {
+        "type": "integer"
+       },
+       "rna": {
+        "type": "integer"
+       },
+       "met": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "total",
+       "rna",
+       "met",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "contributions": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "object"
+      }
+     },
+     "normal": {
+      "type": "object",
+      "properties": {
+       "rna_he_before": {
+        "type": "integer"
+       },
+       "rna_he_after": {
+        "type": "integer"
+       },
+       "rna_he_met_after": {
+        "type": "integer"
+       },
+       "in_active_scope": {
+        "type": "boolean"
+       },
+       "withheld": {
+        "type": "array"
+       },
+       "context": {
+        "type": "object"
+       },
+       "context_met": {
+        "type": "object"
+       }
+      },
+      "required": [
+       "rna_he_before",
+       "rna_he_after",
+       "rna_he_met_after",
+       "in_active_scope",
+       "withheld",
+       "context",
+       "context_met"
+      ],
+      "additionalProperties": false
+     },
+     "reported_sites": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "object"
+      }
+     },
+     "site_overrides": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "withheld": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "strata": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "annotations": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "array"
+      }
+     },
+     "subsets": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    },
+    "required": [
+     "label",
+     "role",
+     "projects",
+     "selected_analysis",
+     "contributions",
+     "normal"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "panel": {
+   "type": "object",
+   "properties": {
+    "assay_qc": {
+     "type": "object",
+     "properties": {
+      "total": {
+       "type": "integer"
+      },
+      "rna": {
+       "type": "integer"
+      },
+      "met": {
+       "type": "integer"
+      },
+      "paired": {
+       "type": "integer"
+      },
+      "rna_only": {
+       "type": "integer"
+      },
+      "met_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "total",
+      "rna",
+      "met",
+      "paired",
+      "rna_only",
+      "met_only"
+     ],
+     "additionalProperties": false
+    },
+    "after_patient_screen": {
+     "type": "object",
+     "properties": {
+      "total": {
+       "type": "integer"
+      },
+      "rna": {
+       "type": "integer"
+      },
+      "met": {
+       "type": "integer"
+      },
+      "paired": {
+       "type": "integer"
+      },
+      "rna_only": {
+       "type": "integer"
+      },
+      "met_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "total",
+      "rna",
+      "met",
+      "paired",
+      "rna_only",
+      "met_only"
+     ],
+     "additionalProperties": false
+    },
+    "selected_analysis": {
+     "type": "object",
+     "properties": {
+      "total": {
+       "type": "integer"
+      },
+      "rna": {
+       "type": "integer"
+      },
+      "met": {
+       "type": "integer"
+      },
+      "paired": {
+       "type": "integer"
+      },
+      "rna_only": {
+       "type": "integer"
+      },
+      "met_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "total",
+      "rna",
+      "met",
+      "paired",
+      "rna_only",
+      "met_only"
+     ],
+     "additionalProperties": false
+    },
+    "discovery": {
+     "type": "object",
+     "properties": {
+      "total": {
+       "type": "integer"
+      },
+      "rna": {
+       "type": "integer"
+      },
+      "met": {
+       "type": "integer"
+      },
+      "paired": {
+       "type": "integer"
+      },
+      "rna_only": {
+       "type": "integer"
+      },
+      "met_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "total",
+      "rna",
+      "met",
+      "paired",
+      "rna_only",
+      "met_only"
+     ],
+     "additionalProperties": false
+    },
+    "benchmark": {
+     "type": "object",
+     "properties": {
+      "total": {
+       "type": "integer"
+      },
+      "rna": {
+       "type": "integer"
+      },
+      "met": {
+       "type": "integer"
+      },
+      "paired": {
+       "type": "integer"
+      },
+      "rna_only": {
+       "type": "integer"
+      },
+      "met_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "total",
+      "rna",
+      "met",
+      "paired",
+      "rna_only",
+      "met_only"
+     ],
+     "additionalProperties": false
+    },
+    "dispositions": {
+     "type": "object",
+     "properties": {
+      "pass_annotation_screen": {
+       "type": "integer"
+      },
+      "known_treatment_exclusion": {
+       "type": "integer"
+      },
+      "diagnosis_identity_or_episode_exclusion_hold": {
+       "type": "integer"
+      },
+      "treatment_unknown_hold": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "pass_annotation_screen",
+      "known_treatment_exclusion",
+      "diagnosis_identity_or_episode_exclusion_hold",
+      "treatment_unknown_hold"
+     ],
+     "additionalProperties": false
+    },
+    "reason_dimensions": {
+     "type": "object",
+     "properties": {
+      "treatment_exclusion": {
+       "type": "integer"
+      },
+      "treatment_hold": {
+       "type": "integer"
+      },
+      "diagnosis_identity_episode": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "treatment_exclusion",
+      "treatment_hold",
+      "diagnosis_identity_episode"
+     ],
+     "additionalProperties": false
+    },
+    "normal": {
+     "type": "object",
+     "properties": {
+      "rna_he_before": {
+       "type": "integer"
+      },
+      "rna_he_after": {
+       "type": "integer"
+      },
+      "rna_he_met_after": {
+       "type": "integer"
+      },
+      "in_active_scope": {
+       "type": "boolean"
+      },
+      "withheld": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "context": {
+       "type": "object",
+       "properties": {
+        "normal_only_donor_primary_diagnosis_unreported": {
+         "type": "integer"
+        },
+        "target_project_donor": {
+         "type": "integer"
+        },
+        "non_target_or_uncertain_or_recurrent_donor": {
+         "type": "integer"
+        },
+        "organ_specific_control": {
+         "type": "integer"
+        }
+       },
+       "required": [
+        "normal_only_donor_primary_diagnosis_unreported",
+        "target_project_donor",
+        "non_target_or_uncertain_or_recurrent_donor",
+        "organ_specific_control"
+       ],
+       "additionalProperties": false
+      },
+      "context_met": {
+       "type": "object",
+       "properties": {
+        "normal_only_donor_primary_diagnosis_unreported": {
+         "type": "integer"
+        },
+        "target_project_donor": {
+         "type": "integer"
+        },
+        "non_target_or_uncertain_or_recurrent_donor": {
+         "type": "integer"
+        },
+        "organ_specific_control": {
+         "type": "integer"
+        }
+       },
+       "required": [
+        "normal_only_donor_primary_diagnosis_unreported",
+        "target_project_donor",
+        "non_target_or_uncertain_or_recurrent_donor",
+        "organ_specific_control"
+       ],
+       "additionalProperties": false
+      }
+     },
+     "required": [
+      "rna_he_before",
+      "rna_he_after",
+      "rna_he_met_after",
+      "in_active_scope",
+      "withheld",
+      "context",
+      "context_met"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "assay_qc",
+    "after_patient_screen",
+    "selected_analysis",
+    "discovery",
+    "benchmark",
+    "dispositions",
+    "reason_dimensions",
+    "normal"
+   ],
+   "additionalProperties": false
+  }
+ },
+ "required": [
+  "meta",
+  "projects",
+  "cohorts",
+  "panel"
+ ],
+ "additionalProperties": false
+}

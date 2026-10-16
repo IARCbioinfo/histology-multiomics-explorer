@@ -1,0 +1,479 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "KIRP",
+ "page": "cancers.html?c=KIRP",
+ "markdown": "md/cancers/KIRP.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "KIRP",
+  "gaps": [
+   "Not interchangeable with KIRC; analyse separately.",
+   "Papillary RCC has only a targeted spatial resource: one vendor Xenium specimen (377-gene panel) beside a non-diseased kidney block. No whole-transcriptome papillary RCC package was verified, and the 16 patients of a related abstract are a multiplex-IF cohort, not a spatial RNA count."
+  ],
+  "name": "Kidney renal papillary cell carcinoma",
+  "group": "tcga-panel",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "Papillary renal cell carcinoma is a separate TCGA project from clear cell carcinoma. It was not among the cancer types screened by Hausser et al. and is included because it meets the molecular screen.",
+  "tcga_project": "KIRP",
+  "analysis_cohort": "KIRP"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "KIRP",
+   "label": "KIRP",
+   "role": "discovery",
+   "projects": [
+    "KIRP"
+   ],
+   "selected_analysis": {
+    "total": 275,
+    "rna": 274,
+    "met": 262,
+    "paired": 261,
+    "rna_only": 13,
+    "met_only": 1
+   },
+   "contributions": {
+    "KIRP": {
+     "total": 275,
+     "rna": 274,
+     "met": 262,
+     "paired": 261,
+     "rna_only": 13,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 32,
+    "rna_he_after": 32,
+    "rna_he_met_after": 23,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 32
+    },
+    "context_met": {
+     "target_project_donor": 23
+    }
+   }
+  },
+  "projects": {
+   "KIRP": {
+    "selected_panel": {
+     "analysis_cohort": "KIRP",
+     "role": "discovery",
+     "reviewed_patients": 280,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 280,
+      "rna": 279,
+      "met": 267,
+      "paired": 266,
+      "rna_only": 13,
+      "met_only": 1
+     },
+     "after_patient_screen": {
+      "total": 275,
+      "rna": 274,
+      "met": 262,
+      "paired": 261,
+      "rna_only": 13,
+      "met_only": 1
+     },
+     "selected_analysis": {
+      "total": 275,
+      "rna": 274,
+      "met": 262,
+      "paired": 261,
+      "rna_only": 13,
+      "met_only": 1
+     },
+     "dispositions": {
+      "pass_annotation_screen": 275,
+      "treatment_unknown_hold": 2,
+      "known_treatment_exclusion": 1,
+      "diagnosis_identity_or_episode_exclusion_hold": 2
+     },
+     "normal": {
+      "rna_he_before": 32,
+      "rna_he_after": 32,
+      "rna_he_met_after": 23,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 32
+      },
+      "context_met": {
+       "target_project_donor": 23
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 291,
+      "paired": 274,
+      "rna_only": 16,
+      "met_only": 1
+     },
+     "post_qc": {
+      "union": 280,
+      "paired": 266,
+      "rna_only": 13,
+      "met_only": 1
+     },
+     "normal": {
+      "rna_he": 32,
+      "rna_he_met": 23,
+      "also_in_tumour_union": 32,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "KIRP"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "kirp-10x-xenium-preview",
+   "label": "10x Genomics kidney preview, Xenium (papillary RCC)",
+   "title": "Human kidney preview data, Xenium multi-tissue and cancer panel",
+   "citation": {
+    "authors": "10x Genomics",
+    "title": "Human kidney preview data, Xenium multi-tissue and cancer panel",
+    "journal": "10x Genomics datasets",
+    "year": null,
+    "doi": null,
+    "url": "https://www.10xgenomics.com/datasets/human-kidney-preview-data-xenium-human-multi-tissue-and-cancer-panel-1-standard"
+   },
+   "cancers": [
+    "KIRP"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Xenium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "platform",
+    "he-unverified",
+    "treatment-review"
+   ],
+   "accession": "10x Genomics dataset",
+   "access": {
+    "category": "account",
+    "route": "Vendor dataset page; downloading requires registration and acceptance of the vendor's terms (CC BY 4.0 data). No registration was made.",
+    "links": [
+     [
+      "Vendor dataset",
+      "https://www.10xgenomics.com/datasets/human-kidney-preview-data-xenium-human-multi-tissue-and-cancer-panel-1-standard"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Vendor Xenium preview with one papillary RCC block and one non-diseased kidney block from two donors, measured with a preliminary 377-gene targeted panel. Post-assay H&E and alignment are described by the source but were not checked here. It is one tumour specimen, not two tumour donors, and no whole-transcriptome papillary RCC package was verified in this review.",
+   "compartments": [
+    "tumour-unspecified",
+    "normal"
+   ],
+   "reported": [
+    [
+     1,
+     "papillary RCC sample",
+     "vendor dataset page"
+    ],
+    [
+     1,
+     "non-diseased kidney sample",
+     "vendor dataset page"
+    ],
+    [
+     2,
+     "donors in the dataset",
+     "vendor dataset page"
+    ]
+   ],
+   "notes": [
+    "Keep one PRCC block separate from non-diseased block",
+    "Do not count two samples as two tumour donors",
+    "Preliminary panel; retain release version",
+    "No broad-transcriptome papillary-RCC package verified in this screen",
+    "Also redistributed through HEST TENX105; not a separate cohort.",
+    "Vendor download requires registration and acceptance of terms; no form was submitted"
+   ],
+   "spatial_review": {
+    "id": "kirp-10x-xenium-preview",
+    "date": "2026-10-15",
+    "analysis_cohort": "KIRP",
+    "assay_classes": [
+     "targeted-rna"
+    ],
+    "platform": "Xenium targeted RNA, 377 genes",
+    "role": "targeted supplementary resource",
+    "image_status": "Post-Xenium H&E and alignment are explicitly described; files/overlay not independently checked",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "reused_in": [
+     "HEST TENX105"
+    ],
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Vendor page requires registration and terms before download",
+     "states": [
+      "vendor-terms",
+      "local-qc"
+     ],
+     "next_step": "Complete the vendor registration if wanted (not done), then check the files, H&E and donor history.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "kirp-macrophage-abstract",
+   "label": "Soupir et al., papillary RCC CosMx study",
+   "title": "Spatial Clustering of Immunosuppressive Macrophages in Papillary Renal Cell Carcinoma",
+   "citation": {
+    "authors": "Soupir A, et al.",
+    "title": "Spatial Clustering of Immunosuppressive Macrophages in Papillary Renal Cell Carcinoma",
+    "journal": "The Oncologist",
+    "year": 2024,
+    "doi": "10.1093/oncolo/oyae181.034",
+    "url": "https://doi.org/10.1093/oncolo/oyae181.034"
+   },
+   "cancers": [
+    "KIRP"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "spatial-protein"
+   ],
+   "techniques": [
+    "Multiplex immunofluorescence",
+    "Targeted spatial RNA (960 transcripts)"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "platform",
+    "identity",
+    "he-not-located",
+    "treatment-review"
+   ],
+   "accession": null,
+   "access": {
+    "category": "open",
+    "route": "Public Seurat object (Harvard Dataverse, CC BY 4.0; Zenodo copy); clinical and H&E mapping from the study team",
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11301905/"
+     ],
+     [
+      "Full paper (2025)",
+      "https://doi.org/10.1177/24684562251358595"
+     ],
+     [
+      "Harvard Dataverse",
+      "https://doi.org/10.7910/DVN/OUWYBU"
+     ],
+     [
+      "Zenodo copy",
+      "https://zenodo.org/records/12730227"
+     ],
+     [
+      "Public code",
+      "https://github.com/FridleyLab/ccRCC_CosMx_SMI_2023"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Study of immunosuppressive macrophages in papillary RCC. The 2025 full paper describes a CosMx 960-target RNA assay on tissue from 11 mixed-RCC patients, with four papillary and 24 clear-cell cores across three orthogonal sections; its 16 papillary and 70 clear-cell RCC patients are multiplex-IF cohorts, not spatial RNA counts. A public Seurat object (Harvard Dataverse OUWYBU, CC BY 4.0; also on Zenodo 12730227) holds 199,112 cells and three slide identifiers but no patient, histology or treatment crosswalk, and the broader deposit spans several treatment groups. Both repositories direct clinical enquiries to Brandon Manley, and the public code refers to an unreleased clinical table.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     11,
+     "mixed-RCC patients prepared for spatial RNA",
+     "full paper"
+    ],
+    [
+     4,
+     "papillary RCC tissue cores",
+     "full paper"
+    ],
+    [
+     24,
+     "clear-cell RCC tissue cores",
+     "full paper"
+    ],
+    [
+     3,
+     "orthogonal sections",
+     "full paper"
+    ],
+    [
+     16,
+     "papillary RCC patients, multiplex IF (not a spatial RNA count)",
+     "conference abstract"
+    ],
+    [
+     70,
+     "clear-cell RCC patients, multiplex IF",
+     "conference abstract"
+    ]
+   ],
+   "notes": [
+    "16 pRCC is the mIF cohort, not the spatial RNA sample count",
+    "Four papillary cores and 11 mixed-RCC patients do not give a papillary patient count",
+    "Do not apply the paper subset's surgical eligibility to the whole public release",
+    "Clinical crosswalk needed from Brandon Manley, as both repositories state; never request internal record numbers"
+   ],
+   "spatial_review": {
+    "id": "kirp-macrophage-abstract",
+    "date": "2026-10-15",
+    "analysis_cohort": "KIRP",
+    "assay_classes": [
+     "targeted-rna",
+     "protein-imaging"
+    ],
+    "platform": "CosMx 960-target RNA; multiplex IF in separate cohorts",
+    "role": "candidate resource",
+    "image_status": "Slide identifiers released; H&E mapping and registration not released",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Public molecular object; clinical and H&E crosswalk needed from the study team",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask Brandon Manley, as both repositories direct, for a de-identified slide-to-patient, histology and treatment crosswalk, the paper's subset membership and H&E registration.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  }
+ ],
+ "located_sections": [],
+ "other_resources": [
+  {
+   "id": "tcga-kirp",
+   "label": "TCGA-KIRP",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-KIRP"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "KIRP"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "KIRP",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-KIRP"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Kidney renal papillary cell carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Separate project from clear cell renal cell carcinoma (KIRC).",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "KIRP"
+  }
+ ],
+ "evidence": []
+}

@@ -1,0 +1,90 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/tcga_reviews.schema.json",
+ "title": "tcga_reviews",
+ "description": "Histology review of TCGA-ESCA and TCGA-PAAD cases, cohort definitions and the patient scope review",
+ "type": "object",
+ "properties": {
+  "meta": {
+   "type": "object",
+   "properties": {
+    "date": {
+     "type": "string"
+    },
+    "histology": {
+     "type": "string"
+    },
+    "scope": {
+     "type": "string"
+    },
+    "reviewed_aliquots": {
+     "type": "integer"
+    },
+    "reviewed_patients": {
+     "type": "integer"
+    },
+    "cohorts": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    }
+   },
+   "required": [
+    "date",
+    "histology",
+    "scope",
+    "reviewed_aliquots",
+    "reviewed_patients",
+    "cohorts"
+   ],
+   "additionalProperties": false
+  },
+  "histology_columns": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "histology": {
+   "type": "array",
+   "items": {
+    "type": "array",
+    "items": {
+     "type": [
+      "boolean",
+      "null",
+      "string"
+     ]
+    }
+   }
+  },
+  "scope_columns": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "scope": {
+   "type": "array",
+   "items": {
+    "type": "array",
+    "items": {
+     "type": [
+      "array",
+      "integer",
+      "string"
+     ]
+    }
+   }
+  }
+ },
+ "required": [
+  "meta",
+  "histology_columns",
+  "histology",
+  "scope_columns",
+  "scope"
+ ],
+ "additionalProperties": false
+}

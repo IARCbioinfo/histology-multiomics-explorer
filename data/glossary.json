@@ -1,0 +1,464 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "concepts": [
+  {
+   "term": "selected analysis panel",
+   "definition": "A selection of TCGA primary-tumour patients for studies of tumour heterogeneity: assay-quality exclusions, a patient treatment and diagnosis screen, histology-defined and pooled cohorts, and a minimum cohort size of 150 patients with RNA-seq or 450k and 100 with both."
+  },
+  {
+   "term": "broader availability",
+   "definition": "What each TCGA project provides after assay-quality exclusions only, before the patient screen and histology selection. It is larger than the selected panel and must not be mixed with it."
+  },
+  {
+   "term": "analysis cohort",
+   "definition": "The unit of the selected panel: usually one TCGA project; CRC pools TCGA-COAD and TCGA-READ, GLIOMA pools TCGA-LGG and TCGA-GBM, and ESCC, PDAC and CSCC are histology-defined cohorts within TCGA-ESCA, TCGA-PAAD and TCGA-CESC. Each patient belongs to one cohort."
+  },
+  {
+   "term": "classification benchmark",
+   "definition": "The pooled glioma cohort (TCGA-LGG and TCGA-GBM), used to test whether a molecular target recovers historical or integrated WHO CNS5 diagnoses. Integrated diagnoses are not adjudicated."
+  },
+  {
+   "term": "patient screen",
+   "definition": "A review of treatment, diagnosis, identity and recurrence annotations for every retained TCGA patient. It withholds patients by exclusion or reversible hold and never changes assay states. Withheld patients do not form a treated reference set."
+  },
+  {
+   "term": "TCGA patient counts",
+   "definition": "Unique patients with a retained primary-tumour assay: the union of RNA-seq and 450k, the intersection (both, or paired) and the single-assay remainders. Patients with both assays also appear in each single-assay column."
+  },
+  {
+   "term": "normal reference",
+   "definition": "TCGA patients with same-sample normal RNA-seq and an H&E image (and, where counted, normal 450k). Normal tissue comes from patients with cancer, not healthy donors."
+  },
+  {
+   "term": "spatial resource",
+   "definition": "A published spatial omics study or vendor example with matched H&E. Spatial studies come from patients other than those in TCGA."
+  },
+  {
+   "term": "matched data located",
+   "definition": "The original H&E image, measured expression and spot or cell coordinates were found for a resource. Image registration and tissue QC may still be pending."
+  },
+  {
+   "term": "tissue section",
+   "definition": "One assayed section or capture area with its own expression matrix, coordinates and H&E image (a capture). Repeated or serial sections add sections, not patients."
+  },
+  {
+   "term": "strict subset",
+   "definition": "Located tissue sections in the core tier (primary tumour within a defined histology stratum) documented as untreated before sampling."
+  },
+  {
+   "term": "reported counts",
+   "definition": "Counts in a study's own units (sections, slides, samples, donor labels) for resources not verified at section level. They are not patient counts unless stated, are never added across studies, and an unknown count is absent, not zero."
+  },
+  {
+   "term": "size threshold",
+   "definition": "The minimum cohort size of the selected panel: at least 150 patients with a primary-tumour RNA-seq or 450k methylation profile and at least 100 with both, counted after assay-quality exclusions and before the patient screen. It applies to analysis cohorts, not TCGA projects; ESCC (90 patients) and PDAC (149) are explicit exceptions, and TCGA-SARC is not in the panel because each of its sarcoma types is below the threshold."
+  },
+  {
+   "term": "pooled page",
+   "definition": "A cancer page combining others (CRC from COAD and READ, GLIOMA from LGG and GBM). It reuses the resources of its constituent cancers, so its counts must not be added to theirs."
+  }
+ ],
+ "vocabularies": {
+  "layer": {
+   "matched-spatial": "Matched H&E and spatial RNA",
+   "wsi-bulk": "Whole-slide images with bulk RNA and methylation",
+   "bulk-rna": "Bulk RNA reference",
+   "single-cell": "Single-cell or single-nucleus RNA",
+   "image-only": "Histology images only"
+  },
+  "status": {
+   "verified": "Matched packages located",
+   "candidate": "Candidate, not yet verified",
+   "reference": "Published reference",
+   "listed": "Listed, not yet curated",
+   "screened": "In the molecular screen panel",
+   "excluded": "Excluded from the study panel"
+  },
+  "tier": {
+   "core": "Core primary",
+   "metastatic": "Metastatic site",
+   "review": "Under review",
+   "outside-stratum": "Outside histology stratum",
+   "held": "Held for QC"
+  },
+  "access": {
+   "open": "Open download",
+   "account": "Free account",
+   "controlled": "Controlled access",
+   "request": "Author request",
+   "unreleased": "Not released",
+   "unresolved": "Unresolved"
+  },
+  "verification": {
+   "source-described": "Source-described",
+   "metadata-checked": "Metadata checked",
+   "file-checked": "File/header checked",
+   "qc-complete": "Image/registration QC complete",
+   "not-audited": "Not yet audited"
+  },
+  "linkage": {
+   "same-section": "Same section: H&E imaged on the assayed section",
+   "same-section-mapping-pending": "Same section; capture area still to be located on the slide scan",
+   "listed-together": "H&E and expression released for the same capture; section identity not separately checked",
+   "serial-section": "Serial section, not the assayed section",
+   "same-patient": "Same patient: assays and slides come from one patient; sample, block and region equivalence not established",
+   "unverified": "Linkage not verified",
+   "none": "No matched modality"
+  },
+  "linkageShort": {
+   "same-section": "Same section",
+   "same-section-mapping-pending": "Same section, mapping pending",
+   "listed-together": "Released together",
+   "serial-section": "Serial section",
+   "same-patient": "Same patient",
+   "unverified": "Not verified",
+   "none": "None"
+  },
+  "modality": {
+   "he-original": "Original-resolution H&E",
+   "he-downsampled": "Downsampled H&E only",
+   "he-wsi": "H&E whole-slide images",
+   "he-tma": "H&E tissue microarray",
+   "spatial-rna": "Spatial RNA",
+   "spatial-protein": "Spatial protein",
+   "bulk-rna": "Bulk RNA",
+   "single-cell-rna": "Single-cell RNA",
+   "raw-reads": "Raw sequencing reads",
+   "ihc": "Immunohistochemistry",
+   "proteomics": "Proteomics",
+   "wes": "Whole-exome sequencing",
+   "signature": "Archetype gene signature",
+   "methylation-450k": "450k DNA methylation",
+   "normal-reference": "Normal tissue reference",
+   "wgs": "Whole-genome sequencing"
+  },
+  "compartment": {
+   "primary-tumour": "Primary tumour",
+   "metastatic-tumour": "Metastatic tumour",
+   "tumour-unspecified": "Tumour, site not curated",
+   "solid-normal": "Solid normal (tumour-adjacent)",
+   "peritumoral": "Peritumoral tissue",
+   "normal": "Normal tissue, not tumour-adjacent or adjacency not stated",
+   "precursor": "Precursor lesion"
+  },
+  "assayClass": {
+   "whole-transcriptome": "Whole-transcriptome (spot, bin or bead)",
+   "targeted-rna": "Targeted RNA panel",
+   "rna-protein": "Targeted RNA plus protein",
+   "roi": "ROI-based (GeoMx)",
+   "protein-imaging": "Protein imaging only (not spatial RNA)",
+   "unverified": "Platform not verified",
+   "not-classified": "Not classified (earlier entry)",
+   "na": "Not a spatial resource"
+  },
+  "treatmentClass": {
+   "unknown": "Treatment unknown",
+   "reported-untreated": "Reported untreated by the source, not verified",
+   "treated": "Treated before sampling",
+   "baseline-and-on-treatment": "Trial baseline and on treatment; prior treatment not excluded",
+   "na": "Not in the spatial review"
+  },
+  "tcgaState": {
+   "retained": "Retained",
+   "excluded": "Excluded",
+   "unresolved": "Unresolved",
+   "absent": "Not available"
+  },
+  "tumourLayers": {
+   "both": "RNA-seq and 450k",
+   "rna-only": "RNA-seq only",
+   "met-only": "450k only",
+   "none": "None retained"
+  },
+  "normalRef": {
+   "rna-he-met": "Normal RNA + H&E + 450k",
+   "rna-he": "Normal RNA + H&E, no 450k",
+   "withheld": "Normal package withheld by patient screen",
+   "inactive": "Normal package in a project excluded from the study",
+   "none": "Not in normal reference"
+  },
+  "disposition": {
+   "pass_annotation_screen": "Passes patient screen",
+   "known_treatment_exclusion": "Excluded: documented treatment",
+   "treatment_unknown_hold": "Hold: treatment history unresolved",
+   "diagnosis_identity_or_episode_exclusion_hold": "Excluded or held: diagnosis, identity, recurrence or specimen",
+   "not-reviewed": "No retained layer (not reviewed)"
+  },
+  "dispositionShort": {
+   "pass_annotation_screen": "Passes",
+   "known_treatment_exclusion": "Treatment exclusion",
+   "treatment_unknown_hold": "Treatment hold",
+   "diagnosis_identity_or_episode_exclusion_hold": "Diagnosis/identity/episode",
+   "not-reviewed": "Not reviewed"
+  },
+  "reason": {
+   "neoadjuvant_therapy_annotation": "Neoadjuvant treatment documented in a case annotation",
+   "primary_diagnosis_prior_treatment_yes": "Study-primary diagnosis records treatment before sampling",
+   "systemic_treatment_for_prior_other_malignancy": "Systemic treatment for another malignancy",
+   "unacceptable_prior_other_malignancy_treatment": "Prior treatment for another malignancy annotated as unacceptable",
+   "previous_local_treatment_same_organ": "Earlier local treatment of the same organ",
+   "prior_malignancy_treatment_details_unresolved": "Prior malignancy with unresolved treatment details",
+   "primary_diagnosis_treatment_unreported": "Treatment before sampling not reported",
+   "possible_chemotherapy_unverified": "Possible chemotherapy, unverified",
+   "neoadjuvant_timing_unverified": "Neoadjuvant timing unverified",
+   "coded_lineage_variant_or_mismatch_needs_pathology_adjudication": "Diagnosis code suggests another lineage or variant: pathology hold",
+   "recurrence_or_progression_not_initial_primary": "Recurrence or progression, not the initial primary",
+   "diagnosis_or_specimen_eligibility_hold": "Diagnosis or specimen eligibility unresolved",
+   "primary_diagnosis_missing_or_unreported": "Study-primary diagnosis missing or unreported",
+   "wrong_target_primary_site_or_histology": "Wrong primary site or histology for the project",
+   "sample_identity_or_tumour_normal_integrity_hold": "Sample identity or tumour–normal integrity concern",
+   "no_tumour_in_submitted_specimen": "No tumour in the submitted specimen",
+   "duplicate_patient_second_biopsy_excluded": "Duplicate patient: second biopsy record excluded",
+   "prior_or_synchronous_malignancy": "Prior or synchronous malignancy",
+   "prior_other_malignancy_local_treatment": "Local treatment of another malignancy",
+   "distant_brain_radiation_lung_primary_explicitly_untreated": "Brain radiation; the lung primary is explicitly untreated",
+   "prior_lung_local_radiation_remote_from_sampled_kidney": "Lung radiation, remote from the sampled kidney",
+   "prior_remote_local_radiation_not_sampled_kidney_treatment": "Remote local radiation, not treatment of the sampled kidney",
+   "childhood_radiation_exposure_not_cancer_pretreatment": "Childhood radiation exposure, not cancer pretreatment",
+   "canonical_first_biopsy_duplicate_crosswalk_EK_A2H0": "Canonical record of a duplicate patient (second biopsy TCGA-EK-A2H0 excluded)",
+   "COAD_submitted_rectal_primary_recovered_in_CRC": "Submitted as COAD, rectal primary by annotation; included in CRC",
+   "READ_submitted_colon_primary_retained_in_CRC": "Submitted as READ, colon primary by annotation; included in CRC",
+   "GBM_submitted_LGG_corrected_retained_in_pooled_glioma": "Submitted as GBM, annotated as lower-grade glioma; both labels kept in the glioma benchmark",
+   "qualification_in_error_patient_hold": "Patient qualified in error",
+   "supportive_dexamethasone_phenytoin_before_procurement_not_anticancer_neoadjuvant": "Dexamethasone and phenytoin before procurement: supportive medication, not antineoplastic treatment"
+  },
+  "treatmentContext": {
+   "sampled-cancer": "Treatment of the sampled cancer before sampling",
+   "same-organ-local": "Earlier local treatment of the same organ",
+   "other-systemic": "Systemic treatment for another malignancy",
+   "unresolved": "Treatment history unresolved",
+   "remote-radiation": "Remote local radiation (covariate)",
+   "other-local": "Local treatment of another malignancy (covariate)",
+   "childhood-exposure": "Childhood radiation exposure (covariate)",
+   "supportive-medication": "Supportive steroid or anticonvulsant before procurement (covariate)",
+   "none-documented": "No pretreatment documented",
+   "not-reviewed": "Not reviewed"
+  },
+  "normalContext": {
+   "target_project_donor": "Donor with a target-project tumour diagnosis",
+   "organ_specific_control": "Organ-specific control, no reported tumour diagnosis",
+   "non_target_or_uncertain_or_recurrent_donor": "Non-target, uncertain or recurrent donor diagnosis",
+   "normal_only_donor_primary_diagnosis_unreported": "Normal-only donor, primary diagnosis unreported (not a verified matched control)",
+   "na": "No normal package after screening"
+  },
+  "selected": {
+   "yes": "In the selected analysis set",
+   "no": "Retained tumour assays, not selected",
+   "na": "No retained tumour assay"
+  },
+  "siteOverride": {
+   "rectum": "Rectum (case annotation)",
+   "colon_unspecified": "Colon, segment not specified (case annotation)",
+   "none": "No override"
+  },
+  "sampleIds": {
+   "sample_ids": "Selected",
+   "exclude_sample_ids": "Excluded from this scope",
+   "normal_or_precursor_ids": "Normal or precursor, kept separate",
+   "tumour_sample_ids": "Tumour sections",
+   "adjacent_sample_ids": "Adjacent-normal sections",
+   "metastatic_sample_ids": "Metastatic"
+  },
+  "spatialScope": {
+   "CSCC": "Cervical squamous cell carcinoma (CSCC), shown on the CESC page",
+   "ESCC": "Oesophageal squamous cell carcinoma (ESCC), shown on the ESCA page",
+   "KIRC": "Clear-cell renal cell carcinoma",
+   "KIRP": "Papillary renal cell carcinoma",
+   "LUSC": "Lung squamous cell carcinoma",
+   "PCPG": "Pheochromocytoma and paraganglioma",
+   "PRAD": "Prostate adenocarcinoma",
+   "STAD": "Gastric adenocarcinoma",
+   "UCEC": "Endometrial carcinoma",
+   "GLIOMA": "Diffuse glioma, including GBM (pooled GLIOMA)"
+  },
+  "role": {
+   "discovery": "Discovery cohort",
+   "classification-benchmark": "Classification benchmark",
+   "excluded": "Excluded from the study panel",
+   "none": "Not reviewed"
+  },
+  "panelExclusion": {
+   "cervical_glandular_or_adenosquamous_outside_squamous_core": "Cervical adenocarcinoma or adenosquamous: outside the squamous cohort",
+   "none": "None"
+  },
+  "projectExclusion": {
+   "SARC": "No: it combines several sarcoma types, each below the size threshold"
+  },
+  "cohortScope": {
+   "ESCC": "squamous cell carcinoma only",
+   "PDAC": "ductal adenocarcinoma only",
+   "CSCC": "squamous cell carcinoma only"
+  },
+  "pooledName": {
+   "CRC": "colorectal cancer",
+   "GLIOMA": "diffuse glioma"
+  },
+  "whoStatus": {
+   "not_adjudicated": "Not adjudicated",
+   "requires_independent_integrated_diagnosis_and_grade": "Needs an independent integrated diagnosis and grade; not adjudicated"
+  },
+  "subset": {
+   "PDAC-sensitivity": "PDAC sensitivity subset",
+   "UCEC-endometrioid": "UCEC endometrioid only",
+   "PCPG-without-neck": "PCPG without head and neck paragangliomas",
+   "GLIOMA-LGG-only": "Glioma benchmark: LGG only",
+   "GLIOMA-paired-only": "Glioma benchmark: RNA-seq and 450k",
+   "none": "Not in a subset"
+  },
+  "histStratum": {
+   "Squamous": "Cervical squamous cell carcinoma",
+   "Adenocarcinoma": "Cervical adenocarcinoma",
+   "Adenosquamous": "Cervical adenosquamous carcinoma",
+   "Endometrioid": "Endometrial: endometrioid",
+   "Serous": "Endometrial: serous",
+   "Mixed": "Endometrial: mixed",
+   "Other": "Endometrial: other",
+   "pheochromocytoma": "Pheochromocytoma",
+   "paraganglioma": "Paraganglioma",
+   "IDHwt": "Glioma: IDH-wildtype group",
+   "IDHmut-non-codel": "Glioma: IDH-mutant, non-codeleted group",
+   "IDHmut-codel": "Glioma: IDH-mutant, 1p/19q-codeleted group",
+   "unassigned": "Glioma: no complete published group",
+   "na": "Not part of the histology revision"
+  },
+  "annotationField": {
+   "histology_stratum": "Reviewed histology",
+   "histology_evidence": "Histology source",
+   "grade_publication": "Grade (publication)",
+   "published_subtype": "Published molecular subtype",
+   "site_reported": "Reported tumour site (GDC)",
+   "adrenal_cortical_admixture": "Adrenal-cortical admixture (publication)",
+   "hpv_status_publication": "HPV status (publication)",
+   "endometrial_like_publication": "Endometrial-like group (publication)",
+   "molecular_group": "Published molecular group",
+   "idh_status": "IDH status (raw call)",
+   "codeletion_1p19q": "1p/19q status (raw call)",
+   "histology_publication": "Historical histology (publication)"
+  },
+  "stratum": {
+   "escc_publication_reviewed": "Squamous cell carcinoma, publication-reviewed",
+   "escc_gdc_only_provisional": "Squamous cell carcinoma, GDC label only (provisional)",
+   "eac_definite_oesophageal": "Oesophageal adenocarcinoma, definite",
+   "eac_probable_oesophageal": "Oesophageal adenocarcinoma, probable",
+   "gej_adenocarcinoma_indeterminate_origin": "Junctional adenocarcinoma, origin indeterminate",
+   "gastric_or_probably_gastric_adenocarcinoma": "Gastric or probably gastric adenocarcinoma",
+   "unclassified_publication_histology": "Unclassified in the publication table",
+   "adenocarcinoma_gdc_only_origin_unresolved": "Adenocarcinoma, GDC label only, origin unresolved",
+   "ductal_labelled_gdc": "GDC label: infiltrating duct carcinoma",
+   "adenocarcinoma_nos_gdc": "GDC label: adenocarcinoma NOS",
+   "mucinous_adenocarcinoma_gdc": "GDC label: mucinous adenocarcinoma",
+   "adenocarcinoma_mixed_subtypes_gdc": "GDC label: adenocarcinoma with mixed subtypes",
+   "neuroendocrine_gdc": "GDC label: neuroendocrine carcinoma",
+   "undifferentiated_carcinoma_gdc": "GDC label: undifferentiated carcinoma"
+  },
+  "relation": {
+   "concordant": "Agrees with GDC label",
+   "refined": "More specific than GDC label",
+   "differs": "Differs from GDC label",
+   "unconfirmed": "Not confirmed by review",
+   "not-reviewed": "GDC label only",
+   "na": "Not part of the histology review"
+  },
+  "analysisGroup": {
+   "outside": "Outside the histology-defined cohort",
+   "none": "Not reviewed: no retained RNA-seq or 450k"
+  },
+  "siteReported": {
+   "na": "Not imported for this project"
+  },
+  "analysisCohort": {
+   "ESCC": "Confirmed ESCC (90)",
+   "PDAC": "Confirmed PDAC (149, proposed)",
+   "outside": "Reviewed, outside the cohort",
+   "none": "No histology-defined cohort"
+  },
+  "analysisReason": {
+   "confirmed_ESCC_smaller_cohort_exception": "Publication-reviewed ESCC with retained assays",
+   "outside_confirmed_ESCC_core": "Not publication-reviewed ESCC",
+   "publication_reviewed_ductal": "Ductal adenocarcinoma in the publication pathology review",
+   "pathology_report_confirmed_ductal": "Ductal adenocarcinoma confirmed by the original pathology report",
+   "other_or_unconfirmed_histology_or_no_retained_assay": "Other or unconfirmed histology, or no retained tumour assay"
+  },
+  "sens": {
+   "included": "In the 148-patient sensitivity subset",
+   "excluded": "Excluded: focal squamous component",
+   "na": "Not applicable"
+  },
+  "scopeAction": {
+   "exclude_untreated_core_prior_treatment": "Prior treatment: outside untreated core",
+   "hold_untreated_core_treatment_unknown": "Treatment history unknown: untreated eligibility on hold",
+   "retain_existing_assay_exclusion_review_histology_or_region": "Histology, site or region issue: assay exclusion kept",
+   "exclude_hcc_tumour_stratum_keep_organ_normal_separate_donor_stratum": "Non-HCC liver tumour: normal tissue is a separate donor stratum",
+   "record_covariate_no_new_global_exclusion": "Prior or synchronous malignancy: recorded as a covariate",
+   "exclude_untreated_core_keep_treated_resource": "Neoadjuvant treatment: treated resource only",
+   "exclude_primary_core_keep_recurrence_resource": "Recurrence: outside primary-tumour core",
+   "hold_affected_assay_keep_other_covered_layer": "Qualification metrics changed: affected assay held",
+   "keep_exact_assay_exclusion_no_patient_blacklist": "Assay-specific technical issue: exact assay exclusion only",
+   "none": "Not in the scope review"
+  },
+  "tcgaCompartment": {
+   "primary-tumour": "Primary tumour assays retained",
+   "solid-normal": "Normal reference retained",
+   "none": "Nothing retained"
+  },
+  "specimen": {
+   "clinical-tumour": "Clinical tumour tissue",
+   "cell-line": "Cell lines",
+   "mouse": "Mouse models"
+  },
+  "routeState": {
+   "public-download": "Public download works",
+   "download-failure": "Public files listed, download failed (technical)",
+   "vendor-terms": "Vendor registration and terms",
+   "dac-approval": "Data access committee approval",
+   "author-release": "Author release or metadata needed",
+   "local-qc": "Local scientific QC remaining"
+  },
+  "gate": {
+   "coordinates": "Spot or bead coordinates missing or defective",
+   "he-not-located": "Original-resolution H&E not located",
+   "he-unverified": "Original H&E content or resolution unverified",
+   "not-released": "Data not yet released",
+   "controlled": "Controlled access; package contents unverified",
+   "request": "Available on request only",
+   "release-unresolved": "Release route unresolved",
+   "pathology-review": "Histology or primary-site review needed",
+   "identity": "Image identity, crosswalk or registration unresolved",
+   "treated": "Post-treatment cohort",
+   "package-unverified": "Public package contents not fully verified",
+   "serial-section": "Serial rather than same-section H&E",
+   "calibration": "Image calibration unresolved",
+   "platform": "Legacy, targeted or ROI-based spatial platform",
+   "count-reconciliation": "Reported and deposited counts disagree",
+   "histology-strata": "Histology strata not yet curated",
+   "treatment-review": "Treatment history not yet reviewed",
+   "tumour-slide-linkage": "Tumour slide linkage for retained assays not yet checked",
+   "image-qc": "Image QC not done"
+  },
+  "hausser": {
+   "significant": "Significant geometry in Hausser et al. 2019",
+   "borderline": "Borderline in Hausser et al. 2019",
+   "no-geometry": "No geometry detected in Hausser et al. 2019",
+   "not-screened": "Not screened by Hausser et al. 2019"
+  },
+  "treatment": {
+   "Untreated": "Untreated",
+   "Post-treatment": "Post-treatment",
+   "Unknown": "Unknown"
+  },
+  "site": {
+   "Primary": "Primary",
+   "Metastasis": "Metastasis",
+   "Unknown": "Unknown"
+  }
+ }
+}

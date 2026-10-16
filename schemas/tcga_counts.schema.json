@@ -1,0 +1,555 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/tcga_counts.schema.json",
+ "title": "tcga_counts",
+ "description": "TCGA molecular screen: patients with RNA-seq and 450k methylation per project, before and after assay-quality exclusions, with normal tissue",
+ "type": "object",
+ "properties": {
+  "meta": {
+   "type": "object",
+   "properties": {
+    "date": {
+     "type": "string"
+    },
+    "rule": {
+     "type": "object",
+     "properties": {
+      "min_total": {
+       "type": "integer"
+      },
+      "min_paired": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "min_total",
+      "min_paired"
+     ],
+     "additionalProperties": false
+    },
+    "representation": {
+     "type": "string"
+    },
+    "historical_representation": {
+     "type": "string"
+    },
+    "historical_unmatched_primary_columns": {
+     "type": "object",
+     "properties": {
+      "rna": {
+       "type": "integer"
+      },
+      "met": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "rna",
+      "met"
+     ],
+     "additionalProperties": false
+    },
+    "panel": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "groups": {
+     "type": "object",
+     "properties": {
+      "BLCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "BRCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "CESC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "CRC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "ESCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "GLIOMA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "HNSC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "KIRC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "KIRP": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "LIHC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "LUAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "LUSC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "PAAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "PCPG": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "PRAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "STAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "THCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "UCEC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     "required": [
+      "BLCA",
+      "BRCA",
+      "CESC",
+      "CRC",
+      "ESCA",
+      "GLIOMA",
+      "HNSC",
+      "KIRC",
+      "KIRP",
+      "LIHC",
+      "LUAD",
+      "LUSC",
+      "PAAD",
+      "PCPG",
+      "PRAD",
+      "STAD",
+      "THCA",
+      "UCEC"
+     ],
+     "additionalProperties": false
+    },
+    "excluded_projects": {
+     "type": "object",
+     "properties": {
+      "SARC": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "SARC"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "date",
+    "rule",
+    "representation",
+    "historical_representation",
+    "historical_unmatched_primary_columns",
+    "panel",
+    "groups",
+    "excluded_projects"
+   ],
+   "additionalProperties": false
+  },
+  "panel_totals": {
+   "type": "object",
+   "properties": {
+    "pre_qc": {
+     "type": "object",
+     "properties": {
+      "union": {
+       "type": "integer"
+      },
+      "paired": {
+       "type": "integer"
+      },
+      "rna_only": {
+       "type": "integer"
+      },
+      "met_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "union",
+      "paired",
+      "rna_only",
+      "met_only"
+     ],
+     "additionalProperties": false
+    },
+    "post_qc": {
+     "type": "object",
+     "properties": {
+      "union": {
+       "type": "integer"
+      },
+      "paired": {
+       "type": "integer"
+      },
+      "rna_only": {
+       "type": "integer"
+      },
+      "met_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "union",
+      "paired",
+      "rna_only",
+      "met_only"
+     ],
+     "additionalProperties": false
+    },
+    "normal": {
+     "type": "object",
+     "properties": {
+      "rna_he": {
+       "type": "integer"
+      },
+      "rna_he_met": {
+       "type": "integer"
+      },
+      "also_in_tumour_union": {
+       "type": "integer"
+      },
+      "normal_only": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "rna_he",
+      "rna_he_met",
+      "also_in_tumour_union",
+      "normal_only"
+     ],
+     "additionalProperties": false
+    },
+    "patients_either_compartment": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "pre_qc",
+    "post_qc",
+    "normal",
+    "patients_either_compartment"
+   ],
+   "additionalProperties": false
+  },
+  "groups": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "properties": {
+     "pre_qc": {
+      "type": "object",
+      "properties": {
+       "union": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "union",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "post_qc": {
+      "type": "object",
+      "properties": {
+       "union": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "union",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "normal": {
+      "type": "object",
+      "properties": {
+       "rna_he": {
+        "type": "integer"
+       },
+       "rna_he_met": {
+        "type": "integer"
+       },
+       "also_in_tumour_union": {
+        "type": "integer"
+       },
+       "normal_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "rna_he",
+       "rna_he_met",
+       "also_in_tumour_union",
+       "normal_only"
+      ],
+      "additionalProperties": false
+     },
+     "patients_either_compartment": {
+      "type": "integer"
+     },
+     "projects": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "passes_screen": {
+      "type": "boolean"
+     }
+    },
+    "required": [
+     "pre_qc",
+     "post_qc",
+     "normal",
+     "patients_either_compartment",
+     "projects",
+     "passes_screen"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "projects": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "properties": {
+     "pre_qc": {
+      "type": "object",
+      "properties": {
+       "union": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "union",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "post_qc": {
+      "type": "object",
+      "properties": {
+       "union": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       },
+       "rna_only": {
+        "type": "integer"
+       },
+       "met_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "union",
+       "paired",
+       "rna_only",
+       "met_only"
+      ],
+      "additionalProperties": false
+     },
+     "normal": {
+      "type": "object",
+      "properties": {
+       "rna_he": {
+        "type": "integer"
+       },
+       "rna_he_met": {
+        "type": "integer"
+       },
+       "also_in_tumour_union": {
+        "type": "integer"
+       },
+       "normal_only": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "rna_he",
+       "rna_he_met",
+       "also_in_tumour_union",
+       "normal_only"
+      ],
+      "additionalProperties": false
+     },
+     "patients_either_compartment": {
+      "type": "integer"
+     },
+     "aliquots": {
+      "type": "object",
+      "properties": {
+       "tumour": {
+        "type": "object"
+       },
+       "normal": {
+        "type": "object"
+       }
+      },
+      "required": [
+       "tumour",
+       "normal"
+      ],
+      "additionalProperties": false
+     },
+     "historical_matrix": {
+      "type": "object",
+      "properties": {
+       "union": {
+        "type": "integer"
+       },
+       "paired": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "union",
+       "paired"
+      ],
+      "additionalProperties": false
+     },
+     "passes_screen": {
+      "type": "boolean"
+     },
+     "in_panel": {
+      "type": "boolean"
+     },
+     "group": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "excluded_from_study": {
+      "type": "boolean"
+     }
+    },
+    "required": [
+     "pre_qc",
+     "post_qc",
+     "normal",
+     "patients_either_compartment",
+     "aliquots",
+     "historical_matrix",
+     "passes_screen",
+     "in_panel",
+     "group"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "meta",
+  "panel_totals",
+  "groups",
+  "projects"
+ ],
+ "additionalProperties": false
+}

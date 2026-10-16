@@ -1,0 +1,1606 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "BRCA",
+ "page": "cancers.html?c=BRCA",
+ "markdown": "md/cancers/BRCA.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "BRCA",
+  "gaps": [
+   "Five ductal/NST patients were sampled after neoadjuvant therapy and one has unknown timing; use the treatment filter for an untreated design.",
+   "One further HTAN ductal donor could be added if its specimen is confirmed as the initial primary rather than recurrent-site tissue.",
+   "Several larger breast spatial cohorts release only downsampled images or are not yet released."
+  ],
+  "name": "Breast invasive carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "brca-idc",
+    "Invasive ductal carcinoma / NST"
+   ],
+   [
+    "brca-ilc",
+    "Invasive lobular carcinoma"
+   ]
+  ],
+  "summary": "Breast cancer is one of six TCGA cancer types in which Hausser et al. found significant within-type polyhedral structure in tumour expression, and one of the six pooled in their shared-task analysis. Ductal/NST and lobular carcinomas are kept as separate strata here.",
+  "tcga_project": "BRCA",
+  "analysis_cohort": "BRCA"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "BRCA",
+   "label": "BRCA",
+   "role": "discovery",
+   "projects": [
+    "BRCA"
+   ],
+   "selected_analysis": {
+    "total": 1062,
+    "rna": 1060,
+    "met": 764,
+    "paired": 762,
+    "rna_only": 298,
+    "met_only": 2
+   },
+   "contributions": {
+    "BRCA": {
+     "total": 1062,
+     "rna": 1060,
+     "met": 764,
+     "paired": 762,
+     "rna_only": 298,
+     "met_only": 2
+    }
+   },
+   "normal": {
+    "rna_he_before": 98,
+    "rna_he_after": 98,
+    "rna_he_met_after": 73,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 98
+    },
+    "context_met": {
+     "target_project_donor": 73
+    }
+   }
+  },
+  "projects": {
+   "BRCA": {
+    "selected_panel": {
+     "analysis_cohort": "BRCA",
+     "role": "discovery",
+     "reviewed_patients": 1085,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 1085,
+      "rna": 1082,
+      "met": 778,
+      "paired": 775,
+      "rna_only": 307,
+      "met_only": 3
+     },
+     "after_patient_screen": {
+      "total": 1062,
+      "rna": 1060,
+      "met": 764,
+      "paired": 762,
+      "rna_only": 298,
+      "met_only": 2
+     },
+     "selected_analysis": {
+      "total": 1062,
+      "rna": 1060,
+      "met": 764,
+      "paired": 762,
+      "rna_only": 298,
+      "met_only": 2
+     },
+     "dispositions": {
+      "pass_annotation_screen": 1062,
+      "diagnosis_identity_or_episode_exclusion_hold": 5,
+      "treatment_unknown_hold": 10,
+      "known_treatment_exclusion": 8
+     },
+     "normal": {
+      "rna_he_before": 98,
+      "rna_he_after": 98,
+      "rna_he_met_after": 73,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 98
+      },
+      "context_met": {
+       "target_project_donor": 73
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 1097,
+      "paired": 782,
+      "rna_only": 313,
+      "met_only": 2
+     },
+     "post_qc": {
+      "union": 1085,
+      "paired": 775,
+      "rna_only": 307,
+      "met_only": 3
+     },
+     "normal": {
+      "rna_he": 98,
+      "rna_he_met": 73,
+      "also_in_tumour_union": 98,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "BRCA"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "htan-wustl",
+   "label": "HTAN WUSTL (Mo et al. 2024)",
+   "citation": {
+    "authors": "Mo CK, et al.",
+    "title": "Tumour evolution and microenvironment interactions in 2D and 3D space",
+    "journal": "Nature",
+    "year": 2024,
+    "doi": "10.1038/s41586-024-08087-4",
+    "url": "https://doi.org/10.1038/s41586-024-08087-4"
+   },
+   "related_citations": [
+    {
+     "authors": "Iglesia MD, et al.",
+     "title": "Differential chromatin accessibility and transcriptional dynamics define breast cancer subtypes and their lineages",
+     "journal": "Nature Cancer",
+     "year": 2024,
+     "doi": "10.1038/s43018-024-00773-6",
+     "url": "https://doi.org/10.1038/s43018-024-00773-6"
+    }
+   ],
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "READ",
+    "PDAC"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium",
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "Fresh frozen",
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "account",
+    "route": "Original H&E TIFFs, count matrices, coordinates and scale factors are open on Synapse after free registration. Raw reads are controlled through dbGaP (phs002371).",
+    "links": [
+     [
+      "HTAN data portal",
+      "https://data.humantumoratlas.org/"
+     ],
+     [
+      "dbGaP phs002371",
+      "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs002371.v1.p1"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-09",
+   "description": "Multi-cancer atlas from the Washington University HTAN centre. Breast, colorectal and pancreatic Visium captures are linked to patient-level clinical tables. Most colorectal captures are from metastases, and several breast captures were taken after neoadjuvant therapy; both groups are listed and labelled, not removed.",
+   "notes": [
+    "H&E was imaged on the Visium section before library preparation (study methods). Image calibration and the full-resolution-to-spot transform have not been re-derived here.",
+    "Breast clinical annotation follows the Iglesia et al. supplement where portal coding and the clinical table disagree.",
+    "Pancreatic histology labels include pancreatobiliary-type and mixed carcinomas; these are not merged with conventional PDAC."
+   ],
+   "compartments": [
+    "primary-tumour",
+    "metastatic-tumour"
+   ]
+  },
+  {
+   "id": "janesick-2023",
+   "label": "Janesick et al. 2023",
+   "citation": {
+    "authors": "Janesick A, et al.",
+    "title": "High resolution mapping of the tumor microenvironment using integrated single-cell, spatial and in situ analysis",
+    "journal": "Nature Communications",
+    "year": 2023,
+    "doi": "10.1038/s41467-023-43458-x",
+    "url": "https://doi.org/10.1038/s41467-023-43458-x"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "single-cell-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Original H&E TIFF, counts and spatial bundle on GEO; raw reads on SRA.",
+    "links": [
+     [
+      "GEO GSE243275",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE243275"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-09",
+   "description": "A single primary invasive ductal carcinoma biopsy profiled with Visium CytAssist, Xenium and single-cell RNA. One deposited Visium capture is catalogued.",
+   "notes": [
+    "The biopsy contains DCIS; invasive tumour regions need to be masked for an invasive-carcinoma analysis.",
+    "Embedded and crosswalk image-resolution values disagree and have not been resolved.",
+    "Treatment before biopsy is not reported."
+   ],
+   "compartments": [
+    "primary-tumour"
+   ]
+  },
+  {
+   "id": "cand-wu-2021",
+   "label": "Wu et al. 2021",
+   "title": "A single-cell and spatially resolved atlas of human breast cancers",
+   "citation": {
+    "authors": "Wu SZ, et al.",
+    "title": "A single-cell and spatially resolved atlas of human breast cancers",
+    "journal": "Nature Genetics",
+    "year": 2021,
+    "doi": "10.1038/s41588-021-00911-1",
+    "url": "https://www.nature.com/articles/s41588-021-00911-1"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-unverified"
+   ],
+   "accession": "Zenodo 4739739",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41588-021-00911-1"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/4739739"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-bassiouni-gse210616",
+   "label": "Spatial transcriptomic analysis of a diverse patient cohort reveals a conserved architecture in triple-negative breast cancer",
+   "title": "Spatial transcriptomic analysis of a diverse patient cohort reveals a conserved architecture in triple-negative breast cancer",
+   "citation": {
+    "authors": null,
+    "title": "Spatial transcriptomic analysis of a diverse patient cohort reveals a conserved architecture in triple-negative breast cancer",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9812886/"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE210616",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9812886/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE210616"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-bcarc-tls-hev-2026",
+   "label": "Spatial atlas of tertiary lymphoid structures and high endothelial venules in breast cancer",
+   "title": "Spatial atlas of tertiary lymphoid structures and high endothelial venules in breast cancer",
+   "citation": {
+    "authors": null,
+    "title": "Spatial atlas of tertiary lymphoid structures and high endothelial venules in breast cancer",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": null
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "not-released"
+   ],
+   "accession": "Zenodo 18917100; S-BIAD3080; EGAD00001016794",
+   "access": {
+    "category": "unreleased",
+    "route": null,
+    "links": [
+     [
+      "Data record",
+      "https://zenodo.org/records/18917100"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-official-10x-breast-demos",
+   "label": "10x Genomics human breast Visium demonstration datasets",
+   "title": "10x Genomics human breast Visium demonstration datasets",
+   "citation": {
+    "authors": null,
+    "title": "10x Genomics human breast Visium demonstration datasets",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": null
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD",
+    "Visium CytAssist"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "identity"
+   ],
+   "accession": "Official dataset pages; HEST TENX13/14/23/24/39/53/68",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Data record",
+      "https://www.10xgenomics.com/datasets"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-wang-venet-2024-legacy-st",
+   "label": "Wang et al. 2024",
+   "title": "Spatial transcriptomics reveals substantial heterogeneity in triple-negative breast cancer with potential clinical implications",
+   "citation": {
+    "authors": "Wang X, et al.",
+    "title": "Spatial transcriptomics reveals substantial heterogeneity in triple-negative breast cancer with potential clinical implications",
+    "journal": "Nature Communications",
+    "year": 2024,
+    "doi": "10.1038/s41467-024-54145-w",
+    "url": "https://www.nature.com/articles/s41467-024-54145-w"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial Transcriptomics (legacy arrays)"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "platform",
+    "package-unverified"
+   ],
+   "accession": "Zenodo 13867935",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-024-54145-w"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/13867935"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-dartmouth-aacr2026-1442",
+   "label": "TNBC spatial transcriptomics resource (AACR 2026 abstract 1442)",
+   "title": "TNBC spatial transcriptomics resource (AACR 2026 abstract 1442)",
+   "citation": {
+    "authors": null,
+    "title": "TNBC spatial transcriptomics resource (AACR 2026 abstract 1442)",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": null
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "not-released"
+   ],
+   "accession": null,
+   "access": {
+    "category": "unreleased",
+    "route": null,
+    "links": []
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "htan-wustl:HT206B1-S1Fc1U2Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT206B1",
+   "capture": "HT206B1-S1Fc1U2Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT206B1-S1Fc1U3Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT206B1",
+   "capture": "HT206B1-S1Fc1U3Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT206B1-S1Fc1U4Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT206B1",
+   "capture": "HT206B1-S1Fc1U4Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT206B1-S1Fc1U5Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT206B1",
+   "capture": "HT206B1-S1Fc1U5Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT206B1-U1_ST_Bn1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT206B1",
+   "capture": "HT206B1-U1_ST_Bn1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT235B1H2-S1Fc1U1Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT235B1",
+   "capture": "HT235B1H2-S1Fc1U1Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT235B1H3-S1Fc1U1Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT235B1",
+   "capture": "HT235B1H3-S1Fc1U1Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT243B1H3A2-S1Fc1U1Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT243B1",
+   "capture": "HT243B1H3A2-S1Fc1U1Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT243B1H3A2-S1Fc1U2Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT243B1",
+   "capture": "HT243B1H3A2-S1Fc1U2Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT243B1H3A2-S1Fc1U3Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT243B1",
+   "capture": "HT243B1H3A2-S1Fc1U3Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT243B1H3A2-S1Fc1U4Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT243B1",
+   "capture": "HT243B1H3A2-S1Fc1U4Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT243B1H4A2-S1Fc1U1Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT243B1",
+   "capture": "HT243B1H4A2-S1Fc1U1Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT243B1H4A2-S1Fc1U2Z1B1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT243B1",
+   "capture": "HT243B1H4A2-S1Fc1U2Z1B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT271B1-S1H3Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT271B1",
+   "capture": "HT271B1-S1H3Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT271B1-S1H3Fc2U2Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT271B1",
+   "capture": "HT271B1-S1H3Fc2U2Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT271B1-S1H3Fc2U3Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT271B1",
+   "capture": "HT271B1-S1H3Fc2U3Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT271B1-S1H3Fc2U4Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT271B1",
+   "capture": "HT271B1-S1H3Fc2U4Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT297B1-S1H1Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT297B1",
+   "capture": "HT297B1-S1H1Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT305B1-S1H1Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT305B1",
+   "capture": "HT305B1-S1H1Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT308B1-S1H1Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT308B1",
+   "capture": "HT308B1-S1H1Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT308B1-S1H4Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT308B1",
+   "capture": "HT308B1-S1H4Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT308B1-S1H5Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT308B1",
+   "capture": "HT308B1-S1H5Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT308B1-S2H5Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT308B1",
+   "capture": "HT308B1-S2H5Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT323B1-S1H1Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT323B1",
+   "capture": "HT323B1-S1H1Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT323B1-S1H3Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT323B1",
+   "capture": "HT323B1-S1H3Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT365B1-S1H1Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT365B1",
+   "capture": "HT365B1-S1H1Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT397B1-S1H2Fs4U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT397B1",
+   "capture": "HT397B1-S1H2Fs4U1Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT397B1-S1H3A1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT397B1",
+   "capture": "HT397B1-S1H3A1U1Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT397B1-S1H3A1U21Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT397B1",
+   "capture": "HT397B1-S1H3A1U21Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT397B1-S1H3A1U41Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT397B1",
+   "capture": "HT397B1-S1H3A1U41Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT397B1-S1H3A1U61Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT397B1",
+   "capture": "HT397B1-S1H3A1U61Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT397B1-S1H3Fs1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT397B1",
+   "capture": "HT397B1-S1H3Fs1U1Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT480B1-S1H1Fs1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT480B1",
+   "capture": "HT480B1-S1H1Fs1U1Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT480B1-S1H1Fs1U2Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT480B1",
+   "capture": "HT480B1-S1H1Fs1U2Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT480B1-S1H3Fs1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT480B1",
+   "capture": "HT480B1-S1H3Fs1U1Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT480B1-S1H3Fs1U2Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT480B1",
+   "capture": "HT480B1-S1H3Fs1U2Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT486B1-S1H1Fs1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "HT486B1",
+   "capture": "HT486B1-S1H1Fs1U1Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "janesick-2023:GSM7782699",
+   "cohort": "janesick-2023",
+   "cancer": "BRCA",
+   "stratum": "brca-idc",
+   "patient": "Janesick_sample_1",
+   "capture": "GSM7782699",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original tissue-image TIFF and CytAssist image + spatial bundle available; validate Space Ranger transform before extracting archetype patches",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT262B1-S1H2Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-ilc",
+   "patient": "HT262B1",
+   "capture": "HT262B1-S1H2Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT263B1-S1H1Fc2U1Z1Bs1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-ilc",
+   "patient": "HT263B1",
+   "capture": "HT263B1-S1H1Fc2U1Z1Bs1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "htan-wustl:HT425B1-S1H2Fs1U1Bp1",
+   "cohort": "htan-wustl",
+   "cancer": "BRCA",
+   "stratum": "brca-ilc",
+   "patient": "HT425B1",
+   "capture": "HT425B1-S1H2Fs1U1Bp1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Identity matched by biospecimen ID. Validate/reconstruct full-resolution-to-capture transform using tissue_positions and scalefactors_json before patch extraction; not yet performed.",
+   "he_mpp": null,
+   "access": {
+    "he": "account",
+    "processed": "account",
+    "raw": "controlled"
+   },
+   "verification": "metadata-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-brca",
+   "label": "TCGA-BRCA",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-BRCA"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "BRCA",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-BRCA"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Breast invasive carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "BRCA"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

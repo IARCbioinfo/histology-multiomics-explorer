@@ -1,0 +1,706 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "CESC",
+ "page": "cancers.html?c=CESC",
+ "markdown": "md/cancers/CESC.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "CESC",
+  "gaps": [
+   "CSCC histology comes from the TCGA cervical study's merged diagnosis where the case is in that table and from the GDC morphology label otherwise. Three cases differ between the two sources and are listed with both labels.",
+   "46 adenocarcinomas and six adenosquamous carcinomas are outside the selected cohort. Their assays remain valid; they are not marked as failed or relabelled.",
+   "HPV status and the endometrial-like group from the publication are annotations, not exclusion criteria; keratin-high and keratin-low programmes are variation within the cohort.",
+   "A duplicate patient is counted once: the second biopsy record is excluded from independent counts.",
+   "The CSCC normal reference is two squamous-donor packages; a third TCGA-CESC normal package comes from an adenocarcinoma donor and is not a matched CSCC control.",
+   "Histology comes from publication tables and GDC labels, not a new slide review; tumour slide linkage and image QC are not yet checked.",
+   "Three cervical spatial resources are listed for review: one vendor Visium FFPE squamous carcinoma specimen, one public SCC section from an HPV progression series (its adenocarcinoma, normal and HSIL sections are kept separate) and a Stereo-seq study with serial-section H&E. None is yet a verified matched package."
+  ],
+  "name": "Cervical squamous cell carcinoma and endocervical adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation; that result does not rule out archetypes under another representation. It is included because it meets the RNA and 450k methylation screen. Analyses use cervical squamous cell carcinoma (CSCC), selected by histology from the TCGA cervical study with the GDC label as an explicit fallback; adenocarcinomas and adenosquamous carcinomas are outside the selected cohort.",
+  "tcga_project": "CESC",
+  "analysis_cohort": "CSCC"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "CSCC",
+   "label": "Cervical squamous cell carcinoma",
+   "role": "discovery",
+   "projects": [
+    "CESC"
+   ],
+   "selected_analysis": {
+    "total": 249,
+    "rna": 248,
+    "met": 249,
+    "paired": 248,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "contributions": {
+    "CESC": {
+     "total": 249,
+     "rna": 248,
+     "met": 249,
+     "paired": 248,
+     "rna_only": 0,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 2,
+    "rna_he_after": 2,
+    "rna_he_met_after": 2,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 2
+    },
+    "context_met": {
+     "target_project_donor": 2
+    }
+   },
+   "strata": [
+    {
+     "stratum": "Squamous",
+     "project": "CESC",
+     "total": 249,
+     "rna": 248,
+     "met": 249,
+     "paired": 248,
+     "rna_only": 0,
+     "met_only": 1,
+     "publication_members": 142,
+     "selected": 249
+    },
+    {
+     "stratum": "Adenocarcinoma",
+     "project": "CESC",
+     "total": 46,
+     "rna": 46,
+     "met": 46,
+     "paired": 46,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 30,
+     "selected": 0
+    },
+    {
+     "stratum": "Adenosquamous",
+     "project": "CESC",
+     "total": 6,
+     "rna": 5,
+     "met": 6,
+     "paired": 5,
+     "rna_only": 0,
+     "met_only": 1,
+     "publication_members": 3,
+     "selected": 0
+    }
+   ],
+   "annotations": {
+    "histology_evidence": [
+     [
+      "TCGA cervical publication table CLIN:Dx_merged",
+      142,
+      142
+     ],
+     [
+      "GDC morphology fallback",
+      107,
+      106
+     ]
+    ],
+    "hpv_status_publication": [
+     [
+      "positive",
+      138,
+      138
+     ],
+     [
+      null,
+      107,
+      106
+     ],
+     [
+      "negative",
+      4,
+      4
+     ]
+    ],
+    "endometrial_like_publication": [
+     [
+      "No",
+      140,
+      140
+     ],
+     [
+      null,
+      107,
+      106
+     ],
+     [
+      "Yes",
+      2,
+      2
+     ]
+    ]
+   }
+  },
+  "projects": {
+   "CESC": {
+    "selected_panel": {
+     "analysis_cohort": "CSCC",
+     "role": "discovery",
+     "reviewed_patients": 302,
+     "histology_reviewed": true,
+     "assay_qc": {
+      "total": 302,
+      "rna": 300,
+      "met": 302,
+      "paired": 300,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "after_patient_screen": {
+      "total": 301,
+      "rna": 299,
+      "met": 301,
+      "paired": 299,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "selected_analysis": {
+      "total": 249,
+      "rna": 248,
+      "met": 249,
+      "paired": 248,
+      "rna_only": 0,
+      "met_only": 1
+     },
+     "dispositions": {
+      "pass_annotation_screen": 301,
+      "diagnosis_identity_or_episode_exclusion_hold": 1
+     },
+     "normal": {
+      "rna_he_before": 3,
+      "rna_he_after": 3,
+      "rna_he_met_after": 3,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 3
+      },
+      "context_met": {
+       "target_project_donor": 3
+      },
+      "outside_cohort": [
+       "TCGA-FU-A3EO"
+      ],
+      "outside_cohort_histology": {
+       "TCGA-FU-A3EO": "Adenocarcinoma"
+      }
+     },
+     "label_conflicts": [
+      {
+       "patient": "TCGA-DG-A2KK",
+       "gdc": "Adenocarcinoma, NOS",
+       "publication": "Squamous",
+       "stratum": "Squamous",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-EA-A5ZF",
+       "gdc": "Squamous cell carcinoma, NOS",
+       "publication": "Adenosquamous",
+       "stratum": "Adenosquamous",
+       "selected": false
+      },
+      {
+       "patient": "TCGA-HM-A6W2",
+       "gdc": "Squamous cell carcinoma, NOS",
+       "publication": "Adenosquamous",
+       "stratum": "Adenosquamous",
+       "selected": false
+      }
+     ]
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 307,
+      "paired": 304,
+      "rna_only": 0,
+      "met_only": 3
+     },
+     "post_qc": {
+      "union": 302,
+      "paired": 300,
+      "rna_only": 0,
+      "met_only": 2
+     },
+     "normal": {
+      "rna_he": 3,
+      "rna_he_met": 3,
+      "also_in_tumour_union": 3,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "CESC"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "cscc-10x-ffpe",
+   "label": "10x Genomics cervical SCC, Visium FFPE",
+   "title": "10x Human Cervical Cancer FFPE",
+   "citation": null,
+   "cancers": [
+    "CESC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "he-unverified",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "10x Genomics dataset; block C00084155.1a",
+   "access": {
+    "category": "account",
+    "route": "Vendor dataset page; downloading requires registration and acceptance of the vendor's terms (CC BY 4.0 data). No registration was made.",
+    "links": [
+     [
+      "Vendor dataset",
+      "https://www.10xgenomics.com/datasets/human-cervical-cancer-1-standard"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Vendor Visium FFPE demonstration of one invasive cervical squamous cell carcinoma specimen, reported as T1bN0M0, stage IB (block C00084155.1a). The source describes a 20x H&E of the assayed section; the original image file and its registration were not checked here.",
+   "compartments": [
+    "primary-tumour"
+   ],
+   "reported": [
+    [
+     1,
+     "section (vendor specimen)",
+     "vendor dataset page"
+    ]
+   ],
+   "notes": [
+    "Treatment and donor provenance",
+    "Obtain original H&E, count matrix, coordinates, scale factors and verify overlay",
+    "Also redistributed through HEST TENX50; not a separate cohort.",
+    "Vendor download requires registration and acceptance of terms; no form was submitted"
+   ],
+   "spatial_review": {
+    "id": "cscc-10x-ffpe",
+    "date": "2026-10-15",
+    "analysis_cohort": "CSCC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium FFPE",
+    "role": "candidate resource",
+    "image_status": "Source describes 20x H&E; full-resolution metadata 13761x12701 in HEST v1.1; original file download/registration not independently checked",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "specimen": "human clinical cervical invasive SCC T1bN0M0 IB",
+    "block": "C00084155.1a",
+    "reused_in": [
+     "HEST TENX50"
+    ],
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Vendor page requires registration and terms before download",
+     "states": [
+      "vendor-terms",
+      "local-qc"
+     ],
+     "next_step": "Complete the vendor registration if wanted (not done), then check the files, H&E and donor history.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "cscc-hpv-gse208654",
+   "label": "Guo et al. 2023, HPV progression series",
+   "title": "Spatiotemporally deciphering the mysterious mechanism of persistent HPV-induced malignant transition and immune remodelling from HPV-infected normal cervix, precancer to cervical cancer: Integrating single-cell RNA-sequencing and spatial transcriptome",
+   "citation": {
+    "authors": "Guo C, et al.",
+    "title": "Spatiotemporally deciphering the mysterious mechanism of persistent HPV-induced malignant transition and immune remodelling from HPV-infected normal cervix, precancer to cervical cancer: Integrating single-cell RNA-sequencing and spatial transcriptome",
+    "journal": "Clinical and Translational Medicine",
+    "year": 2023,
+    "doi": "10.1002/ctm2.1219",
+    "url": "https://doi.org/10.1002/ctm2.1219"
+   },
+   "cancers": [
+    "CESC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial transcriptomics array (platform to confirm)"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "coordinates",
+    "calibration",
+    "identity"
+   ],
+   "accession": "GSE208654 (SCC section GSM6360691)",
+   "access": {
+    "category": "open",
+    "route": "public processed GEO",
+    "links": [
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208654"
+     ],
+     [
+      "Full text (PMC)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10040725/"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Four spatial sections along cervical HPV progression: one squamous cell carcinoma (GSM6360691), one adenocarcinoma (GSM6360692), one HPV-positive normal cervix and one HSIL. Only the carcinoma section of squamous histology belongs to the CSCC scope; the others are kept separate. For GSM6360691 the deposited H&E (10,322 × 9,666 pixels) and expression for 1,757 spots were retrieved, and processing and image evidence support Visium, but no released spot coordinates or scale factors were found, so it is not yet a complete spatial package.",
+   "compartments": [
+    "primary-tumour",
+    "normal",
+    "precursor"
+   ],
+   "reported": [
+    [
+     1,
+     "squamous cell carcinoma section (GSM6360691)",
+     "GEO series",
+     "CESC"
+    ],
+    [
+     1,
+     "adenocarcinoma section (GSM6360692), outside CSCC",
+     "GEO series"
+    ],
+    [
+     2,
+     "HPV-positive normal and HSIL sections",
+     "GEO series"
+    ],
+    [
+     4,
+     "sections in the complete series",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "Use GSM6360691 (SCC); exclude GSM6360692 (ADC) from CSCC core",
+    "Keep HPV-positive normal and HSIL separate",
+    "Recover spatial coordinates/scale and original image calibration"
+   ],
+   "spatial_review": {
+    "id": "cscc-hpv-gse208654",
+    "date": "2026-10-15",
+    "analysis_cohort": "CSCC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium, supported by processing and image evidence",
+    "role": "candidate resource",
+    "image_status": "GSM6360691 H&E 10,322 × 9,666 pixels and 1,757 expression spots retrieved; coordinates and scale factors not released",
+    "treatment_status": "GEO treatment: NO; crosswalk and specimen history still require review",
+    "treatment_class": "reported-untreated",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {
+     "sample_ids": [
+      "GSM6360691"
+     ],
+     "exclude_sample_ids": [
+      "GSM6360692"
+     ],
+     "normal_or_precursor_ids": [
+      "GSM6360689",
+      "GSM6360690"
+     ]
+    },
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "H&E and expression retrieved; spot coordinates missing",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask the submitter for the tissue-position table and scale factors of GSM6360691, the image calibration and the clinical provenance.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "cscc-ou-stereo",
+   "label": "Ou et al. 2022",
+   "title": "Single-Nucleus RNA Sequencing and Spatial Transcriptomics Reveal the Immunological Microenvironment of Cervical Squamous Cell Carcinoma",
+   "citation": {
+    "authors": "Ou Z, et al.",
+    "title": "Single-Nucleus RNA Sequencing and Spatial Transcriptomics Reveal the Immunological Microenvironment of Cervical Squamous Cell Carcinoma",
+    "journal": "Advanced Science",
+    "year": 2022,
+    "doi": "10.1002/advs.202203040",
+    "url": "https://doi.org/10.1002/advs.202203040"
+   },
+   "cancers": [
+    "CESC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Stereo-seq"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "serial-section",
+   "gates": [
+    "serial-section",
+    "release-unresolved",
+    "he-not-located",
+    "treatment-review"
+   ],
+   "accession": "CNSA CNP0002543",
+   "access": {
+    "category": "unresolved",
+    "route": "CNSA CNP0002543 listed in the paper; the public listing did not resolve",
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1002/advs.202203040"
+     ],
+     [
+      "Full text (PMC)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9561780/"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Stereo-seq study of cervical squamous cell carcinoma reporting 14 tumour patients on 15 slides and two normal-tissue patients on three slides, alongside single-nucleus RNA-seq. H&E comes from serial cryosections, not from the assayed section. The data are listed under CNSA CNP0002543, but the project listing did not resolve and the CNSA accession search returned no result; this does not establish controlled access.",
+   "compartments": [
+    "tumour-unspecified",
+    "normal"
+   ],
+   "reported": [
+    [
+     14,
+     "tumour patients",
+     "publication"
+    ],
+    [
+     15,
+     "tumour slides",
+     "publication"
+    ],
+    [
+     2,
+     "normal-tissue patients",
+     "publication"
+    ],
+    [
+     3,
+     "normal-tissue slides",
+     "publication"
+    ]
+   ],
+   "notes": [
+    "Retrieve CNP0002543 and original scans/section crosswalk",
+    "Preserve serial-section linkage",
+    "Review treatment, primary site and image registration"
+   ],
+   "spatial_review": {
+    "id": "cscc-ou-stereo",
+    "date": "2026-10-15",
+    "analysis_cohort": "CSCC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Stereo-seq",
+    "role": "candidate resource",
+    "image_status": "H&E from serial cryosections; not exact same-section H&E",
+    "treatment_status": "not established in this review",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Serial-section study; public data route unresolved",
+     "states": [
+      "download-failure",
+      "author-release"
+     ],
+     "next_step": "Ask the authors or CNSA support for a working route to CNP0002543, processed matrices and coordinates, and original serial H&E with patient and section mapping.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  }
+ ],
+ "located_sections": [],
+ "other_resources": [
+  {
+   "id": "tcga-cesc",
+   "label": "TCGA-CESC",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-CESC"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "CESC"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "CESC",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-CESC"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Cervical squamous cell carcinoma and endocervical adenocarcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. The selected cohort is cervical squamous cell carcinoma (CSCC), using histology from the TCGA cervical study with the GDC label as fallback. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked.",
+   "notes": [
+    "Analysed as cervical squamous cell carcinoma (CSCC, 249 patients, 248 with both assays). The 46 adenocarcinomas and six adenosquamous carcinomas are outside the selected cohort; their assays are not marked as failed.",
+    "Publication and GDC histology differ for three cases; both labels are kept.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "CSCC"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

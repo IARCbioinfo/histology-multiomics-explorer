@@ -1,0 +1,70 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/leads.schema.json",
+ "title": "leads",
+ "description": "Related leads that add no resources or patients: unassigned releases, precursor studies and reuse records",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "properties": {
+   "id": {
+    "type": "string"
+   },
+   "label": {
+    "type": "string"
+   },
+   "url": {
+    "type": "string"
+   },
+   "doi": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "tissues": {
+    "type": "string"
+   },
+   "description": {
+    "type": "string"
+   },
+   "not_counted": {
+    "type": "string"
+   },
+   "next": {
+    "type": "string"
+   },
+   "sections_checked": {
+    "type": [
+     "integer",
+     "null"
+    ]
+   },
+   "checked_on": {
+    "type": "string"
+   },
+   "links": {
+    "type": "array",
+    "items": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "required": [
+   "id",
+   "label",
+   "url",
+   "doi",
+   "tissues",
+   "description",
+   "not_counted",
+   "next",
+   "sections_checked",
+   "checked_on"
+  ],
+  "additionalProperties": false
+ }
+}

@@ -1,0 +1,495 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "STAD",
+ "page": "cancers.html?c=STAD",
+ "markdown": "md/cancers/STAD.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "STAD",
+  "gaps": [
+   "Gastro-oesophageal junction tumours need site review against ESCA.",
+   "No normal-reference patient has retained normal 450k.",
+   "Two gastric Visium resources are listed for review: nine donor labels including one metastasis section, and a 72-section deposit with 20 donor labels whose series summary reports 19 main tumour samples, a discrepancy not yet reconciled. None is yet a verified matched package."
+  ],
+  "name": "Stomach adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen.",
+  "tcga_project": "STAD",
+  "analysis_cohort": "STAD"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "STAD",
+   "label": "STAD",
+   "role": "discovery",
+   "projects": [
+    "STAD"
+   ],
+   "selected_analysis": {
+    "total": 414,
+    "rna": 385,
+    "met": 377,
+    "paired": 348,
+    "rna_only": 37,
+    "met_only": 29
+   },
+   "contributions": {
+    "STAD": {
+     "total": 414,
+     "rna": 385,
+     "met": 377,
+     "paired": 348,
+     "rna_only": 37,
+     "met_only": 29
+    }
+   },
+   "normal": {
+    "rna_he_before": 34,
+    "rna_he_after": 34,
+    "rna_he_met_after": 0,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 34
+    },
+    "context_met": {}
+   }
+  },
+  "projects": {
+   "STAD": {
+    "selected_panel": {
+     "analysis_cohort": "STAD",
+     "role": "discovery",
+     "reviewed_patients": 419,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 416,
+      "rna": 387,
+      "met": 378,
+      "paired": 349,
+      "rna_only": 38,
+      "met_only": 29
+     },
+     "after_patient_screen": {
+      "total": 414,
+      "rna": 385,
+      "met": 377,
+      "paired": 348,
+      "rna_only": 37,
+      "met_only": 29
+     },
+     "selected_analysis": {
+      "total": 414,
+      "rna": 385,
+      "met": 377,
+      "paired": 348,
+      "rna_only": 37,
+      "met_only": 29
+     },
+     "dispositions": {
+      "pass_annotation_screen": 414,
+      "diagnosis_identity_or_episode_exclusion_hold": 1,
+      "treatment_unknown_hold": 1
+     },
+     "normal": {
+      "rna_he_before": 34,
+      "rna_he_after": 34,
+      "rna_he_met_after": 0,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 34
+      },
+      "context_met": {},
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 434,
+      "paired": 373,
+      "rna_only": 39,
+      "met_only": 22
+     },
+     "post_qc": {
+      "union": 416,
+      "paired": 349,
+      "rna_only": 38,
+      "met_only": 29
+     },
+     "normal": {
+      "rna_he": 34,
+      "rna_he_met": 0,
+      "also_in_tumour_union": 31,
+      "normal_only": 3
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "STAD"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "stad-gse251950",
+   "label": "Lee et al. 2024",
+   "title": "Spatial dissection of tumour microenvironments in gastric cancers reveals the immunosuppressive crosstalk between CCL2+ fibroblasts and STAT3-activated macrophages",
+   "citation": {
+    "authors": "Lee SH, et al.",
+    "title": "Spatial dissection of tumour microenvironments in gastric cancers reveals the immunosuppressive crosstalk between CCL2+ fibroblasts and STAT3-activated macrophages",
+    "journal": "Gut",
+    "year": 2024,
+    "doi": "10.1136/gutjnl-2024-332901",
+    "url": "https://doi.org/10.1136/gutjnl-2024-332901"
+   },
+   "cancers": [
+    "STAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "he-unverified",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "GSE251950",
+   "access": {
+    "category": "open",
+    "route": "public processed GEO; raw SRA",
+    "links": [
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE251950"
+     ],
+     [
+      "Publication",
+      "https://doi.org/10.1136/gutjnl-2024-332901"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Visium sections from nine gastric cancer donor labels: nine primary tumours and one metastasis (GC6-PM, from the same donor as GC6), kept separate. Space Ranger archives include H&E previews; the original scans were not verified.",
+   "compartments": [
+    "primary-tumour",
+    "metastatic-tumour"
+   ],
+   "reported": [
+    [
+     9,
+     "donor labels",
+     "GEO series"
+    ],
+    [
+     9,
+     "primary-tumour sections",
+     "GEO series"
+    ],
+    [
+     1,
+     "metastasis section (GC6-PM, same donor as GC6)",
+     "GEO series"
+    ],
+    [
+     10,
+     "spatial samples in all",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "GC6 and GC6-PM are the same donor; keep GC6-PM metastatic",
+    "Preserve histology and treatment metadata; original H&E/registration required"
+   ],
+   "spatial_review": {
+    "id": "stad-gse251950",
+    "date": "2026-10-15",
+    "analysis_cohort": "STAD",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium",
+    "role": "candidate resource",
+    "image_status": "All ten section packages checked: exact barcode-coordinate agreement; images 2,000-pixel outputs only; original scans not found",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {
+     "metastatic_sample_ids": [
+      "GSM7990479"
+     ]
+    },
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Ten section packages checked; preview images only",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask the submitter for original scans and the clinical, histology and treatment linkage for the nine donor labels and the GC6 peritoneal metastasis.",
+     "sections_with_matching_coordinates": 10
+    }
+   }
+  },
+  {
+   "id": "stad-gse270678",
+   "label": "Gao et al. 2026",
+   "title": "A spatially resolved atlas of gastric cancer characterises a lymphocyte-aggregated region",
+   "citation": {
+    "authors": "Gao S, et al.",
+    "title": "A spatially resolved atlas of gastric cancer characterises a lymphocyte-aggregated region",
+    "journal": "Nature Communications",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-68612-z",
+    "url": "https://doi.org/10.1038/s41467-026-68612-z"
+   },
+   "cancers": [
+    "STAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "he-not-located",
+    "image-qc"
+   ],
+   "accession": "GSE270678; HRA007814 (raw, controlled)",
+   "access": {
+    "category": "open",
+    "route": "public processed GEO; raw HRA007814 controlled",
+    "links": [
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE270678"
+     ],
+     [
+      "Publication",
+      "https://doi.org/10.1038/s41467-026-68612-z"
+     ],
+     [
+      "Additional Mendeley release",
+      "https://data.mendeley.com/datasets/559mchb37p/1"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Visium atlas of lymphocyte-aggregated regions in gastric cancer: 33 main sections from 19 patients and 39 repeat sections; donor D30 appears only among the repeats, which gives 20 donor labels in the deposit. All 72 deposited section packages have expression barcodes that match their tissue coordinates exactly; the images are 2,000-pixel previews. The paper reports treatment-naive surgical donors; histology (intestinal, diffuse, indeterminate) and core, edge and in-between regions are annotated. An additional Mendeley release holds one 6.12 GB spatial RDS file, whose download failed (a technical gap). Raw reads (HRA007814) are controlled and are not needed for processed reuse.",
+   "compartments": [
+    "primary-tumour"
+   ],
+   "reported": [
+    [
+     19,
+     "patients with main sections",
+     "Supplementary Data 1"
+    ],
+    [
+     33,
+     "main sections",
+     "Supplementary Data 1"
+    ],
+    [
+     39,
+     "repeat sections",
+     "Supplementary Data 1"
+    ],
+    [
+     20,
+     "donor labels in the deposit, D30 in repeats only",
+     "GEO series"
+    ],
+    [
+     72,
+     "deposited sections",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "Do not count 72 sections as patients",
+    "Preserve intestinal/diffuse/indeterminate histology and core/edge/in-between compartments",
+    "Recover original-resolution H&E",
+    "Repeat sections add sections, not patients; D30 appears only among the repeats"
+   ],
+   "spatial_review": {
+    "id": "stad-gse270678",
+    "date": "2026-10-15",
+    "analysis_cohort": "STAD",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium",
+    "role": "candidate resource",
+    "image_status": "All 72 section packages checked: exact barcode-coordinate agreement; 2,000-pixel previews; original scans not found",
+    "treatment_status": "paper reports treatment-naive surgical donors",
+    "treatment_class": "reported-untreated",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "72 section packages checked; patient and section count resolved",
+     "states": [
+      "public-download",
+      "download-failure",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Retry the Mendeley download; ask the submitter for original scans and calibration if they are not in the public RDS.",
+     "sections_with_matching_coordinates": 72
+    }
+   }
+  }
+ ],
+ "located_sections": [],
+ "other_resources": [
+  {
+   "id": "tcga-stad",
+   "label": "TCGA-STAD",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-STAD"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "STAD"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "STAD",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-STAD"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Stomach adenocarcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Gastro-oesophageal junction tumours need site review against ESCA.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "STAD"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

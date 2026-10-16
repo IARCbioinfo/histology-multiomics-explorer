@@ -1,0 +1,886 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "BLCA",
+ "page": "cancers.html?c=BLCA",
+ "markdown": "md/cancers/BLCA.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "BLCA",
+  "gaps": [
+   "Variant morphology of the four primary tumours with located data has not been reviewed.",
+   "A larger untreated muscle-invasive cohort (GSE319536) releases only downsampled H&E."
+  ],
+  "name": "Bladder urothelial carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "blca-mibc",
+    "High-grade muscle-invasive urothelial carcinoma"
+   ]
+  ],
+  "summary": "Bladder urothelial carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Variant morphology is not always reported and may need pathology review.",
+  "tcga_project": "BLCA",
+  "analysis_cohort": "BLCA"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "BLCA",
+   "label": "BLCA",
+   "role": "discovery",
+   "projects": [
+    "BLCA"
+   ],
+   "selected_analysis": {
+    "total": 388,
+    "rna": 382,
+    "met": 388,
+    "paired": 382,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "contributions": {
+    "BLCA": {
+     "total": 388,
+     "rna": 382,
+     "met": 388,
+     "paired": 382,
+     "rna_only": 0,
+     "met_only": 6
+    }
+   },
+   "normal": {
+    "rna_he_before": 19,
+    "rna_he_after": 19,
+    "rna_he_met_after": 17,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 19
+    },
+    "context_met": {
+     "target_project_donor": 17
+    }
+   }
+  },
+  "projects": {
+   "BLCA": {
+    "selected_panel": {
+     "analysis_cohort": "BLCA",
+     "role": "discovery",
+     "reviewed_patients": 404,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 401,
+      "rna": 395,
+      "met": 401,
+      "paired": 395,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "after_patient_screen": {
+      "total": 388,
+      "rna": 382,
+      "met": 388,
+      "paired": 382,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "selected_analysis": {
+      "total": 388,
+      "rna": 382,
+      "met": 388,
+      "paired": 382,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "dispositions": {
+      "pass_annotation_screen": 388,
+      "known_treatment_exclusion": 11,
+      "diagnosis_identity_or_episode_exclusion_hold": 2
+     },
+     "normal": {
+      "rna_he_before": 19,
+      "rna_he_after": 19,
+      "rna_he_met_after": 17,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 19
+      },
+      "context_met": {
+       "target_project_donor": 17
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 412,
+      "paired": 406,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "post_qc": {
+      "union": 401,
+      "paired": 395,
+      "rna_only": 0,
+      "met_only": 6
+     },
+     "normal": {
+      "rna_he": 19,
+      "rna_he_met": 17,
+      "also_in_tumour_union": 18,
+      "normal_only": 1
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "BLCA"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "gouin-2021",
+   "label": "Gouin et al. 2021",
+   "citation": {
+    "authors": "Gouin KH, et al.",
+    "title": "An N-Cadherin 2 expressing epithelial cell subpopulation predicts response to surgery, chemotherapy and immunotherapy in bladder cancer",
+    "journal": "Nature Communications",
+    "year": 2021,
+    "doi": "10.1038/s41467-021-25103-7",
+    "url": "https://doi.org/10.1038/s41467-021-25103-7"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Original capture-area JPEGs, processed counts and coordinates on GEO; raw reads on SRA.",
+    "links": [
+     [
+      "GEO GSE171351",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE171351"
+     ]
+    ]
+   },
+   "verification": "file-checked",
+   "verified_on": "2026-10-09",
+   "description": "Four treatment-naive patients with high-grade muscle-invasive urothelial carcinoma.",
+   "notes": [
+    "The H&E images cover the capture area rather than the whole resection slide.",
+    "Detailed variant morphology is not reported and would need pathology review.",
+    "Two image-scale estimates differ (about 0.41 and 0.49 µm/pixel)."
+   ],
+   "compartments": [
+    "primary-tumour"
+   ]
+  },
+  {
+   "id": "cand-yu2026atlas",
+   "label": "Yu et al. 2026",
+   "title": "A Spatial Atlas of Muscle-Invasive Bladder Cancer Reveals Lineage-Specific Vulnerabilities and Immune Architecture",
+   "citation": {
+    "authors": "Yu K, et al.",
+    "title": "A Spatial Atlas of Muscle-Invasive Bladder Cancer Reveals Lineage-Specific Vulnerabilities and Immune Architecture",
+    "journal": "Cancer Discovery",
+    "year": 2026,
+    "doi": "10.1158/2159-8290.CD-26-0099",
+    "url": "https://doi.org/10.1158/2159-8290.CD-26-0099"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE319536",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1158/2159-8290.CD-26-0099"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE319536"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-ziblat2024",
+   "label": "Batf3+ DCs and the 4–1BB/4–1BBL axis are required at the effector phase in the tumor microenvironment for PD-1/PD-L1 blockade efficacy",
+   "title": "Batf3+ DCs and the 4–1BB/4–1BBL axis are required at the effector phase in the tumor microenvironment for PD-1/PD-L1 blockade efficacy",
+   "citation": {
+    "authors": null,
+    "title": "Batf3+ DCs and the 4–1BB/4–1BBL axis are required at the effector phase in the tumor microenvironment for PD-1/PD-L1 blockade efficacy",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11229087/"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD",
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "pathology-review",
+    "he-unverified"
+   ],
+   "accession": "GSE238145",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11229087/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE238145"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-jiang2024meti",
+   "label": "Jiang et al. 2024",
+   "title": "METI: deep profiling of tumor ecosystems by integrating cell morphology and spatial transcriptomics",
+   "citation": {
+    "authors": "Jiang J, et al.",
+    "title": "METI: deep profiling of tumor ecosystems by integrating cell morphology and spatial transcriptomics",
+    "journal": "Nature Communications",
+    "year": 2024,
+    "doi": "10.1038/s41467-024-51708-9",
+    "url": "https://www.nature.com/articles/s41467-024-51708-9"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "pathology-review"
+   ],
+   "accession": "GSE246011",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-024-51708-9"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE246011"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-yoshihara2026erbt",
+   "label": "Yoshihara et al. 2026",
+   "title": "Spatial transcriptomics of en bloc transurethral resection of bladder tumor specimens defines an invasive-front gene expression signature",
+   "citation": {
+    "authors": "Yoshihara K, et al.",
+    "title": "Spatial transcriptomics of en bloc transurethral resection of bladder tumor specimens defines an invasive-front gene expression signature",
+    "journal": "npj Precision Oncology",
+    "year": 2026,
+    "doi": "10.1038/s41698-026-01417-x",
+    "url": "https://www.nature.com/articles/s41698-026-01417-x"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "calibration"
+   ],
+   "accession": "E-GEAD-1186",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41698-026-01417-x"
+     ],
+     [
+      "Data record",
+      "https://ddbj.nig.ac.jp/public/ddbj_database/gea/experiment/E-GEAD-1000/E-GEAD-1186/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-pribus2026",
+   "label": "Pribus et al. 2026",
+   "title": "Multiomic profiling links L1 retrotransposition to genomic instability and ecDNA in bladder cancer",
+   "citation": {
+    "authors": "Pribus SJ, et al.",
+    "title": "Multiomic profiling links L1 retrotransposition to genomic instability and ecDNA in bladder cancer",
+    "journal": "Nature Communications",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-75399-6",
+    "url": "https://www.nature.com/articles/s41467-026-75399-6"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GHGAS23497594176126;Zenodo20085382",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-026-75399-6"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/20085382"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-xuzhou2023",
+   "label": "Integrated single-cell and spatial transcriptomic profiling reveals higher intratumour heterogeneity and epithelial–fibroblast interactions in recurrent bladder cancer",
+   "title": "Integrated single-cell and spatial transcriptomic profiling reveals higher intratumour heterogeneity and epithelial–fibroblast interactions in recurrent bladder cancer",
+   "citation": {
+    "authors": null,
+    "title": "Integrated single-cell and spatial transcriptomic profiling reveals higher intratumour heterogeneity and epithelial–fibroblast interactions in recurrent bladder cancer",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10366350/"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved"
+   ],
+   "accession": "OEP004141",
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10366350/"
+     ],
+     [
+      "Data record",
+      "https://www.biosino.org/node/project/detail/OEP004141"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-zheng2025",
+   "label": "Unveiling Immune Metabolic Mechanisms in Bladder Cancer: Spatial Profiling Identifies ZFP36 as a Therapeutic Target",
+   "title": "Unveiling Immune Metabolic Mechanisms in Bladder Cancer: Spatial Profiling Identifies ZFP36 as a Therapeutic Target",
+   "citation": {
+    "authors": null,
+    "title": "Unveiling Immune Metabolic Mechanisms in Bladder Cancer: Spatial Profiling Identifies ZFP36 as a Therapeutic Target",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": null
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE285715",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE285715"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-lindskrog2023",
+   "label": "Single-nucleus and Spatially Resolved Intratumor Subtype Heterogeneity in Bladder Cancer",
+   "title": "Single-nucleus and Spatially Resolved Intratumor Subtype Heterogeneity in Bladder Cancer",
+   "citation": {
+    "authors": null,
+    "title": "Single-nucleus and Spatially Resolved Intratumor Subtype Heterogeneity in Bladder Cancer",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10175738/"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": null,
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10175738/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-dutreneo",
+   "label": "Grande et al. 2025",
+   "title": "Spatial biomarkers of response to neoadjuvant therapy in muscle-invasive bladder cancer (DUTRENEO)",
+   "citation": {
+    "authors": "Grande E, et al.",
+    "title": "Spatial biomarkers of response to neoadjuvant therapy in muscle-invasive bladder cancer: the DUTRENEO trial",
+    "journal": null,
+    "year": 2025,
+    "doi": "10.1101/2025.02.07.25321742",
+    "url": "https://www.medrxiv.org/content/10.1101/2025.02.07.25321742v1.full"
+   },
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": "GSE328930(bulkonly);Zenodo19693316(Xeniumonly)",
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.medrxiv.org/content/10.1101/2025.02.07.25321742v1.full"
+     ],
+     [
+      "Data record",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC13400163/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "gouin-2021:A1",
+   "cohort": "gouin-2021",
+   "cancer": "BLCA",
+   "stratum": "blca-mibc",
+   "patient": "Bladder1204",
+   "capture": "A1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Pixel coordinates and scalefactors supplied; visual overlay QC pending",
+   "he_mpp": 0.413,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "gouin-2021:D1",
+   "cohort": "gouin-2021",
+   "cancer": "BLCA",
+   "stratum": "blca-mibc",
+   "patient": "Bladder371",
+   "capture": "D1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Pixel coordinates and scalefactors supplied; visual overlay QC pending",
+   "he_mpp": 0.413,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "gouin-2021:C1",
+   "cohort": "gouin-2021",
+   "cancer": "BLCA",
+   "stratum": "blca-mibc",
+   "patient": "Bladder72",
+   "capture": "C1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Pixel coordinates and scalefactors supplied; visual overlay QC pending",
+   "he_mpp": 0.413,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "gouin-2021:B1",
+   "cohort": "gouin-2021",
+   "cancer": "BLCA",
+   "stratum": "blca-mibc",
+   "patient": "Bladder8",
+   "capture": "B1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Pixel coordinates and scalefactors supplied; visual overlay QC pending",
+   "he_mpp": 0.413,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-blca",
+   "label": "TCGA-BLCA",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-BLCA"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "BLCA"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "BLCA",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-BLCA"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Bladder urothelial carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "BLCA"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

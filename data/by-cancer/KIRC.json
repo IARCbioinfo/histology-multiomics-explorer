@@ -1,0 +1,693 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "KIRC",
+ "page": "cancers.html?c=KIRC",
+ "markdown": "md/cancers/KIRC.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "KIRC",
+  "gaps": [
+   "Analyse separately from papillary renal cell carcinoma (KIRP).",
+   "Four clear-cell RCC spatial resources are listed for review: 24 public Visium samples (not a verified count of independent untreated patients), 16 controlled sections, three treated primary tumours for exploratory comparison and one targeted Xenium RNA-and-protein specimen. None is yet a verified matched package."
+  ],
+  "name": "Kidney renal clear cell carcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; a large share of retained patients have RNA-seq without 450k methylation.",
+  "tcga_project": "KIRC",
+  "analysis_cohort": "KIRC"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "KIRC",
+   "label": "KIRC",
+   "role": "discovery",
+   "projects": [
+    "KIRC"
+   ],
+   "selected_analysis": {
+    "total": 494,
+    "rna": 493,
+    "met": 306,
+    "paired": 305,
+    "rna_only": 188,
+    "met_only": 1
+   },
+   "contributions": {
+    "KIRC": {
+     "total": 494,
+     "rna": 493,
+     "met": 306,
+     "paired": 305,
+     "rna_only": 188,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 71,
+    "rna_he_after": 71,
+    "rna_he_met_after": 23,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 70,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    },
+    "context_met": {
+     "target_project_donor": 22,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    }
+   }
+  },
+  "projects": {
+   "KIRC": {
+    "selected_panel": {
+     "analysis_cohort": "KIRC",
+     "role": "discovery",
+     "reviewed_patients": 516,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 516,
+      "rna": 515,
+      "met": 312,
+      "paired": 311,
+      "rna_only": 204,
+      "met_only": 1
+     },
+     "after_patient_screen": {
+      "total": 494,
+      "rna": 493,
+      "met": 306,
+      "paired": 305,
+      "rna_only": 188,
+      "met_only": 1
+     },
+     "selected_analysis": {
+      "total": 494,
+      "rna": 493,
+      "met": 306,
+      "paired": 305,
+      "rna_only": 188,
+      "met_only": 1
+     },
+     "dispositions": {
+      "pass_annotation_screen": 494,
+      "treatment_unknown_hold": 6,
+      "known_treatment_exclusion": 12,
+      "diagnosis_identity_or_episode_exclusion_hold": 4
+     },
+     "normal": {
+      "rna_he_before": 71,
+      "rna_he_after": 71,
+      "rna_he_met_after": 23,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 70,
+       "non_target_or_uncertain_or_recurrent_donor": 1
+      },
+      "context_met": {
+       "target_project_donor": 22,
+       "non_target_or_uncertain_or_recurrent_donor": 1
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 534,
+      "paired": 318,
+      "rna_only": 215,
+      "met_only": 1
+     },
+     "post_qc": {
+      "union": 516,
+      "paired": 311,
+      "rna_only": 204,
+      "met_only": 1
+     },
+     "normal": {
+      "rna_he": 71,
+      "rna_he_met": 23,
+      "also_in_tumour_union": 71,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "KIRC"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "kirc-meylan-gse175540",
+   "label": "Meylan et al. 2022",
+   "title": "Tertiary lymphoid structures generate and propagate anti-tumor antibody-producing plasma cells in renal cell cancer",
+   "citation": {
+    "authors": "Meylan M, et al.",
+    "title": "Tertiary lymphoid structures generate and propagate anti-tumor antibody-producing plasma cells in renal cell cancer",
+    "journal": "Immunity",
+    "year": 2022,
+    "doi": "10.1016/j.immuni.2022.02.001",
+    "url": "https://doi.org/10.1016/j.immuni.2022.02.001"
+   },
+   "cancers": [
+    "KIRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE",
+    "Visium"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "he-not-located",
+    "identity"
+   ],
+   "accession": "GSE175540",
+   "access": {
+    "category": "open",
+    "route": "public processed data; raw reads withheld for privacy",
+    "links": [
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE175540"
+     ],
+     [
+      "Publication",
+      "https://doi.org/10.1016/j.immuni.2022.02.001"
+     ],
+     [
+      "STOmicsDB mirror",
+      "https://db.cngb.org/stomics/datasets/STDS0000223/data"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Visium data from 24 primary ccRCC tumours (12 FFPE, 12 fresh frozen) in a study of tertiary lymphoid structures; the primary paper documents treatment-naive primary ccRCC. Processed data are public and raw reads are withheld. All 24 deposited section packages have expression barcodes that match their tissue coordinates exactly, but the images are previews of at most 2,000 pixels; a check of all 426 links of the STOmicsDB mirror found 48 preview PNGs and no original scan. The public clinical Table S1 could not be downloaded (a technical failure), so the donor, section and grade join is unresolved.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     24,
+     "spatial samples",
+     "GEO series"
+    ],
+    [
+     12,
+     "FFPE samples",
+     "GEO series"
+    ],
+    [
+     12,
+     "fresh-frozen samples",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "Recover original scans and patient/section crosswalk",
+    "Do not treat 24 HEST donor labels as independent verified patients",
+    "Also redistributed through HEST INT1-INT24 (verify exact IDs in retained metadata); not a separate cohort.",
+    "Review TLS enrichment",
+    "Study-level treatment-naive status is documented in the primary paper",
+    "Clinical Table S1 is publicly linked but its download failed: a technical gap, not author-only data"
+   ],
+   "spatial_review": {
+    "id": "kirc-meylan-gse175540",
+    "date": "2026-10-15",
+    "analysis_cohort": "KIRC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium FFPE and fresh frozen",
+    "role": "candidate resource",
+    "image_status": "All 24 section packages checked: exact barcode-coordinate agreement; previews of at most 2,000 pixels; no TIFF, SVS or NDPI among 426 mirror links",
+    "treatment_status": "treatment-naive primary ccRCC documented in the primary paper",
+    "treatment_class": "reported-untreated",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "reused_in": [
+     "HEST INT1-INT24 (verify exact IDs in retained metadata)"
+    ],
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "24 section packages checked; preview images only",
+     "states": [
+      "public-download",
+      "download-failure",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Retry the public clinical table, then ask the submitter for the original H&E of the 24 sections and the donor, section and grade crosswalk.",
+     "sections_with_matching_coordinates": 24
+    }
+   }
+  },
+  {
+   "id": "kirc-egad00001008781",
+   "label": "Li et al. 2022, ccRCC Visium (EGAD00001008781)",
+   "title": "Understanding multicellular dynamics of ccRCC",
+   "citation": {
+    "authors": "Li R, et al.",
+    "title": "Mapping single-cell transcriptomes in the intra-tumoral and associated territories of kidney cancer",
+    "journal": "Cancer Cell",
+    "year": 2022,
+    "doi": "10.1016/j.ccell.2022.11.001",
+    "url": "https://doi.org/10.1016/j.ccell.2022.11.001"
+   },
+   "cancers": [
+    "KIRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located",
+    "calibration",
+    "image-qc"
+   ],
+   "accession": "EGAD00001008781 (EGAS00001006045)",
+   "access": {
+    "category": "open",
+    "route": "Public processed H5AD files: Mendeley Data g67bkbnhhg.1 and the Sanger public FTP directory ftp.sanger.ac.uk/pub/teams/332/mapping_single_cell_RCC (anonymous FTP works; the Mendeley file link returned an error). Controlled raw CRAMs at EGA are optional for processed reuse.",
+    "links": [
+     [
+      "EGA dataset",
+      "https://ega-archive.org/datasets/EGAD00001008781"
+     ],
+     [
+      "Publication",
+      "https://doi.org/10.1016/j.ccell.2022.11.001"
+     ],
+     [
+      "Mendeley Data",
+      "https://data.mendeley.com/datasets/g67bkbnhhg/1"
+     ],
+     [
+      "Project page",
+      "https://www.sanger.ac.uk/project/microenvironment-of-kidney-cancer/"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Visium study of clear-cell RCC: 16 sections from eight ccRCC patients (38,836 spots), covering tumour core and the tumour–normal interface. Processed spatial data are public through Mendeley Data (g67bkbnhhg.1) and Sanger's public FTP directory; metadata inspection of both spatial H5AD files confirms the eight patients and 16 sections. Both files copy the image metadata of all 16 sections, so together they hold 16 sections, not 32. Their images are previews (2,000 and 600 pixels). The paper documents treatment-naive surgery. Controlled raw reads (EGAD00001008781) are needed only for raw-data reuse; original H&E and calibration need an author release. Numerical matrix QC has not been done.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     8,
+     "patients with ccRCC",
+     "public H5AD metadata"
+    ],
+    [
+     16,
+     "sections",
+     "public H5AD metadata"
+    ],
+    [
+     38836,
+     "spots",
+     "public H5AD metadata"
+    ]
+   ],
+   "notes": [
+    "Retain tumour core versus tumour-normal interface",
+    "The two public H5AD files copy all 16 sections' image metadata: count 16 sections, not 32",
+    "EGA approval is needed only for controlled raw reads",
+    "Original H&E and calibration need an author release"
+   ],
+   "spatial_review": {
+    "id": "kirc-egad00001008781",
+    "date": "2026-10-15",
+    "analysis_cohort": "KIRC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium",
+    "role": "candidate resource",
+    "image_status": "Public H5AD images are 2,000- and 600-pixel previews; original scans not among the public files",
+    "treatment_status": "treatment-naive surgery documented in the primary paper",
+    "treatment_class": "reported-untreated",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Public processed data located; eight patients and 16 sections confirmed",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask the study team for original H&E and calibration; apply to EGA only if raw reads are needed.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "kirc-treated-gse294006",
+   "label": "GSE294006, treated advanced ccRCC",
+   "title": "Treatment-induced hypoxia and resistance in advanced ccRCC",
+   "citation": {
+    "authors": null,
+    "title": "Treatment-induced hypoxia and resistance in advanced ccRCC",
+    "journal": "NCBI GEO",
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE294006"
+   },
+   "cancers": [
+    "KIRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "treated",
+    "he-unverified"
+   ],
+   "accession": "GSE294006",
+   "access": {
+    "category": "open",
+    "route": "public processed GEO",
+    "links": [
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE294006"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Three primary ccRCC tumours resected after systemic treatment, two of them sarcomatoid, profiled with Visium FFPE. The study concerns advanced disease, but all three samples are primary tumours. Kept outside the untreated reference as an exploratory treated comparison; original-resolution images are still to be checked.",
+   "compartments": [
+    "primary-tumour"
+   ],
+   "reported": [
+    [
+     3,
+     "primary-tumour samples after systemic treatment",
+     "GEO series"
+    ],
+    [
+     3,
+     "donor labels",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "Keep outside untreated primary reference",
+    "Two specimens are sarcomatoid ccRCC",
+    "Advanced-disease study title does not make these metastatic tissue: all GSMs say primary tumour"
+   ],
+   "spatial_review": {
+    "id": "kirc-treated-gse294006",
+    "date": "2026-10-15",
+    "analysis_cohort": "KIRC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium FFPE",
+    "role": "exploratory treated spatial comparison",
+    "image_status": "All three expression and coordinate sets agree; supplied images at most 2,000 pixels; originals not found",
+    "treatment_status": "all three after systemic treatment",
+    "treatment_class": "treated",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {
+     "sample_ids": [
+      "GSM8896252",
+      "GSM8896253",
+      "GSM8896254"
+     ]
+    },
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Three section packages checked; preview images only",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask the submitter for original H&E, calibration and matching metadata for the three sections.",
+     "sections_with_matching_coordinates": 3
+    }
+   }
+  },
+  {
+   "id": "kirc-10x-xenium-protein",
+   "label": "10x Genomics ccRCC, Xenium RNA and protein",
+   "title": "FFPE human renal ccRCC, Xenium gene and protein",
+   "citation": {
+    "authors": "10x Genomics",
+    "title": "FFPE human renal ccRCC, Xenium gene and protein",
+    "journal": "10x Genomics datasets",
+    "year": null,
+    "doi": null,
+    "url": "https://www.10xgenomics.com/datasets/xenium-protein-ffpe-human-renal-ccrcc"
+   },
+   "cancers": [
+    "KIRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "spatial-protein"
+   ],
+   "techniques": [
+    "Xenium"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "platform",
+    "he-unverified",
+    "treatment-review"
+   ],
+   "accession": "10x Genomics dataset",
+   "access": {
+    "category": "account",
+    "route": "Vendor dataset page; downloading requires registration and acceptance of the vendor's terms (CC BY 4.0 data). No registration was made.",
+    "links": [
+     [
+      "Vendor dataset",
+      "https://www.10xgenomics.com/datasets/xenium-protein-ffpe-human-renal-ccrcc"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Vendor FFPE ccRCC dataset with targeted Xenium RNA (377-gene base panel plus custom genes) and a 27-plex protein panel. Targeted RNA and protein measurements are kept separate from whole-transcriptome resources; H&E availability and alignment were not checked.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     1,
+     "sample (vendor specimen)",
+     "vendor dataset page"
+    ]
+   ],
+   "notes": [
+    "Verify post-assay H&E and alignment",
+    "Keep targeted RNA/protein separate from broad-transcriptome resource",
+    "Vendor download requires registration and acceptance of terms; no form was submitted"
+   ],
+   "spatial_review": {
+    "id": "kirc-10x-xenium-protein",
+    "date": "2026-10-15",
+    "analysis_cohort": "KIRC",
+    "assay_classes": [
+     "rna-protein"
+    ],
+    "platform": "Xenium targeted RNA plus 27-plex protein",
+    "role": "targeted supplementary resource",
+    "image_status": "H&E availability/registration not checked",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "panel": "377-gene base panel plus custom genes; 27-plex protein",
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Vendor page requires registration and terms before download",
+     "states": [
+      "vendor-terms",
+      "local-qc"
+     ],
+     "next_step": "Complete the vendor registration if wanted (not done), then check the files, H&E and donor history.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  }
+ ],
+ "located_sections": [],
+ "other_resources": [
+  {
+   "id": "tcga-kirc",
+   "label": "TCGA-KIRC",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-KIRC"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "KIRC"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "KIRC",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-KIRC"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Kidney renal clear cell carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Separate project from papillary renal cell carcinoma (KIRP).",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "KIRC"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

@@ -1,0 +1,1144 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "READ",
+ "page": "cancers.html?c=READ",
+ "markdown": "md/cancers/READ.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "READ",
+  "gaps": [
+   "TCGA-READ does not meet the screen on its own (156 patients, 94 with both assays after assay QC); it contributes to the pooled CRC cohort, which does. The earlier standalone exclusion is superseded.",
+   "Only two patients have primary-tumour sections with matched data located; the same registration step as for colon applies.",
+   "One Visium HD rectal section is under review because its primary status is not stated."
+  ],
+  "name": "Rectal adenocarcinoma",
+  "group": "extension",
+  "hausser": "not-screened",
+  "strata": [
+   [
+    "read-conv",
+    "Conventional rectal adenocarcinoma"
+   ]
+  ],
+  "summary": "Rectal adenocarcinoma was not part of the Hausser et al. geometry analysis. It is kept as a separate rectal stratum for spatial data, and TCGA-READ is analysed together with TCGA-COAD as the pooled colorectal cohort (CRC).",
+  "tcga_project": "READ",
+  "analysis_cohort": "CRC",
+  "rationale": "Colorectal extension; pooled in CRC"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "CRC",
+   "label": "Colorectal adenocarcinoma (COAD + READ)",
+   "role": "discovery",
+   "projects": [
+    "COAD",
+    "READ"
+   ],
+   "selected_analysis": {
+    "total": 581,
+    "rna": 579,
+    "met": 373,
+    "paired": 371,
+    "rna_only": 208,
+    "met_only": 2
+   },
+   "contributions": {
+    "COAD": {
+     "total": 427,
+     "rna": 425,
+     "met": 281,
+     "paired": 279,
+     "rna_only": 146,
+     "met_only": 2
+    },
+    "READ": {
+     "total": 154,
+     "rna": 154,
+     "met": 92,
+     "paired": 92,
+     "rna_only": 62,
+     "met_only": 0
+    }
+   },
+   "normal": {
+    "rna_he_before": 47,
+    "rna_he_after": 47,
+    "rna_he_met_after": 19,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 46,
+     "non_target_or_uncertain_or_recurrent_donor": 1
+    },
+    "context_met": {
+     "target_project_donor": 19
+    }
+   },
+   "reported_sites": {
+    "Sigmoid colon": {
+     "COAD": 103
+    },
+    "Ascending colon": {
+     "COAD": 97
+    },
+    "Colon, NOS": {
+     "COAD": 89,
+     "READ": 6
+    },
+    "Rectum, NOS": {
+     "READ": 81
+    },
+    "Cecum": {
+     "COAD": 79
+    },
+    "Rectosigmoid junction": {
+     "COAD": 7,
+     "READ": 64
+    },
+    "Transverse colon": {
+     "COAD": 20
+    },
+    "Descending colon": {
+     "COAD": 17
+    },
+    "Hepatic flexure of colon": {
+     "COAD": 10
+    },
+    "Splenic flexure of colon": {
+     "COAD": 5
+    },
+    "Connective, subcutaneous and other soft tissues of abdomen": {
+     "READ": 2
+    },
+    "Unknown primary site": {
+     "READ": 1
+    }
+   },
+   "site_overrides": [
+    {
+     "patient": "TCGA-AF-2692",
+     "project": "READ",
+     "site_reported": "Rectum, NOS",
+     "resection_site_reported": "Not Reported",
+     "override": "colon_unspecified",
+     "selected": true,
+     "layers": "rna-only"
+    },
+    {
+     "patient": "TCGA-AF-2693",
+     "project": "READ",
+     "site_reported": "Rectosigmoid junction",
+     "resection_site_reported": "Sigmoid colon",
+     "override": "colon_unspecified",
+     "selected": true,
+     "layers": "both"
+    },
+    {
+     "patient": "TCGA-AY-4071",
+     "project": "COAD",
+     "site_reported": "Sigmoid colon",
+     "resection_site_reported": "Colon, NOS",
+     "override": "rectum",
+     "selected": true,
+     "layers": "rna-only"
+    },
+    {
+     "patient": "TCGA-CM-4750",
+     "project": "COAD",
+     "site_reported": "Rectosigmoid junction",
+     "resection_site_reported": "Colon, NOS",
+     "override": "rectum",
+     "selected": true,
+     "layers": "both"
+    }
+   ],
+   "withheld": [
+    {
+     "patient": "TCGA-5M-AAT5",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-5M-AATA",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3521",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3524",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3525",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3543",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3552",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-AA-3675",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-AA-3715",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3811",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-3814",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-AA-A00Z",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-CI-6620",
+     "project": "READ",
+     "disposition": "known_treatment_exclusion"
+    },
+    {
+     "patient": "TCGA-CM-5863",
+     "project": "COAD",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-F5-6810",
+     "project": "READ",
+     "disposition": "diagnosis_identity_or_episode_exclusion_hold"
+    },
+    {
+     "patient": "TCGA-G4-6294",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-G4-6298",
+     "project": "COAD",
+     "disposition": "treatment_unknown_hold"
+    },
+    {
+     "patient": "TCGA-G4-6321",
+     "project": "COAD",
+     "disposition": "known_treatment_exclusion"
+    }
+   ]
+  },
+  "projects": {
+   "READ": {
+    "selected_panel": {
+     "analysis_cohort": "CRC",
+     "role": "discovery",
+     "reviewed_patients": 157,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 156,
+      "rna": 156,
+      "met": 94,
+      "paired": 94,
+      "rna_only": 62,
+      "met_only": 0
+     },
+     "after_patient_screen": {
+      "total": 154,
+      "rna": 154,
+      "met": 92,
+      "paired": 92,
+      "rna_only": 62,
+      "met_only": 0
+     },
+     "selected_analysis": {
+      "total": 154,
+      "rna": 154,
+      "met": 92,
+      "paired": 92,
+      "rna_only": 62,
+      "met_only": 0
+     },
+     "dispositions": {
+      "pass_annotation_screen": 154,
+      "known_treatment_exclusion": 1,
+      "diagnosis_identity_or_episode_exclusion_hold": 1
+     },
+     "normal": {
+      "rna_he_before": 10,
+      "rna_he_after": 10,
+      "rna_he_met_after": 2,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 10
+      },
+      "context_met": {
+       "target_project_donor": 2
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 166,
+      "paired": 98,
+      "rna_only": 68,
+      "met_only": 0
+     },
+     "post_qc": {
+      "union": 156,
+      "paired": 94,
+      "rna_only": 62,
+      "met_only": 0
+     },
+     "normal": {
+      "rna_he": 10,
+      "rna_he_met": 2,
+      "also_in_tumour_union": 9,
+      "normal_only": 1
+     },
+     "passes_screen": false,
+     "in_panel": true,
+     "group": "CRC"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "htan-wustl",
+   "label": "HTAN WUSTL (Mo et al. 2024)",
+   "citation": {
+    "authors": "Mo CK, et al.",
+    "title": "Tumour evolution and microenvironment interactions in 2D and 3D space",
+    "journal": "Nature",
+    "year": 2024,
+    "doi": "10.1038/s41586-024-08087-4",
+    "url": "https://doi.org/10.1038/s41586-024-08087-4"
+   },
+   "related_citations": [
+    {
+     "authors": "Iglesia MD, et al.",
+     "title": "Differential chromatin accessibility and transcriptional dynamics define breast cancer subtypes and their lineages",
+     "journal": "Nature Cancer",
+     "year": 2024,
+     "doi": "10.1038/s43018-024-00773-6",
+     "url": "https://doi.org/10.1038/s43018-024-00773-6"
+    }
+   ],
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "READ",
+    "PDAC"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium",
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "Fresh frozen",
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "account",
+    "route": "Original H&E TIFFs, count matrices, coordinates and scale factors are open on Synapse after free registration. Raw reads are controlled through dbGaP (phs002371).",
+    "links": [
+     [
+      "HTAN data portal",
+      "https://data.humantumoratlas.org/"
+     ],
+     [
+      "dbGaP phs002371",
+      "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs002371.v1.p1"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-09",
+   "description": "Multi-cancer atlas from the Washington University HTAN centre. Breast, colorectal and pancreatic Visium captures are linked to patient-level clinical tables. Most colorectal captures are from metastases, and several breast captures were taken after neoadjuvant therapy; both groups are listed and labelled, not removed.",
+   "notes": [
+    "H&E was imaged on the Visium section before library preparation (study methods). Image calibration and the full-resolution-to-spot transform have not been re-derived here.",
+    "Breast clinical annotation follows the Iglesia et al. supplement where portal coding and the clinical table disagree.",
+    "Pancreatic histology labels include pancreatobiliary-type and mixed carcinomas; these are not merged with conventional PDAC."
+   ],
+   "compartments": [
+    "primary-tumour",
+    "metastatic-tumour"
+   ]
+  },
+  {
+   "id": "valdeolivas-2024",
+   "label": "Valdeolivas et al. 2024",
+   "citation": {
+    "authors": "Valdeolivas A, et al.",
+    "title": "Profiling the heterogeneity of colorectal cancer consensus molecular subtypes using spatial transcriptomics",
+    "journal": "npj Precision Oncology",
+    "year": 2024,
+    "doi": "10.1038/s41698-023-00488-4",
+    "url": "https://doi.org/10.1038/s41698-023-00488-4"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section-mapping-pending",
+   "access": {
+    "category": "open",
+    "route": "Processed section archives and original NanoZoomer slide scans on Zenodo (CC BY 4.0).",
+    "links": [
+     [
+      "Zenodo 7760264",
+      "https://zenodo.org/records/7760264"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-09",
+   "description": "Seven colorectal cancer patients with two Visium sections each. The original slide scans cover whole glass slides, so each capture area still has to be located on its scan.",
+   "notes": [
+    "All retained tumour donors had no pretreatment according to the publication's patient table.",
+    "One donor has mucinous adenocarcinoma and is kept outside the conventional stratum; one donor's sections are predominantly non-neoplastic and are excluded; one capture has author-reported low RNA quality.",
+    "Some primary tumours come from patients with liver or lymph-node metastases."
+   ],
+   "compartments": [
+    "primary-tumour"
+   ]
+  },
+  {
+   "id": "oliveira-2025",
+   "label": "Oliveira et al. 2025 (Visium HD)",
+   "citation": {
+    "authors": "Oliveira MFd, et al.",
+    "title": "High-definition spatial transcriptomic profiling of immune cell populations in colorectal cancer",
+    "journal": "Nature Genetics",
+    "year": 2025,
+    "doi": "10.1038/s41588-025-02193-3",
+    "url": "https://doi.org/10.1038/s41588-025-02193-3"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Original BigTIFF H&E, 8 µm binned matrices, positions and alignment files on GEO; raw reads on SRA.",
+    "links": [
+     [
+      "GEO GSE280318",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE280318"
+     ]
+    ]
+   },
+   "verification": "file-checked",
+   "verified_on": "2026-10-09",
+   "description": "Visium HD profiles of colorectal tumours with same-section high-resolution H&E. Three tumour sections are catalogued; normal-adjacent sections are excluded.",
+   "notes": [
+    "Primary versus metastatic specimen status is not stated explicitly; these captures are listed as under review.",
+    "The publication reports the patients as pretreatment."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-colonmap-heiser2023",
+   "label": "Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors",
+   "title": "Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors",
+   "citation": {
+    "authors": null,
+    "title": "Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10756562/"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "pathology-review"
+   ],
+   "accession": "HTAN Vanderbilt / Colon Molecular Atlas Project; OSF hftq2",
+   "access": {
+    "category": "account",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10756562/"
+     ],
+     [
+      "Data record",
+      "https://data.humantumoratlas.org/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-orgares-gse283052",
+   "label": "Neve et al. 2026",
+   "title": "OrgaRES colorectal Visium resource",
+   "citation": {
+    "authors": "Neve B, et al.",
+    "title": "Long non-coding RNA UCA1 modulates SMARCA2-containing SWI/SNF chromatin remodeling complexes in human colorectal cancer",
+    "journal": "iScience",
+    "year": 2026,
+    "doi": "10.1016/j.isci.2025.114283",
+    "url": "https://doi.org/10.1016/j.isci.2025.114283"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE283052",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1016/j.isci.2025.114283"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283052"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-mahidol-gse267401",
+   "label": "Primary colorectal cancer and liver metastasis, Visium CytAssist",
+   "title": "Primary colorectal cancer and liver metastasis, Visium CytAssist",
+   "citation": {
+    "authors": null,
+    "title": "Primary colorectal cancer and liver metastasis, Visium CytAssist",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39499374/"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE267401",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pubmed.ncbi.nlm.nih.gov/39499374/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267401"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-miso-petacc8",
+   "label": "Schmauch et al. 2025",
+   "title": "MISO / PETACC-8 stage III colon adenocarcinoma Visium study",
+   "citation": {
+    "authors": "Schmauch B, et al.",
+    "title": "A deep learning-based multiscale integration of spatial omics with tumor morphology",
+    "journal": "Nature Communications",
+    "year": 2025,
+    "doi": "10.1038/s41467-025-66691-y",
+    "url": "https://www.nature.com/articles/s41467-025-66691-y"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled",
+    "identity"
+   ],
+   "accession": null,
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-025-66691-y"
+     ],
+     [
+      "Data record",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12748640/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-vri-dartmouth2025",
+   "label": "Srinivasan et al. 2025",
+   "title": "Histology-Based Virtual RNA Inference Identifies Pathways Associated With Metastasis Risk in Colorectal Cancer",
+   "citation": {
+    "authors": "Srinivasan G, et al.",
+    "title": "Histology-Based Virtual RNA Inference Identifies Pathways Associated With Metastasis Risk in Colorectal Cancer",
+    "journal": "Modern Pathology",
+    "year": 2025,
+    "doi": "10.1016/j.modpat.2025.100866",
+    "url": "https://doi.org/10.1016/j.modpat.2025.100866"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial Transcriptomics (legacy arrays)",
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved"
+   ],
+   "accession": null,
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1016/j.modpat.2025.100866"
+     ],
+     [
+      "Data record",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12045403/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-liu-maru2026",
+   "label": "Liu et al. 2026",
+   "title": "Paired colorectal primary, liver and lung metastasis spatial atlas",
+   "citation": {
+    "authors": "Liu Y, et al.",
+    "title": "Spatial multi-omics landscape of colorectal cancer macro- and micrometastases",
+    "journal": "Cancer Cell",
+    "year": 2026,
+    "doi": "10.1016/j.ccell.2026.06.009",
+    "url": "https://doi.org/10.1016/j.ccell.2026.06.009"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located",
+    "pathology-review"
+   ],
+   "accession": "GSE294385; Zenodo19043057",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1016/j.ccell.2026.06.009"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE294385"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-spatch-ren2025",
+   "label": "Ren et al. 2025",
+   "title": "Systematic benchmarking of high-throughput subcellular spatial transcriptomics platforms across human tumors (colorectal sample)",
+   "citation": {
+    "authors": "Ren P, et al.",
+    "title": "Systematic benchmarking of high-throughput subcellular spatial transcriptomics platforms across human tumors",
+    "journal": "Nature Communications",
+    "year": 2025,
+    "doi": "10.1038/s41467-025-64292-3",
+    "url": "https://www.nature.com/articles/s41467-025-64292-3"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "pathology-review",
+    "package-unverified"
+   ],
+   "accession": "S-BIAD1900; GSA HRA011129",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-025-64292-3"
+     ],
+     [
+      "Data record",
+      "https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1900"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crc-cottam-htan2025",
+   "label": "HTAN Vanderbilt colorectal CytAssist captures",
+   "title": "HTAN Vanderbilt colorectal CytAssist captures",
+   "citation": {
+    "authors": null,
+    "title": "HTAN Vanderbilt colorectal CytAssist captures",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": null
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "pathology-review",
+    "identity"
+   ],
+   "accession": "HTAN Vanderbilt syn64759085/86/59111/59112; h5ad syn64759245/46",
+   "access": {
+    "category": "account",
+    "route": null,
+    "links": [
+     [
+      "Data record",
+      "https://data.humantumoratlas.org/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "valdeolivas-2024:SN048_A121573_Rep1",
+   "cohort": "valdeolivas-2024",
+   "cancer": "READ",
+   "stratum": "read-conv",
+   "patient": "A121573",
+   "capture": "SN048_A121573_Rep1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section-mapping-pending",
+   "registration": "Pending capture-area crop/coordinate registration to physical-slide NDPI",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "valdeolivas-2024:SN048_A121573_Rep2",
+   "cohort": "valdeolivas-2024",
+   "cancer": "READ",
+   "stratum": "read-conv",
+   "patient": "A121573",
+   "capture": "SN048_A121573_Rep2",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section-mapping-pending",
+   "registration": "Pending capture-area crop/coordinate registration to physical-slide NDPI",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "valdeolivas-2024:SN123_A938797_Rep1_X",
+   "cohort": "valdeolivas-2024",
+   "cancer": "READ",
+   "stratum": "read-conv",
+   "patient": "A938797",
+   "capture": "SN123_A938797_Rep1_X",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section-mapping-pending",
+   "registration": "Pending capture-area crop/coordinate registration to physical-slide NDPI",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "valdeolivas-2024:SN124_A938797_Rep2",
+   "cohort": "valdeolivas-2024",
+   "cancer": "READ",
+   "stratum": "read-conv",
+   "patient": "A938797",
+   "capture": "SN124_A938797_Rep2",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section-mapping-pending",
+   "registration": "Pending capture-area crop/coordinate registration to physical-slide NDPI",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "oliveira-2025:GSM8594567",
+   "cohort": "oliveira-2025",
+   "cancer": "READ",
+   "stratum": "read-conv",
+   "patient": "P1",
+   "capture": "GSM8594567",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Untreated",
+   "technique": "Visium HD",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Alignment/scalefactors available; verify mapping before analysis",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-read",
+   "label": "TCGA-READ",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-READ"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "READ",
+    "CRC"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "READ",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-READ"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Rectal adenocarcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Below the molecular screen on its own and included through the pooled colorectal cohort (CRC) with TCGA-COAD. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Below the screen on its own (156 patients, 94 with both assays after assay QC); analysed with TCGA-COAD as the pooled colorectal cohort (CRC), which meets it.",
+    "Two READ-submitted cases are annotated as colon primaries; they stay in CRC with both the reported site and the annotation override recorded.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "CRC"
+  }
+ ],
+ "evidence": []
+}

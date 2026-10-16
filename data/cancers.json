@@ -1,0 +1,443 @@
+[
+ {
+  "code": "BRCA",
+  "gaps": [
+   "Five ductal/NST patients were sampled after neoadjuvant therapy and one has unknown timing; use the treatment filter for an untreated design.",
+   "One further HTAN ductal donor could be added if its specimen is confirmed as the initial primary rather than recurrent-site tissue.",
+   "Several larger breast spatial cohorts release only downsampled images or are not yet released."
+  ],
+  "name": "Breast invasive carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "brca-idc",
+    "Invasive ductal carcinoma / NST"
+   ],
+   [
+    "brca-ilc",
+    "Invasive lobular carcinoma"
+   ]
+  ],
+  "summary": "Breast cancer is one of six TCGA cancer types in which Hausser et al. found significant within-type polyhedral structure in tumour expression, and one of the six pooled in their shared-task analysis. Ductal/NST and lobular carcinomas are kept as separate strata here.",
+  "tcga_project": "BRCA",
+  "analysis_cohort": "BRCA"
+ },
+ {
+  "code": "COAD",
+  "gaps": [
+   "TCGA-COAD is analysed with TCGA-READ as the pooled colorectal cohort (CRC); its counts here are provenance, and two COAD-submitted rectal primaries previously excluded for site alone are now included in CRC.",
+   "Valdeolivas et al. sections must be located on the original whole-slide scans before patch-level alignment.",
+   "The Colon Molecular Atlas Project (HTAN Vanderbilt) is the largest candidate expansion and needs histology review.",
+   "Most HTAN colorectal sections are from metastatic deposits and are kept separate from the primary stratum."
+  ],
+  "name": "Colon adenocarcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "coad-conv",
+    "Conventional colon adenocarcinoma"
+   ]
+  ],
+  "summary": "Colon adenocarcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled six-cancer analysis. Mucinous carcinomas and metastatic deposits are listed but kept outside the conventional primary stratum.",
+  "tcga_project": "COAD",
+  "analysis_cohort": "CRC"
+ },
+ {
+  "code": "READ",
+  "gaps": [
+   "TCGA-READ does not meet the screen on its own (156 patients, 94 with both assays after assay QC); it contributes to the pooled CRC cohort, which does. The earlier standalone exclusion is superseded.",
+   "Only two patients have primary-tumour sections with matched data located; the same registration step as for colon applies.",
+   "One Visium HD rectal section is under review because its primary status is not stated."
+  ],
+  "name": "Rectal adenocarcinoma",
+  "group": "extension",
+  "hausser": "not-screened",
+  "strata": [
+   [
+    "read-conv",
+    "Conventional rectal adenocarcinoma"
+   ]
+  ],
+  "summary": "Rectal adenocarcinoma was not part of the Hausser et al. geometry analysis. It is kept as a separate rectal stratum for spatial data, and TCGA-READ is analysed together with TCGA-COAD as the pooled colorectal cohort (CRC).",
+  "tcga_project": "READ",
+  "analysis_cohort": "CRC",
+  "rationale": "Colorectal extension; pooled in CRC"
+ },
+ {
+  "code": "CRC",
+  "name": "Colorectal adenocarcinoma",
+  "group": "pooled",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "Colon and rectal adenocarcinomas pooled as one colorectal analysis cohort. The TCGA colorectal study characterised both together and found broadly similar genomic alterations outside the hypermutated group; molecular features also vary along the bowel. The submitted project, reported anatomical site, MSI/MMR status and methylation phenotype should be kept as annotations for location-association checks and colon-only sensitivity analyses. The administrative COAD/READ split should not be treated as a biological boundary.",
+  "tcga_project": null,
+  "analysis_cohort": "CRC",
+  "tcga_projects": [
+   "COAD",
+   "READ"
+  ],
+  "includes": [
+   "COAD",
+   "READ"
+  ],
+  "gaps": [
+   "COAD and READ contributions are submitted-project provenance, not adjudicated pure colon and rectum strata; reported GDC site fields can disagree with each other and with case annotations.",
+   "MSI/MMR status and methylation phenotype are not included in this release; they need to be joined from the TCGA colorectal study or PanCanAtlas subtype resources before location analyses.",
+   "Spatial resources listed here include colon, rectal and colorectal specimens whose bowel site is not stated.",
+   "Treatment-flagged patients are not a treated reference set; one normal-reference donor carries a recurrence annotation.",
+   "Patient identity across COAD and READ was checked from identifiers and annotations, not by genotype."
+  ],
+  "unstated_label": "Bowel site not stated",
+  "evidence_notes": {
+   "hausser-2019": "Hausser et al. analysed TCGA-COAD only. Colon adenocarcinoma met their strong significance criterion and was part of the pooled six-cancer analysis. TCGA-READ, with fewer primary tumours, was not among the 15 cancer types screened, and the pooled colorectal cohort has not been tested for archetype geometry."
+  }
+ },
+ {
+  "code": "THCA",
+  "gaps": [
+   "Both patients with primary-tumour sections located have background Hashimoto thyroiditis and no reported treatment history; no case of classical-variant papillary carcinoma alone is verified.",
+   "Further thyroid spatial cohorts lack released original-resolution scans or require requests."
+  ],
+  "name": "Thyroid carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "thca-ptc",
+    "Papillary thyroid carcinoma, variant not specified"
+   ]
+  ],
+  "summary": "Thyroid carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Papillary carcinoma variants and background thyroiditis are recorded where sources report them.",
+  "tcga_project": "THCA",
+  "analysis_cohort": "THCA"
+ },
+ {
+  "code": "BLCA",
+  "gaps": [
+   "Variant morphology of the four primary tumours with located data has not been reviewed.",
+   "A larger untreated muscle-invasive cohort (GSE319536) releases only downsampled H&E."
+  ],
+  "name": "Bladder urothelial carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "blca-mibc",
+    "High-grade muscle-invasive urothelial carcinoma"
+   ]
+  ],
+  "summary": "Bladder urothelial carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Variant morphology is not always reported and may need pathology review.",
+  "tcga_project": "BLCA",
+  "analysis_cohort": "BLCA"
+ },
+ {
+  "code": "LGG",
+  "gaps": [
+   "TCGA-LGG contributes 502 patients, all with both assays, to the glioma classification benchmark (GLIOMA); the LGG-only subset is not counted as a separate cohort.",
+   "Historical histology and grade predate the integrated WHO classification of CNS tumours (2021). Published IDH and 1p/19q groups are annotations; an integrated diagnosis and grade have not been adjudicated.",
+   "No package with verified original-resolution H&E has been confirmed yet.",
+   "The Hoefflin et al. archive names candidate astrocytoma and oligodendroglioma donors; scan resolution and grade assignments still need checking."
+  ],
+  "name": "Lower-grade glioma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "lgg-astro",
+    "IDH-mutant astrocytoma, grade 2/3"
+   ],
+   [
+    "lgg-oligo",
+    "IDH-mutant, 1p/19q-codeleted oligodendroglioma, grade 2/3"
+   ]
+  ],
+  "summary": "Lower-grade glioma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. The TCGA LGG cohort predates current molecular glioma classification, so astrocytoma and oligodendroglioma are separated here using IDH and 1p/19q status where available. In the TCGA analyses, LGG is part of the pooled glioma classification benchmark with TCGA-GBM rather than a discovery cohort; the LGG-only set is a subset of that benchmark.",
+  "tcga_project": "LGG",
+  "analysis_cohort": "GLIOMA"
+ },
+ {
+  "code": "GBM",
+  "gaps": [
+   "Below the screen on its own (242 patients, 51 with both assays after assay QC). After the patient screen 225 remain, but only 46 have both RNA-seq and 450k, so GBM adds few paired cases to the benchmark.",
+   "Among the 225, the pan-glioma study assigns 202 to IDH-wildtype and 11 to IDH-mutant non-codeleted groups; 12 have no complete group, although some of them have an IDH call.",
+   "Historical GBM is not a verified integrated WHO diagnosis, and IDH-wildtype status alone does not make a tumour glioblastoma.",
+   "One patient submitted under GBM is annotated as lower-grade glioma and keeps both labels. One received dexamethasone and phenytoin before procurement; this is recorded as supportive medication, not antineoplastic pretreatment.",
+   "The five normal RNA + H&E packages come from normal-only donors without a reported primary diagnosis. They are not verified matched glioblastoma controls.",
+   "Two glioma spatial resources include glioblastoma: 13 IDH-wildtype GBM sections from five donor labels (Greenwald et al.) and an anatomical-niche atlas of 32 genotyped glioma sections. Original H&E for part of the first is available through a separate archive, but aliases, coverage and registration are unresolved; neither is a verified matched package."
+  ],
+  "name": "Glioblastoma (historical TCGA diagnosis)",
+  "group": "extension",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "TCGA-GBM is used only within the pooled glioma classification benchmark, with TCGA-LGG. Its diagnoses are historical histological categories that predate the integrated molecular classification of CNS tumours; they are kept as labels to be compared with an independently curated integrated diagnosis, not treated as one.",
+  "tcga_project": "GBM",
+  "analysis_cohort": "GLIOMA",
+  "rationale": "Glioma benchmark extension; pooled in GLIOMA"
+ },
+ {
+  "code": "GLIOMA",
+  "name": "Diffuse glioma classification benchmark",
+  "group": "pooled",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "TCGA-LGG and TCGA-GBM pooled as one classification benchmark rather than a discovery cohort. It asks whether a molecular target, frozen before comparison, recovers the historical diagnosis-plus-grade labels or an independently curated integrated (WHO CNS5) diagnosis and grade better, using held-out comparisons and sensitivity analyses within each entity. Recovering known diagnostic groups would not by itself show that the target adds biological information.",
+  "tcga_project": null,
+  "analysis_cohort": "GLIOMA",
+  "tcga_projects": [
+   "LGG",
+   "GBM"
+  ],
+  "includes": [
+   "LGG",
+   "GBM"
+  ],
+  "unstated_label": "Glioma, project not stated",
+  "evidence_notes": {
+   "hausser-2019": "Hausser et al. analysed TCGA-LGG, which met their strong significance criterion and was part of the pooled six-cancer analysis. TCGA-GBM was not among the 15 cancer types screened. The pooled glioma set is used here as a classification benchmark, not as evidence of archetype geometry."
+  },
+  "gaps": [
+   "Integrated WHO diagnosis and grade have not been independently adjudicated. They are not inferred from RNA or methylation clusters, IDH-wildtype status is not equated with glioblastoma, and historical GBM is not treated as an integrated entity.",
+   "Project, platform and missing views are confounded: LGG contributes 502 paired patients and GBM 46, and most GBM patients have only one assay. Run the paired-only sensitivity (548 patients) and check project and assay effects before interpreting classification recovery.",
+   "Published molecular groups are annotations: 254 IDH-mutant non-codeleted, 163 IDH-mutant codeleted and 295 IDH-wildtype among the 727 selected patients. The 15 without a complete published group are not the same as 15 with unknown IDH status; raw IDH and 1p/19q calls are kept separately.",
+   "The LGG-only subset (502 patients, all paired) is part of the benchmark and is not counted again in panel totals. Selected membership is not split by IDH or 1p/19q.",
+   "The five normal packages are GBM-origin, normal-only donors without a reported primary diagnosis, not verified matched controls; LGG has none.",
+   "Supportive dexamethasone and anticonvulsant use is a covariate, distinct from antineoplastic pretreatment; its effect on immune programmes remains relevant.",
+   "Spatial candidates: Greenwald et al. (19 sections; 13 IDH-wildtype from five donor labels and six IDH-mutant from six) and the niche atlas (32 genotyped glioma sections, Xenium from four patients). Section counts are not patient counts, and no spatial package is verified yet.",
+   "Tumour slide linkage and image QC are not yet checked."
+  ]
+ },
+ {
+  "code": "LIHC",
+  "gaps": [
+   "Only two patients have primary-tumour sections located, and their image calibration estimates disagree.",
+   "Several larger cohorts are controlled, post-treatment or lack original scans."
+  ],
+  "name": "Liver hepatocellular carcinoma",
+  "group": "hausser",
+  "hausser": "significant",
+  "strata": [
+   [
+    "lihc-hcc",
+    "Hepatocellular carcinoma NOS"
+   ]
+  ],
+  "summary": "Hepatocellular carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Combined hepatocellular–cholangiocarcinoma and post-treatment cohorts are kept separate.",
+  "tcga_project": "LIHC",
+  "analysis_cohort": "LIHC"
+ },
+ {
+  "code": "LUAD",
+  "gaps": [
+   "All patients with primary-tumour sections located are untreated stage I resections from one study.",
+   "Other candidate cohorts need image calibration, QC or donor crosswalks.",
+   "TCGA-LUAD pathology-group exclusions include unclassified non-small cell carcinoma and cases favouring large cell neuroendocrine carcinoma. EPIC v2 methylation for 53 patients is a different platform and is not counted."
+  ],
+  "name": "Lung adenocarcinoma",
+  "group": "hausser",
+  "hausser": "borderline",
+  "strata": [
+   [
+    "luad-nonmuc",
+    "Invasive non-mucinous adenocarcinoma"
+   ]
+  ],
+  "summary": "Hausser et al. described lung as borderline under their significance criterion, so it was not part of the pooled analysis. Predominant growth patterns are recorded for each tissue section where the source provides them.",
+  "tcga_project": "LUAD",
+  "analysis_cohort": "LUAD"
+ },
+ {
+  "code": "HNSC",
+  "gaps": [
+   "No patient with primary-tumour sections located is documented as untreated: prior treatment recorded as NA is catalogued as unknown.",
+   "HPV status, keratinization and subsite are kept as separate strata."
+  ],
+  "name": "Head and neck squamous cell carcinoma",
+  "group": "hausser",
+  "hausser": "borderline",
+  "strata": [
+   [
+    "hnsc-hpvneg-k",
+    "HPV-negative keratinizing SCC"
+   ],
+   [
+    "hnsc-hpvpos-nk",
+    "HPV-positive nonkeratinizing SCC"
+   ]
+  ],
+  "summary": "Hausser et al. described head and neck cancer as borderline under their significance criterion. HPV status, keratinization and subsite are kept as separate strata because they correspond to different tumour biology.",
+  "tcga_project": "HNSC",
+  "analysis_cohort": "HNSC"
+ },
+ {
+  "code": "CESC",
+  "gaps": [
+   "CSCC histology comes from the TCGA cervical study's merged diagnosis where the case is in that table and from the GDC morphology label otherwise. Three cases differ between the two sources and are listed with both labels.",
+   "46 adenocarcinomas and six adenosquamous carcinomas are outside the selected cohort. Their assays remain valid; they are not marked as failed or relabelled.",
+   "HPV status and the endometrial-like group from the publication are annotations, not exclusion criteria; keratin-high and keratin-low programmes are variation within the cohort.",
+   "A duplicate patient is counted once: the second biopsy record is excluded from independent counts.",
+   "The CSCC normal reference is two squamous-donor packages; a third TCGA-CESC normal package comes from an adenocarcinoma donor and is not a matched CSCC control.",
+   "Histology comes from publication tables and GDC labels, not a new slide review; tumour slide linkage and image QC are not yet checked.",
+   "Three cervical spatial resources are listed for review: one vendor Visium FFPE squamous carcinoma specimen, one public SCC section from an HPV progression series (its adenocarcinoma, normal and HSIL sections are kept separate) and a Stereo-seq study with serial-section H&E. None is yet a verified matched package."
+  ],
+  "name": "Cervical squamous cell carcinoma and endocervical adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation; that result does not rule out archetypes under another representation. It is included because it meets the RNA and 450k methylation screen. Analyses use cervical squamous cell carcinoma (CSCC), selected by histology from the TCGA cervical study with the GDC label as an explicit fallback; adenocarcinomas and adenosquamous carcinomas are outside the selected cohort.",
+  "tcga_project": "CESC",
+  "analysis_cohort": "CSCC"
+ },
+ {
+  "code": "ESCA",
+  "gaps": [
+   "The confirmed ESCC cohort (90 patients) is an approved exception to the general screen thresholds.",
+   "Adenocarcinomas are split by site in the publication table into definite and probable oesophageal, junctional of indeterminate origin and gastric; they are not pooled with ESCC and are not reassigned to STAD.",
+   "Two squamous carcinomas with retained assays carry only a GDC label and stay outside the ESCC cohort as provisional.",
+   "The linkage of retained assays to slide images is not yet checked.",
+   "Three ESCC spatial resources are listed for review: two controlled datasets (no access requested) and a GeoMx ROI study of precancer and cancer. The linked image deposit holds processed hires images for five tumours, not verified original scans. None is yet a verified matched package."
+  ],
+  "name": "Oesophageal carcinoma",
+  "group": "tcga-panel",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "Oesophageal carcinoma combines two distinct diseases, squamous cell carcinoma and adenocarcinoma. It was not among the cancer types screened by Hausser et al. The project meets the molecular screen; analyses use a histology-defined squamous cell carcinoma cohort rather than the pooled project.",
+  "tcga_project": "ESCA",
+  "analysis_cohort": "ESCC"
+ },
+ {
+  "code": "KIRC",
+  "gaps": [
+   "Analyse separately from papillary renal cell carcinoma (KIRP).",
+   "Four clear-cell RCC spatial resources are listed for review: 24 public Visium samples (not a verified count of independent untreated patients), 16 controlled sections, three treated primary tumours for exploratory comparison and one targeted Xenium RNA-and-protein specimen. None is yet a verified matched package."
+  ],
+  "name": "Kidney renal clear cell carcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; a large share of retained patients have RNA-seq without 450k methylation.",
+  "tcga_project": "KIRC",
+  "analysis_cohort": "KIRC"
+ },
+ {
+  "code": "KIRP",
+  "gaps": [
+   "Not interchangeable with KIRC; analyse separately.",
+   "Papillary RCC has only a targeted spatial resource: one vendor Xenium specimen (377-gene panel) beside a non-diseased kidney block. No whole-transcriptome papillary RCC package was verified, and the 16 patients of a related abstract are a multiplex-IF cohort, not a spatial RNA count."
+  ],
+  "name": "Kidney renal papillary cell carcinoma",
+  "group": "tcga-panel",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "Papillary renal cell carcinoma is a separate TCGA project from clear cell carcinoma. It was not among the cancer types screened by Hausser et al. and is included because it meets the molecular screen.",
+  "tcga_project": "KIRP",
+  "analysis_cohort": "KIRP"
+ },
+ {
+  "code": "LUSC",
+  "gaps": [
+   "Few normal-reference patients have retained normal 450k.",
+   "Two LUSC spatial resources are listed for review: a vendor Visium CytAssist FFPE specimen and the LUSC subset of an NSCLC atlas (two donors, six tumour and four adjacent-normal sections). None is yet a verified matched package."
+  ],
+  "name": "Lung squamous cell carcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; about a quarter of retained patients have RNA-seq without 450k methylation.",
+  "tcga_project": "LUSC",
+  "analysis_cohort": "LUSC"
+ },
+ {
+  "code": "PCPG",
+  "gaps": [
+   "Publication-first histology gives 146 pheochromocytomas and 32 paragangliomas; five patients absent from the TCGA PCPG table use the GDC label. Two cases labelled pheochromocytoma in GDC are extra-adrenal paragangliomas in the publication table.",
+   "Two paragangliomas of the head and neck are confirmed by their pathology reports and retained; whether they are sympathetic or parasympathetic is not established. A sensitivity subset without them has 176 patients, all with both assays.",
+   "Historical benign and malignant morphology codes do not determine eligibility.",
+   "Cases with adrenal-cortical admixture are annotated, not removed as adrenocortical carcinoma; tissue composition and identity need their own checks.",
+   "Only three patients contribute normal-reference tissue.",
+   "PCPG remains a spatial access gap: two manuscript or preprint leads are listed, but no reusable measured spatial-RNA package with original H&E was verified."
+  ],
+  "name": "Pheochromocytoma and paraganglioma",
+  "group": "tcga-panel",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "Pheochromocytoma and paraganglioma were not among the cancer types screened by Hausser et al. The project meets the molecular screen, with RNA-seq and 450k methylation for every selected patient, and is analysed as one pooled cohort with tumour location, published molecular subtype and adrenal-cortical admixture kept as annotations.",
+  "tcga_project": "PCPG",
+  "analysis_cohort": "PCPG"
+ },
+ {
+  "code": "PRAD",
+  "gaps": [
+   "Many tumour aliquots carry pathology-group exclusions for RNA degradation, so the retained count is well below raw availability.",
+   "Four prostate spatial resources are listed for review: two vendor Visium FFPE specimens (not assumed to come from distinct patients), a Slide-seqV2 study with two cancer donors and consecutive-section H&E, and a legacy Spatial Transcriptomics clonal-mapping release. None is yet a verified matched package."
+  ],
+  "name": "Prostate adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen after a substantial number of pathology-group exclusions.",
+  "tcga_project": "PRAD",
+  "analysis_cohort": "PRAD"
+ },
+ {
+  "code": "STAD",
+  "gaps": [
+   "Gastro-oesophageal junction tumours need site review against ESCA.",
+   "No normal-reference patient has retained normal 450k.",
+   "Two gastric Visium resources are listed for review: nine donor labels including one metastasis section, and a 72-section deposit with 20 donor labels whose series summary reports 19 main tumour samples, a discrepancy not yet reconciled. None is yet a verified matched package."
+  ],
+  "name": "Stomach adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen.",
+  "tcga_project": "STAD",
+  "analysis_cohort": "STAD"
+ },
+ {
+  "code": "UCEC",
+  "gaps": [
+   "Histology comes from the TCGA endometrial study where the case is in its table and from the GDC label otherwise: 398 endometrioid, 112 serous, 12 mixed and one other among the 523 selected patients. These are analysis annotations, not independently reviewed current diagnoses.",
+   "Nineteen cases have a publication histology that differs from the GDC label; both are kept.",
+   "The endometrioid-only subset (398 patients, 303 with both assays) is a sensitivity analysis within the cohort, not a separate cohort. No smaller serous cohort is selected.",
+   "Histological type and the published molecular groups (POLE, MSI, copy-number low and high) do not coincide; a molecular serous-like or endometrioid-like profile is not a reason to exclude a case. Uterine carcinosarcoma (TCGA-UCS) is not added.",
+   "Some retained patients have RNA-seq without 450k methylation, and some normal-reference patients have no retained primary-tumour assay.",
+   "Two endometrial spatial resources are listed for review: one primary-tumour Visium sample, and four metastasis biopsy sections from two donors before and during NP137 treatment, for exploratory treated comparison only. None is yet a verified matched package."
+  ],
+  "name": "Uterine corpus endometrial carcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen and is analysed as one pooled endometrial carcinoma cohort, with reviewed histology, grade and the published molecular groups kept as annotations and an endometrioid-only sensitivity subset.",
+  "tcga_project": "UCEC",
+  "analysis_cohort": "UCEC"
+ },
+ {
+  "code": "PDAC",
+  "gaps": [
+   "Pei et al. primary-site sections come from rapid autopsies of end-stage disease, not early surgical resections.",
+   "HTAN pancreatic sections are labelled pancreatobiliary-type and need pathology harmonisation before pooling with conventional PDAC.",
+   "Original scans for the Schmitt et al. untreated resections have not been located.",
+   "The proposed confirmed PDAC cohort (149 patients) is one patient below the general 150-patient threshold and is shown as an explicit exception.",
+   "Eight TCGA-PAAD patients with retained assays are excluded or held because their reviewed diagnosis is adenosquamous, colloid or “Other”.",
+   "The linkage of retained assays to slide images is not yet checked for the TCGA cohort."
+  ],
+  "name": "Pancreatic ductal adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "not-screened",
+  "strata": [
+   [
+    "pdac-conv",
+    "Pancreatic ductal adenocarcinoma"
+   ],
+   [
+    "pdac-pb",
+    "Pancreatobiliary-type adenocarcinoma (harmonisation pending)"
+   ]
+  ],
+  "summary": "Pancreatic ductal adenocarcinoma was not among the cancer types screened by Hausser et al. TCGA-PAAD meets the molecular screen; analyses use a histology-confirmed ductal adenocarcinoma cohort selected by documented pathology review rather than the whole project.",
+  "tcga_project": "PAAD",
+  "analysis_cohort": "PDAC"
+ }
+]

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spatial studies · Tumour Histology and Multi-omics Explorer</title>
+<meta name="description" content="Published spatial omics studies with matched H&amp;E: linkage level, verification status, access and open checks.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="alternate" type="text/markdown" title="Text version" href="md/spatial.md">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><rect x="1" y="2.5" width="20" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.6 12.4c0-2.9 1.9-5.3 4.3-5.3 2.2 0 3.6 1.6 3.3 3.9-.3 2.2-2.2 3.9-4.1 3.7-1.9-.2-3.5-.6-3.5-2.3Z" class="brand-blob"/><path d="M15.6 7v7M18 9.5v4.5" class="brand-bars" stroke-width="1.7" stroke-linecap="round"/></svg><span>Tumour Histology and Multi-omics Explorer</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>
+      <li><a href="cancers.html">Cancer types</a></li>
+      <li><a href="tcga.html">TCGA reference</a></li>
+      <li><a href="spatial.html" aria-current="page">Spatial studies</a></li>
+      <li><a href="explore.html">Data explorer</a></li>
+      <li><a href="methods.html">Methods</a></li>
+      <li><a href="applications.html">Applications</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Spatial studies</h1>
+      <p class="prose muted">Published spatial omics studies show where molecular programmes and cell states sit within a tumour and how they relate to its morphology. They usually come from patients other than those in TCGA, so they add tissue context to the reference but no measurements for TCGA patients.</p>
+      <nav class="page-nav" aria-label="On this page"><span class="page-nav-label">On this page</span><a href="#overview">At a glance</a><a href="#by-cancer">By cancer type</a><a href="#status">Verification and access</a><a href="#route">Public-route review</a><a href="#leads">Related leads</a><a href="#browse">Browse and export</a></nav>
+    </div>
+
+    <section id="overview" aria-labelledby="overview-h">
+      <h2 id="overview-h">At a glance</h2>
+      <div class="stats" id="stats" aria-live="polite"></div>
+    </section>
+
+    <section id="by-cancer" aria-labelledby="by-cancer-h">
+      <h2 id="by-cancer-h">By cancer type</h2>
+      <div id="spatial-table"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section id="status" class="prose" aria-labelledby="status-h">
+      <h2 id="status-h">Verification and access</h2>
+      <dl class="defs">
+        <div><dt>Matched data located</dt><dd>The original H&amp;E image, measured expression and spatial coordinates were found for individual tissue sections, which are listed one by one in the data explorer. Image registration and tissue QC are still to be completed.</dd></div>
+        <div><dt>Verification pending</dt><dd>A catalogued study that may provide matched data but has an open check, such as original scans not located, an unconfirmed section relationship, an unresolved donor count or a pending histology review. Its eligible patients are not established.</dd></div>
+        <div><dt>Access-dependent</dt><dd>Data that are controlled, available on request, not yet released or without an established release route. Listing them does not mean that access has been requested or granted.</dd></div>
+      </dl>
+      <p>Each resource's details record how H&amp;E and measurements are linked (same section, released together, serial section or unverified), the assay type, the tissue it comes from (primary, metastatic, adjacent-normal, normal or precursor) and treatment before sampling. <a href="methods.html#linkage">Linkage levels</a> · <a href="methods.html#spatial-review">How resources are reviewed</a>.</p>
+    </section>
+
+    <section id="route" class="prose" aria-labelledby="route-h">
+      <h2 id="route-h">Public-route review</h2>
+      <p>The named public routes of the 26 reviewed resources were followed to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. Each resource's open dependencies are kept apart below: a failed download is a technical gap, not a permission requirement. No author was contacted and no access was requested.</p>
+      <div id="route-table"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section id="leads" class="prose" aria-labelledby="leads-h">
+      <h2 id="leads-h">Related leads, not counted</h2>
+      <p>These releases add no resources or patients to the figures on this page: their patients cannot yet be assigned to a cancer type, they concern precursor lesions, or they reuse data catalogued elsewhere.</p>
+      <div id="leads-list"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section id="browse" class="prose" aria-labelledby="browse-h">
+      <h2 id="browse-h">Browse and export</h2>
+      <p>The <a href="explore.html?view=cohorts&amp;layer=matched-spatial">resource list in the data explorer</a> shows every spatial study, with filters for assay type, H&amp;E linkage, tissue, treatment and access. The <a href="explore.html">spatial transcriptomics view</a> lists every tissue section with located data, with its histology, tissue site, treatment before sampling and access, including a filter for untreated primary tumours. Both export the current selection as CSV or JSON.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span><strong>Tumour Histology and Multi-omics Explorer</strong> · <span id="release">Release</span> · <a href="sources.html">Sources</a> · <a href="agents.html">For AI agents</a> · <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">GitHub</a></span>
+    <span>Metadata <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/DATA-LICENSE.md">CC BY 4.0</a>, code <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/LICENSE">GPL-3.0</a>. Data remain at their original repositories; listing a dataset does not imply that access has been granted.</span>
+  </div>
+</footer>
+<script type="module" src="assets/js/spatial.js"></script>
+</body>
+</html>

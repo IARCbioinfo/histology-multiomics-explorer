@@ -1,0 +1,49 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/tcga_resources.schema.json",
+ "title": "tcga_resources",
+ "description": "Links to current GDC data, PanCanAtlas files, histology sources and reference publications",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "properties": {
+   "id": {
+    "type": "string"
+   },
+   "group": {
+    "type": "string"
+   },
+   "label": {
+    "type": "string"
+   },
+   "file": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "url": {
+    "type": "string"
+   },
+   "docs": {
+    "type": [
+     "null",
+     "string"
+    ]
+   },
+   "use": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "id",
+   "group",
+   "label",
+   "file",
+   "url",
+   "docs",
+   "use"
+  ],
+  "additionalProperties": false
+ }
+}

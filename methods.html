@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curation and methods · Tumour Histology and Multi-omics Explorer</title>
+<meta name="description" content="How molecular coverage, assay and patient exclusions, histology decisions, pooling, sample linkage and count units are curated.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><rect x="1" y="2.5" width="20" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.6 12.4c0-2.9 1.9-5.3 4.3-5.3 2.2 0 3.6 1.6 3.3 3.9-.3 2.2-2.2 3.9-4.1 3.7-1.9-.2-3.5-.6-3.5-2.3Z" class="brand-blob"/><path d="M15.6 7v7M18 9.5v4.5" class="brand-bars" stroke-width="1.7" stroke-linecap="round"/></svg><span>Tumour Histology and Multi-omics Explorer</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>
+      <li><a href="cancers.html">Cancer types</a></li>
+      <li><a href="tcga.html">TCGA reference</a></li>
+      <li><a href="spatial.html">Spatial studies</a></li>
+      <li><a href="explore.html">Data explorer</a></li>
+      <li><a href="methods.html" aria-current="page">Methods</a></li>
+      <li><a href="applications.html">Applications</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Curation and methods</h1>
+      <p class="prose muted">How datasets are selected, how patients, samples and sections are counted, how measurements are linked and what each label means. The explorer describes data availability, curation decisions and open checks; it does not report new analyses.</p>
+      <nav class="page-nav grouped" aria-label="On this page"><span class="page-nav-label">On this page</span>
+        <div class="page-nav-row"><span class="page-nav-group">Overview</span><a href="#curated">What we curated</a><a href="#panel">Analysis panel and availability</a><a href="#scope">Scope</a><a href="#units">Count units</a><a href="#linkage">Linkage</a></div>
+        <div class="page-nav-row"><span class="page-nav-group">TCGA</span><a href="#tcga">Molecular coverage</a><a href="#quality">Assay exclusions</a><a href="#patient-screen">Patient screen</a><a href="#analysis-cohorts">Histology and pooling</a><a href="#compartments">Tissue compartments</a><a href="#versions">Data versions</a><a href="#scope-review">Earlier scope review</a></div>
+        <div class="page-nav-row"><span class="page-nav-group">Spatial studies</span><a href="#tiers">Capture tiers</a><a href="#clinical">Treatment and site</a><a href="#status">Resource status</a><a href="#access">Access</a><a href="#verification">Verification</a><a href="#rules">Curation rules</a><a href="#spatial-review">Resources under review</a></div>
+        <div class="page-nav-row"><span class="page-nav-group">History and data</span><a href="#hausser">Selection history</a><a href="#limits">Limitations</a><a href="#data">Data files</a></div>
+      </nav>
+    </div>
+
+    <div class="prose">
+      <h2 id="curated">What we curated, and why</h2>
+      <p>Building a research cohort requires more than finding available files. For TCGA, we count RNA-seq and 450k methylation by patient and apply the PanCanAtlas assay-quality annotations to each aliquot. We then review treatment, diagnosis and specimen information for every retained patient, define histologically coherent cohorts and record how slide images and measurements are linked. For spatial studies, we check the measured expression, coordinates and H&amp;E image, how the image relates to the assayed section, and the donor counts, histology, treatment and access. Each decision is recorded with its evidence and any open question, so that others can see how a selection was made and change it.</p>
+      <p>The page follows the same order: <a href="#panel">the analysis panel and general availability</a>, <a href="#units">count units</a> and <a href="#linkage">linkage</a>; then the TCGA steps (<a href="#tcga">molecular coverage</a>, <a href="#quality">assay exclusions</a>, <a href="#patient-screen">patient screen</a>, <a href="#analysis-cohorts">histology decisions and pooling</a>); then spatial studies; then the selection history and limitations.</p>
+
+      <h2 id="panel">The analysis panel and general availability</h2>
+      <p><strong>General availability</strong> describes what a resource provides: for TCGA, the patients of each project with retained RNA-seq, 450k methylation or both after assay-quality exclusions, and normal tissue with slide images; for spatial studies, what each study deposits and how it is linked. The <a href="tcga.html#coverage">coverage table on the TCGA reference page</a> shows this for every solid-tumour project.</p>
+      <p><strong>The selected analysis panel</strong> is a research selection for studies of tumour heterogeneity, including archetype analysis. It applies a patient treatment and diagnosis screen, histology-defined cohorts, pooled cohorts and a minimum cohort size of 150 patients with RNA-seq or 450k and 100 with both, with two documented exceptions. Its counts apply to that purpose.</p>
+      <p>These criteria serve one study design, and data outside the panel can suit other questions. The 27k methylation array is not counted because the panel uses 450k data, and patients withheld for treatment or uncertain histories may suit other designs, such as studies of treatment effects. Candidate spatial studies are listed because they may be useful once their open checks are resolved.</p>
+
+      <h2 id="scope">Scope</h2>
+      <p>The explorer covers published third-party datasets with a documented route to the data. Controlled-access datasets are included when their metadata are public, with the actual request route stated. Listing a dataset does not mean that access has been requested or granted.</p>
+      <p>Four kinds of resource are distinguished. Whole-slide image cohorts with bulk RNA-seq and DNA methylation, led by TCGA, provide the tumour-level reference. Matched H&amp;E and spatial RNA extend it into tissue context: original histology images with measured expression and spot or cell coordinates from the same tissue; captures that meet every criterion form the spatial core. Single-cell and single-nucleus data support interpretation of cell states, though none are catalogued yet. Image-only or RNA-only resources are listed when they have a defined role, and their lack of a matched modality is shown.</p>
+      <p>Clinical tumour tissue is kept separate from cell lines, organoids, patient-derived xenografts and mouse models. Normal tissue is shown as a separate reference compartment and is never counted with tumours. Planned or announced data are not listed as available.</p>
+
+      <h2 id="units">Count units</h2>
+      <p>Every count states its unit. Units are not interchangeable, and counts in different units are never added.</p>
+      <dl class="defs">
+        <div><dt>Patient</dt><dd>An individual donor, identified by the source's patient ID. Patients are counted once per cohort, however many captures they contribute.</dd></div>
+        <div><dt>Specimen</dt><dd>A tissue sample or block. Several sections can come from one specimen.</dd></div>
+        <div><dt>Capture</dt><dd>One assayed section or capture area with its own expression matrix, coordinates and H&amp;E image. Repeated or serial captures add sections, not patients.</dd></div>
+        <div><dt>Cohort</dt><dd>The original study that collected the samples. Mirrors, processed reuses and later reanalyses are linked to the original study and do not create new cohorts.</dd></div>
+        <div><dt>TCGA patient counts</dt><dd>Unique patients with a retained primary-tumour assay: the union of RNA-seq and 450k (“RNA-seq and/or 450k”), the intersection (“both” or “paired”) and the single-view remainders. Aliquots are counted separately, and normal-reference counts are kept apart from tumour counts.</dd></div>
+        <div><dt>Reported units</dt><dd>For studies not yet verified at capture level, counts are shown in the source's own units, such as sections, slides, arrays, samples or donor labels, with their basis. They are not patient counts unless stated.</dd></div>
+      </dl>
+
+      <h2 id="linkage">Linkage between modalities</h2>
+      <p>Matching is recorded at the level the evidence supports. These levels are not interchangeable.</p>
+      <dl class="defs">
+        <div><dt>Same section</dt><dd>H&amp;E imaged on the section that was assayed, as described in the study methods or repository.</dd></div>
+        <div><dt>Same section, mapping pending</dt><dd>The assayed section was imaged, but the released scan covers the whole slide and the capture area still has to be located on it.</dd></div>
+        <div><dt>Released together</dt><dd>H&amp;E and expression are released for the same capture identifier; section identity has not been checked separately.</dd></div>
+        <div><dt>Serial section</dt><dd>H&amp;E from an adjacent section of the same block.</dd></div>
+        <div><dt>Same patient</dt><dd>Assays and images come from the same patient; sample, block and region equivalence have not been established. In TCGA, “both assays” means a retained primary-tumour RNA-seq aliquot and a retained primary-tumour 450k aliquot from one patient, not necessarily from the same sample.</dd></div>
+        <div><dt>Same sample</dt><dd>Used for the TCGA normal reference: normal RNA-seq, the H&amp;E image and, where counted, normal 450k are linked to the same GDC sample.</dd></div>
+      </dl>
+      <p>An H&amp;E image shown in a publication is not evidence that the original scan was released, and a code repository is not evidence of a data release. Downsampled images produced by spatial processing pipelines are not treated as original-resolution histology. Instrument images from CytAssist workflows are distinguished from microscope scans.</p>
+
+      <h2 id="tcga">TCGA molecular coverage and the panel screen</h2>
+      <p><strong>The size threshold.</strong> An analysis cohort enters the panel when, after the quality exclusions below, at least 150 unique patients have a primary-tumour RNA-seq or 450k methylation assay and at least 100 of them have both. Patients are counted before the treatment and diagnosis screen. The threshold applies to the analysis cohort, not to the TCGA project: colorectal cancer and diffuse glioma are pooled cohorts, and where a project mixes distinct diseases (TCGA-ESCA, TCGA-CESC and TCGA-PAAD) the cohort is the histology analysed. Patients with only one layer stay in the counts; RNA-only and 450k-only patients are shown separately.</p>
+      <ul>
+        <li>Tumour assays use GDC samples typed “Primary Tumor”. Metastatic, recurrent and additional-new-primary samples are not counted.</li>
+        <li>RNA-seq is GDC gene expression quantification. Methylation is the Illumina 450k array only. The 27k array and the merged 27k+450k matrix are excluded. EPIC v2, listed for 53 LUAD patients, is a different platform and is not counted; no original 850k EPIC records were found for TCGA.</li>
+        <li>The panel has 18 analysis cohorts from 20 projects: 17 discovery cohorts and one glioma classification benchmark. Sixteen single-project cohorts come from projects that meet the screen: BLCA, BRCA, CESC, ESCA, HNSC, KIRC, KIRP, LIHC, LUAD, LUSC, PAAD, PCPG, PRAD, STAD, THCA and UCEC. TCGA-COAD and TCGA-READ form the pooled colorectal cohort, CRC, which meets the screen with 599 patients, 379 with both, after assay exclusions; READ alone (156 patients, 94 with both) does not need to pass. TCGA-LGG and TCGA-GBM form the pooled glioma benchmark, GLIOMA, with 756 patients, 565 with both; GBM alone (242 patients, 51 with both) does not need to pass.</li>
+        <li>TCGA-SARC passes as a project (225 patients, 223 with both), but it combines several distinct sarcoma types, each below the threshold: the largest, soft-tissue leiomyosarcoma, has 53 patients, and all leiomyosarcomas together 87. Sarcoma is therefore not in the panel, and its patients are not listed. TGCT and the other projects below the threshold are not cohorts either.</li>
+        <li>Passing the screen is a statement about molecular data coverage. It says nothing about whether a project supports archetype geometry, and it does not make a project a curated, untreated or image-linked study cohort.</li>
+      </ul>
+      <p>The coverage of every solid-tumour project, before and after exclusions and beside the panel columns, is tabulated on the <a href="tcga.html#coverage">TCGA reference page</a>.</p>
+
+      <h2 id="quality">Assay-quality exclusions</h2>
+      <p>Each RNA-seq and 450k aliquot is joined to the PanCanAtlas merged sample-quality annotations by its full aliquot barcode and a compatible platform (IlluminaHiSeq_RNASeqV2 or IlluminaGA_RNASeqV2 for RNA-seq; HumanMethylation450 for methylation). Truncated sample or patient barcodes are not used for matching.</p>
+      <dl class="defs">
+        <div><dt>Excluded</dt><dd>The aliquot has <code>Do_not_use = True</code> or <code>AWG_excluded_because_of_pathology = 1</code>. The two flags are independent: of 1,179 pathology-flagged rows in the annotation table, 1,052 have <code>Do_not_use = False</code>, so filtering on one flag alone would miss them.</dd></div>
+        <div><dt>Unresolved</dt><dd>No exact aliquot and platform match exists in the annotation table. These aliquots are neither excluded nor retained, and are left out of the counts until reconciled.</dd></div>
+        <div><dt>Retained</dt><dd>An exact match with neither flag set.</dd></div>
+      </dl>
+      <ul>
+        <li>Exclusions apply to the assay aliquot. A failed methylation aliquot does not remove that patient's retained RNA-seq, and the reverse; patient layers are recomputed after exclusions.</li>
+        <li>Each flagged aliquot keeps its reasons, including the pathology-group text and any patient-, sample- or aliquot-level annotation. A patient-level annotation, such as a redaction or identity issue, needs its own scope review before analysis.</li>
+        <li>Some pathology-group reasons reflect study-specific selection, such as a rare subtype omitted for too few cases, rather than sample quality. They are applied as published; any reinstatement would need an explicit, documented review.</li>
+        <li><code>Reviewed_by_EPC = 0</code> is not an exclusion. <code>Do_not_use = False</code> is not evidence that a tumour was untreated or that the tissue composition is adequate.</li>
+      </ul>
+      <p>Excluded and unresolved aliquots are listed per patient in the explorer's TCGA view and in <a href="data/tcga_flags.json">tcga_flags.json</a>.</p>
+
+      <h2 id="patient-screen">Patient treatment and diagnosis screen</h2>
+      <p>Every TCGA patient with a retained RNA-seq or 450k layer in the 20 panel projects (8,187 patients) was reviewed against historical PanCanAtlas patient annotations, live GDC case annotations and the GDC study-primary diagnosis. The result is a patient-level overlay on the assay states: it adds exclusions, reversible holds, reasons and covariates, and never changes an aliquot's disposition or reinstates an excluded assay.</p>
+      <dl class="defs">
+        <div><dt>Treatment exclusion</dt><dd>Documented treatment before sampling: a neoadjuvant annotation, a study-primary diagnosis recording prior treatment, systemic treatment for another malignancy, or earlier local treatment of the same organ. A specific neoadjuvant annotation overrides a generic “No prior treatment” field; conversely, a “Yes” field whose notes show radiation at a remote site or a childhood exposure is recorded as a covariate rather than treatment of the sampled cancer.</dd></div>
+        <div><dt>Treatment hold</dt><dd>Treatment before sampling is uncertain or unreported, including a prior malignancy whose treatment is unresolved. A “No” for the study tumour does not settle treatment of an earlier malignancy, and later treatment records do not show that a patient was untreated before sampling. Holds can be reversed by further evidence.</dd></div>
+        <div><dt>Diagnosis, identity or episode</dt><dd>Recurrent or progressive specimens; wrong primary site or histology for the project; missing diagnosis; no tumour in the submitted specimen; sample-identity or tumour–normal integrity concerns; a duplicate patient; and diagnosis codes suggesting another lineage or variant. Coded lineage conflicts are pathology holds, not confirmed new diagnoses.</dd></div>
+        <div><dt>Covariate</dt><dd>Recorded context that does not withhold a patient: a prior or synchronous malignancy without systemic treatment, local treatment of another malignancy, radiation at a remote site that did not treat the sampled organ, or a childhood radiation exposure.</dd></div>
+      </dl>
+      <ul>
+        <li>Each withheld patient has one main disposition, assigned in the order diagnosis, identity or episode; then treatment exclusion; then treatment hold. In the 20 panel projects, of 8,139 tumour patients after assay QC, 7,970 pass; 169 are withheld: 67 treatment exclusions, 40 treatment holds and 62 diagnosis, identity, recurrence or specimen cases.</li>
+        <li>Reasons overlap: 74 tumour patients have a treatment-exclusion reason, 47 a treatment-hold reason and 62 a diagnosis, identity or episode reason. These are not added together, and withheld patients are not all treated.</li>
+        <li>Treatment contexts are kept distinct: treatment of the sampled cancer, systemic treatment for another malignancy, earlier local treatment of the same organ, remote local radiation, childhood exposure, supportive steroid or anticonvulsant medication and unresolved histories. Supportive medication is a covariate, not antineoplastic pretreatment. Recurrence is a diagnosis/episode reason, not a treatment.</li>
+        <li>A duplicate cervical cancer patient is counted once: the first biopsy (TCGA-ZJ-A8QQ) is kept and the second biopsy record (TCGA-EK-A2H0) is excluded from independent counts.</li>
+        <li>A primary site that differs from the submitted project is not a reason to withhold a colorectal patient: within the pooled CRC cohort, colon and rectal site corrections are recorded as annotations (see below).</li>
+        <li>Applying the ESCC, PDAC and CSCC histology cohorts to the 7,970 gives the selected analysis set of 7,826 patients in 18 analysis cohorts: 6,561 with RNA-seq and 450k, 1,110 with RNA-seq only and 155 with 450k only. The 17 discovery cohorts hold 7,099 patients (6,013 paired) and the glioma benchmark 727 (548). The CRC (581 patients, 371 with both), ESCC (90, all with both) and PDAC (149, 143 with both) cohorts and the PDAC sensitivity subset (148, 142 with both) are unchanged.</li>
+        <li>The screen does not certify homogeneous histology. Histology for CESC, UCEC, PCPG and the glioma projects comes from publication tables with GDC fallback, not a slide review; integrated glioma diagnoses, image eligibility and numerical assay QC remain open.</li>
+      </ul>
+      <p><strong>No treated reference set.</strong> Too few suitable treated cases exist to build a treated TCGA reference. Patients excluded for documented treatment stay listed with their reasons and may be considered individually for exploratory comparison with treated spatial datasets, outside untreated-reference training, after checking lineage, assay QC, exposure, timing and specimen site. Unknown histories, wrong-diagnosis and identity cases are not treatment comparators, and excluded assays are never reinstated to increase treated numbers.</p>
+      <p><strong>Normal reference after screening.</strong> In the 20 panel projects, of 663 normal RNA + H&amp;E packages after assay exclusions, seven are withheld for treatment or integrity reasons, leaving 656, of which 377 also have normal 450k. By donor context, 634 packages (362 with 450k) come from donors with a target-project tumour diagnosis, 12 (12) are organ-specific controls without a reported tumour diagnosis, 5 (2) come from donors with a non-target, uncertain or recurrent diagnosis and 5 (1) are GBM-origin normal-only donors without a reported primary diagnosis. Project-level normal counts include donors outside a histology-defined cohort (for example adenocarcinoma donors in TCGA-ESCA and TCGA-CESC); each cohort page shows its own normal reference separately. None of these is a verified healthy or histologically reviewed control, and a tumour-only histology exclusion is not carried over to a valid normal specimen.</p>
+
+      <h2 id="analysis-cohorts">Histology decisions and pooled cohorts</h2>
+      <p>Most analysis cohorts are a single TCGA project. Five differ. ESCA, PAAD and CESC are narrowed to one histology by explicit patient lists; colon and rectal adenocarcinoma are pooled; and lower-grade glioma and glioblastoma are pooled as a classification benchmark rather than a discovery cohort. UCEC and PCPG stay pooled projects, with reviewed histology kept as annotations and sensitivity subsets. Every cohort is an explicit patient list from the review, not a reconstruction from counts. The project-level counts above describe data availability; these cohorts describe which tumours belong in an analysis.</p>
+      <dl class="defs">
+        <div><dt>Confirmed ESCC</dt><dd>TCGA-ESCA patients classified as oesophageal squamous cell carcinoma in the TCGA oesophageal study's Supplementary Table 1, with retained assays: 90 patients, all with RNA-seq and 450k. This is an approved smaller-cohort exception to both screen thresholds. Squamous carcinomas with only a GDC label stay outside as provisional; adenocarcinomas are split by published site category and are not pooled with ESCC.</dd></div>
+        <div><dt>Confirmed PDAC (proposed)</dt><dd>TCGA-PAAD patients with retained assays whose diagnosis is ductal adenocarcinoma in the TCGA pancreatic study's pathology review (142 patients), plus seven patients absent from that table whose original GDC pathology report confirms invasive ductal adenocarcinoma: 149 patients, 143 with RNA-seq and 450k and six with 450k only. It is one patient below the general 150-patient total and is shown as an explicit exception.</dd></div>
+        <div><dt>PDAC sensitivity subset</dt><dd>The PDAC cohort without TCGA-L1-A7W4, whose report describes ductal adenocarcinoma with a focal squamous component: 148 patients, 142 paired.</dd></div>
+        <div><dt>Cervical squamous cell carcinoma (CSCC)</dt><dd>TCGA-CESC patients with squamous histology: 249 patients, 248 with RNA-seq and 450k. Histology comes from the TCGA cervical study's merged diagnosis where the case is in that table (142 selected patients) and from the GDC morphology label otherwise. Three cases differ between the two sources and keep both labels: TCGA-DG-A2KK is squamous in the publication despite an adenocarcinoma GDC label, and TCGA-EA-A5ZF and TCGA-HM-A6W2 are adenosquamous despite squamous GDC labels. The 46 adenocarcinomas and six adenosquamous carcinomas are outside the selected cohort; their assays are valid and not marked as failed. HPV status and the endometrial-like group are annotations, not exclusions. The CSCC normal reference is two squamous-donor packages, both with 450k; the third TCGA-CESC normal package comes from an adenocarcinoma donor and is labelled separately.</dd></div>
+        <div><dt>Uterine corpus endometrial carcinoma (UCEC)</dt><dd>One pooled cohort of 523 patients, 413 with both assays. Publication-first histology with GDC fallback gives 398 endometrioid (303 paired), 112 serous (98), 12 mixed (11) and one other. Nineteen publication labels differ from the GDC label; both are kept, with grade and the published molecular groups, as annotations rather than independently reviewed current diagnoses. The endometrioid-only subset (398 patients, 303 with both) is a sensitivity analysis. No smaller serous cohort is selected, no case is excluded for a molecular serous-like or endometrioid-like profile, and uterine carcinosarcoma is not added.</dd></div>
+        <div><dt>Pheochromocytoma and paraganglioma (PCPG)</dt><dd>One pooled cohort of 178 patients, all paired: 146 pheochromocytomas and 32 paragangliomas by publication-first histology, with five patients absent from the TCGA PCPG table using the GDC label. TCGA-QR-A6GT and TCGA-SR-A6MQ are extra-adrenal paragangliomas in the publication despite pheochromocytoma GDC labels. The two head and neck paragangliomas, TCGA-RM-A68T and TCGA-RM-A68W, are confirmed by their pathology reports and retained; a sensitivity subset without them has 176 patients. Location, molecular subtype and adrenal-cortical admixture are annotations; admixture cases are not removed as adrenocortical carcinoma, and historical benign or malignant codes do not determine eligibility.</dd></div>
+        <div><dt>Diffuse glioma classification benchmark (GLIOMA)</dt><dd>TCGA-LGG (502 patients, all paired) and TCGA-GBM (225 patients, 46 paired) pooled as one benchmark: 727 patients, 643 with RNA-seq and 632 with 450k; 548 with both, 95 with RNA-seq only and 84 with 450k only. The LGG-only subset (502 patients, all with both) is part of it and is not counted again. Historical histology and grade, raw IDH and 1p/19q calls, the published molecular groups (254 IDH-mutant non-codeleted, 163 IDH-mutant codeleted, 295 IDH-wildtype, 15 without a complete group) and the eligibility reasons are kept as recorded. Integrated WHO diagnosis and grade have not been independently adjudicated: they are not inferred from RNA or methylation clusters, IDH-wildtype status is not equated with glioblastoma, and historical GBM is not treated as an integrated entity. The benchmark compares the historical diagnosis-plus-grade labels with an independently curated integrated diagnosis and grade on a frozen, held-out molecular target, with sensitivity analyses within each entity.</dd></div>
+        <div><dt>Pooled colorectal adenocarcinoma (CRC)</dt><dd>TCGA-COAD and TCGA-READ patients analysed as one cohort, each counted once: 581 patients after the patient screen, 579 with RNA-seq and 373 with 450k; 371 with both, 208 with RNA-seq only and 2 with 450k only. By submitted project, 427 (279 paired) come from COAD and 154 (92 paired) from READ. These are provenance counts, not adjudicated colon and rectum strata. The TCGA colorectal study found broadly similar genomic alterations in colon and rectal tumours outside the hypermutated group, while molecular features also vary along the bowel, so the submitted project, reported site, MSI/MMR status and methylation phenotype are kept as annotations for location-association checks and colon-only sensitivity analyses.</dd></div>
+      </dl>
+      <ul>
+        <li>Two COAD-submitted patients whose case annotations identify a rectal primary, TCGA-AY-4071 (RNA-seq only) and TCGA-CM-4750 (both layers), were previously withheld from COAD for site alone and are now in CRC. Two READ-submitted patients annotated as colon primaries, TCGA-AF-2692 and TCGA-AF-2693, stay in CRC. The reported GDC site fields of all four are kept as they are, beside the annotation override, including where the fields conflict.</li>
+        <li>Within CRC, TCGA-CI-6620 (READ) is excluded for chemotherapy before tissue procurement, and TCGA-F5-6810 (READ) is held because its diagnosis and treatment history are missing.</li>
+        <li>The CRC normal reference has 47 normal RNA + H&amp;E patients, 19 also with normal 450k. One donor, TCGA-AA-3525, carries a recurrence annotation, so not every normal package is a verified matched control.</li>
+        <li>Identity across COAD and READ was checked from patient and case identifiers and annotations; no patient appears in both projects. Genotype concordance was not checked. MSI/MMR status and methylation phenotype are not yet included in this release.</li>
+      </ul>
+      <ul>
+        <li>In the glioma benchmark, project, platform and missing views are confounded: GBM adds only 46 paired patients against 502 from LGG, and most GBM patients have a single assay. A paired-only sensitivity analysis (548 patients) and checks of project and assay effects should precede any interpretation of classification recovery.</li>
+        <li>Of 242 GBM patients after assay QC, the patient screen withholds 17: three treatment exclusions, four unresolved treatment histories, and ten recurrence, missing-diagnosis, qualification or pathology holds. One patient submitted under GBM is annotated as lower-grade glioma and keeps both labels. One received dexamethasone and phenytoin shortly before procurement; this supportive medication is a covariate, not antineoplastic pretreatment, though its effect on immune programmes remains relevant.</li>
+        <li>The five GBM-origin normal packages (one with 450k) come from normal-only donors without a reported primary diagnosis. They are not verified matched glioblastoma controls; LGG has no normal package.</li>
+      </ul>
+      <ul>
+        <li>Membership is not a morphology-code filter. Of 19 TCGA-PAAD cases labelled adenocarcinoma NOS, mucinous or mixed in GDC, 16 are ductal in the review and included; one adenosquamous, one colloid and one “Other” (IPMN note) are not. Five cases labelled ductal in GDC are adenosquamous or “Other” in the review and are excluded or held.</li>
+        <li>An IPMN note alone does not establish non-invasive disease; such cases are held because the review does not confirm conventional invasive ductal adenocarcinoma.</li>
+        <li>Where a patient has both primary and metastatic specimens, only the primary samples and their slides belong to the primary-tumour cohort.</li>
+        <li>The evidence is a documented diagnosis review of published pathology tables and original GDC pathology reports. It is not a new expert slide review, and the source and its disagreement with the GDC label are shown for each case.</li>
+        <li>Every member of these cohorts also passes the patient treatment and diagnosis screen above; the linkage of retained assays to slide images is not yet checked. Assay exclusions, the platform rules and the general screen are unchanged.</li>
+      </ul>
+
+      <h2 id="compartments">Tissue compartments</h2>
+      <dl class="defs">
+        <div><dt>Primary tumour</dt><dd>Tumour tissue from the primary site.</dd></div>
+        <div><dt>Metastatic tumour</dt><dd>Tumour tissue from a metastasis, kept separate from primary tumours.</dd></div>
+        <div><dt>Solid normal (tumour-adjacent)</dt><dd>Non-tumour tissue from a patient with cancer, usually taken near the tumour. In TCGA this is the “Solid Tissue Normal” sample type.</dd></div>
+        <div><dt>Peritumoral tissue</dt><dd>Tissue around the tumour collected as a separate piece.</dd></div>
+        <div><dt>Normal tissue</dt><dd>Normal tissue that is not described as tumour-adjacent, such as HPV-positive normal cervix, control prostate or non-diseased kidney. Healthy-donor and control samples stay separate from cancer patients.</dd></div>
+        <div><dt>Precursor lesion</dt><dd>A pre-invasive lesion such as HSIL or oesophageal squamous precancer, kept separate from carcinoma.</dd></div>
+      </dl>
+      <p>Normal and peritumoral tissue comes from cancer patients. It is not a healthy-donor control, and a cross-sectional sample is not evidence about when a change arose. The TCGA normal reference counts patients with a retained normal RNA-seq aliquot and an H&amp;E image of the same sample, and separately those whose same sample also has a retained normal 450k aliquot. Most normal-reference patients are also in the tumour set, so tumour and normal patient totals are never added; the explorer reports distinct patients across both compartments.</p>
+
+      <h2 id="versions">Data versions</h2>
+      <p>TCGA counts in the explorer come from current GDC file metadata (RNA-seq STAR gene counts and SeSAMe 450k beta values) on the stated date. The PanCanAtlas final harmonized RNA and 450k-only matrices are a different, historical representation: matched to the same annotations, their primary-tumour counts differ for BLCA, BRCA, COAD and STAD, and 33 RNA columns have no exact annotation match. Only their column headers were inspected here, not the values. Each TCGA entry shows both figures where they differ.</p>
+      <p>Choose one representation for an analysis and report it. Do not transfer counts from one to the other. The final harmonized RNA matrix is batch-adjusted, not raw counts. Links to both are on the <a href="sources.html#tcga-data">sources page</a>.</p>
+
+      <h2 id="scope-review">Earlier patient scope review</h2>
+      <p>The 317 excluded aliquots that carry patient-level annotations, from 166 patients in the panel projects, were reviewed against live GDC case annotations. Each patient received a review action, for example prior treatment (outside an untreated core), unknown treatment history (on hold), histology or site issues (assay exclusion kept), or a prior malignancy recorded as a covariate. These actions are not additional exclusions: no assay exclusion is waived, and no patient-wide exclusion follows from a case-level note. No identity redaction was found. This review covered only those 172 patients; the full patient screen above supersedes it for eligibility, and its actions are kept for provenance.</p>
+
+      <h2 id="tiers">Spatial capture tiers</h2>
+      <dl class="defs">
+        <div><dt>Core primary</dt><dd>Primary tumour tissue within a defined histology stratum, with original-resolution H&amp;E, measured expression and coordinates located in the release. Treatment before sampling is recorded separately and is not part of the tier.</dd></div>
+        <div><dt>Metastatic site</dt><dd>Tumour tissue sampled from a metastasis. Kept separate because stroma, tissue architecture and treatment history can differ.</dd></div>
+        <div><dt>Under review</dt><dd>A complete package whose primary status or histology needs confirmation.</dd></div>
+        <div><dt>Outside histology stratum</dt><dd>A tumour with a histology different from the defined stratum, for example mucinous or mixed carcinoma.</dd></div>
+        <div><dt>Held for QC</dt><dd>A capture with a documented quality concern such as low RNA depth, low tumour content or lower image resolution.</dd></div>
+      </dl>
+      <p>The strict subset in the explorer is core primary captures documented as untreated before sampling.</p>
+
+      <h2 id="clinical">Treatment before sampling and tumour site</h2>
+      <dl class="defs">
+        <div><dt>Untreated</dt><dd>The source explicitly reports no anticancer therapy before the sampled tissue was collected.</dd></div>
+        <div><dt>Post-treatment</dt><dd>The source reports therapy before the sampled tissue was collected.</dd></div>
+        <div><dt>Unknown</dt><dd>Not reported, undefined (for example an unexplained “NA”) or conflicting. Unknown values are never recoded as untreated.</dd></div>
+      </dl>
+      <p>Primary or metastatic site follows the specimen, not the patient's diagnosis. Where a source's wording is ambiguous, the original wording is kept in the capture record. Clinical fields are copied with their source wording and are limited to age, sex, stage, grade, subsite and molecular markers; consult the source tables for anything else.</p>
+
+      <h2 id="status">Resource status</h2>
+      <dl class="defs">
+        <div><dt>Matched packages located</dt><dd>Original H&amp;E, measured expression and coordinates were located for individual captures, which are listed in the explorer.</dd></div>
+        <div><dt>Candidate, not yet verified</dt><dd>A published study that may provide matched data but has an open check, such as original scans not located, controlled access or a pending histology review. Candidates are listed without patient counts.</dd></div>
+        <div><dt>Published reference</dt><dd>A resource catalogued for a defined role (bulk RNA, single-cell or image-only) without matched spatial data.</dd></div>
+        <div><dt>In the molecular screen panel</dt><dd>A TCGA project in an analysis cohort that meets the RNA-seq and 450k methylation screen (see TCGA molecular coverage). TCGA-READ and TCGA-GBM are in the panel through pooled cohorts although each is below the screen on its own.</dd></div>
+        <div><dt>Listed, not yet curated</dt><dd>A recognised reference cohort whose strata, treatment and specimen linkage have not yet been curated for the explorer. No counts are given.</dd></div>
+      </dl>
+
+      <h2 id="access">Access categories</h2>
+      <dl class="defs">
+        <div><dt>Open download</dt><dd>Files can be downloaded without an account.</dd></div>
+        <div><dt>Free account</dt><dd>Files are public but require a free registration, for example Synapse.</dd></div>
+        <div><dt>Controlled access</dt><dd>An application to a data access committee or repository is required, for example dbGaP, EGA or GSA-Human.</dd></div>
+        <div><dt>Author request</dt><dd>Data are available from the authors on request, as stated in the publication.</dd></div>
+        <div><dt>Not released</dt><dd>No current release, including data described as forthcoming.</dd></div>
+        <div><dt>Unresolved</dt><dd>The release route could not be established.</dd></div>
+      </dl>
+      <p>Spatial transcriptomics sections record access separately for the H&amp;E image, processed data and raw reads. Raw reads are not needed for most uses of processed spatial data.</p>
+
+      <h2 id="verification">Verification labels</h2>
+      <dl class="defs">
+        <div><dt>Source-described</dt><dd>Taken from the publication or repository description.</dd></div>
+        <div><dt>Metadata checked</dt><dd>Repository records, manifests or sample tables were inspected and matched to the publication.</dd></div>
+        <div><dt>File/header checked</dt><dd>File listings and image or matrix headers were inspected without downloading full images.</dd></div>
+        <div><dt>Image/registration QC complete</dt><dd>Full images were checked against spot coordinates and tissue quality was reviewed. No entry has reached this level in the current release.</dd></div>
+        <div><dt>Not yet audited</dt><dd>Listed for completeness; nothing beyond the public description has been checked.</dd></div>
+      </dl>
+      <p>Each entry records the date it was last verified. A working link is not evidence that a usable matched dataset lies behind it.</p>
+
+      <h2 id="rules">Curation rules</h2>
+      <ul>
+        <li>Histology strata are kept homogeneous: for example ductal/NST and lobular breast carcinoma, HPV-positive and HPV-negative head and neck carcinoma, and IDH-mutant astrocytoma and oligodendroglioma are separate.</li>
+        <li>A measured count matrix and spot or cell coordinates are required; predicted expression is not measured spatial data.</li>
+        <li>Visium and Visium HD are the preferred whole-transcriptome platforms. Targeted panels such as Xenium or CosMx are listed separately and not pooled with them.</li>
+        <li>Fresh-frozen and FFPE preparations, and probe-based versus poly-A capture chemistries, are recorded rather than merged silently.</li>
+        <li>Patients are deduplicated within each cohort using source identifiers and published crosswalks. Where two sources may share patients and no crosswalk exists, the overlap is stated and totals are not added.</li>
+        <li>Source counts are shown as reported, labelled with their basis, and are not added to counts computed from capture records.</li>
+        <li>When a later check corrects an earlier reading, for example an undefined treatment field first read as untreated, the corrected value is used.</li>
+      </ul>
+
+      <h2 id="spatial-review">Spatial resources under review</h2>
+      <p>Twenty-six spatial resources were reviewed at source and metadata level for ten further tumour groups: cervical squamous cell carcinoma (CSCC, on the CESC page), oesophageal squamous cell carcinoma (ESCC, on the ESCA page), clear-cell and papillary renal cell carcinoma, lung squamous cell carcinoma, pheochromocytoma and paraganglioma, prostate and gastric adenocarcinoma, endometrial carcinoma, and diffuse glioma including glioblastoma. Three were already listed and were updated rather than duplicated: the NSCLC atlas of De Zuani et al. (adding its LUSC subset), and the glioma studies of Greenwald et al. and Sonpatki et al. (adding glioblastoma scope, the H&amp;E archive and the Xenium release).</p>
+      <ul>
+        <li>All 26 are candidates. None adds a capture record or a patient to the core: donor crosswalks, treatment history, original images, calibration and registration remain open. Eligible patient counts are shown as unknown, not zero.</li>
+        <li>Counts are recorded in the source's own units: sections, slides, arrays, samples, donor labels or patients, with their basis. They are not patient counts unless stated, are not added across studies, and a count for one cancer within a multi-cancer study is labelled with that cancer.</li>
+        <li>Assay classes are kept apart: whole-transcriptome spot, bin or bead assays (Visium, including probe-based FFPE, Stereo-seq, Slide-seqV2 and legacy Spatial Transcriptomics); targeted RNA panels (Xenium); targeted RNA plus protein; ROI-based profiling (GeoMx); and protein imaging, which is not spatial RNA. Predicted spatial expression is never counted as measured.</li>
+        <li>H&amp;E from serial or consecutive sections is recorded as serial-section linkage. Several deposited GEO images are previews of about 2,000 pixels and do not verify an original scan; vendor pages that describe a 20x H&amp;E were not downloaded and checked here.</li>
+        <li>Primary, metastatic, normal, adjacent-normal and precursor tissue are recorded separately, as are treated material and trial baselines. A trial baseline does not establish that a patient had no earlier treatment, and treated resources are for exploratory comparison only.</li>
+        <li>Controlled-access datasets are listed as access leads; no access was requested or approved. Manuscript and preprint leads without a verified release stay visible as gaps, as for PCPG.</li>
+        <li>A public-route review on the same day followed each resource's named publication, repository and author-code routes to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. Each resource records its open dependencies separately: a public download that works, a public file whose download failed (a technical gap, not a permission requirement), vendor registration and terms, approval by a data access committee, a release or metadata the authors still have to provide, and local scientific QC. Approval for controlled raw reads is recorded as optional where public processed data suffice. No author was contacted, no form was submitted and no terms were accepted.</li>
+        <li>For 144 tissue sections across nine resources, the expression barcodes match the in-tissue coordinates exactly. This is a package check, not a patient count, an original-image check or final assay QC; most of these packages include only image previews of about 2,000 pixels.</li>
+        <li>Related leads are listed separately and add no resources or patients: a kidney and lung TLS release whose specimens cannot yet be assigned to a cancer type, a CIN3 study of precursor lesions, and a glioma release reused by another study. Aggregations and reused datasets do not add independent patients.</li>
+        <li>Records are deduplicated by accession, Zenodo record, vendor dataset and DOI, and possible donor overlap between studies is noted rather than summed. Redistributions such as HEST are noted on the original entry and are not separate cohorts.</li>
+      </ul>
+      <p>Count boundaries for individual resources:</p>
+      <ul>
+        <li>E-MTAB-13530 has 40 sections in all, of which the LUSC subset is two donors with six tumour and four adjacent sections.</li>
+        <li>GSE208654 contributes one squamous carcinoma section, with its adenocarcinoma, HPV-positive normal and HSIL sections kept separate.</li>
+        <li>GSE175540 has 24 primary ccRCC sections, all with checked section packages; the donor, section and grade join is unresolved.</li>
+        <li>The Sanger ccRCC release has 16 sections from eight patients. Its two public files both carry the image metadata of all 16 sections, which are not 32 sections.</li>
+        <li>The papillary RCC vendor dataset is one tumour block beside one non-diseased kidney, on a 377-gene Xenium panel.</li>
+        <li>GSE251950 has nine donor labels and ten sections including one metastasis.</li>
+        <li>GSE270678 deposits 72 sections: 33 main sections from 19 patients and 39 repeat sections. Donor D30 appears only among the repeats, which gives 20 donor labels.</li>
+        <li>GSE225690 deposits four metastatic sections from two previously treated patients, at baseline and on NP137, one with endometrioid and one with papillary serous carcinoma.</li>
+        <li>Hirz et al. profiled two cancer donors and two controls on 12 arrays; all 12 released bead-location tables are defective.</li>
+        <li>The GeoMx ESCC study has 19 patients, seven of them with invasive ESCC, and 42 ROIs.</li>
+        <li>Greenwald et al. have 13 IDH-wildtype glioblastoma sections from five donor labels and six IDH-mutant sections from six. Fourteen sections are matched to original images, with the ZH881 bulk labels crossed by inference, and five have no original.</li>
+        <li>The niche atlas has 32 Visium sections from 17 patients: 13 with glioblastoma, three with IDH-mutant astrocytoma and one normal-brain control. Its four Xenium patients are among them.</li>
+      </ul>
+
+      <h2 id="hausser">Selection history of the current panel</h2>
+      <p>The panel was first assembled for archetype analysis, which is described with other uses under <a href="applications.html#archetypes">Research applications</a>. Its cancer types reflect that history.</p>
+      <p>Eight cancer types follow Hausser et al. (2019). Of 15 cancer types they screened, six showed significant archetype geometry (BRCA, COAD, THCA, BLCA, LGG, LIHC) and two were borderline (LUAD, HNSC). Seven had no detectable vertices in the RNA representation they tested (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC). ESCA, GBM, KIRP, PAAD, PCPG and READ were not among the cancer types screened.</p>
+      <p>The other ten cancer types, including PDAC, are included because their TCGA projects meet the molecular screen, for planned RNA and methylation analyses. The glioma benchmark pools TCGA-LGG with TCGA-GBM for a classification question, not for archetype discovery. Their inclusion is prospective: it does not imply that archetypes have been found or validated in them. A negative geometry test in one RNA representation does not show that archetypes are absent under another.</p>
+
+      <h2 id="limits">Limitations</h2>
+      <p>Counts are lower bounds for the eligibility rules above. A zero means that no complete package was found in the searches so far, not that no data exist. Image calibration, transforms between full-resolution images and spot coordinates, and tissue quality still have to be checked for each section before analysis.</p>
+      <p>For TCGA, treatment and diagnosis annotations have been reviewed for every retained patient, but this is a metadata review rather than a pathology or slide review. Histology for ESCA, PAAD, CESC, UCEC, PCPG and the glioma projects comes from publication tables and GDC labels, not from slides, and integrated WHO glioma diagnoses are not adjudicated. MSI/MMR status and methylation phenotype are not yet joined for CRC, some patients remain on reversible holds, and the linkage of retained tumour assays to slide images, image QC and numerical assay QC are still to be done.</p>
+      <p>No single-cell reference is catalogued yet, and several image cohorts are not yet curated in detail. The 26 reviewed spatial resources are candidates whose eligible patients are not established, and PCPG and whole-transcriptome papillary RCC remain access gaps.</p>
+      <p>Repository contents and access conditions change. Check the source before planning an analysis, and cite the original publications and repositories when using their data.</p>
+
+      <h2 id="data">Data files and versions</h2>
+      <p>The explorer's metadata are plain JSON files, separate from the website code. Each release is dated; the version and date are shown at the foot of every page.</p>
+      <ul>
+        <li><a href="data/captures.json">captures.json</a>: one record per matched capture</li>
+        <li><a href="data/cohorts.json">cohorts.json</a>: studies and resources in every data layer, including the reviewed spatial resources and their review details</li>
+        <li><a href="data/cancers.json">cancers.json</a>: cancer types, histology strata and noted gaps</li>
+        <li><a href="data/evidence.json">evidence.json</a>: published archetype studies used as rationale</li>
+        <li><a href="data/leads.json">leads.json</a>: related leads that add no resources or patients</li>
+        <li><a href="data/release.json">release.json</a>: version and dates</li>
+        <li><a href="data/tcga_counts.json">tcga_counts.json</a>: TCGA screen counts by project, before and after exclusions, including normal reference and historical-matrix figures</li>
+        <li><a href="data/tcga_patients.json">tcga_patients.json</a>: per-patient RNA-seq and 450k states for the 20 panel projects</li>
+        <li><a href="data/tcga_flags.json">tcga_flags.json</a>: excluded and unresolved aliquots with reasons</li>
+        <li><a href="data/tcga_resources.json">tcga_resources.json</a>: canonical GDC, PanCanAtlas and histology-source links</li>
+        <li><a href="data/tcga_eligibility.json">tcga_eligibility.json</a>: per-project counts after assay QC, after the patient screen and in the selected analysis set, with dispositions and normal-reference scope, and the 18 analysis cohorts with their study role, contributions, subsets, reviewed strata and annotation summaries</li>
+        <li><a href="data/tcga_patient_review.json">tcga_patient_review.json</a>: per-patient treatment and diagnosis decisions as reason codes, analysis cohort and study role, reviewed histology and molecular annotations, and reported site fields for CRC and PCPG</li>
+        <li><a href="data/tcga_reviews.json">tcga_reviews.json</a>: histology review of all registered TCGA-ESCA and TCGA-PAAD cases, cohort definitions, and the patient scope review</li>
+      </ul>
+      <p>The TCGA files are generated by <code>scripts/build_tcga.py</code> from public GDC file metadata and the PanCanAtlas annotation table; the script documents the queries and rules. <code>scripts/import_tcga_review.py</code> imports the structured fields of the histology and scope reviews, and <code>scripts/import_patient_review.py</code> imports the patient screen and recomputes the eligibility counts. <code>scripts/import_spatial_review.py</code> imports the reviewed spatial resources into the cohort list, checking every count against the review's own metadata, and <code>scripts/import_spatial_route_review.py</code> then applies the public-route review and writes the related leads.</p>
+      <p>The explorer exports the current selection as CSV or JSON, with the release version in every record. The curated metadata are licensed under CC BY 4.0 and the code under GPL-3.0; the datasets described keep their own terms. The source is on <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">GitHub</a>.</p>
+      <p>For AI agents and scripts, which usually do not run the JavaScript that draws these pages, <a href="llms.txt">llms.txt</a> describes the site and links to Markdown versions of the TCGA, spatial and cancer pages, one JSON file per cancer page, and a <a href="data/index.json">data index</a> with a checksum and JSON Schema for every file. <code>scripts/build_agent_files.py</code> generates them from the data files, and <code>scripts/check.py</code> fails if they are out of date. A read-only MCP server lets AI assistants query the same metadata; <a href="agents.html">For AI agents</a> describes it and its setup.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span><strong>Tumour Histology and Multi-omics Explorer</strong> · <span id="release">Release</span> · <a href="sources.html">Sources</a> · <a href="agents.html">For AI agents</a> · <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">GitHub</a></span>
+    <span>Metadata <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/DATA-LICENSE.md">CC BY 4.0</a>, code <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/LICENSE">GPL-3.0</a>. Data remain at their original repositories; listing a dataset does not imply that access has been granted.</span>
+  </div>
+</footer>
+<script type="module" src="assets/js/static.js"></script>
+</body>
+</html>

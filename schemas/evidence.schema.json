@@ -1,0 +1,58 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/evidence.schema.json",
+ "title": "evidence",
+ "description": "Published archetype studies used as the panel's selection history",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "properties": {
+   "id": {
+    "type": "string"
+   },
+   "short": {
+    "type": "string"
+   },
+   "cancers": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "citation": {
+    "type": "string"
+   },
+   "doi": {
+    "type": "string"
+   },
+   "url": {
+    "type": "string"
+   },
+   "scale": {
+    "type": "string"
+   },
+   "definition": {
+    "type": "string"
+   },
+   "finding": {
+    "type": "string"
+   },
+   "limits": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "id",
+   "short",
+   "cancers",
+   "citation",
+   "doi",
+   "url",
+   "scale",
+   "definition",
+   "finding",
+   "limits"
+  ],
+  "additionalProperties": false
+ }
+}

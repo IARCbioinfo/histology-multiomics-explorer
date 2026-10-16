@@ -1,0 +1,297 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/tcga_patients.schema.json",
+ "title": "tcga_patients",
+ "description": "Per-patient RNA-seq and 450k states (retained, excluded, unresolved, absent) for tumour and normal tissue",
+ "type": "object",
+ "properties": {
+  "meta": {
+   "type": "object",
+   "properties": {
+    "date": {
+     "type": "string"
+    },
+    "rule": {
+     "type": "object",
+     "properties": {
+      "min_total": {
+       "type": "integer"
+      },
+      "min_paired": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "min_total",
+      "min_paired"
+     ],
+     "additionalProperties": false
+    },
+    "representation": {
+     "type": "string"
+    },
+    "historical_representation": {
+     "type": "string"
+    },
+    "historical_unmatched_primary_columns": {
+     "type": "object",
+     "properties": {
+      "rna": {
+       "type": "integer"
+      },
+      "met": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "rna",
+      "met"
+     ],
+     "additionalProperties": false
+    },
+    "panel": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "groups": {
+     "type": "object",
+     "properties": {
+      "BLCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "BRCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "CESC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "CRC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "ESCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "GLIOMA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "HNSC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "KIRC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "KIRP": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "LIHC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "LUAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "LUSC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "PAAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "PCPG": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "PRAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "STAD": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "THCA": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      },
+      "UCEC": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     "required": [
+      "BLCA",
+      "BRCA",
+      "CESC",
+      "CRC",
+      "ESCA",
+      "GLIOMA",
+      "HNSC",
+      "KIRC",
+      "KIRP",
+      "LIHC",
+      "LUAD",
+      "LUSC",
+      "PAAD",
+      "PCPG",
+      "PRAD",
+      "STAD",
+      "THCA",
+      "UCEC"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "date",
+    "rule",
+    "representation",
+    "historical_representation",
+    "historical_unmatched_primary_columns",
+    "panel",
+    "groups"
+   ],
+   "additionalProperties": false
+  },
+  "columns": {
+   "const": [
+    "patient",
+    "project",
+    "case_id",
+    "tumour_rna",
+    "tumour_met",
+    "normal_rna",
+    "normal_met",
+    "normal_rna_he",
+    "normal_rna_he_met"
+   ],
+   "description": "Column names of each row"
+  },
+  "rows": {
+   "type": "array",
+   "items": {
+    "type": "array",
+    "minItems": 9,
+    "maxItems": 9,
+    "items": false,
+    "prefixItems": [
+     {
+      "title": "patient",
+      "type": "string"
+     },
+     {
+      "title": "project",
+      "type": "string"
+     },
+     {
+      "title": "case_id",
+      "type": "string"
+     },
+     {
+      "title": "tumour_rna",
+      "type": "string",
+      "enum": [
+       "absent",
+       "excluded",
+       "retained",
+       "unresolved"
+      ]
+     },
+     {
+      "title": "tumour_met",
+      "type": "string",
+      "enum": [
+       "absent",
+       "excluded",
+       "retained",
+       "unresolved"
+      ]
+     },
+     {
+      "title": "normal_rna",
+      "type": "string",
+      "enum": [
+       "absent",
+       "excluded",
+       "retained",
+       "unresolved"
+      ]
+     },
+     {
+      "title": "normal_met",
+      "type": "string",
+      "enum": [
+       "absent",
+       "excluded",
+       "retained",
+       "unresolved"
+      ]
+     },
+     {
+      "title": "normal_rna_he",
+      "type": "boolean"
+     },
+     {
+      "title": "normal_rna_he_met",
+      "type": "boolean"
+     }
+    ]
+   },
+   "description": "One row per record, in the column order above"
+  }
+ },
+ "required": [
+  "meta",
+  "columns",
+  "rows"
+ ],
+ "additionalProperties": false
+}

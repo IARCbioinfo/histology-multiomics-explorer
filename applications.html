@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research applications · Tumour Histology and Multi-omics Explorer</title>
+<meta name="description" content="Research questions the explorer supports: tumour heterogeneity, molecular classification, cellular composition, spatial organisation, histology-to-molecular modelling and archetype analysis.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><rect x="1" y="2.5" width="20" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.6 12.4c0-2.9 1.9-5.3 4.3-5.3 2.2 0 3.6 1.6 3.3 3.9-.3 2.2-2.2 3.9-4.1 3.7-1.9-.2-3.5-.6-3.5-2.3Z" class="brand-blob"/><path d="M15.6 7v7M18 9.5v4.5" class="brand-bars" stroke-width="1.7" stroke-linecap="round"/></svg><span>Tumour Histology and Multi-omics Explorer</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>
+      <li><a href="cancers.html">Cancer types</a></li>
+      <li><a href="tcga.html">TCGA reference</a></li>
+      <li><a href="spatial.html">Spatial studies</a></li>
+      <li><a href="explore.html">Data explorer</a></li>
+      <li><a href="methods.html">Methods</a></li>
+      <li><a href="applications.html" aria-current="page">Applications</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Research applications</h1>
+      <p class="prose muted">The datasets in this explorer can serve several kinds of study. For each one below, we list the most relevant data and their main limits. Archetype analysis, for which the current analysis panel was assembled, is one of them.</p>
+      <nav class="page-nav" aria-label="On this page"><span class="page-nav-label">On this page</span><a href="#heterogeneity">Tumour heterogeneity</a><a href="#classification">Molecular classification</a><a href="#composition">Cellular composition</a><a href="#spatial-organisation">Spatial organisation</a><a href="#histology-modelling">Histology-to-molecular modelling</a><a href="#archetypes">Archetype analysis</a><a href="#normal-treated">Normal and treated tissue</a></nav>
+    </div>
+
+    <div class="prose">
+      <h2 id="heterogeneity">Tumour heterogeneity</h2>
+      <p>The TCGA analysis cohorts support studies of how tumours of one cancer type differ in RNA expression and DNA methylation. Histologically distinct diseases are kept in separate cohorts, patients with only one of the two measurements are identified, and withheld patients are listed with their reasons. Spatial studies add variation within a single tumour.</p>
+      <p class="small"><strong>Relevant data:</strong> <a href="tcga.html#panel">TCGA analysis cohorts</a>, <a href="spatial.html">spatial studies with matched data located</a>. <strong>Limits:</strong> the cohorts follow one set of selection criteria; patients outside them may suit other designs.</p>
+
+      <h2 id="classification">Molecular classification</h2>
+      <p>Where they have been curated, published subtype annotations are kept beside each TCGA patient: glioma IDH and 1p/19q groups, endometrial molecular groups, PCPG molecular subtypes and cervical HPV status. The pooled glioma cohort is a classification benchmark: it compares historical diagnoses and grades with independently curated integrated diagnoses, which have not yet been adjudicated.</p>
+      <p class="small"><strong>Relevant data:</strong> <a href="cancers.html?c=GLIOMA">glioma benchmark</a>, <a href="cancers.html?c=UCEC">endometrial</a>, <a href="cancers.html?c=PCPG">PCPG</a> and <a href="cancers.html?c=CESC">cervical</a> cohort pages. <strong>Limits:</strong> published labels are annotations, not a new pathology review, and modern diagnoses are not inferred from molecular clusters.</p>
+
+      <h2 id="composition">Cellular composition</h2>
+      <p>Single-cell and single-nucleus references help interpret bulk and spatial measurements in terms of cell states and support deconvolution. Spatial studies show where those cell states sit in tissue.</p>
+      <p class="small"><strong>Relevant data:</strong> <a href="spatial.html">spatial studies</a>; no single-cell reference is catalogued yet. <strong>Limits:</strong> references from other patients do not give per-patient composition.</p>
+
+      <h2 id="spatial-organisation">Spatial organisation</h2>
+      <p>Tissue sections with original H&amp;E, measured expression and coordinates allow molecular programmes and cell states to be located within tissue and related to its architecture, such as the tumour core, invasive edge, stroma or immune aggregates.</p>
+      <p class="small"><strong>Relevant data:</strong> <a href="spatial.html">spatial studies</a>. <strong>Limits:</strong> the section relationship, image resolution and registration must be checked per section; targeted panels and ROI-based assays answer different questions from whole-transcriptome data.</p>
+
+      <h2 id="histology-modelling">Histology-to-molecular modelling</h2>
+      <p>TCGA slide images with patient-level RNA-seq and methylation support models that predict molecular features from morphology across many patients. Spatial studies give local, section-level supervision for the same kind of model.</p>
+      <p class="small"><strong>Relevant data:</strong> <a href="tcga.html">TCGA reference</a>, <a href="spatial.html">spatial studies</a>. <strong>Limits:</strong> in TCGA, slide images and molecular aliquots are linked through the patient and sample, not the same section, and slide linkage for the selected panel is still to be checked.</p>
+
+      <h2 id="archetypes">Archetype analysis</h2>
+    </div>
+    <div class="hero" style="padding-top:.2rem">
+      <div class="prose">
+        <p>Archetypal analysis describes a set of samples as positions inside a shape whose corners are extreme profiles, the archetypes. Each tumour is represented by its weights on these corners, so most tumours are mixtures rather than members of discrete classes. In Pareto task inference, the corners are interpreted as profiles specialised for competing tasks, such as cell division or interaction with the immune system, and the genes and clinical features enriched near each corner suggest what that task might be.</p>
+        <p>Archetypes are inferred from data. Their number and meaning depend on the measurements, the preprocessing and the samples analysed, and a fitted shape does not by itself demonstrate a biological trade-off. The explorer does not list validated archetypes or diagnostic entities. Its data could be used to test whether archetypes found in tumour RNA correspond to recognisable tissue morphology, to spatial patterns within tumours and to particular cell states.</p>
+        <p>Archetype analysis shaped the current panel: eight cancer types follow Hausser et al. (2019), and the other ten are included because their TCGA projects meet the RNA and methylation screen. <a href="methods.html#hausser">Selection history</a>.</p>
+      </div>
+      <figure class="figure">
+        <svg class="simplex" viewBox="0 0 340 300" role="img" aria-labelledby="fig-title fig-desc">
+          <title id="fig-title">Tumours positioned between three archetypes</title>
+          <desc id="fig-desc">A triangle whose corners are archetypes. Dots inside the triangle represent tumours; most lie between the corners rather than at them.</desc>
+          <path class="area" d="M170 28 L28 258 L312 258 Z"/>
+          <path class="edge" d="M170 28 L28 258 L312 258 Z"/>
+          <g>
+            <circle class="dot" cx="151.5" cy="214.7" r="3.2"/><circle class="dot" cx="262.4" cy="225.5" r="3.2"/><circle class="dot" cx="160.9" cy="237.0" r="3.2"/><circle class="dot" cx="144.9" cy="202.3" r="3.2"/><circle class="dot" cx="119.5" cy="135.7" r="3.2"/><circle class="dot" cx="183.1" cy="135.9" r="3.2"/><circle class="dot" cx="191.3" cy="115.8" r="3.2"/><circle class="dot" cx="147.5" cy="111.6" r="3.2"/><circle class="dot" cx="153.7" cy="251.5" r="3.2"/><circle class="dot" cx="112.3" cy="203.4" r="3.2"/><circle class="dot" cx="124.1" cy="242.8" r="3.2"/><circle class="dot" cx="124.0" cy="226.4" r="3.2"/><circle class="dot" cx="105.8" cy="205.5" r="3.2"/><circle class="dot" cx="98.2" cy="198.8" r="3.2"/><circle class="dot" cx="179.1" cy="152.8" r="3.2"/><circle class="dot" cx="217.8" cy="111.1" r="3.2"/><circle class="dot" cx="93.5" cy="214.3" r="3.2"/><circle class="dot" cx="195.8" cy="216.1" r="3.2"/><circle class="dot" cx="278.1" cy="226.6" r="3.2"/><circle class="dot" cx="251.7" cy="232.7" r="3.2"/><circle class="dot" cx="121.0" cy="129.8" r="3.2"/><circle class="dot" cx="225.5" cy="198.8" r="3.2"/><circle class="dot" cx="182.8" cy="236.3" r="3.2"/><circle class="dot" cx="178.5" cy="93.9" r="3.2"/><circle class="dot" cx="289.4" cy="254.9" r="3.2"/><circle class="dot" cx="235.2" cy="213.8" r="3.2"/><circle class="dot" cx="240.3" cy="166.1" r="3.2"/><circle class="dot" cx="181.3" cy="210.9" r="3.2"/><circle class="dot" cx="210.8" cy="207.3" r="3.2"/><circle class="dot" cx="148.9" cy="154.6" r="3.2"/><circle class="dot" cx="145.4" cy="172.1" r="3.2"/><circle class="dot" cx="146.6" cy="201.8" r="3.2"/><circle class="dot" cx="159.5" cy="178.9" r="3.2"/><circle class="dot" cx="267.5" cy="255.6" r="3.2"/><circle class="dot" cx="104.8" cy="188.0" r="3.2"/><circle class="dot" cx="130.4" cy="230.3" r="3.2"/><circle class="dot" cx="163.3" cy="162.3" r="3.2"/><circle class="dot" cx="148.4" cy="202.2" r="3.2"/><circle class="dot" cx="170.2" cy="160.7" r="3.2"/><circle class="dot" cx="211.5" cy="129.5" r="3.2"/><circle class="dot" cx="179.3" cy="81.5" r="3.2"/><circle class="dot" cx="116.9" cy="214.9" r="3.2"/><circle class="dot" cx="242.2" cy="156.8" r="3.2"/><circle class="dot" cx="59.9" cy="244.6" r="3.2"/><circle class="dot" cx="199.4" cy="239.4" r="3.2"/>
+            <circle class="dot hl" cx="168.1" cy="182.4" r="4.5"/>
+          </g>
+          <path class="lead" d="M164 179 L74 118"/>
+          <text x="4" y="84">each dot is a tumour,</text>
+          <text x="4" y="99">a weighted mix</text>
+          <text x="4" y="114">of archetypes</text>
+          <circle class="vertex" cx="170" cy="28" r="6"/><circle class="vertex" cx="28" cy="258" r="6"/><circle class="vertex" cx="312" cy="258" r="6"/>
+          <text x="184" y="24">archetype</text>
+          <text x="20" y="284">archetype</text>
+          <text x="320" y="284" text-anchor="end">archetype</text>
+        </svg>
+        <figcaption>Schematic only. Archetypal analysis places each tumour within a shape whose corners are inferred extreme profiles; most tumours lie between the corners.</figcaption>
+      </figure>
+    </div>
+    <div class="prose">
+      <h3>Published archetype evidence</h3>
+      <div id="evidence-list"><p class="muted small">Loading…</p></div>
+
+      <h2 id="normal-treated">Normal and treated tissue</h2>
+      <p>Normal tissue from patients with cancer gives a reference for tumour-specific changes but is not a healthy-donor control; normal-only donors without a reported diagnosis are flagged. Treated tissue, such as resections after systemic therapy or on-treatment trial biopsies, is kept separate for exploratory comparisons of treatment effects and is never pooled with untreated references. There is no treated TCGA reference set.</p>
+      <p class="small"><strong>Relevant data:</strong> normal reference columns on the <a href="tcga.html#panel">TCGA reference</a>; the <a href="explore.html?view=cohorts&amp;treat=treated,baseline-and-on-treatment">treated spatial resources</a>. <strong>Limits:</strong> a trial baseline does not establish that a patient had no earlier treatment.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span><strong>Tumour Histology and Multi-omics Explorer</strong> · <span id="release">Release</span> · <a href="sources.html">Sources</a> · <a href="agents.html">For AI agents</a> · <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">GitHub</a></span>
+    <span>Metadata <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/DATA-LICENSE.md">CC BY 4.0</a>, code <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/LICENSE">GPL-3.0</a>. Data remain at their original repositories; listing a dataset does not imply that access has been granted.</span>
+  </div>
+</footer>
+<script type="module" src="assets/js/applications.js"></script>
+</body>
+</html>

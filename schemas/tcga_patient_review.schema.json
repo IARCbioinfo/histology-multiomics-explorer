@@ -1,0 +1,383 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/tcga_patient_review.schema.json",
+ "title": "tcga_patient_review",
+ "description": "Per-patient treatment and diagnosis screen, analysis cohort, study role and published annotations, as reason codes",
+ "type": "object",
+ "properties": {
+  "meta": {
+   "type": "object",
+   "properties": {
+    "date": {
+     "type": "string"
+    },
+    "reviewed_patients": {
+     "type": "integer"
+    },
+    "audited_projects": {
+     "type": "integer"
+    },
+    "projects": {
+     "type": "integer"
+    },
+    "analysis_cohorts": {
+     "type": "integer"
+    },
+    "discovery_cohorts": {
+     "type": "integer"
+    },
+    "benchmark_cohorts": {
+     "type": "integer"
+    },
+    "treated_reference": {
+     "type": "boolean"
+    },
+    "integrated_who_diagnosis_adjudicated": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "date",
+    "reviewed_patients",
+    "audited_projects",
+    "projects",
+    "analysis_cohorts",
+    "discovery_cohorts",
+    "benchmark_cohorts",
+    "treated_reference",
+    "integrated_who_diagnosis_adjudicated"
+   ],
+   "additionalProperties": false
+  },
+  "columns": {
+   "const": [
+    "patient",
+    "project",
+    "case_id",
+    "analysis_group",
+    "analysis_role",
+    "panel_exclusion_reason",
+    "has_retained_tumour",
+    "primary_diagnosis",
+    "morphology",
+    "prior_treatment_field",
+    "treatment_exclusion_reasons",
+    "treatment_hold_reasons",
+    "diagnosis_reasons",
+    "covariates",
+    "patient_screen_pass",
+    "tumour_eligible",
+    "selected_cohort",
+    "selected_eligible",
+    "normal_donor_eligible",
+    "normal_in_active_scope",
+    "normal_catalogue_eligible",
+    "normal_donor_context",
+    "main_disposition",
+    "site_reported",
+    "resection_site_reported",
+    "site_override",
+    "histology_stratum",
+    "histology_evidence",
+    "histology_publication",
+    "histology_publication_member",
+    "historical_histology_gdc",
+    "histology_label_conflict",
+    "grade_publication",
+    "historical_grade_gdc",
+    "molecular_group",
+    "published_subtype",
+    "idh_status",
+    "codeletion_1p19q",
+    "hpv_status_publication",
+    "endometrial_like_publication",
+    "adrenal_cortical_admixture",
+    "head_neck_sensitivity_flag",
+    "benchmark_subsets",
+    "who_diagnosis_status"
+   ],
+   "description": "Column names of each row"
+  },
+  "rows": {
+   "type": "array",
+   "items": {
+    "type": "array",
+    "minItems": 44,
+    "maxItems": 44,
+    "items": false,
+    "prefixItems": [
+     {
+      "title": "patient",
+      "type": "string"
+     },
+     {
+      "title": "project",
+      "type": "string"
+     },
+     {
+      "title": "case_id",
+      "type": "string"
+     },
+     {
+      "title": "analysis_group",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "analysis_role",
+      "type": "string"
+     },
+     {
+      "title": "panel_exclusion_reason",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "has_retained_tumour",
+      "type": "boolean"
+     },
+     {
+      "title": "primary_diagnosis",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "morphology",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "prior_treatment_field",
+      "type": "string"
+     },
+     {
+      "title": "treatment_exclusion_reasons",
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     {
+      "title": "treatment_hold_reasons",
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     {
+      "title": "diagnosis_reasons",
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     {
+      "title": "covariates",
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     {
+      "title": "patient_screen_pass",
+      "type": "boolean"
+     },
+     {
+      "title": "tumour_eligible",
+      "type": "boolean"
+     },
+     {
+      "title": "selected_cohort",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "selected_eligible",
+      "type": "boolean"
+     },
+     {
+      "title": "normal_donor_eligible",
+      "type": "boolean"
+     },
+     {
+      "title": "normal_in_active_scope",
+      "type": "boolean"
+     },
+     {
+      "title": "normal_catalogue_eligible",
+      "type": "boolean"
+     },
+     {
+      "title": "normal_donor_context",
+      "type": "string"
+     },
+     {
+      "title": "main_disposition",
+      "type": "string"
+     },
+     {
+      "title": "site_reported",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "resection_site_reported",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "site_override",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "histology_stratum",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "histology_evidence",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "histology_publication",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "histology_publication_member",
+      "type": [
+       "boolean",
+       "null"
+      ]
+     },
+     {
+      "title": "historical_histology_gdc",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "histology_label_conflict",
+      "type": "boolean"
+     },
+     {
+      "title": "grade_publication",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "historical_grade_gdc",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "molecular_group",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "published_subtype",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "idh_status",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "codeletion_1p19q",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "hpv_status_publication",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "endometrial_like_publication",
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     {
+      "title": "adrenal_cortical_admixture",
+      "type": [
+       "boolean",
+       "null"
+      ]
+     },
+     {
+      "title": "head_neck_sensitivity_flag",
+      "type": [
+       "boolean",
+       "null"
+      ]
+     },
+     {
+      "title": "benchmark_subsets",
+      "type": [
+       "array",
+       "null"
+      ],
+      "items": {
+       "type": "string"
+      }
+     },
+     {
+      "title": "who_diagnosis_status",
+      "type": "string"
+     }
+    ]
+   },
+   "description": "One row per record, in the column order above"
+  }
+ },
+ "required": [
+  "meta",
+  "columns",
+  "rows"
+ ],
+ "additionalProperties": false
+}

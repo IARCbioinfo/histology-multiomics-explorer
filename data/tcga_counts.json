@@ -1,0 +1,2304 @@
+{
+ "meta": {
+  "date": "2026-10-14",
+  "rule": {
+   "min_total": 150,
+   "min_paired": 100
+  },
+  "representation": "Current GDC file metadata (RNA-seq gene expression quantification; Illumina 450k methylation beta values), joined to PanCanAtlas quality annotations",
+  "historical_representation": "PanCanAtlas final harmonized RNA and 450k-only matrices, header-level membership",
+  "historical_unmatched_primary_columns": {
+   "rna": 33,
+   "met": 0
+  },
+  "panel": [
+   "BLCA",
+   "BRCA",
+   "CESC",
+   "COAD",
+   "ESCA",
+   "GBM",
+   "HNSC",
+   "KIRC",
+   "KIRP",
+   "LGG",
+   "LIHC",
+   "LUAD",
+   "LUSC",
+   "PAAD",
+   "PCPG",
+   "PRAD",
+   "READ",
+   "STAD",
+   "THCA",
+   "UCEC"
+  ],
+  "groups": {
+   "BLCA": [
+    "BLCA"
+   ],
+   "BRCA": [
+    "BRCA"
+   ],
+   "CESC": [
+    "CESC"
+   ],
+   "CRC": [
+    "COAD",
+    "READ"
+   ],
+   "ESCA": [
+    "ESCA"
+   ],
+   "GLIOMA": [
+    "LGG",
+    "GBM"
+   ],
+   "HNSC": [
+    "HNSC"
+   ],
+   "KIRC": [
+    "KIRC"
+   ],
+   "KIRP": [
+    "KIRP"
+   ],
+   "LIHC": [
+    "LIHC"
+   ],
+   "LUAD": [
+    "LUAD"
+   ],
+   "LUSC": [
+    "LUSC"
+   ],
+   "PAAD": [
+    "PAAD"
+   ],
+   "PCPG": [
+    "PCPG"
+   ],
+   "PRAD": [
+    "PRAD"
+   ],
+   "STAD": [
+    "STAD"
+   ],
+   "THCA": [
+    "THCA"
+   ],
+   "UCEC": [
+    "UCEC"
+   ]
+  },
+  "excluded_projects": {
+   "SARC": "excluded_from_study"
+  }
+ },
+ "panel_totals": {
+  "pre_qc": {
+   "union": 8584,
+   "paired": 7135,
+   "rna_only": 1326,
+   "met_only": 123
+  },
+  "post_qc": {
+   "union": 8139,
+   "paired": 6808,
+   "rna_only": 1169,
+   "met_only": 162
+  },
+  "normal": {
+   "rna_he": 663,
+   "rna_he_met": 378,
+   "also_in_tumour_union": 623,
+   "normal_only": 40
+  },
+  "patients_either_compartment": 8179
+ },
+ "groups": {
+  "BLCA": {
+   "pre_qc": {
+    "union": 412,
+    "paired": 406,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "post_qc": {
+    "union": 401,
+    "paired": 395,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "normal": {
+    "rna_he": 19,
+    "rna_he_met": 17,
+    "also_in_tumour_union": 18,
+    "normal_only": 1
+   },
+   "patients_either_compartment": 402,
+   "projects": [
+    "BLCA"
+   ],
+   "passes_screen": true
+  },
+  "BRCA": {
+   "pre_qc": {
+    "union": 1097,
+    "paired": 782,
+    "rna_only": 313,
+    "met_only": 2
+   },
+   "post_qc": {
+    "union": 1085,
+    "paired": 775,
+    "rna_only": 307,
+    "met_only": 3
+   },
+   "normal": {
+    "rna_he": 98,
+    "rna_he_met": 73,
+    "also_in_tumour_union": 98,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 1085,
+   "projects": [
+    "BRCA"
+   ],
+   "passes_screen": true
+  },
+  "CESC": {
+   "pre_qc": {
+    "union": 307,
+    "paired": 304,
+    "rna_only": 0,
+    "met_only": 3
+   },
+   "post_qc": {
+    "union": 302,
+    "paired": 300,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 3,
+    "rna_he_met": 3,
+    "also_in_tumour_union": 3,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 302,
+   "projects": [
+    "CESC"
+   ],
+   "passes_screen": true
+  },
+  "CRC": {
+   "pre_qc": {
+    "union": 624,
+    "paired": 393,
+    "rna_only": 231,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 599,
+    "paired": 379,
+    "rna_only": 218,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 47,
+    "rna_he_met": 19,
+    "also_in_tumour_union": 46,
+    "normal_only": 1
+   },
+   "patients_either_compartment": 600,
+   "projects": [
+    "COAD",
+    "READ"
+   ],
+   "passes_screen": true
+  },
+  "ESCA": {
+   "pre_qc": {
+    "union": 185,
+    "paired": 184,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 174,
+    "paired": 173,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 10,
+    "rna_he_met": 8,
+    "also_in_tumour_union": 10,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 174,
+   "projects": [
+    "ESCA"
+   ],
+   "passes_screen": true
+  },
+  "GLIOMA": {
+   "pre_qc": {
+    "union": 860,
+    "paired": 596,
+    "rna_only": 204,
+    "met_only": 60
+   },
+   "post_qc": {
+    "union": 756,
+    "paired": 565,
+    "rna_only": 103,
+    "met_only": 88
+   },
+   "normal": {
+    "rna_he": 5,
+    "rna_he_met": 1,
+    "also_in_tumour_union": 0,
+    "normal_only": 5
+   },
+   "patients_either_compartment": 761,
+   "projects": [
+    "LGG",
+    "GBM"
+   ],
+   "passes_screen": true
+  },
+  "HNSC": {
+   "pre_qc": {
+    "union": 528,
+    "paired": 520,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "post_qc": {
+    "union": 522,
+    "paired": 514,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "normal": {
+    "rna_he": 43,
+    "rna_he_met": 20,
+    "also_in_tumour_union": 43,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 522,
+   "projects": [
+    "HNSC"
+   ],
+   "passes_screen": true
+  },
+  "KIRC": {
+   "pre_qc": {
+    "union": 534,
+    "paired": 318,
+    "rna_only": 215,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 516,
+    "paired": 311,
+    "rna_only": 204,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 71,
+    "rna_he_met": 23,
+    "also_in_tumour_union": 71,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 516,
+   "projects": [
+    "KIRC"
+   ],
+   "passes_screen": true
+  },
+  "KIRP": {
+   "pre_qc": {
+    "union": 291,
+    "paired": 274,
+    "rna_only": 16,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 280,
+    "paired": 266,
+    "rna_only": 13,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 32,
+    "rna_he_met": 23,
+    "also_in_tumour_union": 32,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 280,
+   "projects": [
+    "KIRP"
+   ],
+   "passes_screen": true
+  },
+  "LIHC": {
+   "pre_qc": {
+    "union": 377,
+    "paired": 371,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "post_qc": {
+    "union": 368,
+    "paired": 362,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "normal": {
+    "rna_he": 50,
+    "rna_he_met": 41,
+    "also_in_tumour_union": 47,
+    "normal_only": 3
+   },
+   "patients_either_compartment": 371,
+   "projects": [
+    "LIHC"
+   ],
+   "passes_screen": true
+  },
+  "LUAD": {
+   "pre_qc": {
+    "union": 520,
+    "paired": 455,
+    "rna_only": 62,
+    "met_only": 3
+   },
+   "post_qc": {
+    "union": 461,
+    "paired": 406,
+    "rna_only": 51,
+    "met_only": 4
+   },
+   "normal": {
+    "rna_he": 57,
+    "rna_he_met": 20,
+    "also_in_tumour_union": 48,
+    "normal_only": 9
+   },
+   "patients_either_compartment": 470,
+   "projects": [
+    "LUAD"
+   ],
+   "passes_screen": true
+  },
+  "LUSC": {
+   "pre_qc": {
+    "union": 501,
+    "paired": 370,
+    "rna_only": 131,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 486,
+    "paired": 363,
+    "rna_only": 123,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 47,
+    "rna_he_met": 8,
+    "also_in_tumour_union": 47,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 486,
+   "projects": [
+    "LUSC"
+   ],
+   "passes_screen": true
+  },
+  "PAAD": {
+   "pre_qc": {
+    "union": 184,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "post_qc": {
+    "union": 157,
+    "paired": 151,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "normal": {
+    "rna_he": 4,
+    "rna_he_met": 4,
+    "also_in_tumour_union": 4,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 157,
+   "projects": [
+    "PAAD"
+   ],
+   "passes_screen": true
+  },
+  "PCPG": {
+   "pre_qc": {
+    "union": 179,
+    "paired": 179,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 178,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 3,
+    "rna_he_met": 3,
+    "also_in_tumour_union": 3,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 178,
+   "projects": [
+    "PCPG"
+   ],
+   "passes_screen": true
+  },
+  "PRAD": {
+   "pre_qc": {
+    "union": 498,
+    "paired": 497,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 406,
+    "paired": 405,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 48,
+    "rna_he_met": 32,
+    "also_in_tumour_union": 42,
+    "normal_only": 6
+   },
+   "patients_either_compartment": 412,
+   "projects": [
+    "PRAD"
+   ],
+   "passes_screen": true
+  },
+  "STAD": {
+   "pre_qc": {
+    "union": 434,
+    "paired": 373,
+    "rna_only": 39,
+    "met_only": 22
+   },
+   "post_qc": {
+    "union": 416,
+    "paired": 349,
+    "rna_only": 38,
+    "met_only": 29
+   },
+   "normal": {
+    "rna_he": 34,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 31,
+    "normal_only": 3
+   },
+   "patients_either_compartment": 419,
+   "projects": [
+    "STAD"
+   ],
+   "passes_screen": true
+  },
+  "THCA": {
+   "pre_qc": {
+    "union": 507,
+    "paired": 505,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "post_qc": {
+    "union": 502,
+    "paired": 500,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 58,
+    "rna_he_met": 50,
+    "also_in_tumour_union": 58,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 502,
+   "projects": [
+    "THCA"
+   ],
+   "passes_screen": true
+  },
+  "UCEC": {
+   "pre_qc": {
+    "union": 546,
+    "paired": 430,
+    "rna_only": 115,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 530,
+    "paired": 416,
+    "rna_only": 112,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 34,
+    "rna_he_met": 33,
+    "also_in_tumour_union": 22,
+    "normal_only": 12
+   },
+   "patients_either_compartment": 542,
+   "projects": [
+    "UCEC"
+   ],
+   "passes_screen": true
+  }
+ },
+ "projects": {
+  "ACC": {
+   "pre_qc": {
+    "union": 80,
+    "paired": 79,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 79,
+    "paired": 78,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 79,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 78,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 79,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 79,
+    "paired": 78
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "BLCA": {
+   "pre_qc": {
+    "union": 412,
+    "paired": 406,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "post_qc": {
+    "union": 401,
+    "paired": 395,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "normal": {
+    "rna_he": 19,
+    "rna_he_met": 17,
+    "also_in_tumour_union": 18,
+    "normal_only": 1
+   },
+   "patients_either_compartment": 402,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 395,
+      "excluded": 11,
+      "unresolved": 6
+     },
+     "met": {
+      "retained": 403,
+      "excluded": 15,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 19,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 21,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 401,
+    "paired": 397
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "BLCA"
+  },
+  "BRCA": {
+   "pre_qc": {
+    "union": 1097,
+    "paired": 782,
+    "rna_only": 313,
+    "met_only": 2
+   },
+   "post_qc": {
+    "union": 1085,
+    "paired": 775,
+    "rna_only": 307,
+    "met_only": 3
+   },
+   "normal": {
+    "rna_he": 98,
+    "rna_he_met": 73,
+    "also_in_tumour_union": 98,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 1085,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 1082,
+      "excluded": 12,
+      "unresolved": 17
+     },
+     "met": {
+      "retained": 781,
+      "excluded": 12,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 98,
+      "excluded": 15,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 85,
+      "excluded": 12,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 1085,
+    "paired": 776
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "BRCA"
+  },
+  "CESC": {
+   "pre_qc": {
+    "union": 307,
+    "paired": 304,
+    "rna_only": 0,
+    "met_only": 3
+   },
+   "post_qc": {
+    "union": 302,
+    "paired": 300,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 3,
+    "rna_he_met": 3,
+    "also_in_tumour_union": 3,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 302,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 300,
+      "excluded": 4,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 302,
+      "excluded": 5,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 3,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 3,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 302,
+    "paired": 300
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "CESC"
+  },
+  "CHOL": {
+   "pre_qc": {
+    "union": 36,
+    "paired": 35,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 35,
+    "paired": 34,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 9,
+    "rna_he_met": 9,
+    "also_in_tumour_union": 9,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 35,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 34,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 35,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 9,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 9,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 35,
+    "paired": 35
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "COAD": {
+   "pre_qc": {
+    "union": 458,
+    "paired": 295,
+    "rna_only": 163,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 443,
+    "paired": 285,
+    "rna_only": 156,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 37,
+    "rna_he_met": 17,
+    "also_in_tumour_union": 37,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 443,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 441,
+      "excluded": 17,
+      "unresolved": 23
+     },
+     "met": {
+      "retained": 293,
+      "excluded": 19,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 37,
+      "excluded": 4,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 34,
+      "excluded": 4,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 443,
+    "paired": 286
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "CRC"
+  },
+  "DLBC": {
+   "pre_qc": {
+    "union": 48,
+    "paired": 48,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 48,
+    "paired": 48,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 48,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 48,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 48,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 48,
+    "paired": 48
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "ESCA": {
+   "pre_qc": {
+    "union": 185,
+    "paired": 184,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 174,
+    "paired": 173,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 10,
+    "rna_he_met": 8,
+    "also_in_tumour_union": 10,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 174,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 173,
+      "excluded": 11,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 174,
+      "excluded": 11,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 10,
+      "excluded": 1,
+      "unresolved": 2
+     },
+     "met": {
+      "retained": 15,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 174,
+    "paired": 173
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "ESCA"
+  },
+  "GBM": {
+   "pre_qc": {
+    "union": 344,
+    "paired": 80,
+    "rna_only": 204,
+    "met_only": 60
+   },
+   "post_qc": {
+    "union": 242,
+    "paired": 51,
+    "rna_only": 103,
+    "met_only": 88
+   },
+   "normal": {
+    "rna_he": 5,
+    "rna_he_met": 1,
+    "also_in_tumour_union": 0,
+    "normal_only": 5
+   },
+   "patients_either_compartment": 247,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 156,
+      "excluded": 0,
+      "unresolved": 216
+     },
+     "met": {
+      "retained": 139,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 5,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 2,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 242,
+    "paired": 51
+   },
+   "passes_screen": false,
+   "in_panel": true,
+   "group": "GLIOMA"
+  },
+  "HNSC": {
+   "pre_qc": {
+    "union": 528,
+    "paired": 520,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "post_qc": {
+    "union": 522,
+    "paired": 514,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "normal": {
+    "rna_he": 43,
+    "rna_he_met": 20,
+    "also_in_tumour_union": 43,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 522,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 514,
+      "excluded": 6,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 522,
+      "excluded": 6,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 44,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 50,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 522,
+    "paired": 514
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "HNSC"
+  },
+  "KICH": {
+   "pre_qc": {
+    "union": 66,
+    "paired": 66,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 65,
+    "paired": 65,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 24,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 24,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 65,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 65,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 65,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 24,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 65,
+    "paired": 65
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "KIRC": {
+   "pre_qc": {
+    "union": 534,
+    "paired": 318,
+    "rna_only": 215,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 516,
+    "paired": 311,
+    "rna_only": 204,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 71,
+    "rna_he_met": 23,
+    "also_in_tumour_union": 71,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 516,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 515,
+      "excluded": 18,
+      "unresolved": 8
+     },
+     "met": {
+      "retained": 314,
+      "excluded": 10,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 71,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 157,
+      "excluded": 3,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 516,
+    "paired": 311
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "KIRC"
+  },
+  "KIRP": {
+   "pre_qc": {
+    "union": 291,
+    "paired": 274,
+    "rna_only": 16,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 280,
+    "paired": 266,
+    "rna_only": 13,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 32,
+    "rna_he_met": 23,
+    "also_in_tumour_union": 32,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 280,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 279,
+      "excluded": 11,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 267,
+      "excluded": 8,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 32,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 43,
+      "excluded": 2,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 280,
+    "paired": 266
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "KIRP"
+  },
+  "LGG": {
+   "pre_qc": {
+    "union": 516,
+    "paired": 516,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 514,
+    "paired": 514,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 514,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 514,
+      "excluded": 2,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 514,
+      "excluded": 2,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 514,
+    "paired": 514
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "GLIOMA"
+  },
+  "LIHC": {
+   "pre_qc": {
+    "union": 377,
+    "paired": 371,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "post_qc": {
+    "union": 368,
+    "paired": 362,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "normal": {
+    "rna_he": 50,
+    "rna_he_met": 41,
+    "also_in_tumour_union": 47,
+    "normal_only": 3
+   },
+   "patients_either_compartment": 371,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 362,
+      "excluded": 9,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 368,
+      "excluded": 9,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 50,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 50,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 368,
+    "paired": 362
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "LIHC"
+  },
+  "LUAD": {
+   "pre_qc": {
+    "union": 520,
+    "paired": 455,
+    "rna_only": 62,
+    "met_only": 3
+   },
+   "post_qc": {
+    "union": 461,
+    "paired": 406,
+    "rna_only": 51,
+    "met_only": 4
+   },
+   "normal": {
+    "rna_he": 57,
+    "rna_he_met": 20,
+    "also_in_tumour_union": 48,
+    "normal_only": 9
+   },
+   "patients_either_compartment": 470,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 457,
+      "excluded": 58,
+      "unresolved": 25
+     },
+     "met": {
+      "retained": 413,
+      "excluded": 60,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 57,
+      "excluded": 2,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 30,
+      "excluded": 2,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 461,
+    "paired": 406
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "LUAD"
+  },
+  "LUSC": {
+   "pre_qc": {
+    "union": 501,
+    "paired": 370,
+    "rna_only": 131,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 486,
+    "paired": 363,
+    "rna_only": 123,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 47,
+    "rna_he_met": 8,
+    "also_in_tumour_union": 47,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 486,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 487,
+      "excluded": 15,
+      "unresolved": 9
+     },
+     "met": {
+      "retained": 363,
+      "excluded": 7,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 50,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 41,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 486,
+    "paired": 363
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "LUSC"
+  },
+  "MESO": {
+   "pre_qc": {
+    "union": 87,
+    "paired": 87,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 83,
+    "paired": 83,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 83,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 83,
+      "excluded": 4,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 83,
+      "excluded": 4,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 83,
+    "paired": 83
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "OV": {
+   "pre_qc": {
+    "union": 427,
+    "paired": 9,
+    "rna_only": 417,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 269,
+    "paired": 9,
+    "rna_only": 259,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 269,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 268,
+      "excluded": 3,
+      "unresolved": 155
+     },
+     "met": {
+      "retained": 10,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 270,
+    "paired": 9
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "PAAD": {
+   "pre_qc": {
+    "union": 184,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "post_qc": {
+    "union": 157,
+    "paired": 151,
+    "rna_only": 0,
+    "met_only": 6
+   },
+   "normal": {
+    "rna_he": 4,
+    "rna_he_met": 4,
+    "also_in_tumour_union": 4,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 157,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 151,
+      "excluded": 27,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 157,
+      "excluded": 27,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 4,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 10,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 157,
+    "paired": 151
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "PAAD"
+  },
+  "PCPG": {
+   "pre_qc": {
+    "union": 179,
+    "paired": 179,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 178,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 3,
+    "rna_he_met": 3,
+    "also_in_tumour_union": 3,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 178,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 178,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 178,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 3,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 3,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 178,
+    "paired": 178
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "PCPG"
+  },
+  "PRAD": {
+   "pre_qc": {
+    "union": 498,
+    "paired": 497,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 406,
+    "paired": 405,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 48,
+    "rna_he_met": 32,
+    "also_in_tumour_union": 42,
+    "normal_only": 6
+   },
+   "patients_either_compartment": 412,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 405,
+      "excluded": 92,
+      "unresolved": 4
+     },
+     "met": {
+      "retained": 406,
+      "excluded": 96,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 48,
+      "excluded": 4,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 47,
+      "excluded": 3,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 406,
+    "paired": 405
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "PRAD"
+  },
+  "READ": {
+   "pre_qc": {
+    "union": 166,
+    "paired": 98,
+    "rna_only": 68,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 156,
+    "paired": 94,
+    "rna_only": 62,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 10,
+    "rna_he_met": 2,
+    "also_in_tumour_union": 9,
+    "normal_only": 1
+   },
+   "patients_either_compartment": 157,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 156,
+      "excluded": 10,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 94,
+      "excluded": 4,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 10,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 7,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 156,
+    "paired": 94
+   },
+   "passes_screen": false,
+   "in_panel": true,
+   "group": "CRC"
+  },
+  "SARC": {
+   "pre_qc": {
+    "union": 261,
+    "paired": 259,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "post_qc": {
+    "union": 225,
+    "paired": 223,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 2,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 2,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 225,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 223,
+      "excluded": 36,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 225,
+      "excluded": 36,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 2,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 4,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 225,
+    "paired": 223
+   },
+   "passes_screen": true,
+   "in_panel": false,
+   "group": null,
+   "excluded_from_study": true
+  },
+  "SKCM": {
+   "pre_qc": {
+    "union": 104,
+    "paired": 103,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 104,
+    "paired": 103,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "normal": {
+    "rna_he": 1,
+    "rna_he_met": 1,
+    "also_in_tumour_union": 0,
+    "normal_only": 1
+   },
+   "patients_either_compartment": 105,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 103,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 104,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 1,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 2,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 104,
+    "paired": 103
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "STAD": {
+   "pre_qc": {
+    "union": 434,
+    "paired": 373,
+    "rna_only": 39,
+    "met_only": 22
+   },
+   "post_qc": {
+    "union": 416,
+    "paired": 349,
+    "rna_only": 38,
+    "met_only": 29
+   },
+   "normal": {
+    "rna_he": 34,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 31,
+    "normal_only": 3
+   },
+   "patients_either_compartment": 419,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 387,
+      "excluded": 24,
+      "unresolved": 1
+     },
+     "met": {
+      "retained": 378,
+      "excluded": 17,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 34,
+      "excluded": 0,
+      "unresolved": 2
+     },
+     "met": {
+      "retained": 2,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 420,
+    "paired": 349
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "STAD"
+  },
+  "TGCT": {
+   "pre_qc": {
+    "union": 150,
+    "paired": 150,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 149,
+    "paired": 149,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 149,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 149,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 149,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 149,
+    "paired": 149
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "THCA": {
+   "pre_qc": {
+    "union": 507,
+    "paired": 505,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "post_qc": {
+    "union": 502,
+    "paired": 500,
+    "rna_only": 0,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 58,
+    "rna_he_met": 50,
+    "also_in_tumour_union": 58,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 502,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 500,
+      "excluded": 5,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 502,
+      "excluded": 5,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 59,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 56,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 502,
+    "paired": 500
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "THCA"
+  },
+  "THYM": {
+   "pre_qc": {
+    "union": 124,
+    "paired": 120,
+    "rna_only": 0,
+    "met_only": 4
+   },
+   "post_qc": {
+    "union": 124,
+    "paired": 120,
+    "rna_only": 0,
+    "met_only": 4
+   },
+   "normal": {
+    "rna_he": 2,
+    "rna_he_met": 2,
+    "also_in_tumour_union": 2,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 124,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 120,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 124,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 2,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 2,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 124,
+    "paired": 120
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "UCEC": {
+   "pre_qc": {
+    "union": 546,
+    "paired": 430,
+    "rna_only": 115,
+    "met_only": 1
+   },
+   "post_qc": {
+    "union": 530,
+    "paired": 416,
+    "rna_only": 112,
+    "met_only": 2
+   },
+   "normal": {
+    "rna_he": 34,
+    "rna_he_met": 33,
+    "also_in_tumour_union": 22,
+    "normal_only": 12
+   },
+   "patients_either_compartment": 542,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 528,
+      "excluded": 17,
+      "unresolved": 8
+     },
+     "met": {
+      "retained": 421,
+      "excluded": 17,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 34,
+      "excluded": 1,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 45,
+      "excluded": 1,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 530,
+    "paired": 416
+   },
+   "passes_screen": true,
+   "in_panel": true,
+   "group": "UCEC"
+  },
+  "UCS": {
+   "pre_qc": {
+    "union": 57,
+    "paired": 57,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 57,
+    "paired": 57,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 57,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 57,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 57,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 57,
+    "paired": 57
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  },
+  "UVM": {
+   "pre_qc": {
+    "union": 80,
+    "paired": 80,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "post_qc": {
+    "union": 80,
+    "paired": 80,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "normal": {
+    "rna_he": 0,
+    "rna_he_met": 0,
+    "also_in_tumour_union": 0,
+    "normal_only": 0
+   },
+   "patients_either_compartment": 80,
+   "aliquots": {
+    "tumour": {
+     "rna": {
+      "retained": 80,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 80,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    },
+    "normal": {
+     "rna": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     },
+     "met": {
+      "retained": 0,
+      "excluded": 0,
+      "unresolved": 0
+     }
+    }
+   },
+   "historical_matrix": {
+    "union": 80,
+    "paired": 80
+   },
+   "passes_screen": false,
+   "in_panel": false,
+   "group": null
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/release.schema.json",
+ "title": "release",
+ "description": "Release version, date and the dates on which sources were checked",
+ "type": "object",
+ "properties": {
+  "version": {
+   "type": "string"
+  },
+  "date": {
+   "type": "string"
+  },
+  "audit_dates": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  }
+ },
+ "required": [
+  "version",
+  "date",
+  "audit_dates"
+ ],
+ "additionalProperties": false
+}

@@ -1,0 +1,316 @@
+{
+ "name": "Tumour Histology and Multi-omics Explorer",
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "description": "Index of the explorer's data files with checksums and schemas",
+ "agent_guide": "llms.txt",
+ "field_reference": "data/README.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "There is no treated TCGA reference set: treatment-flagged patients were withheld, not collected as a treated group.",
+  "The pooled glioma cohort (TCGA-LGG and TCGA-GBM) is a classification benchmark; integrated WHO CNS5 diagnoses are not adjudicated.",
+  "Data remain at their original repositories. Listing a dataset does not mean access has been granted or requested."
+ ],
+ "files": [
+  {
+   "path": "data/release.json",
+   "description": "Release version, date and the dates on which sources were checked",
+   "records": null,
+   "bytes": 132,
+   "sha256": "3fabb92f48a28010a3360cd311b55a22d6f02d95f10f6b0b3e1acfad723c212d",
+   "schema": "schemas/release.schema.json"
+  },
+  {
+   "path": "data/cancers.json",
+   "description": "Cancer types: page codes, panel rationale, linked TCGA project and analysis cohort, histology strata, summary and gaps",
+   "records": 22,
+   "bytes": 27148,
+   "sha256": "4d439cfffab76f7754452d6241820b98aa3274bdcc614718bc36138b38326dc2",
+   "schema": "schemas/cancers.schema.json"
+  },
+  {
+   "path": "data/evidence.json",
+   "description": "Published archetype studies used as the panel's selection history",
+   "records": 1,
+   "bytes": 1791,
+   "sha256": "3707d66d7eeb8cee91abeb349287636340404dfe749d24c141136d28a9ace634",
+   "schema": "schemas/evidence.schema.json"
+  },
+  {
+   "path": "data/cohorts.json",
+   "description": "Studies and resources in every data layer, with linkage, access, open checks, reported counts and the spatial review details",
+   "records": 133,
+   "bytes": 256051,
+   "sha256": "2bca2817701258b88b3e222ac7088e184c9982fb2eacdc4339a5a30d5c3ec914",
+   "schema": "schemas/cohorts.schema.json"
+  },
+  {
+   "path": "data/captures.json",
+   "description": "Located spatial transcriptomics tissue sections with original H&E, expression and coordinates, one record per section",
+   "records": 204,
+   "bytes": 404263,
+   "sha256": "ee43f12022d67581171a9183947f3a467fc1f6279db0defe24117e83dcb3a5d8",
+   "schema": "schemas/captures.schema.json"
+  },
+  {
+   "path": "data/tcga_counts.json",
+   "description": "TCGA molecular screen: patients with RNA-seq and 450k methylation per project, before and after assay-quality exclusions, with normal tissue",
+   "records": 32,
+   "bytes": 38443,
+   "sha256": "80a59ff08640db22882f7d4016a2455901e619bf343f6e2ee52fb46ad4245498",
+   "schema": "schemas/tcga_counts.schema.json"
+  },
+  {
+   "path": "data/tcga_eligibility.json",
+   "description": "TCGA selected analysis panel: counts per project after assay QC, after the patient screen and selected, and the 18 analysis cohorts",
+   "records": 18,
+   "bytes": 96384,
+   "sha256": "f39e9727440984c0bed2b7801079893f28505c13bb7482202d1f2801a9a240e1",
+   "schema": "schemas/tcga_eligibility.schema.json"
+  },
+  {
+   "path": "data/tcga_patients.json",
+   "description": "Per-patient RNA-seq and 450k states (retained, excluded, unresolved, absent) for tumour and normal tissue",
+   "records": 8602,
+   "bytes": 988513,
+   "sha256": "9a3fce10a1bfb6174298244c0f1591f530c8d2051c60e47c621204c29a8bf38d",
+   "schema": "schemas/tcga_patients.schema.json"
+  },
+  {
+   "path": "data/tcga_patient_review.json",
+   "description": "Per-patient treatment and diagnosis screen, analysis cohort, study role and published annotations, as reason codes",
+   "records": 8187,
+   "bytes": 3137757,
+   "sha256": "90686b8aca25e3973088966b92513ee2697732bf0143fd053f97be5514f1492d",
+   "schema": "schemas/tcga_patient_review.schema.json"
+  },
+  {
+   "path": "data/tcga_flags.json",
+   "description": "Every excluded or unresolved TCGA aliquot with its reason and the layers still retained",
+   "records": 1061,
+   "bytes": 219084,
+   "sha256": "22be39888cf503b7890848d7259482e3d3ab3b09294fa362693c2958a9aa6a75",
+   "schema": "schemas/tcga_flags.schema.json"
+  },
+  {
+   "path": "data/tcga_reviews.json",
+   "description": "Histology review of TCGA-ESCA and TCGA-PAAD cases, cohort definitions and the patient scope review",
+   "records": 370,
+   "bytes": 230296,
+   "sha256": "86c3bab3b96fac9d425e0c5b906ec26f118cd08e05ffbbb18ac4760baafaa685",
+   "schema": "schemas/tcga_reviews.schema.json"
+  },
+  {
+   "path": "data/tcga_resources.json",
+   "description": "Links to current GDC data, PanCanAtlas files, histology sources and reference publications",
+   "records": 25,
+   "bytes": 10364,
+   "sha256": "ec8a0ead4639ad8dfb397e0e2ccc90ac9a62b0d761111c24f723986776b87f33",
+   "schema": "schemas/tcga_resources.schema.json"
+  },
+  {
+   "path": "data/leads.json",
+   "description": "Related leads that add no resources or patients: unassigned releases, precursor studies and reuse records",
+   "records": 3,
+   "bytes": 3138,
+   "sha256": "335b8df3a41453de56c07d82e187ba479f6ea5365281402955340f48986d5332",
+   "schema": "schemas/leads.schema.json"
+  },
+  {
+   "path": "data/by-cancer/BRCA.json",
+   "description": "Cancer page BRCA: Breast invasive carcinoma",
+   "records": null,
+   "bytes": 49228,
+   "sha256": "aebcf1952ba6de03e608dc7b0091977dd35c1a8addb93423f8c7a060eb24b979",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/COAD.json",
+   "description": "Cancer page COAD: Colon adenocarcinoma",
+   "records": null,
+   "bytes": 35404,
+   "sha256": "af19dae8b3104bec056cb92004cf56088d133fb2ed4f9d89f35cb9791664d0f7",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/READ.json",
+   "description": "Cancer page READ: Rectal adenocarcinoma",
+   "records": null,
+   "bytes": 30559,
+   "sha256": "28fca777a6f9de2f69a53ffd7b109a42eb5daa60e953c9fa2e475dfd6eb2fd65",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/CRC.json",
+   "description": "Cancer page CRC: Colorectal adenocarcinoma",
+   "records": null,
+   "bytes": 61578,
+   "sha256": "9e639c93814222c7bdc0784df71ab1ca6f334eba64cd8162b905956690c33282",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/THCA.json",
+   "description": "Cancer page THCA: Thyroid carcinoma",
+   "records": null,
+   "bytes": 22499,
+   "sha256": "bd7d2616c9a027d3cd2d1d97d3e3beee86739314c5f0e175ad0719082e221cb2",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/BLCA.json",
+   "description": "Cancer page BLCA: Bladder urothelial carcinoma",
+   "records": null,
+   "bytes": 24286,
+   "sha256": "c82a8438fdeca3df71b3aac0dd688ea25c82659e113c602acea0f2bcf4a3426f",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/LGG.json",
+   "description": "Cancer page LGG: Lower-grade glioma",
+   "records": null,
+   "bytes": 62061,
+   "sha256": "e82a97c5dac6326f81e7f4477974841159fd708c7635e75de202611a59eaa25f",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/GBM.json",
+   "description": "Cancer page GBM: Glioblastoma (historical TCGA diagnosis)",
+   "records": null,
+   "bytes": 50663,
+   "sha256": "b46268da2ccab0c463fbd4098704714fd28ea1f73bba10336ec687b8d13acaed",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/GLIOMA.json",
+   "description": "Cancer page GLIOMA: Diffuse glioma classification benchmark",
+   "records": null,
+   "bytes": 67996,
+   "sha256": "88341fd81565343a160fa22b3b7092cc1ea6f1e65b36cf585a3aa869056c8563",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/LIHC.json",
+   "description": "Cancer page LIHC: Liver hepatocellular carcinoma",
+   "records": null,
+   "bytes": 32661,
+   "sha256": "751e6af1d91bb60c76c52c0c2dfcc69c961ecb56d2f5e62b360854f9e6a7dcc9",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/LUAD.json",
+   "description": "Cancer page LUAD: Lung adenocarcinoma",
+   "records": null,
+   "bytes": 36803,
+   "sha256": "32fd5e447a9f91d553ec9b687ec2837d3f576ab99eda153468df53082faaa72c",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/HNSC.json",
+   "description": "Cancer page HNSC: Head and neck squamous cell carcinoma",
+   "records": null,
+   "bytes": 38738,
+   "sha256": "5bcae840e50f9120d8c6ddb9cbbd32ea1b0a84ec13ee2c7368fde0757ddf080a",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/CESC.json",
+   "description": "Cancer page CESC: Cervical squamous cell carcinoma and endocervical adenocarcinoma",
+   "records": null,
+   "bytes": 22451,
+   "sha256": "b1f6384992415da8ca0c096d9f171b30cf5d57a5490d521bd081fef7d2e562b5",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/ESCA.json",
+   "description": "Cancer page ESCA: Oesophageal carcinoma",
+   "records": null,
+   "bytes": 17727,
+   "sha256": "9d5f16d1594ac174bed8257b6d3f47d1513d6aa76a8b426336db2a83dd4495a2",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/KIRC.json",
+   "description": "Cancer page KIRC: Kidney renal clear cell carcinoma",
+   "records": null,
+   "bytes": 22681,
+   "sha256": "9fba76478734ead3b9f677effc2b27d54f1f6ab7024cf6f82e158e814d6667f3",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/KIRP.json",
+   "description": "Cancer page KIRP: Kidney renal papillary cell carcinoma",
+   "records": null,
+   "bytes": 14741,
+   "sha256": "c4b70dc00cdd09c10a6777d15deef6434f40a4ee094245dfbd4888946e9c4292",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/LUSC.json",
+   "description": "Cancer page LUSC: Lung squamous cell carcinoma",
+   "records": null,
+   "bytes": 15894,
+   "sha256": "93e353c0811851c5b4e94aa6cf6344b0f3d13630e0b761793ac07bb095290a74",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/PCPG.json",
+   "description": "Cancer page PCPG: Pheochromocytoma and paraganglioma",
+   "records": null,
+   "bytes": 20614,
+   "sha256": "df5b34a8d6a83ca11ce0441f9970e8743b40ac5c88f45ce146a30f5032c84dae",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/PRAD.json",
+   "description": "Cancer page PRAD: Prostate adenocarcinoma",
+   "records": null,
+   "bytes": 22137,
+   "sha256": "a55cc16c860552ed7a6fd253ea1142fc2f0ed11cdae92156fed87c5c865ac44c",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/STAD.json",
+   "description": "Cancer page STAD: Stomach adenocarcinoma",
+   "records": null,
+   "bytes": 15589,
+   "sha256": "024fce1f6e7f745f4371d819f5da463b9aa3e7d7457a577ec8bab924bb15e457",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/UCEC.json",
+   "description": "Cancer page UCEC: Uterine corpus endometrial carcinoma",
+   "records": null,
+   "bytes": 31760,
+   "sha256": "113ec26e9a45192db8bac60600b4087f8bc0dd535c874d7af2b7f8779b89ea4b",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/by-cancer/PDAC.json",
+   "description": "Cancer page PDAC: Pancreatic ductal adenocarcinoma",
+   "records": null,
+   "bytes": 60257,
+   "sha256": "85216e5f828ba38aa403f5644bf705bdf56ee0636a4f27b027ad4c4bb0b81325",
+   "schema": "schemas/by-cancer.schema.json"
+  },
+  {
+   "path": "data/glossary.json",
+   "description": "Definitions of the terms used for counts and curation, and every display vocabulary of the site",
+   "records": 14,
+   "bytes": 22795,
+   "sha256": "43b6b023b74a6ab0a4fdee25d8bdbae05f6153cacc941e3755c8e2483f2998a1",
+   "schema": "schemas/glossary.schema.json"
+  }
+ ]
+}

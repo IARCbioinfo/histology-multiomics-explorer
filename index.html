@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tumour Histology and Multi-omics Explorer</title>
+<meta name="description" content="A curated explorer of TCGA cohort definitions, molecular-data coverage and histology links, with selected spatial omics studies that add tissue and cellular context.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="alternate" type="text/markdown" title="Text version" href="llms.txt">
+<!-- agent:dataset-jsonld -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Tumour Histology and Multi-omics Explorer",
+ "description": "Curated public metadata linking tumour histology with molecular measurements: TCGA patients with RNA-seq and 450k DNA methylation, assay and patient exclusions and an analysis panel of 18 cohorts, and published spatial omics studies with matched H&E images, with their linkage, access route and verification status. The underlying data remain at their original repositories.",
+ "version": "0.9.3",
+ "dateModified": "2026-10-16",
+ "keywords": [
+  "TCGA",
+  "histology",
+  "H&E",
+  "spatial transcriptomics",
+  "RNA-seq",
+  "DNA methylation",
+  "tumour heterogeneity",
+  "cancer"
+ ],
+ "isAccessibleForFree": true,
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "name": "Data index",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://iarcbioinfo.github.io/histology-multiomics-explorer/data/index.json"
+  },
+  {
+   "@type": "DataDownload",
+   "name": "Agent guide",
+   "encodingFormat": "text/markdown",
+   "contentUrl": "https://iarcbioinfo.github.io/histology-multiomics-explorer/llms.txt"
+  }
+ ],
+ "url": "https://iarcbioinfo.github.io/histology-multiomics-explorer/",
+ "codeRepository": "https://github.com/IARCbioinfo/histology-multiomics-explorer",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "creator": {
+  "@type": "Person",
+  "name": "Matthieu Foll",
+  "affiliation": {
+   "@type": "Organization",
+   "name": "International Agency for Research on Cancer"
+  }
+ }
+}
+</script>
+<!-- /agent:dataset-jsonld -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><rect x="1" y="2.5" width="20" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.6 12.4c0-2.9 1.9-5.3 4.3-5.3 2.2 0 3.6 1.6 3.3 3.9-.3 2.2-2.2 3.9-4.1 3.7-1.9-.2-3.5-.6-3.5-2.3Z" class="brand-blob"/><path d="M15.6 7v7M18 9.5v4.5" class="brand-bars" stroke-width="1.7" stroke-linecap="round"/></svg><span>Tumour Histology and Multi-omics Explorer</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>
+      <li><a href="cancers.html">Cancer types</a></li>
+      <li><a href="tcga.html">TCGA reference</a></li>
+      <li><a href="spatial.html">Spatial studies</a></li>
+      <li><a href="explore.html">Data explorer</a></li>
+      <li><a href="methods.html">Methods</a></li>
+      <li><a href="applications.html">Applications</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">TCGA reference · spatial omics · histology</div>
+        <h1>Explore tumour histology and molecular data</h1>
+        <p class="lede">TCGA provides a foundation for studying molecular variation across cancers alongside tissue morphology. This explorer brings together curated TCGA cohort definitions, molecular-data coverage and histology links, with selected spatial omics studies that add tissue and cellular context.</p>
+        <p class="lede">Explore available datasets, understand how measurements are linked, and assess their suitability for your research.</p>
+        <div class="actions">
+          <a class="btn primary" href="cancers.html">Browse cancer types</a>
+          <a class="btn" href="explore.html">Open the data explorer</a>
+          <a class="btn" href="agents.html">Use with AI agents</a>
+        </div>
+      </div>
+      <aside class="figure glance" aria-labelledby="glance-h">
+        <h2 id="glance-h" class="glance-title">At a glance</h2>
+        <dl class="glance-list" id="glance"><div><dt>…</dt><dd>Loading</dd></div></dl>
+        <p class="glance-note">TCGA and the spatial studies involve different patients. <a href="methods.html#linkage">How measurements are linked</a></p>
+      </aside>
+    </section>
+
+    <section aria-labelledby="curated-h">
+      <h2 id="curated-h">What we curated, and why</h2>
+      <div class="prose">
+        <p>Building a research cohort requires more than finding available files. We review assay-quality annotations, treatment and diagnosis information, histological definitions and sample linkage. We document the resulting selections and uncertainties so that researchers can understand and adapt them.</p>
+        <p>Our current analysis panel was assembled for studies of tumour heterogeneity, including archetype analysis. Its selection criteria are explicit research choices; other questions may require different cohorts.</p>
+      </div>
+      <ul class="curated-list">
+        <li><strong><a href="methods.html#tcga">Molecular coverage</a></strong>RNA-seq and 450k methylation by patient, counted separately and together.</li>
+        <li><strong><a href="methods.html#quality">Assay and patient exclusions</a></strong>Quality flags per aliquot, then treatment, diagnosis and specimen review per patient.</li>
+        <li><strong><a href="methods.html#analysis-cohorts">Histology decisions and pooling</a></strong>Histology-defined cohorts, pooled projects and sensitivity subsets.</li>
+        <li><strong><a href="methods.html#linkage">Sample linkage and count units</a></strong>Which images and measurements share a patient, sample or section, and what each count means.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="routes-h">
+      <h2 id="routes-h">Where to start</h2>
+      <div class="route-grid">
+        <a class="card" href="tcga.html"><h3>TCGA reference</h3><span class="figure-line" id="route-tcga">TCGA cohorts, coverage and exclusions</span><span class="small muted">Cohort definitions, coverage by project, the analysis panel and patient-level data.</span></a>
+        <a class="card" href="spatial.html"><h3>Spatial studies</h3><span class="figure-line" id="route-spatial">Matched H&amp;E and spatial data</span><span class="small muted">Published studies that pair H&amp;E images with spatial measurements, and what has been verified for each.</span></a>
+        <a class="card" href="methods.html"><h3>Curation and methods</h3><span class="figure-line">How selections were made</span><span class="small muted">Exclusions, histology decisions, pooling, linkage, count units and limitations.</span></a>
+        <a class="card" href="applications.html"><h3>Research applications</h3><span class="figure-line">What the data can support</span><span class="small muted">From tumour heterogeneity and classification to histology-to-molecular modelling and archetypes.</span></a>
+      </div>
+    </section>
+
+    <section aria-labelledby="agents-h">
+      <h2 id="agents-h">Ready for AI agents</h2>
+      <p class="prose muted">Everything on this site is also published as text and JSON for AI assistants and scripts. A read-only MCP server lets assistants such as Claude query the catalogue directly, with counts defined as on these pages.</p>
+      <div class="route-grid">
+        <a class="card" href="agents.html#mcp"><h3>MCP server</h3><span class="figure-line">Query the catalogue from Claude</span><span class="small muted">Ten read-only tools for resources, tissue sections and TCGA patients. Runs on your computer.</span></a>
+        <a class="card" href="llms.txt"><h3>llms.txt</h3><span class="figure-line">Agent guide</span><span class="small muted">What the site is, what to read before using any count, and links to every text version.</span></a>
+        <a class="card" href="agents.html#files"><h3>Text and JSON</h3><span class="figure-line">Pages and data for scripts</span><span class="small muted">Markdown pages, one JSON file per cancer type, a checksummed data index, schemas and a glossary.</span></a>
+        <a class="card" href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/AGENTS.md"><h3>AGENTS.md</h3><span class="figure-line">For coding agents</span><span class="small muted">Commands, generated files and rules for agents working on the repository.</span></a>
+      </div>
+    </section>
+
+    <section aria-labelledby="cancers-h">
+      <h2 id="cancers-h">Browse by cancer type</h2>
+      <p class="prose muted">Each cancer page shows the TCGA data and the spatial studies available for that cancer, with the checks that remain open. The list follows the current analysis panel: colorectal cancer and diffuse glioma also have pooled pages.</p>
+      <div class="grid" id="cancer-grid"></div>
+    </section>
+
+    <section aria-labelledby="layers-h">
+      <h2 id="layers-h">Kinds of data</h2>
+      <div class="table-wrap">
+        <table class="stack">
+          <thead><tr><th scope="col">Layer</th><th scope="col">What it contains</th><th scope="col">Typical use</th><th scope="col" class="num">Entries</th></tr></thead>
+          <tbody id="layers"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span><strong>Tumour Histology and Multi-omics Explorer</strong> · <span id="release">Release</span> · <a href="sources.html">Sources</a> · <a href="agents.html">For AI agents</a> · <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">GitHub</a></span>
+    <span>Metadata <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/DATA-LICENSE.md">CC BY 4.0</a>, code <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/LICENSE">GPL-3.0</a>. Data remain at their original repositories; listing a dataset does not imply that access has been granted.</span>
+  </div>
+</footer>
+<script type="module" src="assets/js/home.js"></script>
+</body>
+</html>

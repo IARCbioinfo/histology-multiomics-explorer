@@ -1,0 +1,31 @@
+[
+ {
+  "id": "hausser-2019",
+  "short": "Hausser et al. 2019",
+  "cancers": [
+   "BRCA",
+   "COAD",
+   "THCA",
+   "BLCA",
+   "LGG",
+   "LIHC",
+   "LUAD",
+   "HNSC",
+   "CESC",
+   "KIRC",
+   "LUSC",
+   "PRAD",
+   "STAD",
+   "UCEC",
+   "CRC",
+   "GLIOMA"
+  ],
+  "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+  "doi": "10.1038/s41467-019-13195-1",
+  "url": "https://www.nature.com/articles/s41467-019-13195-1",
+  "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+  "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+  "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+  "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+ }
+]

@@ -1,0 +1,664 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "PRAD",
+ "page": "cancers.html?c=PRAD",
+ "markdown": "md/cancers/PRAD.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "PRAD",
+  "gaps": [
+   "Many tumour aliquots carry pathology-group exclusions for RNA degradation, so the retained count is well below raw availability.",
+   "Four prostate spatial resources are listed for review: two vendor Visium FFPE specimens (not assumed to come from distinct patients), a Slide-seqV2 study with two cancer donors and consecutive-section H&E, and a legacy Spatial Transcriptomics clonal-mapping release. None is yet a verified matched package."
+  ],
+  "name": "Prostate adenocarcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen after a substantial number of pathology-group exclusions.",
+  "tcga_project": "PRAD",
+  "analysis_cohort": "PRAD"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "PRAD",
+   "label": "PRAD",
+   "role": "discovery",
+   "projects": [
+    "PRAD"
+   ],
+   "selected_analysis": {
+    "total": 402,
+    "rna": 401,
+    "met": 402,
+    "paired": 401,
+    "rna_only": 0,
+    "met_only": 1
+   },
+   "contributions": {
+    "PRAD": {
+     "total": 402,
+     "rna": 401,
+     "met": 402,
+     "paired": 401,
+     "rna_only": 0,
+     "met_only": 1
+    }
+   },
+   "normal": {
+    "rna_he_before": 48,
+    "rna_he_after": 48,
+    "rna_he_met_after": 32,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 48
+    },
+    "context_met": {
+     "target_project_donor": 32
+    }
+   }
+  },
+  "projects": {
+   "PRAD": {
+    "selected_panel": {
+     "analysis_cohort": "PRAD",
+     "role": "discovery",
+     "reviewed_patients": 414,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 406,
+      "rna": 405,
+      "met": 406,
+      "paired": 405,
+      "rna_only": 0,
+      "met_only": 1
+     },
+     "after_patient_screen": {
+      "total": 402,
+      "rna": 401,
+      "met": 402,
+      "paired": 401,
+      "rna_only": 0,
+      "met_only": 1
+     },
+     "selected_analysis": {
+      "total": 402,
+      "rna": 401,
+      "met": 402,
+      "paired": 401,
+      "rna_only": 0,
+      "met_only": 1
+     },
+     "dispositions": {
+      "pass_annotation_screen": 402,
+      "treatment_unknown_hold": 1,
+      "known_treatment_exclusion": 3
+     },
+     "normal": {
+      "rna_he_before": 48,
+      "rna_he_after": 48,
+      "rna_he_met_after": 32,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 48
+      },
+      "context_met": {
+       "target_project_donor": 32
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 498,
+      "paired": 497,
+      "rna_only": 0,
+      "met_only": 1
+     },
+     "post_qc": {
+      "union": 406,
+      "paired": 405,
+      "rna_only": 0,
+      "met_only": 1
+     },
+     "normal": {
+      "rna_he": 48,
+      "rna_he_met": 32,
+      "also_in_tumour_union": 42,
+      "normal_only": 6
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "PRAD"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "prad-10x-acinar",
+   "label": "10x Genomics prostate acinar carcinoma, Visium FFPE",
+   "title": "Human prostate cancer, acinar cell carcinoma (FFPE)",
+   "citation": {
+    "authors": "10x Genomics",
+    "title": "Human prostate cancer, acinar cell carcinoma (FFPE)",
+    "journal": "10x Genomics datasets",
+    "year": null,
+    "doi": null,
+    "url": "https://www.10xgenomics.com/datasets/human-prostate-cancer-acinar-cell-carcinoma-ffpe-1-standard"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "he-unverified",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "10x Genomics dataset; block 1D1061-Tp11",
+   "access": {
+    "category": "account",
+    "route": "Vendor dataset page; downloading requires registration and acceptance of the vendor's terms (CC BY 4.0 data). No registration was made.",
+    "links": [
+     [
+      "Vendor dataset",
+      "https://www.10xgenomics.com/datasets/human-prostate-cancer-acinar-cell-carcinoma-ffpe-1-standard"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Vendor Visium FFPE demonstration of one prostate acinar adenocarcinoma specimen (block 1D1061-Tp11), with Gleason score 7 and stage IV as reported by the vendor. A 20x Metafer H&E is source-described; the full image and registration were not checked, and prior hormonal or systemic therapy is unknown.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     1,
+     "sample (vendor specimen)",
+     "vendor dataset page"
+    ]
+   ],
+   "notes": [
+    "Retain Gleason score 7 and reported stage as vendor annotations",
+    "Do not assume distinct independent patients across vendor pages",
+    "Review prior ADT/systemic therapy and tissue compartment",
+    "Vendor download requires registration and acceptance of terms; no form was submitted"
+   ],
+   "spatial_review": {
+    "id": "prad-10x-acinar",
+    "date": "2026-10-15",
+    "analysis_cohort": "PRAD",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium FFPE",
+    "role": "candidate resource",
+    "image_status": "20x Metafer H&E source-described; full image and registration check pending",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "block": "1D1061-Tp11",
+    "reported_stage": "IV",
+    "reported_gleason": 7,
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Vendor page requires registration and terms before download",
+     "states": [
+      "vendor-terms",
+      "local-qc"
+     ],
+     "next_step": "Complete the vendor registration if wanted (not done), then check the files, H&E and donor history.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "prad-10x-invasive",
+   "label": "10x Genomics prostate invasive adenocarcinoma, Visium FFPE",
+   "title": "Human prostate cancer, adenocarcinoma with invasive carcinoma (FFPE)",
+   "citation": {
+    "authors": "10x Genomics",
+    "title": "Human prostate cancer, adenocarcinoma with invasive carcinoma (FFPE)",
+    "journal": "10x Genomics datasets",
+    "year": null,
+    "doi": null,
+    "url": "https://www.10xgenomics.com/datasets/human-prostate-cancer-adenocarcinoma-with-invasive-carcinoma-ffpe-1-standard-1-3-0"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "he-unverified",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "10x Genomics dataset; block 1E500_Tp12",
+   "access": {
+    "category": "account",
+    "route": "Vendor dataset page; downloading requires registration and acceptance of the vendor's terms (CC BY 4.0 data). No registration was made.",
+    "links": [
+     [
+      "Vendor dataset",
+      "https://www.10xgenomics.com/datasets/human-prostate-cancer-adenocarcinoma-with-invasive-carcinoma-ffpe-1-standard-1-3-0"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Vendor Visium FFPE demonstration of one prostate adenocarcinoma with invasive carcinoma (block 1E500_Tp12), with Gleason score 7 and stage III as reported by the vendor. The two vendor prostate pages are not assumed to come from distinct patients. A 20x Metafer H&E is source-described; the full image, registration and treatment history were not checked.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     1,
+     "sample (vendor specimen)",
+     "vendor dataset page"
+    ]
+   ],
+   "notes": [
+    "Retain Gleason score 7 and reported stage as vendor annotations",
+    "Do not assume distinct independent patients across vendor pages",
+    "Review prior ADT/systemic therapy and tissue compartment",
+    "Vendor download requires registration and acceptance of terms; no form was submitted"
+   ],
+   "spatial_review": {
+    "id": "prad-10x-invasive",
+    "date": "2026-10-15",
+    "analysis_cohort": "PRAD",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium FFPE",
+    "role": "candidate resource",
+    "image_status": "20x Metafer H&E source-described; full image and registration check pending",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "block": "1E500_Tp12",
+    "reported_stage": "III",
+    "reported_gleason": 7,
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Vendor page requires registration and terms before download",
+     "states": [
+      "vendor-terms",
+      "local-qc"
+     ],
+     "next_step": "Complete the vendor registration if wanted (not done), then check the files, H&E and donor history.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "prad-hirz-slideseq",
+   "label": "Hirz et al. 2023",
+   "title": "Dissecting the immune suppressive human prostate tumor microenvironment via integrated single-cell and spatial transcriptomic analyses",
+   "citation": {
+    "authors": "Hirz T, et al.",
+    "title": "Dissecting the immune suppressive human prostate tumor microenvironment via integrated single-cell and spatial transcriptomic analyses",
+    "journal": "Nature Communications",
+    "year": 2023,
+    "doi": "10.1038/s41467-023-36325-2",
+    "url": "https://doi.org/10.1038/s41467-023-36325-2"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Slide-seqV2"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "serial-section",
+   "gates": [
+    "coordinates",
+    "serial-section",
+    "he-not-located",
+    "identity"
+   ],
+   "accession": "Zenodo 7526696",
+   "access": {
+    "category": "open",
+    "route": "public Zenodo archive; GEO GSE181294 is primarily scRNA; use spatial archive",
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1038/s41467-023-36325-2"
+     ],
+     [
+      "Full text (PMC)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9905093/"
+     ],
+     [
+      "Spatial archive",
+      "https://zenodo.org/records/7526696"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Slide-seqV2 profiling within a study of the prostate tumour microenvironment: 12 arrays from four donors, two with prostate cancer from a treatment-naive prostatectomy cohort and two controls without prostate cancer. H&E comes from consecutive sections, not the assayed ones. The study's 19 cancer patients are single-cell RNA-seq donors, not spatial patients. The public Zenodo archive has count matrices and annotations for the 12 arrays, but all 12 bead-location tables are defective (missing bead barcodes and x and y values) and the archive contains no H&E; archived code refers to local coordinate files that were not released. The data are not spatially usable until corrected coordinates are released.",
+   "compartments": [
+    "primary-tumour",
+    "normal"
+   ],
+   "reported": [
+    [
+     2,
+     "prostate cancer donors",
+     "publication"
+    ],
+    [
+     2,
+     "control donors without prostate cancer",
+     "publication"
+    ],
+    [
+     4,
+     "spatial donors in all",
+     "publication"
+    ],
+    [
+     12,
+     "Slide-seqV2 arrays",
+     "publication"
+    ]
+   ],
+   "notes": [
+    "Do not transpose 19 scRNA cancer patients into spatial patient counts",
+    "Keep bladder-cancer prostate controls separate from cancer patients",
+    "Map 12 arrays/replicates to tissue, donor and H&E",
+    "All 12 released bead-location tables are defective; do not treat the package as spatially usable"
+   ],
+   "spatial_review": {
+    "id": "prad-hirz-slideseq",
+    "date": "2026-10-15",
+    "analysis_cohort": "PRAD",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Slide-seqV2",
+    "role": "candidate resource",
+    "image_status": "No H&E in the public archive; consecutive-section H&E not released",
+    "treatment_status": "two tumour donors from treatment-naive prostatectomy cohort",
+    "treatment_class": "reported-untreated",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Bead coordinates defective in all 12 released tables",
+     "states": [
+      "author-release"
+     ],
+     "next_step": "Ask the study authors for corrected bead locations or the per-array input files, the barcode crosswalk and original serial H&E.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "prad-erickson-clonal",
+   "label": "Erickson et al. 2022",
+   "title": "Spatially resolved clonal copy number alterations in benign and malignant tissue",
+   "citation": {
+    "authors": "Erickson A, et al.",
+    "title": "Spatially resolved clonal copy number alterations in benign and malignant tissue",
+    "journal": "Nature",
+    "year": 2022,
+    "doi": "10.1038/s41586-022-05023-2",
+    "url": "https://doi.org/10.1038/s41586-022-05023-2"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial Transcriptomics (legacy arrays)",
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "platform",
+    "package-unverified",
+    "identity"
+   ],
+   "accession": "Mendeley Data svw96g68dv (version 5)",
+   "access": {
+    "category": "open",
+    "route": "Public Mendeley release (versions 1 and 5); file downloads failed technically; raw sequencing controlled at EGA",
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1038/s41586-022-05023-2"
+     ],
+     [
+      "Data archive",
+      "https://data.mendeley.com/datasets/svw96g68dv/5"
+     ],
+     [
+      "Data archive, version 1",
+      "https://data.mendeley.com/datasets/svw96g68dv/1"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Legacy Spatial Transcriptomics and Visium study mapping clonal copy-number alterations across benign and malignant prostate tissue. The public Mendeley release lists original-image folders for two patients (Patient 1, with legacy-array and Visium folders, and Patient 2), with large JPEG files and a checksum, but the actual file downloads failed (an HTTP error and a browser timeout): a technical gap, not a permission requirement. Benign fields and multiple regions from one patient must not be counted as separate patients. Controlled raw sequencing at EGA is not needed for processed reuse.",
+   "compartments": [
+    "tumour-unspecified",
+    "normal"
+   ],
+   "reported": [
+    [
+     2,
+     "patients with public image folders",
+     "Mendeley release"
+    ]
+   ],
+   "notes": [
+    "Keep benign fields separate; do not count multiple axial regions as patients",
+    "Public image folders verified for two patients; actual files still to retrieve"
+   ],
+   "spatial_review": {
+    "id": "prad-erickson-clonal",
+    "date": "2026-10-15",
+    "analysis_cohort": "PRAD",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "legacy Spatial Transcriptomics",
+    "role": "additional public candidate",
+    "image_status": "Original-image folders and large JPEGs listed publicly; downloads failed",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Public image folders verified; file download failed",
+     "states": [
+      "download-failure",
+      "local-qc"
+     ],
+     "next_step": "Retry the public file downloads, then check images, coordinates and the clinical mapping.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  }
+ ],
+ "located_sections": [],
+ "other_resources": [
+  {
+   "id": "tcga-prad",
+   "label": "TCGA-PRAD",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-PRAD"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "PRAD",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-PRAD"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Prostate adenocarcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Many tumour aliquots were excluded by the pathology group for RNA degradation.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "PRAD"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

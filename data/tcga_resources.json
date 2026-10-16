@@ -1,0 +1,227 @@
+[
+ {
+  "id": "gdc-files",
+  "group": "current",
+  "label": "GDC files API",
+  "file": null,
+  "url": "https://api.gdc.cancer.gov/files",
+  "docs": "https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/",
+  "use": "Current GDC RNA-seq (STAR gene counts) and 450k methylation (SeSAMe beta values) file metadata. Source of the patient counts in this catalogue."
+ },
+ {
+  "id": "pancanatlas",
+  "group": "pancanatlas",
+  "label": "GDC PanCanAtlas publication page",
+  "file": null,
+  "url": "https://gdc.cancer.gov/about-data/publications/pancanatlas",
+  "docs": null,
+  "use": "Index of the final harmonized PanCanAtlas data files listed below."
+ },
+ {
+  "id": "quality",
+  "group": "pancanatlas",
+  "label": "Merged sample-quality annotations",
+  "file": "merged_sample_quality_annotations.tsv",
+  "url": "https://api.gdc.cancer.gov/data/1a7d7be8-675d-4e60-a105-19d4121bdebf",
+  "docs": null,
+  "use": "Aliquot-level Do_not_use and pathology-group (AWG) exclusion flags with reasons. Used for every exclusion in this catalogue."
+ },
+ {
+  "id": "rna",
+  "group": "pancanatlas",
+  "label": "Final harmonized RNA-seq",
+  "file": "EBPlusPlusAdjustPANCAN_IlluminaHiSeq_RNASeqV2.geneExp.tsv",
+  "url": "https://api.gdc.cancer.gov/data/3586c0da-64d0-4b74-a449-5ff4d9136611",
+  "docs": null,
+  "use": "Batch-adjusted gene expression matrix (historical representation; not raw counts)."
+ },
+ {
+  "id": "met450",
+  "group": "pancanatlas",
+  "label": "450k-only DNA methylation",
+  "file": "jhu-usc.edu_PANCAN_HumanMethylation450.betaValue_whitelisted.tsv",
+  "url": "https://api.gdc.cancer.gov/data/99b0c493-9e94-4d99-af9f-151e46bab989",
+  "docs": null,
+  "use": "Whitelisted 450k beta values (historical representation)."
+ },
+ {
+  "id": "met27",
+  "group": "excluded",
+  "label": "Merged 27k+450k DNA methylation",
+  "file": "jhu-usc.edu_PANCAN_merged_HumanMethylation27_HumanMethylation450.betaValue_whitelisted.tsv",
+  "url": "https://api.gdc.cancer.gov/data/d82e2c44-89eb-43d9-b6d3-712732bf6a53",
+  "docs": null,
+  "use": "Not used: 27k arrays are excluded from this catalogue."
+ },
+ {
+  "id": "cdr",
+  "group": "pancanatlas",
+  "label": "TCGA Clinical Data Resource (CDR) outcomes",
+  "file": "TCGA-CDR-SupplementalTableS1.xlsx",
+  "url": "https://api.gdc.cancer.gov/data/1b5f413e-a8d1-4d10-92eb-7c4ae739ed81",
+  "docs": "https://doi.org/10.1016/j.cell.2018.02.052",
+  "use": "Curated clinical annotations and survival endpoints; recommended first for clinical elements and outcomes."
+ },
+ {
+  "id": "followup",
+  "group": "pancanatlas",
+  "label": "Clinical data with follow-up",
+  "file": "clinical_PANCAN_patient_with_followup.tsv",
+  "url": "https://api.gdc.cancer.gov/data/0fc78496-818b-4896-bd83-52db1f533c5c",
+  "docs": null,
+  "use": "Patient-level clinical table with follow-up records."
+ },
+ {
+  "id": "absolute",
+  "group": "pancanatlas",
+  "label": "ABSOLUTE purity and ploidy",
+  "file": "TCGA_mastercalls.abs_tables_JSedit.fixed.txt",
+  "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+  "docs": null,
+  "use": "Tumour purity and ploidy estimates per sample."
+ },
+ {
+  "id": "isb-cgc",
+  "group": "mirror",
+  "label": "ISB-CGC PanCancer Atlas BigQuery tables",
+  "file": null,
+  "url": "https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/PanCancer-Atlas-Mirror.html",
+  "docs": null,
+  "use": "Third-party mirror of the PanCanAtlas files as BigQuery tables; not used for the counts here."
+ },
+ {
+  "id": "cdr-paper",
+  "group": "publication",
+  "label": "Liu J, et al. An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics. Cell 2018.",
+  "file": null,
+  "url": "https://doi.org/10.1016/j.cell.2018.02.052",
+  "docs": null,
+  "use": "Describes the CDR and its recommended clinical endpoints."
+ },
+ {
+  "id": "tcga-pdac",
+  "group": "publication",
+  "label": "The Cancer Genome Atlas Research Network. Integrated Genomic Characterization of Pancreatic Ductal Adenocarcinoma. Cancer Cell 2017.",
+  "file": null,
+  "url": "https://doi.org/10.1016/j.ccell.2017.07.007",
+  "docs": null,
+  "use": "Curated 150-case TCGA PDAC analysis; TCGA-PAAD as a whole is not a curated PDAC cohort."
+ },
+ {
+  "id": "tcga-esca",
+  "group": "publication",
+  "label": "The Cancer Genome Atlas Research Network. Integrated genomic characterization of oesophageal carcinoma. Nature 2017.",
+  "file": null,
+  "url": "https://doi.org/10.1038/nature20805",
+  "docs": null,
+  "use": "Describes the distinct squamous and adenocarcinoma groups within TCGA-ESCA."
+ },
+ {
+  "id": "tcga-crc",
+  "group": "publication",
+  "label": "The Cancer Genome Atlas Network. Comprehensive molecular characterization of human colon and rectal cancer. Nature 2012.",
+  "file": null,
+  "url": "https://doi.org/10.1038/nature11252",
+  "docs": null,
+  "use": "Characterised TCGA colon and rectal tumours together; outside the hypermutated group, their patterns of genomic alteration were broadly similar. Basis for the pooled CRC cohort."
+ },
+ {
+  "id": "cornish-2024-crc",
+  "group": "publication",
+  "label": "Cornish AJ, et al. The genomic landscape of 2,023 colorectal cancers. Nature 2024.",
+  "file": null,
+  "url": "https://doi.org/10.1038/s41586-024-07747-9",
+  "docs": null,
+  "use": "Whole-genome study outside TCGA describing a spectrum of mutational profiles along the colorectum; a reason to keep anatomical site as an annotation within CRC."
+ },
+ {
+  "id": "tcga-cesc",
+  "group": "publication",
+  "label": "The Cancer Genome Atlas Research Network. Integrated genomic and molecular characterization of cervical cancer. Nature 2017.",
+  "file": null,
+  "url": "https://doi.org/10.1038/nature21386",
+  "docs": null,
+  "use": "Merged histological diagnosis, HPV status and the endometrial-like group used to define the CSCC cohort and its annotations."
+ },
+ {
+  "id": "tcga-ucec",
+  "group": "publication",
+  "label": "The Cancer Genome Atlas Research Network. Integrated genomic characterization of endometrial carcinoma. Nature 2013.",
+  "file": null,
+  "url": "https://doi.org/10.1038/nature12113",
+  "docs": null,
+  "use": "Histology, grade and the POLE, MSI and copy-number groups kept as annotations of the pooled UCEC cohort."
+ },
+ {
+  "id": "tcga-pcpg",
+  "group": "publication",
+  "label": "Fishbein L, et al. Comprehensive Molecular Characterization of Pheochromocytoma and Paraganglioma. Cancer Cell 2017.",
+  "file": null,
+  "url": "https://doi.org/10.1016/j.ccell.2017.01.001",
+  "docs": null,
+  "use": "Tumour location, molecular subtype and adrenal-cortical admixture annotations of the pooled PCPG cohort."
+ },
+ {
+  "id": "who-pcpg",
+  "group": "publication",
+  "label": "Mete O, et al. Overview of the 2022 WHO Classification of Paragangliomas and Pheochromocytomas. Endocrine Pathology 2022.",
+  "file": null,
+  "url": "https://doi.org/10.1007/s12022-022-09704-6",
+  "docs": null,
+  "use": "Current classification context: historical benign and malignant codes do not define eligibility."
+ },
+ {
+  "id": "tcga-glioma",
+  "group": "publication",
+  "label": "Ceccarelli M, et al. Molecular Profiling Reveals Biologically Discrete Subsets and Pathways of Progression in Diffuse Glioma. Cell 2016.",
+  "file": null,
+  "url": "https://doi.org/10.1016/j.cell.2015.12.028",
+  "docs": null,
+  "use": "Historical histology and grade, IDH and 1p/19q calls and the molecular groups annotated in the glioma benchmark."
+ },
+ {
+  "id": "who-cns5",
+  "group": "publication",
+  "label": "Louis DN, et al. The 2021 WHO Classification of Tumors of the Central Nervous System: a summary. Neuro-Oncology 2021.",
+  "file": null,
+  "url": "https://doi.org/10.1093/neuonc/noab106",
+  "docs": null,
+  "use": "Defines the integrated diagnosis and grade that the glioma benchmark compares with historical labels; integrated diagnoses are not yet adjudicated here."
+ },
+ {
+  "id": "esca-supp",
+  "group": "histology",
+  "label": "TCGA oesophageal carcinoma study, Supplementary Table 1",
+  "file": "41586_2017_BFnature20805_MOESM91_ESM.xlsx",
+  "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fnature20805/MediaObjects/41586_2017_BFnature20805_MOESM91_ESM.xlsx",
+  "docs": "https://www.nature.com/articles/nature20805",
+  "use": "Row-level histology and anatomical site used to define the ESCC cohort and the adenocarcinoma site strata."
+ },
+ {
+  "id": "paad-table",
+  "group": "histology",
+  "label": "TCGA pancreatic study pathology review table, via TCGAbiolinks",
+  "file": "R/sysdata.rda (paad.subtype), commit 313b5f88c6f1babd4cc085d9e05b4bbcb5f0defe",
+  "url": "https://raw.githubusercontent.com/BioinformaticsFMRP/TCGAbiolinks/313b5f88c6f1babd4cc085d9e05b4bbcb5f0defe/R/sysdata.rda",
+  "docs": "https://github.com/BioinformaticsFMRP/TCGAbiolinks/blob/master/vignettes/subtypes.Rmd",
+  "use": "150-case clinical and pathology table of the TCGA pancreatic study (Cancer Cell 2017); the ‘Histological type by RHH’ field defines publication-reviewed ductal adenocarcinoma. A publication-linked package copy, not a publisher download."
+ },
+ {
+  "id": "panel-subtypes",
+  "group": "histology",
+  "label": "TCGA cervical, endometrial, PCPG and pan-glioma tables, via TCGAbiolinks",
+  "file": "R/sysdata.rda (cesc.subtype, ucec.subtype, pcpg.subtype, lgg.gbm.subtype), commit 313b5f88c6f1babd4cc085d9e05b4bbcb5f0defe",
+  "url": "https://raw.githubusercontent.com/BioinformaticsFMRP/TCGAbiolinks/313b5f88c6f1babd4cc085d9e05b4bbcb5f0defe/R/sysdata.rda",
+  "docs": "https://github.com/BioinformaticsFMRP/TCGAbiolinks/blob/master/vignettes/subtypes.Rmd",
+  "use": "Publication-linked package copies of the marker-paper tables used for CSCC histology, UCEC histology and molecular groups, PCPG histology, subtypes and admixture, and glioma histology, grade, IDH, 1p/19q and molecular groups. Not a new expert slide review."
+ },
+ {
+  "id": "gdc-cases",
+  "group": "histology",
+  "label": "GDC cases endpoint and pathology reports",
+  "file": null,
+  "url": "https://api.gdc.cancer.gov/cases",
+  "docs": "https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/",
+  "use": "Primary-disease diagnoses, case annotations and open-access pathology reports; reports confirm seven PDAC patients absent from the publication table, document specimen sites for one PDAC and one cervical adenosquamous patient, and confirm two head and neck paragangliomas."
+ }
+]

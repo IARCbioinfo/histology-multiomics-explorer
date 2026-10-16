@@ -1,0 +1,1401 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "HNSC",
+ "page": "cancers.html?c=HNSC",
+ "markdown": "md/cancers/HNSC.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "HNSC",
+  "gaps": [
+   "No patient with primary-tumour sections located is documented as untreated: prior treatment recorded as NA is catalogued as unknown.",
+   "HPV status, keratinization and subsite are kept as separate strata."
+  ],
+  "name": "Head and neck squamous cell carcinoma",
+  "group": "hausser",
+  "hausser": "borderline",
+  "strata": [
+   [
+    "hnsc-hpvneg-k",
+    "HPV-negative keratinizing SCC"
+   ],
+   [
+    "hnsc-hpvpos-nk",
+    "HPV-positive nonkeratinizing SCC"
+   ]
+  ],
+  "summary": "Hausser et al. described head and neck cancer as borderline under their significance criterion. HPV status, keratinization and subsite are kept as separate strata because they correspond to different tumour biology.",
+  "tcga_project": "HNSC",
+  "analysis_cohort": "HNSC"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "HNSC",
+   "label": "HNSC",
+   "role": "discovery",
+   "projects": [
+    "HNSC"
+   ],
+   "selected_analysis": {
+    "total": 514,
+    "rna": 506,
+    "met": 514,
+    "paired": 506,
+    "rna_only": 0,
+    "met_only": 8
+   },
+   "contributions": {
+    "HNSC": {
+     "total": 514,
+     "rna": 506,
+     "met": 514,
+     "paired": 506,
+     "rna_only": 0,
+     "met_only": 8
+    }
+   },
+   "normal": {
+    "rna_he_before": 43,
+    "rna_he_after": 39,
+    "rna_he_met_after": 20,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-CV-7406",
+     "TCGA-CV-7416",
+     "TCGA-CV-7437",
+     "TCGA-CV-7440"
+    ],
+    "context": {
+     "target_project_donor": 39
+    },
+    "context_met": {
+     "target_project_donor": 20
+    }
+   }
+  },
+  "projects": {
+   "HNSC": {
+    "selected_panel": {
+     "analysis_cohort": "HNSC",
+     "role": "discovery",
+     "reviewed_patients": 522,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 522,
+      "rna": 514,
+      "met": 522,
+      "paired": 514,
+      "rna_only": 0,
+      "met_only": 8
+     },
+     "after_patient_screen": {
+      "total": 514,
+      "rna": 506,
+      "met": 514,
+      "paired": 506,
+      "rna_only": 0,
+      "met_only": 8
+     },
+     "selected_analysis": {
+      "total": 514,
+      "rna": 506,
+      "met": 514,
+      "paired": 506,
+      "rna_only": 0,
+      "met_only": 8
+     },
+     "dispositions": {
+      "pass_annotation_screen": 514,
+      "diagnosis_identity_or_episode_exclusion_hold": 4,
+      "known_treatment_exclusion": 4
+     },
+     "normal": {
+      "rna_he_before": 43,
+      "rna_he_after": 39,
+      "rna_he_met_after": 20,
+      "in_active_scope": true,
+      "withheld": [
+       "TCGA-CV-7406",
+       "TCGA-CV-7416",
+       "TCGA-CV-7437",
+       "TCGA-CV-7440"
+      ],
+      "context": {
+       "target_project_donor": 39
+      },
+      "context_met": {
+       "target_project_donor": 20
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 528,
+      "paired": 520,
+      "rna_only": 0,
+      "met_only": 8
+     },
+     "post_qc": {
+      "union": 522,
+      "paired": 514,
+      "rna_only": 0,
+      "met_only": 8
+     },
+     "normal": {
+      "rna_he": 43,
+      "rna_he_met": 20,
+      "also_in_tumour_union": 43,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "HNSC"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "simkin-2026",
+   "label": "Simkin et al. 2026",
+   "citation": {
+    "authors": "Simkin D, et al.",
+    "title": "Spatial analysis of head and neck cancer identifies two ecosystems with distinct modes of epithelial-to-mesenchymal transition",
+    "journal": "Nature Genetics",
+    "year": 2026,
+    "doi": "10.1038/s41588-026-02723-7",
+    "url": "https://doi.org/10.1038/s41588-026-02723-7"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Native TIFF H&E, count matrices, coordinates and scale factors on GEO; raw reads via BioProject PRJNA1114040.",
+    "links": [
+     [
+      "GEO GSE268014",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE268014"
+     ]
+    ]
+   },
+   "verification": "file-checked",
+   "verified_on": "2026-10-09",
+   "description": "Twenty primary head and neck squamous cell carcinomas: twelve HPV-negative keratinizing and eight HPV-positive nonkeratinizing.",
+   "notes": [
+    "The clinical table records prior treatment as NA for eighteen patients without defining NA; these are catalogued as unknown, not untreated.",
+    "One patient had prior radiation and one documented second primary had earlier surgery and chemoradiation.",
+    "Additional Visium HD sections from the same study are listed separately as candidates."
+   ],
+   "compartments": [
+    "primary-tumour"
+   ]
+  },
+  {
+   "id": "cand-simkin2026-gse268014-hd",
+   "label": "Simkin et al. 2026",
+   "title": "Visium HD sections from Simkin et al. 2026",
+   "citation": {
+    "authors": "Simkin D, et al.",
+    "title": "Spatial analysis of head and neck cancer identifies two ecosystems with distinct modes of epithelial-to-mesenchymal transition",
+    "journal": "Nature Genetics",
+    "year": 2026,
+    "doi": "10.1038/s41588-026-02723-7",
+    "url": "https://www.nature.com/articles/s41588-026-02723-7"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "identity"
+   ],
+   "accession": "GSE268014",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41588-026-02723-7"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE268014"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-arora2023-gse208253",
+   "label": "Arora et al. 2023",
+   "title": "Spatial transcriptomics reveals distinct and conserved tumor core and edge architectures that predict survival and targeted therapy response",
+   "citation": {
+    "authors": "Arora R, et al.",
+    "title": "Spatial transcriptomics reveals distinct and conserved tumor core and edge architectures that predict survival and targeted therapy response",
+    "journal": "Nature Communications",
+    "year": 2023,
+    "doi": "10.1038/s41467-023-40271-4",
+    "url": "https://www.nature.com/articles/s41467-023-40271-4"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE208253",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-023-40271-4"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208253"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-cheng2022-gse181300",
+   "label": "Snail-regulated exosomal microRNA-21 suppresses NLRP3 inflammasome activity to enhance cisplatin resistance",
+   "title": "Snail-regulated exosomal microRNA-21 suppresses NLRP3 inflammasome activity to enhance cisplatin resistance",
+   "citation": {
+    "authors": null,
+    "title": "Snail-regulated exosomal microRNA-21 suppresses NLRP3 inflammasome activity to enhance cisplatin resistance",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9413180/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE181300",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9413180/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181300"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-gse281978-hpv2024",
+   "label": "Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences",
+   "title": "Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences",
+   "citation": {
+    "authors": null,
+    "title": "Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38235919/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE281978",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pubmed.ncbi.nlm.nih.gov/38235919/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281978"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-beyaert2025-gse289908",
+   "label": "Spatial Transcriptomic Analysis of Surgical Resection Specimens of Primary Head and Neck Squamous Cell Carcinoma Treated with Afatinib in a Window-of-Opportunity Study (EORTC 90111-24111)",
+   "title": "Spatial Transcriptomic Analysis of Surgical Resection Specimens of Primary Head and Neck Squamous Cell Carcinoma Treated with Afatinib in a Window-of-Opportunity Study (EORTC 90111-24111)",
+   "citation": {
+    "authors": null,
+    "title": "Spatial Transcriptomic Analysis of Surgical Resection Specimens of Primary Head and Neck Squamous Cell Carcinoma Treated with Afatinib in a Window-of-Opportunity Study (EORTC 90111-24111)",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11898532/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "treated",
+    "calibration"
+   ],
+   "accession": "GSE289908",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11898532/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289908"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-gessain2024-e-mtab-14409",
+   "label": "TREM2-Expressing Multinucleated Giant Macrophages Are a Biomarker of Good Prognosis in Head and Neck Squamous Cell Carcinoma",
+   "title": "TREM2-Expressing Multinucleated Giant Macrophages Are a Biomarker of Good Prognosis in Head and Neck Squamous Cell Carcinoma",
+   "citation": {
+    "authors": null,
+    "title": "TREM2-Expressing Multinucleated Giant Macrophages Are a Biomarker of Good Prognosis in Head and Neck Squamous Cell Carcinoma",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11609822/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "E-MTAB-14409",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11609822/"
+     ],
+     [
+      "Data record",
+      "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-14409"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-frontiers2026-zenodo18238293",
+   "label": "Weeramange et al. 2026",
+   "title": "Spatial transcriptomics and histopathological analyses reveal potential biomarkers and immune features linked to recurrence in head and neck cancer",
+   "citation": {
+    "authors": "Weeramange CE, et al.",
+    "title": "Spatial transcriptomics and histopathological analyses reveal potential biomarkers and immune features linked to recurrence in head and neck cancer",
+    "journal": "Frontiers in Immunology",
+    "year": 2026,
+    "doi": "10.3389/fimmu.2026.1713732",
+    "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2026.1713732/full"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "identity"
+   ],
+   "accession": "Zenodo 18238293",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2026.1713732/full"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/18238293"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-causer2023-uq",
+   "label": "Deep spatial-omics analysis of Head & Neck carcinomas provides alternative therapeutic targets and rationale for treatment failure",
+   "title": "Deep spatial-omics analysis of Head & Neck carcinomas provides alternative therapeutic targets and rationale for treatment failure",
+   "citation": {
+    "authors": null,
+    "title": "Deep spatial-omics analysis of Head & Neck carcinomas provides alternative therapeutic targets and rationale for treatment failure",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10499928/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "pathology-review"
+   ],
+   "accession": "UQ eSpace DOI 10.48610/698bb9e",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10499928/"
+     ],
+     [
+      "Data record",
+      "https://doi.org/10.48610/698bb9e"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-li2024-hra005551-hra005576",
+   "label": "Cancer-associated fibroblast subsets in head and neck squamous cell carcinoma",
+   "title": "Cancer-associated fibroblast subsets in head and neck squamous cell carcinoma",
+   "citation": {
+    "authors": null,
+    "title": "Cancer-associated fibroblast subsets in head and neck squamous cell carcinoma",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10790129/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial RNA (protocol unverified)"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "HRA005551; HRA005576",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10790129/"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/gsa-human/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-hypopharynx2025-ccrt",
+   "label": "Hypopharyngeal cancer chemoradiotherapy resistance, spatial transcriptomics",
+   "title": "Hypopharyngeal cancer chemoradiotherapy resistance, spatial transcriptomics",
+   "citation": {
+    "authors": null,
+    "title": "Hypopharyngeal cancer chemoradiotherapy resistance, spatial transcriptomics",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12748936/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": null,
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12748936/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-gse301720-ici2026",
+   "label": "Head and neck squamous cell carcinoma immune-checkpoint inhibitor spatial study",
+   "title": "Head and neck squamous cell carcinoma immune-checkpoint inhibitor spatial study",
+   "citation": {
+    "authors": null,
+    "title": "Head and neck squamous cell carcinoma immune-checkpoint inhibitor spatial study",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13093465/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSE301720",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC13093465/"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE301720"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-oraltumorigenesis2025-preprint",
+   "label": "Integrative spatiotemporal analysis of squamous tumorigenesis",
+   "title": "Integrative spatiotemporal analysis of squamous tumorigenesis",
+   "citation": {
+    "authors": null,
+    "title": "Integrative spatiotemporal analysis of squamous tumorigenesis",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12621683/"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved"
+   ],
+   "accession": null,
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12621683/"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "simkin-2026:P5636",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5636",
+   "capture": "P5636",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5692",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5692",
+   "capture": "P5692",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5710",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5710",
+   "capture": "P5710",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5735",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5735",
+   "capture": "P5735",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5764",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5764",
+   "capture": "P5764",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5766",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5766",
+   "capture": "P5766",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5767",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5767",
+   "capture": "P5767",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5903",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvpos-nk",
+   "patient": "P5903",
+   "capture": "P5903",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5418",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5418",
+   "capture": "P5418",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5456",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5456",
+   "capture": "P5456",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5612",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5612",
+   "capture": "P5612",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5624",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5624",
+   "capture": "P5624",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5659",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5659",
+   "capture": "P5659",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5684",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5684",
+   "capture": "P5684",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5707",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5707",
+   "capture": "P5707",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5709",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5709",
+   "capture": "P5709",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5736",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5736",
+   "capture": "P5736",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.363,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5751",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5751",
+   "capture": "P5751",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5756",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5756",
+   "capture": "P5756",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  },
+  {
+   "id": "simkin-2026:P5909",
+   "cohort": "simkin-2026",
+   "cancer": "HNSC",
+   "stratum": "hnsc-hpvneg-k",
+   "patient": "P5909",
+   "capture": "P5909",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Full-resolution tissue_positions + scalefactors supplied. No separate serial-section registration; routine alignment QC needed.",
+   "he_mpp": 0.362,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "file-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-hnsc",
+   "label": "TCGA-HNSC",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-HNSC"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "HNSC",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-HNSC"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Head and neck squamous cell carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "HNSC"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

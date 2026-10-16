@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TCGA reference · Tumour Histology and Multi-omics Explorer</title>
+<meta name="description" content="Curated TCGA cohort definitions, RNA-seq and 450k methylation coverage, assay and patient exclusions, the size threshold and the selected analysis panel.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="alternate" type="text/markdown" title="Text version" href="md/tcga.md">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><rect x="1" y="2.5" width="20" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.6 12.4c0-2.9 1.9-5.3 4.3-5.3 2.2 0 3.6 1.6 3.3 3.9-.3 2.2-2.2 3.9-4.1 3.7-1.9-.2-3.5-.6-3.5-2.3Z" class="brand-blob"/><path d="M15.6 7v7M18 9.5v4.5" class="brand-bars" stroke-width="1.7" stroke-linecap="round"/></svg><span>Tumour Histology and Multi-omics Explorer</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>
+      <li><a href="cancers.html">Cancer types</a></li>
+      <li><a href="tcga.html" aria-current="page">TCGA reference</a></li>
+      <li><a href="spatial.html">Spatial studies</a></li>
+      <li><a href="explore.html">Data explorer</a></li>
+      <li><a href="methods.html">Methods</a></li>
+      <li><a href="applications.html">Applications</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>TCGA reference</h1>
+      <p class="prose muted">The Cancer Genome Atlas (TCGA) is a foundational pan-cancer resource. It holds tumour and normal tissue from thousands of patients across many cancer types, with slide images and molecular measurements released through the NCI Genomic Data Commons. This page shows which TCGA patients have which measurements, which assays and patients we excluded and why, and how the analysis cohorts were defined.</p>
+      <nav class="page-nav" aria-label="On this page"><span class="page-nav-label">On this page</span><a href="#views">Availability and the analysis panel</a><a href="#threshold">Size threshold</a><a href="#panel">Selected analysis panel</a><a href="#coverage">Coverage by project</a><a href="#patients">Patient-level data</a></nav>
+    </div>
+
+    <section id="views" class="prose" aria-labelledby="views-h">
+      <h2 id="views-h">General availability and the selected analysis panel</h2>
+      <p>We report TCGA in two ways. <strong>Data availability</strong> is what each project provides after assay-quality exclusions: patients with RNA-seq, 450k methylation or both, and normal tissue with a slide image. <strong>The selected analysis panel</strong> is a selection for studies of tumour heterogeneity, which adds a patient treatment and diagnosis screen, histology-defined and pooled cohorts, and a minimum cohort size.</p>
+      <p>The panel's criteria serve one study design. Data outside it may suit other questions, including the patients withheld by the treatment screen and the 27k methylation array, which is not counted here. <a href="methods.html#panel">How the two views differ</a>.</p>
+    </section>
+
+    <section id="threshold" class="prose" aria-labelledby="threshold-h">
+      <h2 id="threshold-h">The size threshold</h2>
+      <p>A cohort enters the panel only if it has enough patients for the planned RNA-seq and methylation analyses: at least <strong>150 patients</strong> with a primary-tumour RNA-seq or 450k methylation profile, and at least <strong>100 of them with both</strong>. Patients are counted once, after assay-quality exclusions and before the treatment and diagnosis screen.</p>
+      <ul>
+        <li><strong>It applies to the analysis cohort, not to the TCGA project.</strong> Colon and rectal adenocarcinoma form one colorectal cohort (CRC: 599 patients, 379 with both), and lower-grade glioma and glioblastoma one diffuse glioma cohort (GLIOMA: 756 and 565). TCGA-READ (156 and 94) and TCGA-GBM (242 and 51) would not pass on their own.</li>
+        <li><strong>Where a project mixes distinct diseases, the cohort is the histology analysed.</strong> TCGA-ESCA contains oesophageal adenocarcinoma and squamous cell carcinoma; TCGA-CESC cervical squamous cell carcinoma and adenocarcinoma; TCGA-PAAD pancreatic ductal adenocarcinoma and a few adenosquamous, colloid and other carcinomas. Their cohorts are oesophageal squamous cell carcinoma (ESCC), cervical squamous cell carcinoma (CSCC) and pancreatic ductal adenocarcinoma (PDAC).</li>
+        <li><strong>Two cohorts are explicit exceptions.</strong> ESCC has 90 patients, below both limits, and PDAC has 149, one patient below the total limit.</li>
+        <li><strong>Sarcoma is not in the panel.</strong> TCGA-SARC passes as a project (225 patients, 223 with both), but it combines several distinct sarcoma types, and each is below the threshold: the largest, soft-tissue leiomyosarcoma, has 53 patients, and all leiomyosarcomas together 87.</li>
+      </ul>
+      <p>The coverage table below gives every TCGA project's numbers and how each contributes to the panel, if at all.</p>
+    </section>
+
+    <section id="panel" aria-labelledby="panel-h">
+      <h2 id="panel-h">Selected analysis panel</h2>
+      <div class="stats" id="tcga-stats" aria-live="polite"></div>
+      <p class="note" id="tcga-note"></p>
+      <div id="panel-table"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section id="coverage" aria-labelledby="coverage-h">
+      <h2 id="coverage-h">Molecular coverage by TCGA project</h2>
+      <p class="prose muted">What TCGA provides for every solid-tumour project after exact assay-quality exclusions, whether or not the project is in the selected panel. <a href="methods.html#quality">How exclusions are applied</a>.</p>
+      <div id="screen-table"><p class="muted small">Loading…</p></div>
+    </section>
+
+    <section id="patients" class="prose" aria-labelledby="patients-h">
+      <h2 id="patients-h">Patient-level data</h2>
+      <p>The <a href="explore.html?view=tcga">TCGA patients view of the data explorer</a> lists every patient in the panel projects: retained and excluded assays, the patient-screen decision and its reasons, histology and molecular annotations, and normal tissue. Any combination of these can be filtered and exported as CSV or JSON. Download links for the GDC files, PanCanAtlas matrices and quality annotations are on the <a href="sources.html#tcga-data">sources page</a>.</p>
+      <p class="muted small">Tumour slide linkage and image QC have not yet been checked for the panel, and normal tissue comes from patients with cancer rather than healthy donors.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span><strong>Tumour Histology and Multi-omics Explorer</strong> · <span id="release">Release</span> · <a href="sources.html">Sources</a> · <a href="agents.html">For AI agents</a> · <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">GitHub</a></span>
+    <span>Metadata <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/DATA-LICENSE.md">CC BY 4.0</a>, code <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/LICENSE">GPL-3.0</a>. Data remain at their original repositories; listing a dataset does not imply that access has been granted.</span>
+  </div>
+</footer>
+<script type="module" src="assets/js/tcga.js"></script>
+</body>
+</html>

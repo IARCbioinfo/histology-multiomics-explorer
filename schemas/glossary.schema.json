@@ -1,0 +1,66 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "schemas/glossary.schema.json",
+ "title": "glossary",
+ "description": "Definitions of the terms used for counts and curation, and every display vocabulary of the site",
+ "type": "object",
+ "properties": {
+  "release": {
+   "type": "object",
+   "properties": {
+    "version": {
+     "type": "string"
+    },
+    "date": {
+     "type": "string"
+    },
+    "audit_dates": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "version",
+    "date",
+    "audit_dates"
+   ],
+   "additionalProperties": false
+  },
+  "concepts": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "term": {
+      "type": "string"
+     },
+     "definition": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "term",
+     "definition"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "vocabularies": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "additionalProperties": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "required": [
+  "release",
+  "concepts",
+  "vocabularies"
+ ],
+ "additionalProperties": false
+}

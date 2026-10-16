@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI agents · Tumour Histology and Multi-omics Explorer</title>
+<meta name="description" content="Use the explorer with AI agents: llms.txt, Markdown and JSON versions of the pages, a read-only MCP server and AGENTS.md for coding agents.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="alternate" type="text/markdown" title="Text version" href="llms.txt">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><svg width="22" height="20" viewBox="0 0 22 20" aria-hidden="true"><rect x="1" y="2.5" width="20" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.6 12.4c0-2.9 1.9-5.3 4.3-5.3 2.2 0 3.6 1.6 3.3 3.9-.3 2.2-2.2 3.9-4.1 3.7-1.9-.2-3.5-.6-3.5-2.3Z" class="brand-blob"/><path d="M15.6 7v7M18 9.5v4.5" class="brand-bars" stroke-width="1.7" stroke-linecap="round"/></svg><span>Tumour Histology and Multi-omics Explorer</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main"><ul>
+      <li><a href="cancers.html">Cancer types</a></li>
+      <li><a href="tcga.html">TCGA reference</a></li>
+      <li><a href="spatial.html">Spatial studies</a></li>
+      <li><a href="explore.html">Data explorer</a></li>
+      <li><a href="methods.html">Methods</a></li>
+      <li><a href="applications.html">Applications</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Use the explorer with AI agents</h1>
+      <p class="prose muted">The explorer is agent-ready. Its pages draw their tables with JavaScript, which most AI agents and scripts do not run, so the same content is also published as text and JSON. A read-only MCP server lets assistants such as Claude query the catalogue directly, and coding agents working on the repository have their own instructions.</p>
+      <nav class="page-nav" aria-label="On this page"><span class="page-nav-label">On this page</span><a href="#mcp">MCP server</a><a href="#setup">Setup</a><a href="#files">Text and JSON files</a><a href="#coding">Coding agents</a><a href="#limits">Limits</a></nav>
+    </div>
+
+    <div class="route-grid">
+      <a class="card" href="#mcp"><h3>MCP server</h3><span class="figure-line">10 read-only tools</span><span class="small muted">Search resources, tissue sections and TCGA patients from Claude or any MCP client, with counts defined as on these pages.</span></a>
+      <a class="card" href="llms.txt"><h3>llms.txt</h3><span class="figure-line">Agent guide</span><span class="small muted">What the site is, what to read before using any count, and links to every text version.</span></a>
+      <a class="card" href="#files"><h3>Text and JSON</h3><span class="figure-line">Markdown pages and per-cancer data</span><span class="small muted">The TCGA, spatial and cancer pages as Markdown, one JSON file per cancer page, a checksummed data index, schemas and a glossary.</span></a>
+      <a class="card" href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/AGENTS.md"><h3>AGENTS.md</h3><span class="figure-line">For coding agents</span><span class="small muted">Commands, generated files and rules for agents working on the repository.</span></a>
+    </div>
+
+    <div class="prose">
+      <h2 id="mcp">MCP server</h2>
+      <p>The <a href="https://modelcontextprotocol.io/">Model Context Protocol</a> lets an AI assistant call tools on a server. The explorer's server answers from the same metadata as these pages. It computes counts the way the pages do, for example counting each patient once and never adding counts across studies, and each answer states the release and the caveats that apply to it. It only reads: it cannot change the catalogue, and it does not download images or expression data.</p>
+      <div class="table-wrap"><table class="stack compact">
+        <thead><tr><th scope="col">Tool</th><th scope="col">What it returns</th></tr></thead>
+        <tbody>
+          <tr><td class="primary" data-label="Tool"><div><code>catalogue_overview</code></div></td><td data-label="What it returns"><div>Release, the points to read before using any count, headline figures and every cancer page. Assistants call it first.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>get_cancer_type</code></div></td><td data-label="What it returns"><div>One cancer page: TCGA panel and availability counts, normal reference, spatial resources, located sections by stratum, other resources and gaps.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>search_resources</code></div></td><td data-label="What it returns"><div>Studies and resources by text, cancer, data layer, status, access, technique or open dependency from the public-route review.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>get_resource</code></div></td><td data-label="What it returns"><div>The full record of one study or resource, with its located sections by tier.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>search_spatial_sections</code></div></td><td data-label="What it returns"><div>Located tissue sections by cancer, resource, stratum, site, treatment, tier or technique, with totals of sections, patients and resources.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>get_spatial_section</code></div></td><td data-label="What it returns"><div>One tissue section with its links, source wording and reported clinical fields.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>get_tcga_cohort</code></div></td><td data-label="What it returns"><div>One TCGA analysis cohort: role, contributing projects, counts, normal reference, subsets, strata and annotation counts.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>search_tcga_patients</code></div></td><td data-label="What it returns"><div>TCGA patients by cohort, project, selection, retained assays, normal reference, screen outcome, subset, histology or glioma group, with totals.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>get_tcga_patient</code></div></td><td data-label="What it returns"><div>One patient: assay states, screen decision with reason codes, cohort, subsets, annotations and flagged aliquots.</div></td></tr>
+          <tr><td class="primary" data-label="Tool"><div><code>explain_term</code></div></td><td data-label="What it returns"><div>Definitions of the terms used for counts and curation, and the meaning of any code in the other answers.</div></td></tr>
+        </tbody>
+      </table></div>
+      <p>Questions it can answer: “Which BRCA patients in the selected panel have both RNA-seq and methylation and a normal reference?”, “Which untreated primary PDAC sections have located H&amp;E and spatial RNA?”, “How many glioma patients are IDH-mutant and 1p/19q-codeleted?”</p>
+
+      <h2 id="setup">Setup</h2>
+      <p>The server runs on your own computer and needs <a href="https://docs.astral.sh/uv/">uv</a>, which installs Python and the MCP library on first use. Installed from GitHub, it reads this site and checks every file against the checksums in the data index.</p>
+      <p>Claude Code:</p>
+      <pre><code>claude mcp add histology-explorer -- uvx --from &quot;git+https://github.com/IARCbioinfo/histology-multiomics-explorer#subdirectory=mcp&quot; histology-multiomics-explorer-mcp</code></pre>
+      <p>Claude Desktop, in <code>claude_desktop_config.json</code> (use the full path to <code>uvx</code> if the app cannot find it):</p>
+      <pre><code>{
+  "mcpServers": {
+    "histology-explorer": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/IARCbioinfo/histology-multiomics-explorer#subdirectory=mcp", "histology-multiomics-explorer-mcp"]
+    }
+  }
+}</code></pre>
+      <p>Other MCP clients start it the same way, as a local stdio server. From a copy of the <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">repository</a>, <code>uv run --directory mcp histology-multiomics-explorer-mcp</code> reads that copy instead, and <code>--source</code> points the server at another copy or URL. No hosted server is offered.</p>
+
+      <h2 id="files">Text and JSON files</h2>
+      <ul>
+        <li><a href="llms.txt">llms.txt</a>: the agent guide, following the <a href="https://llmstxt.org/">llms.txt convention</a>.</li>
+        <li><a href="md/tcga.md">TCGA reference</a>, <a href="md/spatial.md">Spatial studies</a> and <a href="md/cancers/index.md">Cancer types</a> as Markdown, with one Markdown page per cancer type.</li>
+        <li>One JSON file per cancer page, such as <a href="data/by-cancer/BRCA.json">data/by-cancer/BRCA.json</a>, with its TCGA counts, spatial resources, located sections, other resources and evidence.</li>
+        <li><a href="data/index.json">data/index.json</a>: every data file with its description, record count, size, SHA-256 checksum and JSON Schema.</li>
+        <li><a href="data/glossary.json">data/glossary.json</a>: definitions of the terms used for counts and curation, and every code shown on the site.</li>
+        <li><a href="data/README.md">data/README.md</a>: the meaning of every field.</li>
+      </ul>
+      <p>These files are generated from the curated data with each release, and the release checks fail if any of them is out of date.</p>
+
+      <h2 id="coding">Coding agents</h2>
+      <p><a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/AGENTS.md">AGENTS.md</a>, at the root of the repository, tells coding agents such as Claude Code or Codex how the repository is organised, which files are generated, which commands to run and which rules to keep, for example public metadata only and no change to approved counts without a scientific decision.</p>
+
+      <h2 id="limits">Limits</h2>
+      <ul>
+        <li>Answers describe the curated metadata of the current release, not the underlying images or molecular data, which stay at their original repositories. Listing a dataset does not mean access has been granted.</li>
+        <li>Counts keep the meaning they have on these pages: the selected analysis panel and broader availability are reported separately, spatial studies involve patients other than those in TCGA, and study-reported counts are never added across studies.</li>
+        <li>An assistant can still misread an answer. Check important figures against the pages or the data files before using them.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span><strong>Tumour Histology and Multi-omics Explorer</strong> · <span id="release">Release</span> · <a href="sources.html">Sources</a> · <a href="agents.html" aria-current="page">For AI agents</a> · <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer">GitHub</a></span>
+    <span>Metadata <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/DATA-LICENSE.md">CC BY 4.0</a>, code <a href="https://github.com/IARCbioinfo/histology-multiomics-explorer/blob/main/LICENSE">GPL-3.0</a>. Data remain at their original repositories; listing a dataset does not imply that access has been granted.</span>
+  </div>
+</footer>
+<script type="module" src="assets/js/static.js"></script>
+</body>
+</html>

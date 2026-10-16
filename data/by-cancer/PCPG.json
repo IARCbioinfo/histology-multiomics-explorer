@@ -1,0 +1,780 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "PCPG",
+ "page": "cancers.html?c=PCPG",
+ "markdown": "md/cancers/PCPG.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "PCPG",
+  "gaps": [
+   "Publication-first histology gives 146 pheochromocytomas and 32 paragangliomas; five patients absent from the TCGA PCPG table use the GDC label. Two cases labelled pheochromocytoma in GDC are extra-adrenal paragangliomas in the publication table.",
+   "Two paragangliomas of the head and neck are confirmed by their pathology reports and retained; whether they are sympathetic or parasympathetic is not established. A sensitivity subset without them has 176 patients, all with both assays.",
+   "Historical benign and malignant morphology codes do not determine eligibility.",
+   "Cases with adrenal-cortical admixture are annotated, not removed as adrenocortical carcinoma; tissue composition and identity need their own checks.",
+   "Only three patients contribute normal-reference tissue.",
+   "PCPG remains a spatial access gap: two manuscript or preprint leads are listed, but no reusable measured spatial-RNA package with original H&E was verified."
+  ],
+  "name": "Pheochromocytoma and paraganglioma",
+  "group": "tcga-panel",
+  "hausser": "not-screened",
+  "strata": [],
+  "summary": "Pheochromocytoma and paraganglioma were not among the cancer types screened by Hausser et al. The project meets the molecular screen, with RNA-seq and 450k methylation for every selected patient, and is analysed as one pooled cohort with tumour location, published molecular subtype and adrenal-cortical admixture kept as annotations.",
+  "tcga_project": "PCPG",
+  "analysis_cohort": "PCPG"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "PCPG",
+   "label": "PCPG",
+   "role": "discovery",
+   "projects": [
+    "PCPG"
+   ],
+   "selected_analysis": {
+    "total": 178,
+    "rna": 178,
+    "met": 178,
+    "paired": 178,
+    "rna_only": 0,
+    "met_only": 0
+   },
+   "contributions": {
+    "PCPG": {
+     "total": 178,
+     "rna": 178,
+     "met": 178,
+     "paired": 178,
+     "rna_only": 0,
+     "met_only": 0
+    }
+   },
+   "normal": {
+    "rna_he_before": 3,
+    "rna_he_after": 3,
+    "rna_he_met_after": 3,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 3
+    },
+    "context_met": {
+     "target_project_donor": 3
+    }
+   },
+   "subsets": [
+    {
+     "id": "PCPG-without-neck",
+     "label": "Without the two head and neck paragangliomas",
+     "total": 176,
+     "rna": 176,
+     "met": 176,
+     "paired": 176,
+     "rna_only": 0,
+     "met_only": 0,
+     "patients": [
+      "TCGA-P7-A5NX",
+      "TCGA-P7-A5NY",
+      "TCGA-P8-A5KC",
+      "TCGA-P8-A5KD",
+      "TCGA-P8-A6RX",
+      "TCGA-P8-A6RY",
+      "TCGA-PR-A5PF",
+      "TCGA-PR-A5PG",
+      "TCGA-PR-A5PH",
+      "TCGA-QR-A6GO",
+      "TCGA-QR-A6GR",
+      "TCGA-QR-A6GS",
+      "TCGA-QR-A6GT",
+      "TCGA-QR-A6GU",
+      "TCGA-QR-A6GW",
+      "TCGA-QR-A6GX",
+      "TCGA-QR-A6GY",
+      "TCGA-QR-A6GZ",
+      "TCGA-QR-A6H0",
+      "TCGA-QR-A6H1",
+      "TCGA-QR-A6H2",
+      "TCGA-QR-A6H3",
+      "TCGA-QR-A6H4",
+      "TCGA-QR-A6H5",
+      "TCGA-QR-A6H6",
+      "TCGA-QR-A6ZZ",
+      "TCGA-QR-A700",
+      "TCGA-QR-A702",
+      "TCGA-QR-A703",
+      "TCGA-QR-A705",
+      "TCGA-QR-A706",
+      "TCGA-QR-A707",
+      "TCGA-QR-A708",
+      "TCGA-QR-A70A",
+      "TCGA-QR-A70C",
+      "TCGA-QR-A70D",
+      "TCGA-QR-A70E",
+      "TCGA-QR-A70G",
+      "TCGA-QR-A70H",
+      "TCGA-QR-A70I",
+      "TCGA-QR-A70J",
+      "TCGA-QR-A70K",
+      "TCGA-QR-A70M",
+      "TCGA-QR-A70N",
+      "TCGA-QR-A70O",
+      "TCGA-QR-A70P",
+      "TCGA-QR-A70Q",
+      "TCGA-QR-A70R",
+      "TCGA-QR-A70T",
+      "TCGA-QR-A70U",
+      "TCGA-QR-A70V",
+      "TCGA-QR-A70W",
+      "TCGA-QR-A70X",
+      "TCGA-QR-A7IN",
+      "TCGA-QR-A7IP",
+      "TCGA-QT-A5XJ",
+      "TCGA-QT-A5XK",
+      "TCGA-QT-A5XL",
+      "TCGA-QT-A5XM",
+      "TCGA-QT-A5XN",
+      "TCGA-QT-A5XO",
+      "TCGA-QT-A5XP",
+      "TCGA-QT-A69Q",
+      "TCGA-QT-A7U0",
+      "TCGA-RT-A6Y9",
+      "TCGA-RT-A6YA",
+      "TCGA-RT-A6YC",
+      "TCGA-RW-A67V",
+      "TCGA-RW-A67W",
+      "TCGA-RW-A67X",
+      "TCGA-RW-A67Y",
+      "TCGA-RW-A680",
+      "TCGA-RW-A681",
+      "TCGA-RW-A684",
+      "TCGA-RW-A685",
+      "TCGA-RW-A686",
+      "TCGA-RW-A688",
+      "TCGA-RW-A689",
+      "TCGA-RW-A68A",
+      "TCGA-RW-A68B",
+      "TCGA-RW-A68C",
+      "TCGA-RW-A68D",
+      "TCGA-RW-A68F",
+      "TCGA-RW-A68G",
+      "TCGA-RW-A7CZ",
+      "TCGA-RW-A7D0",
+      "TCGA-RW-A8AZ",
+      "TCGA-RX-A8JQ",
+      "TCGA-S7-A7WL",
+      "TCGA-S7-A7WM",
+      "TCGA-S7-A7WN",
+      "TCGA-S7-A7WO",
+      "TCGA-S7-A7WP",
+      "TCGA-S7-A7WQ",
+      "TCGA-S7-A7WR",
+      "TCGA-S7-A7WT",
+      "TCGA-S7-A7WU",
+      "TCGA-S7-A7WV",
+      "TCGA-S7-A7WW",
+      "TCGA-S7-A7WX",
+      "TCGA-S7-A7X0",
+      "TCGA-S7-A7X1",
+      "TCGA-S7-A7X2",
+      "TCGA-SA-A6C2",
+      "TCGA-SP-A6QC",
+      "TCGA-SP-A6QD",
+      "TCGA-SP-A6QF",
+      "TCGA-SP-A6QG",
+      "TCGA-SP-A6QH",
+      "TCGA-SP-A6QI",
+      "TCGA-SP-A6QJ",
+      "TCGA-SP-A6QK",
+      "TCGA-SQ-A6I4",
+      "TCGA-SQ-A6I6",
+      "TCGA-SR-A6MP",
+      "TCGA-SR-A6MQ",
+      "TCGA-SR-A6MR",
+      "TCGA-SR-A6MS",
+      "TCGA-SR-A6MT",
+      "TCGA-SR-A6MU",
+      "TCGA-SR-A6MV",
+      "TCGA-SR-A6MX",
+      "TCGA-SR-A6MY",
+      "TCGA-SR-A6MZ",
+      "TCGA-SR-A6N0",
+      "TCGA-TT-A6YJ",
+      "TCGA-TT-A6YK",
+      "TCGA-TT-A6YN",
+      "TCGA-TT-A6YO",
+      "TCGA-TT-A6YP",
+      "TCGA-W2-A7H5",
+      "TCGA-W2-A7H7",
+      "TCGA-W2-A7HA",
+      "TCGA-W2-A7HB",
+      "TCGA-W2-A7HC",
+      "TCGA-W2-A7HD",
+      "TCGA-W2-A7HE",
+      "TCGA-W2-A7HF",
+      "TCGA-W2-A7HH",
+      "TCGA-W2-A7UY",
+      "TCGA-WB-A80K",
+      "TCGA-WB-A80L",
+      "TCGA-WB-A80M",
+      "TCGA-WB-A80N",
+      "TCGA-WB-A80O",
+      "TCGA-WB-A80P",
+      "TCGA-WB-A80Q",
+      "TCGA-WB-A80V",
+      "TCGA-WB-A80Y",
+      "TCGA-WB-A814",
+      "TCGA-WB-A815",
+      "TCGA-WB-A816",
+      "TCGA-WB-A817",
+      "TCGA-WB-A818",
+      "TCGA-WB-A819",
+      "TCGA-WB-A81A",
+      "TCGA-WB-A81D",
+      "TCGA-WB-A81E",
+      "TCGA-WB-A81F",
+      "TCGA-WB-A81G",
+      "TCGA-WB-A81H",
+      "TCGA-WB-A81I",
+      "TCGA-WB-A81J",
+      "TCGA-WB-A81K",
+      "TCGA-WB-A81M",
+      "TCGA-WB-A81N",
+      "TCGA-WB-A81P",
+      "TCGA-WB-A81Q",
+      "TCGA-WB-A81R",
+      "TCGA-WB-A81S",
+      "TCGA-WB-A81T",
+      "TCGA-WB-A81V",
+      "TCGA-WB-A81W",
+      "TCGA-WB-A821",
+      "TCGA-WB-A822",
+      "TCGA-XG-A823"
+     ]
+    }
+   ],
+   "strata": [
+    {
+     "stratum": "pheochromocytoma",
+     "project": "PCPG",
+     "total": 146,
+     "rna": 146,
+     "met": 146,
+     "paired": 146,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 144,
+     "selected": 146
+    },
+    {
+     "stratum": "paraganglioma",
+     "project": "PCPG",
+     "total": 32,
+     "rna": 32,
+     "met": 32,
+     "paired": 32,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 29,
+     "selected": 32
+    }
+   ],
+   "annotations": {
+    "histology_stratum": [
+     [
+      "pheochromocytoma",
+      146,
+      146
+     ],
+     [
+      "paraganglioma",
+      32,
+      32
+     ]
+    ],
+    "histology_evidence": [
+     [
+      "TCGA PCPG publication table",
+      173,
+      173
+     ],
+     [
+      "GDC morphology fallback",
+      5,
+      5
+     ]
+    ],
+    "site_reported": [
+     [
+      "Adrenal gland, NOS",
+      143,
+      143
+     ],
+     [
+      "Retroperitoneum",
+      16,
+      16
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of thorax",
+      3,
+      3
+     ],
+     [
+      "Medulla of adrenal gland",
+      2,
+      2
+     ],
+     [
+      "Thorax, NOS",
+      2,
+      2
+     ],
+     [
+      "Head, face or neck, NOS",
+      2,
+      2
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of abdomen",
+      2,
+      2
+     ],
+     [
+      "Cortex of adrenal gland",
+      2,
+      2
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of trunk, NOS",
+      1,
+      1
+     ],
+     [
+      "Heart",
+      1,
+      1
+     ],
+     [
+      "Connective, subcutaneous and other soft tissues of pelvis",
+      1,
+      1
+     ],
+     [
+      "Aortic body and other paraganglia",
+      1,
+      1
+     ],
+     [
+      "Nervous system, NOS",
+      1,
+      1
+     ],
+     [
+      "Mediastinum, NOS",
+      1,
+      1
+     ]
+    ],
+    "published_subtype": [
+     [
+      "Kinase signaling",
+      68,
+      68
+     ],
+     [
+      "Pseudohypoxia",
+      61,
+      61
+     ],
+     [
+      "Wnt-altered",
+      22,
+      22
+     ],
+     [
+      "Cortical admixture",
+      22,
+      22
+     ],
+     [
+      null,
+      5,
+      5
+     ]
+    ],
+    "adrenal_cortical_admixture": [
+     [
+      false,
+      157,
+      157
+     ],
+     [
+      true,
+      16,
+      16
+     ],
+     [
+      null,
+      5,
+      5
+     ]
+    ]
+   }
+  },
+  "projects": {
+   "PCPG": {
+    "selected_panel": {
+     "analysis_cohort": "PCPG",
+     "role": "discovery",
+     "reviewed_patients": 178,
+     "histology_reviewed": true,
+     "assay_qc": {
+      "total": 178,
+      "rna": 178,
+      "met": 178,
+      "paired": 178,
+      "rna_only": 0,
+      "met_only": 0
+     },
+     "after_patient_screen": {
+      "total": 178,
+      "rna": 178,
+      "met": 178,
+      "paired": 178,
+      "rna_only": 0,
+      "met_only": 0
+     },
+     "selected_analysis": {
+      "total": 178,
+      "rna": 178,
+      "met": 178,
+      "paired": 178,
+      "rna_only": 0,
+      "met_only": 0
+     },
+     "dispositions": {
+      "pass_annotation_screen": 178
+     },
+     "normal": {
+      "rna_he_before": 3,
+      "rna_he_after": 3,
+      "rna_he_met_after": 3,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 3
+      },
+      "context_met": {
+       "target_project_donor": 3
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": [
+      {
+       "patient": "TCGA-QR-A6GT",
+       "gdc": "Pheochromocytoma, NOS",
+       "publication": "paraganglioma",
+       "stratum": "paraganglioma",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-SR-A6MQ",
+       "gdc": "Pheochromocytoma, malignant",
+       "publication": "paraganglioma",
+       "stratum": "paraganglioma",
+       "selected": true
+      }
+     ]
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 179,
+      "paired": 179,
+      "rna_only": 0,
+      "met_only": 0
+     },
+     "post_qc": {
+      "union": 178,
+      "paired": 178,
+      "rna_only": 0,
+      "met_only": 0
+     },
+     "normal": {
+      "rna_he": 3,
+      "rna_he_met": 3,
+      "also_in_tumour_union": 3,
+      "normal_only": 0
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "PCPG"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "pcpg-ling-ssrn",
+   "label": "Ling et al., SSRN manuscript",
+   "title": "Ling et al. integrated single-cell and spatial PCC profiling",
+   "citation": {
+    "authors": null,
+    "title": "Ling et al. integrated single-cell and spatial PCC profiling",
+    "journal": "SSRN",
+    "year": null,
+    "doi": null,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5035122"
+   },
+   "cancers": [
+    "PCPG"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial transcriptomics (platform unverified)"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved",
+    "package-unverified"
+   ],
+   "accession": null,
+   "access": {
+    "category": "unresolved",
+    "route": "Author manuscript on SSRN; full-text retrieval blocked by a security check; no data release found",
+    "links": [
+     [
+      "SSRN manuscript",
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5035122"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Author manuscript on SSRN describing integrated single-cell and spatial profiling of pheochromocytoma. The spatial platform, sample count and data release were not verified, and an SSRN 'review complete' label does not establish peer review or release.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [],
+   "notes": [
+    "Verify final publication and data accession",
+    "Do not infer release or peer review from SSRN review-complete label"
+   ],
+   "spatial_review": {
+    "id": "pcpg-ling-ssrn",
+    "date": "2026-10-15",
+    "analysis_cohort": "PCPG",
+    "assay_classes": [
+     "unverified"
+    ],
+    "platform": "spatial transcriptomics, platform/package unverified",
+    "role": "unverified access lead",
+    "image_status": "Histology described, original image package not found",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Manuscript lead; data release unresolved",
+     "states": [
+      "author-release"
+     ],
+     "next_step": "Ask the authors for the final publication, platform, patient and section counts, accession and expression and H&E package.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  },
+  {
+   "id": "pcpg-developmental-preprint",
+   "label": "Zhu et al. 2026, preprint",
+   "title": "Spatially organized developmental cell states link paraganglioma and neuroblastoma through chromaffin-neuroblast plasticity",
+   "citation": {
+    "authors": "Zhu J, et al.",
+    "title": "Spatially organized developmental cell states link paraganglioma and neuroblastoma through chromaffin-neuroblast plasticity",
+    "journal": "bioRxiv (preprint)",
+    "year": 2026,
+    "doi": "10.64898/2026.04.07.715303",
+    "url": "https://doi.org/10.64898/2026.04.07.715303"
+   },
+   "cancers": [
+    "PCPG"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Spatial transcriptomics (human assay details unverified)"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved",
+    "package-unverified"
+   ],
+   "accession": null,
+   "access": {
+    "category": "unreleased",
+    "route": "No actionable accession; release promised at publication; human data described as controlled",
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.64898/2026.04.07.715303"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Preprint on spatially organised developmental cell states linking paraganglioma and neuroblastoma. Its full text describes two human PPGL specimens (PPGL #1 and malignant PPGL #263) profiled with Visium HD; mouse in-situ sequencing, neuroblastoma and composite tumours are separate analyses. An adjacent H&E inset is shown for PPGL #1, but original same-section images are not established. The data statement promises public accessions but supplies none, and describes de-identified human data as controlled under ethics approval and data agreements.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     2,
+     "human PPGL specimens",
+     "preprint full text"
+    ]
+   ],
+   "notes": [
+    "Separate human PCC/PGL from mouse, neuroblastoma and composite tumours",
+    "A virtual TCGA spatial atlas is predicted expression and cannot fill this gap",
+    "An earlier version of the preprint was titled 'Sympathoadrenal lineage plasticity following KIF1Bβ-NF1 loss'.",
+    "Count only the two human PPGL specimens; exclude mouse, neuroblastoma and composite tumours"
+   ],
+   "spatial_review": {
+    "id": "pcpg-developmental-preprint",
+    "date": "2026-10-15",
+    "analysis_cohort": "PCPG",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium HD (two human PPGL specimens)",
+    "role": "unverified access lead",
+    "image_status": "Adjacent H&E inset shown for PPGL #1; original images not released",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {},
+    "title_alias": "Sympathoadrenal lineage plasticity following KIF1Bβ-NF1 loss; preprint title changed",
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Human Visium HD assay resolved; accession not supplied",
+     "states": [
+      "author-release"
+     ],
+     "next_step": "Ask the lead contact for the accession and the human PPGL processed data, coordinates, original H&E, section relation and donor and treatment metadata.",
+     "sections_with_matching_coordinates": null
+    }
+   }
+  }
+ ],
+ "located_sections": [],
+ "other_resources": [
+  {
+   "id": "tcga-pcpg",
+   "label": "TCGA-PCPG",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-PCPG"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "PCPG"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "PCPG",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-PCPG"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Pheochromocytoma and paraganglioma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Analysed as one pooled cohort with location, publication-first histology, molecular subtype and adrenal-cortical admixture annotations. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked.",
+   "notes": [
+    "Pooled PCPG (178 patients, all with both assays): 146 pheochromocytomas and 32 paragangliomas. Two pathology-confirmed head and neck paragangliomas are retained; a sensitivity subset without them has 176 patients.",
+    "Historical benign and malignant codes do not determine eligibility.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "PCPG"
+  }
+ ],
+ "evidence": []
+}

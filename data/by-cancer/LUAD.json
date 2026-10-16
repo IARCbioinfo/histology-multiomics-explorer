@@ -1,0 +1,1274 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "LUAD",
+ "page": "cancers.html?c=LUAD",
+ "markdown": "md/cancers/LUAD.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "LUAD",
+  "gaps": [
+   "All patients with primary-tumour sections located are untreated stage I resections from one study.",
+   "Other candidate cohorts need image calibration, QC or donor crosswalks.",
+   "TCGA-LUAD pathology-group exclusions include unclassified non-small cell carcinoma and cases favouring large cell neuroendocrine carcinoma. EPIC v2 methylation for 53 patients is a different platform and is not counted."
+  ],
+  "name": "Lung adenocarcinoma",
+  "group": "hausser",
+  "hausser": "borderline",
+  "strata": [
+   [
+    "luad-nonmuc",
+    "Invasive non-mucinous adenocarcinoma"
+   ]
+  ],
+  "summary": "Hausser et al. described lung as borderline under their significance criterion, so it was not part of the pooled analysis. Predominant growth patterns are recorded for each tissue section where the source provides them.",
+  "tcga_project": "LUAD",
+  "analysis_cohort": "LUAD"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "LUAD",
+   "label": "LUAD",
+   "role": "discovery",
+   "projects": [
+    "LUAD"
+   ],
+   "selected_analysis": {
+    "total": 457,
+    "rna": 453,
+    "met": 407,
+    "paired": 403,
+    "rna_only": 50,
+    "met_only": 4
+   },
+   "contributions": {
+    "LUAD": {
+     "total": 457,
+     "rna": 453,
+     "met": 407,
+     "paired": 403,
+     "rna_only": 50,
+     "met_only": 4
+    }
+   },
+   "normal": {
+    "rna_he_before": 57,
+    "rna_he_after": 56,
+    "rna_he_met_after": 19,
+    "in_active_scope": true,
+    "withheld": [
+     "TCGA-73-4676"
+    ],
+    "context": {
+     "target_project_donor": 56
+    },
+    "context_met": {
+     "target_project_donor": 19
+    }
+   }
+  },
+  "projects": {
+   "LUAD": {
+    "selected_panel": {
+     "analysis_cohort": "LUAD",
+     "role": "discovery",
+     "reviewed_patients": 474,
+     "histology_reviewed": false,
+     "assay_qc": {
+      "total": 461,
+      "rna": 457,
+      "met": 410,
+      "paired": 406,
+      "rna_only": 51,
+      "met_only": 4
+     },
+     "after_patient_screen": {
+      "total": 457,
+      "rna": 453,
+      "met": 407,
+      "paired": 403,
+      "rna_only": 50,
+      "met_only": 4
+     },
+     "selected_analysis": {
+      "total": 457,
+      "rna": 453,
+      "met": 407,
+      "paired": 403,
+      "rna_only": 50,
+      "met_only": 4
+     },
+     "dispositions": {
+      "pass_annotation_screen": 457,
+      "known_treatment_exclusion": 3,
+      "treatment_unknown_hold": 1
+     },
+     "normal": {
+      "rna_he_before": 57,
+      "rna_he_after": 56,
+      "rna_he_met_after": 19,
+      "in_active_scope": true,
+      "withheld": [
+       "TCGA-73-4676"
+      ],
+      "context": {
+       "target_project_donor": 56
+      },
+      "context_met": {
+       "target_project_donor": 19
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": []
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 520,
+      "paired": 455,
+      "rna_only": 62,
+      "met_only": 3
+     },
+     "post_qc": {
+      "union": 461,
+      "paired": 406,
+      "rna_only": 51,
+      "met_only": 4
+     },
+     "normal": {
+      "rna_he": 57,
+      "rna_he_met": 20,
+      "also_in_tumour_union": 48,
+      "normal_only": 9
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "LUAD"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "steiner-2026",
+   "label": "Steiner et al. 2026",
+   "citation": {
+    "authors": "Steiner D, et al.",
+    "title": "Vascular invasion-associated gene expression is detectable in pre-surgical biopsies of stage I lung adenocarcinoma",
+    "journal": "Nature Communications",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-70600-2",
+    "url": "https://doi.org/10.1038/s41467-026-70600-2"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "he-original",
+    "spatial-rna",
+    "raw-reads"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "access": {
+    "category": "open",
+    "route": "Counts, coordinates and spot pathology labels on GEO; original whole-slide TIFFs on Zenodo; raw reads on SRA.",
+    "links": [
+     [
+      "GEO GSE273378",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE273378"
+     ],
+     [
+      "Zenodo 21842070 (original scans)",
+      "https://zenodo.org/records/21842070"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-09",
+   "description": "Thirteen untreated patients with resected stage I invasive non-mucinous lung adenocarcinoma. Two patients contributed two captures each.",
+   "notes": [
+    "One capture that failed tissue-detachment QC in the study is excluded.",
+    "Some original scans are supplied in flipped orientation by the authors; check orientation against coordinates."
+   ],
+   "compartments": [
+    "primary-tumour"
+   ]
+  },
+  {
+   "id": "cand-takano-suzuki-2024",
+   "label": "Takano et al. 2024",
+   "title": "Spatially resolved gene expression profiling of tumor microenvironment reveals key steps of lung adenocarcinoma development",
+   "citation": {
+    "authors": "Takano Y, et al.",
+    "title": "Spatially resolved gene expression profiling of tumor microenvironment reveals key steps of lung adenocarcinoma development",
+    "journal": "Nature Communications",
+    "year": 2024,
+    "doi": "10.1038/s41467-024-54671-7",
+    "url": "https://www.nature.com/articles/s41467-024-54671-7"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "calibration"
+   ],
+   "accession": "JGAS000613 / JGAD000742 / hum0394-v1",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-024-54671-7"
+     ],
+     [
+      "Data record",
+      "https://kero.hgc.jp/Ad-SpatialAnalysis_2024.html"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024",
+   "label": "De Zuani et al. 2024",
+   "title": "Single-cell and spatial transcriptomics analysis of non-small cell lung cancer",
+   "citation": {
+    "authors": "De Zuani M, et al.",
+    "title": "Single-cell and spatial transcriptomics analysis of non-small cell lung cancer",
+    "journal": "Nature Communications",
+    "year": 2024,
+    "doi": "10.1038/s41467-024-48700-8",
+    "url": "https://www.nature.com/articles/s41467-024-48700-8"
+   },
+   "cancers": [
+    "LUAD",
+    "LUSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "E-MTAB-13530",
+   "access": {
+    "category": "open",
+    "route": "public processed matrices/spatial archives; ENA raw reads",
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41467-024-48700-8"
+     ],
+     [
+      "Data record",
+      "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-13530"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Visium fresh-frozen atlas of non-small cell lung cancer with 40 sections in all, 20 of them tumour sections, across adenocarcinoma, squamous, unspecified NSCLC and healthy donors. The LUSC subset is Patients 11 and 19: six tumour sections and four adjacent-normal sections. The publication's Supplementary Data 1 gives Patient 11 as T2b N0 M0 and Patient 19 as T3 N0 M0; prior treatment is not reported. All ten LUSC sections have expression barcodes that match their tissue coordinates exactly, but their image archives contain only outputs of about 2,000 pixels; original scans were not found.",
+   "compartments": [
+    "tumour-unspecified",
+    "solid-normal",
+    "normal"
+   ],
+   "reported": [
+    [
+     2,
+     "LUSC donors (Patients 11 and 19)",
+     "SDRF, deduplicated",
+     "LUSC"
+    ],
+    [
+     6,
+     "LUSC tumour sections",
+     "SDRF, deduplicated",
+     "LUSC"
+    ],
+    [
+     4,
+     "LUSC adjacent-normal sections",
+     "SDRF, deduplicated",
+     "LUSC"
+    ],
+    [
+     40,
+     "sections in the complete study, all histologies",
+     "SDRF, deduplicated"
+    ],
+    [
+     20,
+     "tumour sections in the complete study",
+     "SDRF, deduplicated"
+    ]
+   ],
+   "notes": [
+    "Use Patient 11 and Patient 19 only for LUSC",
+    "Preserve four adjacent sections outside tumour counts",
+    "SDRF staging fields contain inconsistent values; do not interpret each row as valid TNM",
+    "Staging from Supplementary Data 1: Patient 11 T2b N0 M0, Patient 19 T3 N0 M0",
+    "Prior treatment is not reported"
+   ],
+   "spatial_review": {
+    "id": "lusc-emtab13530",
+    "date": "2026-10-15",
+    "analysis_cohort": "LUSC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium fresh frozen",
+    "role": "candidate resource",
+    "image_status": "All ten LUSC section packages checked: exact barcode-coordinate agreement; image archives contain 2,000-pixel outputs only; original scans not found",
+    "treatment_status": "not reported; staging resolved from Supplementary Data 1",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {
+     "tumour_sample_ids": [
+      "P11_T1",
+      "P11_T2",
+      "P11_T3",
+      "P11_T4",
+      "P19_T1",
+      "P19_T2"
+     ],
+     "adjacent_sample_ids": [
+      "P11_B1",
+      "P11_B2",
+      "P19_B1",
+      "P19_B2"
+     ]
+    },
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Ten LUSC section packages checked; preview images only",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask the study team for original scans and the prior treatment of Patients 11 and 19.",
+     "sections_with_matching_coordinates": 10
+    }
+   }
+  },
+  {
+   "id": "cand-zhao-htapp-2025",
+   "label": "Zhao et al. 2025",
+   "title": "A cellular and spatial atlas of TP53-associated tissue remodeling defines a multicellular tumor ecosystem in lung adenocarcinoma",
+   "citation": {
+    "authors": "Zhao W, et al.",
+    "title": "A cellular and spatial atlas of TP53-associated tissue remodeling defines a multicellular tumor ecosystem in lung adenocarcinoma",
+    "journal": "Nature Cancer",
+    "year": 2025,
+    "doi": "10.1038/s43018-025-01053-7",
+    "url": "https://www.nature.com/articles/s43018-025-01053-7"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "calibration",
+    "identity"
+   ],
+   "accession": "HTAN HTAPP / Zenodo16546233 (version19559522)",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s43018-025-01053-7"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/19559522"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-peng-kadara-2025",
+   "label": "Peng et al. 2026",
+   "title": "Multimodal Spatial-Omics Reveal Co-Evolution of Alveolar Progenitors and Proinflammatory Niches in Progression of Lung Precursor Lesions",
+   "citation": {
+    "authors": "Peng F, et al.",
+    "title": "Multimodal spatial-omics reveal co-evolution of alveolar progenitors and proinflammatory niches in progression of lung precursor lesions",
+    "journal": "Cancer Cell",
+    "year": 2026,
+    "doi": "10.1016/j.ccell.2025.10.004",
+    "url": "https://doi.org/10.1016/j.ccell.2025.10.004"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-unverified"
+   ],
+   "accession": "GSE307534",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1016/j.ccell.2025.10.004"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE307534"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-chen-liu-2024",
+   "label": "Luo et al. 2024",
+   "title": "Single-cell and spatial transcriptome characterize coinhibitory cell-cell communications during histological progression of lung adenocarcinoma",
+   "citation": {
+    "authors": "Luo J, et al.",
+    "title": "Single-cell and spatial transcriptome characterize coinhibitory cell-cell communications during histological progression of lung adenocarcinoma",
+    "journal": "Frontiers in Immunology",
+    "year": 2024,
+    "doi": "10.3389/fimmu.2024.1430163",
+    "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1430163/full"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-unverified"
+   ],
+   "accession": "Zenodo13337961",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1430163/full"
+     ],
+     [
+      "Data record",
+      "https://zenodo.org/records/13337961"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-knuch-2026",
+   "label": "Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma",
+   "title": "Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma",
+   "citation": {
+    "authors": null,
+    "title": "Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12853583/"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "release-unresolved"
+   ],
+   "accession": "KRAKAP241022",
+   "access": {
+    "category": "unresolved",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12853583/"
+     ],
+     [
+      "Data record",
+      "https://kbds.re.kr/KRA"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-deng-micropapillary-2025",
+   "label": "Deng et al. 2025",
+   "title": "Spatial transcriptomics uncovers immune-cell plasticity and dedifferentiation signatures in aggressive lung adenocarcinoma subtypes",
+   "citation": {
+    "authors": "Deng H, et al.",
+    "title": "Spatial transcriptomics uncovers immune-cell plasticity and dedifferentiation signatures in aggressive lung adenocarcinoma subtypes",
+    "journal": "Frontiers in Immunology",
+    "year": 2025,
+    "doi": "10.3389/fimmu.2025.1620886",
+    "url": "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1620886/full"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "request"
+   ],
+   "accession": null,
+   "access": {
+    "category": "request",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1620886/full"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-lu-cell-discovery-2023",
+   "label": "Wang et al. 2023",
+   "title": "Spatial transcriptomics delineates molecular features and cellular plasticity in lung adenocarcinoma progression",
+   "citation": {
+    "authors": "Wang Y, et al.",
+    "title": "Spatial transcriptomics delineates molecular features and cellular plasticity in lung adenocarcinoma progression",
+    "journal": "Cell Discovery",
+    "year": 2023,
+    "doi": "10.1038/s41421-023-00591-7",
+    "url": "https://www.nature.com/articles/s41421-023-00591-7"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "controlled"
+   ],
+   "accession": "HRA001238",
+   "access": {
+    "category": "controlled",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.nature.com/articles/s41421-023-00591-7"
+     ],
+     [
+      "Data record",
+      "https://ngdc.cncb.ac.cn/gsa-human/browse/HRA001238"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-10x-post-xenium-hd",
+   "label": "Visium HD CytAssist Gene Expression Human Lung Cancer post-Xenium experiment",
+   "title": "Visium HD CytAssist Gene Expression Human Lung Cancer post-Xenium experiment",
+   "citation": {
+    "authors": null,
+    "title": "Visium HD CytAssist Gene Expression Human Lung Cancer post-Xenium experiment",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.10xgenomics.com/datasets/visium-hd-cytassist-gene-expression-human-lung-cancer-post-xenium-expt"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium HD"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "pathology-review"
+   ],
+   "accession": null,
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.10xgenomics.com/datasets/visium-hd-cytassist-gene-expression-human-lung-cancer-post-xenium-expt"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-meti-luad14c",
+   "label": "METI lung adenocarcinoma sample LUAD-14C",
+   "title": "METI lung adenocarcinoma sample LUAD-14C",
+   "citation": {
+    "authors": null,
+    "title": "METI lung adenocarcinoma sample LUAD-14C",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE246011"
+   },
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium CytAssist"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "he-not-located"
+   ],
+   "accession": "GSM8775962/GSE246011",
+   "access": {
+    "category": "open",
+    "route": null,
+    "links": [
+     [
+      "Publication",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE246011"
+     ],
+     [
+      "Data record",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8775962"
+     ]
+    ]
+   },
+   "verification": "source-described",
+   "verified_on": "2026-10-09",
+   "description": null,
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  }
+ ],
+ "located_sections": [
+  {
+   "id": "steiner-2026:LM_SD_1216_8",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "11980",
+   "capture": "LM_SD_1216_8",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_1216_12",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "13034",
+   "capture": "LM_SD_1216_12",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_7",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "1984",
+   "capture": "LM_SD_7",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_11",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "21448",
+   "capture": "LM_SD_11",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_2",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "21448",
+   "capture": "LM_SD_2",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_1216_14",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "22809",
+   "capture": "LM_SD_1216_14",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_15",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "25115",
+   "capture": "LM_SD_15",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_3",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "27086",
+   "capture": "LM_SD_3",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_10",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "29063",
+   "capture": "LM_SD_10",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_1216_1",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "30868",
+   "capture": "LM_SD_1216_1",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_16",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "30868",
+   "capture": "LM_SD_16",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_9",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "3255",
+   "capture": "LM_SD_9",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_4",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "4710",
+   "capture": "LM_SD_4",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_5",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "611",
+   "capture": "LM_SD_5",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  },
+  {
+   "id": "steiner-2026:LM_SD_13",
+   "cohort": "steiner-2026",
+   "cancer": "LUAD",
+   "stratum": "luad-nonmuc",
+   "patient": "915",
+   "capture": "LM_SD_13",
+   "tier": "core",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "same-section",
+   "registration": "Original supplied SpaceRanger image identity; verify coordinate transform/orientation. Author-provided flipped files retained. Scalefactors and spot pathology labels downloadable.",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "open"
+   },
+   "verification": "metadata-checked"
+  }
+ ],
+ "other_resources": [
+  {
+   "id": "tcga-luad",
+   "label": "TCGA-LUAD",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-LUAD"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "LUAD"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "LUAD",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "histology-strata",
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-LUAD"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Lung adenocarcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked; histology strata have not yet been curated.",
+   "notes": [
+    "Pathology-group exclusions include unclassified non-small cell carcinoma and cases favouring large cell neuroendocrine carcinoma.",
+    "GDC also lists EPIC v2 methylation for 53 primary LUAD patients; it is a different platform from 450k and is not counted.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "LUAD"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}

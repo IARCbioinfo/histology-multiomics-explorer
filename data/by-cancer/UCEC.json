@@ -1,0 +1,1171 @@
+{
+ "release": {
+  "version": "0.9.3",
+  "date": "2026-10-16",
+  "audit_dates": [
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-14",
+   "2026-10-15"
+  ]
+ },
+ "code": "UCEC",
+ "page": "cancers.html?c=UCEC",
+ "markdown": "md/cancers/UCEC.md",
+ "notes": [
+  "The selected analysis panel is one selection for one study design. General availability per TCGA project is reported separately and is larger; do not mix the two.",
+  "Spatial studies come from patients other than those in TCGA. They add tissue context, not measurements for TCGA patients.",
+  "\"Matched data located\" means the image and molecular files were found; image registration and tissue QC may still be pending.",
+  "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
+  "Normal tissue comes from patients with cancer, not healthy donors.",
+  "located_sections lists selection fields only; the full record with links, source wording and clinical fields is in data/captures.json under the same id."
+ ],
+ "cancer": {
+  "code": "UCEC",
+  "gaps": [
+   "Histology comes from the TCGA endometrial study where the case is in its table and from the GDC label otherwise: 398 endometrioid, 112 serous, 12 mixed and one other among the 523 selected patients. These are analysis annotations, not independently reviewed current diagnoses.",
+   "Nineteen cases have a publication histology that differs from the GDC label; both are kept.",
+   "The endometrioid-only subset (398 patients, 303 with both assays) is a sensitivity analysis within the cohort, not a separate cohort. No smaller serous cohort is selected.",
+   "Histological type and the published molecular groups (POLE, MSI, copy-number low and high) do not coincide; a molecular serous-like or endometrioid-like profile is not a reason to exclude a case. Uterine carcinosarcoma (TCGA-UCS) is not added.",
+   "Some retained patients have RNA-seq without 450k methylation, and some normal-reference patients have no retained primary-tumour assay.",
+   "Two endometrial spatial resources are listed for review: one primary-tumour Visium sample, and four metastasis biopsy sections from two donors before and during NP137 treatment, for exploratory treated comparison only. None is yet a verified matched package."
+  ],
+  "name": "Uterine corpus endometrial carcinoma",
+  "group": "tcga-panel",
+  "hausser": "no-geometry",
+  "strata": [],
+  "summary": "Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen and is analysed as one pooled endometrial carcinoma cohort, with reviewed histology, grade and the published molecular groups kept as annotations and an endometrioid-only sensitivity subset.",
+  "tcga_project": "UCEC",
+  "analysis_cohort": "UCEC"
+ },
+ "tcga": {
+  "panel_date": "2026-10-15",
+  "availability_date": "2026-10-14",
+  "analysis_cohort": {
+   "id": "UCEC",
+   "label": "UCEC",
+   "role": "discovery",
+   "projects": [
+    "UCEC"
+   ],
+   "selected_analysis": {
+    "total": 523,
+    "rna": 521,
+    "met": 415,
+    "paired": 413,
+    "rna_only": 108,
+    "met_only": 2
+   },
+   "contributions": {
+    "UCEC": {
+     "total": 523,
+     "rna": 521,
+     "met": 415,
+     "paired": 413,
+     "rna_only": 108,
+     "met_only": 2
+    }
+   },
+   "normal": {
+    "rna_he_before": 34,
+    "rna_he_after": 34,
+    "rna_he_met_after": 33,
+    "in_active_scope": true,
+    "withheld": [],
+    "context": {
+     "target_project_donor": 22,
+     "organ_specific_control": 12
+    },
+    "context_met": {
+     "target_project_donor": 21,
+     "organ_specific_control": 12
+    }
+   },
+   "subsets": [
+    {
+     "id": "UCEC-endometrioid",
+     "label": "Endometrioid only",
+     "total": 398,
+     "rna": 396,
+     "met": 305,
+     "paired": 303,
+     "rna_only": 93,
+     "met_only": 2,
+     "patients": [
+      "TCGA-4E-A92E",
+      "TCGA-5B-A90C",
+      "TCGA-5S-A9Q8",
+      "TCGA-A5-A0G9",
+      "TCGA-A5-A0GA",
+      "TCGA-A5-A0GB",
+      "TCGA-A5-A0GD",
+      "TCGA-A5-A0GE",
+      "TCGA-A5-A0GG",
+      "TCGA-A5-A0GH",
+      "TCGA-A5-A0GJ",
+      "TCGA-A5-A0GN",
+      "TCGA-A5-A0GP",
+      "TCGA-A5-A0GQ",
+      "TCGA-A5-A0GR",
+      "TCGA-A5-A0GU",
+      "TCGA-A5-A0GV",
+      "TCGA-A5-A0GW",
+      "TCGA-A5-A0GX",
+      "TCGA-A5-A0R7",
+      "TCGA-A5-A0R8",
+      "TCGA-A5-A0R9",
+      "TCGA-A5-A0RA",
+      "TCGA-A5-A0VO",
+      "TCGA-A5-A0VP",
+      "TCGA-A5-A0VQ",
+      "TCGA-A5-A1OJ",
+      "TCGA-A5-A1OK",
+      "TCGA-A5-A2K5",
+      "TCGA-A5-A2K7",
+      "TCGA-A5-A3LO",
+      "TCGA-A5-A7WJ",
+      "TCGA-A5-AB3J",
+      "TCGA-AJ-A23O",
+      "TCGA-AJ-A2QK",
+      "TCGA-AJ-A2QL",
+      "TCGA-AJ-A2QN",
+      "TCGA-AJ-A2QO",
+      "TCGA-AJ-A3BG",
+      "TCGA-AJ-A3BH",
+      "TCGA-AJ-A3BI",
+      "TCGA-AJ-A3BK",
+      "TCGA-AJ-A3EL",
+      "TCGA-AJ-A3EM",
+      "TCGA-AJ-A3I9",
+      "TCGA-AJ-A3IA",
+      "TCGA-AJ-A3NC",
+      "TCGA-AJ-A3NE",
+      "TCGA-AJ-A3OJ",
+      "TCGA-AJ-A3OL",
+      "TCGA-AJ-A5DV",
+      "TCGA-AJ-A5DW",
+      "TCGA-AJ-A6NU",
+      "TCGA-AJ-A8CT",
+      "TCGA-AJ-A8CV",
+      "TCGA-AJ-A8CW",
+      "TCGA-AP-A051",
+      "TCGA-AP-A054",
+      "TCGA-AP-A056",
+      "TCGA-AP-A059",
+      "TCGA-AP-A05N",
+      "TCGA-AP-A05O",
+      "TCGA-AP-A05P",
+      "TCGA-AP-A0LD",
+      "TCGA-AP-A0LE",
+      "TCGA-AP-A0LF",
+      "TCGA-AP-A0LG",
+      "TCGA-AP-A0LJ",
+      "TCGA-AP-A0LL",
+      "TCGA-AP-A0LM",
+      "TCGA-AP-A0LN",
+      "TCGA-AP-A0LO",
+      "TCGA-AP-A0LP",
+      "TCGA-AP-A0LS",
+      "TCGA-AP-A0LT",
+      "TCGA-AP-A0LV",
+      "TCGA-AP-A1DH",
+      "TCGA-AP-A1DK",
+      "TCGA-AP-A1DM",
+      "TCGA-AP-A1DO",
+      "TCGA-AP-A1DP",
+      "TCGA-AP-A1DR",
+      "TCGA-AP-A1DV",
+      "TCGA-AP-A1E0",
+      "TCGA-AP-A1E1",
+      "TCGA-AP-A1E3",
+      "TCGA-AP-A1E4",
+      "TCGA-AW-A1PO",
+      "TCGA-AX-A05S",
+      "TCGA-AX-A05T",
+      "TCGA-AX-A05U",
+      "TCGA-AX-A05W",
+      "TCGA-AX-A05Y",
+      "TCGA-AX-A05Z",
+      "TCGA-AX-A060",
+      "TCGA-AX-A062",
+      "TCGA-AX-A063",
+      "TCGA-AX-A064",
+      "TCGA-AX-A06B",
+      "TCGA-AX-A06F",
+      "TCGA-AX-A06H",
+      "TCGA-AX-A06J",
+      "TCGA-AX-A06L",
+      "TCGA-AX-A0IS",
+      "TCGA-AX-A0IZ",
+      "TCGA-AX-A0J0",
+      "TCGA-AX-A0J1",
+      "TCGA-AX-A1C4",
+      "TCGA-AX-A1C5",
+      "TCGA-AX-A1C9",
+      "TCGA-AX-A1CE",
+      "TCGA-AX-A1CF",
+      "TCGA-AX-A1CI",
+      "TCGA-AX-A1CJ",
+      "TCGA-AX-A1CK",
+      "TCGA-AX-A1CN",
+      "TCGA-AX-A2H7",
+      "TCGA-AX-A2HA",
+      "TCGA-AX-A2HC",
+      "TCGA-AX-A2HD",
+      "TCGA-AX-A2HG",
+      "TCGA-AX-A2HH",
+      "TCGA-AX-A2HJ",
+      "TCGA-AX-A2HK",
+      "TCGA-AX-A2IN",
+      "TCGA-AX-A3FS",
+      "TCGA-AX-A3FT",
+      "TCGA-AX-A3FV",
+      "TCGA-AX-A3FW",
+      "TCGA-AX-A3FX",
+      "TCGA-AX-A3FZ",
+      "TCGA-AX-A3G1",
+      "TCGA-AX-A3G8",
+      "TCGA-AX-A3G9",
+      "TCGA-AX-A3GB",
+      "TCGA-B5-A0JR",
+      "TCGA-B5-A0JS",
+      "TCGA-B5-A0JT",
+      "TCGA-B5-A0JU",
+      "TCGA-B5-A0JV",
+      "TCGA-B5-A0JX",
+      "TCGA-B5-A0JY",
+      "TCGA-B5-A0JZ",
+      "TCGA-B5-A0K0",
+      "TCGA-B5-A0K1",
+      "TCGA-B5-A0K2",
+      "TCGA-B5-A0K3",
+      "TCGA-B5-A0K4",
+      "TCGA-B5-A0K6",
+      "TCGA-B5-A0K7",
+      "TCGA-B5-A0K9",
+      "TCGA-B5-A11E",
+      "TCGA-B5-A11F",
+      "TCGA-B5-A11G",
+      "TCGA-B5-A11H",
+      "TCGA-B5-A11I",
+      "TCGA-B5-A11J",
+      "TCGA-B5-A11L",
+      "TCGA-B5-A11M",
+      "TCGA-B5-A11N",
+      "TCGA-B5-A11O",
+      "TCGA-B5-A11P",
+      "TCGA-B5-A11Q",
+      "TCGA-B5-A11R",
+      "TCGA-B5-A11S",
+      "TCGA-B5-A11U",
+      "TCGA-B5-A11V",
+      "TCGA-B5-A11W",
+      "TCGA-B5-A11X",
+      "TCGA-B5-A11Y",
+      "TCGA-B5-A11Z",
+      "TCGA-B5-A121",
+      "TCGA-B5-A1MR",
+      "TCGA-B5-A1MV",
+      "TCGA-B5-A1MW",
+      "TCGA-B5-A1MX",
+      "TCGA-B5-A1MZ",
+      "TCGA-B5-A3F9",
+      "TCGA-B5-A3FA",
+      "TCGA-B5-A3FB",
+      "TCGA-B5-A3FC",
+      "TCGA-B5-A3FD",
+      "TCGA-B5-A3FH",
+      "TCGA-B5-A5OC",
+      "TCGA-BG-A0LW",
+      "TCGA-BG-A0LX",
+      "TCGA-BG-A0M0",
+      "TCGA-BG-A0M2",
+      "TCGA-BG-A0M3",
+      "TCGA-BG-A0M4",
+      "TCGA-BG-A0M7",
+      "TCGA-BG-A0M9",
+      "TCGA-BG-A0MA",
+      "TCGA-BG-A0MC",
+      "TCGA-BG-A0MG",
+      "TCGA-BG-A0MH",
+      "TCGA-BG-A0MI",
+      "TCGA-BG-A0MK",
+      "TCGA-BG-A0MO",
+      "TCGA-BG-A0MQ",
+      "TCGA-BG-A0MT",
+      "TCGA-BG-A0MU",
+      "TCGA-BG-A0RY",
+      "TCGA-BG-A0VT",
+      "TCGA-BG-A0VV",
+      "TCGA-BG-A0VW",
+      "TCGA-BG-A0VX",
+      "TCGA-BG-A0VZ",
+      "TCGA-BG-A0W1",
+      "TCGA-BG-A0W2",
+      "TCGA-BG-A0YU",
+      "TCGA-BG-A186",
+      "TCGA-BG-A187",
+      "TCGA-BG-A18A",
+      "TCGA-BG-A18B",
+      "TCGA-BG-A18C",
+      "TCGA-BG-A222",
+      "TCGA-BG-A2AD",
+      "TCGA-BG-A2AE",
+      "TCGA-BG-A2L7",
+      "TCGA-BG-A3EW",
+      "TCGA-BK-A0C9",
+      "TCGA-BK-A0CB",
+      "TCGA-BK-A139",
+      "TCGA-BK-A13B",
+      "TCGA-BK-A13C",
+      "TCGA-BK-A4ZD",
+      "TCGA-BK-A56F",
+      "TCGA-BK-A6W3",
+      "TCGA-BK-A6W4",
+      "TCGA-BS-A0T9",
+      "TCGA-BS-A0TA",
+      "TCGA-BS-A0TC",
+      "TCGA-BS-A0TD",
+      "TCGA-BS-A0TE",
+      "TCGA-BS-A0TG",
+      "TCGA-BS-A0TI",
+      "TCGA-BS-A0TJ",
+      "TCGA-BS-A0U5",
+      "TCGA-BS-A0U7",
+      "TCGA-BS-A0U8",
+      "TCGA-BS-A0U9",
+      "TCGA-BS-A0UA",
+      "TCGA-BS-A0UF",
+      "TCGA-BS-A0UJ",
+      "TCGA-BS-A0UL",
+      "TCGA-BS-A0UM",
+      "TCGA-BS-A0UT",
+      "TCGA-BS-A0UV",
+      "TCGA-BS-A0V4",
+      "TCGA-BS-A0V6",
+      "TCGA-BS-A0V7",
+      "TCGA-BS-A0V8",
+      "TCGA-BS-A0VI",
+      "TCGA-BS-A0WQ",
+      "TCGA-D1-A0ZN",
+      "TCGA-D1-A0ZQ",
+      "TCGA-D1-A0ZR",
+      "TCGA-D1-A0ZS",
+      "TCGA-D1-A0ZU",
+      "TCGA-D1-A0ZV",
+      "TCGA-D1-A101",
+      "TCGA-D1-A102",
+      "TCGA-D1-A103",
+      "TCGA-D1-A15W",
+      "TCGA-D1-A15Z",
+      "TCGA-D1-A160",
+      "TCGA-D1-A161",
+      "TCGA-D1-A162",
+      "TCGA-D1-A163",
+      "TCGA-D1-A165",
+      "TCGA-D1-A167",
+      "TCGA-D1-A168",
+      "TCGA-D1-A169",
+      "TCGA-D1-A16B",
+      "TCGA-D1-A16D",
+      "TCGA-D1-A16E",
+      "TCGA-D1-A16F",
+      "TCGA-D1-A16J",
+      "TCGA-D1-A16N",
+      "TCGA-D1-A16O",
+      "TCGA-D1-A16Q",
+      "TCGA-D1-A16R",
+      "TCGA-D1-A16V",
+      "TCGA-D1-A16X",
+      "TCGA-D1-A16Y",
+      "TCGA-D1-A174",
+      "TCGA-D1-A175",
+      "TCGA-D1-A176",
+      "TCGA-D1-A177",
+      "TCGA-D1-A17A",
+      "TCGA-D1-A17B",
+      "TCGA-D1-A17C",
+      "TCGA-D1-A17D",
+      "TCGA-D1-A17F",
+      "TCGA-D1-A17H",
+      "TCGA-D1-A17K",
+      "TCGA-D1-A17L",
+      "TCGA-D1-A17M",
+      "TCGA-D1-A17N",
+      "TCGA-D1-A17Q",
+      "TCGA-D1-A17R",
+      "TCGA-D1-A17S",
+      "TCGA-D1-A17T",
+      "TCGA-D1-A17U",
+      "TCGA-D1-A1NS",
+      "TCGA-D1-A1NY",
+      "TCGA-D1-A1NZ",
+      "TCGA-D1-A1O0",
+      "TCGA-D1-A1O5",
+      "TCGA-D1-A1O7",
+      "TCGA-D1-A1O8",
+      "TCGA-D1-A2G5",
+      "TCGA-D1-A2G6",
+      "TCGA-D1-A3DA",
+      "TCGA-D1-A3DG",
+      "TCGA-D1-A3DH",
+      "TCGA-DF-A2KN",
+      "TCGA-DF-A2KR",
+      "TCGA-DF-A2KS",
+      "TCGA-DF-A2KU",
+      "TCGA-DF-A2KV",
+      "TCGA-DF-A2KY",
+      "TCGA-DF-A2KZ",
+      "TCGA-DF-A2L0",
+      "TCGA-DI-A0WH",
+      "TCGA-DI-A1BY",
+      "TCGA-DI-A1C3",
+      "TCGA-DI-A1NO",
+      "TCGA-E6-A1LX",
+      "TCGA-E6-A1M0",
+      "TCGA-E6-A2P9",
+      "TCGA-EC-A1NJ",
+      "TCGA-EC-A1QX",
+      "TCGA-EC-A24G",
+      "TCGA-EO-A1Y7",
+      "TCGA-EO-A22R",
+      "TCGA-EO-A22S",
+      "TCGA-EO-A22T",
+      "TCGA-EO-A22U",
+      "TCGA-EO-A22X",
+      "TCGA-EO-A22Y",
+      "TCGA-EO-A3AS",
+      "TCGA-EO-A3AU",
+      "TCGA-EO-A3AV",
+      "TCGA-EO-A3AY",
+      "TCGA-EO-A3B0",
+      "TCGA-EO-A3KX",
+      "TCGA-EO-A3L0",
+      "TCGA-EY-A1GC",
+      "TCGA-EY-A1GD",
+      "TCGA-EY-A1GE",
+      "TCGA-EY-A1GF",
+      "TCGA-EY-A1GH",
+      "TCGA-EY-A1GI",
+      "TCGA-EY-A1GJ",
+      "TCGA-EY-A1GK",
+      "TCGA-EY-A1GL",
+      "TCGA-EY-A1GO",
+      "TCGA-EY-A1GP",
+      "TCGA-EY-A1GQ",
+      "TCGA-EY-A1GR",
+      "TCGA-EY-A1GT",
+      "TCGA-EY-A1GU",
+      "TCGA-EY-A1GW",
+      "TCGA-EY-A1GX",
+      "TCGA-EY-A1H0",
+      "TCGA-EY-A214",
+      "TCGA-EY-A215",
+      "TCGA-EY-A2OM",
+      "TCGA-EY-A2OP",
+      "TCGA-EY-A2OQ",
+      "TCGA-EY-A3L3",
+      "TCGA-EY-A547",
+      "TCGA-EY-A548",
+      "TCGA-EY-A549",
+      "TCGA-EY-A54A",
+      "TCGA-EY-A5W2",
+      "TCGA-EY-A72D",
+      "TCGA-FI-A2CX",
+      "TCGA-FI-A2D0",
+      "TCGA-FI-A2D4",
+      "TCGA-FI-A2D5",
+      "TCGA-FI-A2D6",
+      "TCGA-FI-A2F4",
+      "TCGA-FI-A2F9",
+      "TCGA-H5-A2HR",
+      "TCGA-PG-A916",
+      "TCGA-PG-A917",
+      "TCGA-QF-A5YS",
+      "TCGA-QF-A5YT",
+      "TCGA-QS-A5YQ",
+      "TCGA-QS-A5YR",
+      "TCGA-QS-A744",
+      "TCGA-SJ-A6ZI",
+      "TCGA-SJ-A6ZJ",
+      "TCGA-SL-A6J9",
+      "TCGA-SL-A6JA"
+     ]
+    }
+   ],
+   "strata": [
+    {
+     "stratum": "Endometrioid",
+     "project": "UCEC",
+     "total": 398,
+     "rna": 396,
+     "met": 305,
+     "paired": 303,
+     "rna_only": 93,
+     "met_only": 2,
+     "publication_members": 293,
+     "selected": 398
+    },
+    {
+     "stratum": "Serous",
+     "project": "UCEC",
+     "total": 112,
+     "rna": 112,
+     "met": 98,
+     "paired": 98,
+     "rna_only": 14,
+     "met_only": 0,
+     "publication_members": 49,
+     "selected": 112
+    },
+    {
+     "stratum": "Mixed",
+     "project": "UCEC",
+     "total": 12,
+     "rna": 12,
+     "met": 11,
+     "paired": 11,
+     "rna_only": 1,
+     "met_only": 0,
+     "publication_members": 12,
+     "selected": 12
+    },
+    {
+     "stratum": "Other",
+     "project": "UCEC",
+     "total": 1,
+     "rna": 1,
+     "met": 1,
+     "paired": 1,
+     "rna_only": 0,
+     "met_only": 0,
+     "publication_members": 0,
+     "selected": 1
+    }
+   ],
+   "annotations": {
+    "histology_stratum": [
+     [
+      "Endometrioid",
+      398,
+      303
+     ],
+     [
+      "Serous",
+      112,
+      98
+     ],
+     [
+      "Mixed",
+      12,
+      11
+     ],
+     [
+      "Other",
+      1,
+      1
+     ]
+    ],
+    "histology_evidence": [
+     [
+      "TCGA endometrial publication table histology",
+      354,
+      244
+     ],
+     [
+      "GDC morphology fallback",
+      169,
+      169
+     ]
+    ],
+    "grade_publication": [
+     [
+      null,
+      169,
+      169
+     ],
+     [
+      "Grade 3",
+      165,
+      120
+     ],
+     [
+      "Grade 2",
+      102,
+      72
+     ],
+     [
+      "Grade 1",
+      87,
+      52
+     ]
+    ],
+    "published_subtype": [
+     [
+      null,
+      169,
+      169
+     ],
+     [
+      "Notassigned",
+      131,
+      120
+     ],
+     [
+      "CN low",
+      88,
+      51
+     ],
+     [
+      "MSI",
+      63,
+      28
+     ],
+     [
+      "CN high",
+      55,
+      36
+     ],
+     [
+      "POLE",
+      17,
+      9
+     ]
+    ]
+   }
+  },
+  "projects": {
+   "UCEC": {
+    "selected_panel": {
+     "analysis_cohort": "UCEC",
+     "role": "discovery",
+     "reviewed_patients": 542,
+     "histology_reviewed": true,
+     "assay_qc": {
+      "total": 530,
+      "rna": 528,
+      "met": 418,
+      "paired": 416,
+      "rna_only": 112,
+      "met_only": 2
+     },
+     "after_patient_screen": {
+      "total": 523,
+      "rna": 521,
+      "met": 415,
+      "paired": 413,
+      "rna_only": 108,
+      "met_only": 2
+     },
+     "selected_analysis": {
+      "total": 523,
+      "rna": 521,
+      "met": 415,
+      "paired": 413,
+      "rna_only": 108,
+      "met_only": 2
+     },
+     "dispositions": {
+      "treatment_unknown_hold": 5,
+      "pass_annotation_screen": 523,
+      "known_treatment_exclusion": 2
+     },
+     "normal": {
+      "rna_he_before": 34,
+      "rna_he_after": 34,
+      "rna_he_met_after": 33,
+      "in_active_scope": true,
+      "withheld": [],
+      "context": {
+       "target_project_donor": 22,
+       "organ_specific_control": 12
+      },
+      "context_met": {
+       "target_project_donor": 21,
+       "organ_specific_control": 12
+      },
+      "outside_cohort": []
+     },
+     "label_conflicts": [
+      {
+       "patient": "TCGA-A5-A0G5",
+       "gdc": "Clear cell adenocarcinoma, NOS",
+       "publication": "Serous",
+       "stratum": "Serous",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-A5-A1OF",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-AP-A0LH",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-AP-A1DP",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Endometrioid",
+       "stratum": "Endometrioid",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-AP-A1DQ",
+       "gdc": "Endometrioid adenocarcinoma, NOS",
+       "publication": "Serous",
+       "stratum": "Serous",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-B5-A0JY",
+       "gdc": "Carcinoma, undifferentiated, NOS",
+       "publication": "Endometrioid",
+       "stratum": "Endometrioid",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-B5-A11I",
+       "gdc": "Adenocarcinoma, NOS",
+       "publication": "Endometrioid",
+       "stratum": "Endometrioid",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-B5-A11X",
+       "gdc": "Carcinoma, undifferentiated, NOS",
+       "publication": "Endometrioid",
+       "stratum": "Endometrioid",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-BG-A2AE",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Endometrioid",
+       "stratum": "Endometrioid",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-BK-A0CA",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-D1-A0ZZ",
+       "gdc": "Endometrioid adenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-D1-A1NW",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-D1-A2G0",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-DI-A1BU",
+       "gdc": "Endometrioid adenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-EY-A1GM",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-EY-A1GV",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-EY-A210",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-FI-A2CY",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      },
+      {
+       "patient": "TCGA-FI-A2D2",
+       "gdc": "Serous cystadenocarcinoma, NOS",
+       "publication": "Mixed",
+       "stratum": "Mixed",
+       "selected": true
+      }
+     ]
+    },
+    "availability": {
+     "pre_qc": {
+      "union": 546,
+      "paired": 430,
+      "rna_only": 115,
+      "met_only": 1
+     },
+     "post_qc": {
+      "union": 530,
+      "paired": 416,
+      "rna_only": 112,
+      "met_only": 2
+     },
+     "normal": {
+      "rna_he": 34,
+      "rna_he_met": 33,
+      "also_in_tumour_union": 22,
+      "normal_only": 12
+     },
+     "passes_screen": true,
+     "in_panel": true,
+     "group": "UCEC"
+    }
+   }
+  }
+ },
+ "spatial_resources": [
+  {
+   "id": "ucec-barkley-gse203612",
+   "label": "Barkley et al. 2022, UCEC sample",
+   "title": "Cancer cell states recur across tumor types and form specific interactions with the tumor microenvironment",
+   "citation": {
+    "authors": "Barkley D, et al.",
+    "title": "Cancer cell states recur across tumor types and form specific interactions with the tumor microenvironment",
+    "journal": "Nature Genetics",
+    "year": 2022,
+    "doi": "10.1038/s41588-022-01141-9",
+    "url": "https://doi.org/10.1038/s41588-022-01141-9"
+   },
+   "cancers": [
+    "UCEC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "listed-together",
+   "gates": [
+    "he-unverified",
+    "treatment-review",
+    "pathology-review"
+   ],
+   "accession": "GSE203612 (UCEC spatial sample GSM6177623)",
+   "access": {
+    "category": "open",
+    "route": "public processed GEO",
+    "links": [
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE203612"
+     ],
+     [
+      "Publication",
+      "https://doi.org/10.1038/s41588-022-01141-9"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "One endometrial carcinoma Visium sample (GSM6177623, NYU_UCEC3_Vis) from a pan-cancer cell-state atlas; single-cell samples and other cancers in the series are not part of this entry. Its section package was checked (expression barcodes match the tissue coordinates), but the deposited image is a 1,899 × 2,000-pixel preview. The author-linked Dropbox and NYU SharePoint data folders are deleted or disabled, and the archived code on Zenodo (6611786) contains scripts only, without the original scan or clinical table. Histological subtype and treatment history are unknown.",
+   "compartments": [
+    "tumour-unspecified"
+   ],
+   "reported": [
+    [
+     1,
+     "endometrial carcinoma spatial sample (GSM6177623)",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "Use only GSM6177623/NYU_UCEC3_Vis for UCEC spatial entry",
+    "Do not count scRNA samples or other cancers as UCEC spatial",
+    "Recover original scan, subtype, treatment and registration",
+    "Author-linked data folders are disabled; the archived code contains no original scan or clinical table"
+   ],
+   "spatial_review": {
+    "id": "ucec-barkley-gse203612",
+    "date": "2026-10-15",
+    "analysis_cohort": "UCEC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium",
+    "role": "candidate resource",
+    "image_status": "GSM6177623 section package checked; image is a 1,899 × 2,000-pixel preview; author data links disabled",
+    "treatment_status": "unknown",
+    "treatment_class": "unknown",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {
+     "sample_ids": [
+      "GSM6177623"
+     ]
+    },
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Section package checked; author data links disabled",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask the study team to restore the public data links and for the original image, histological subtype and treatment of NYU_UCEC3.",
+     "sections_with_matching_coordinates": 1
+    }
+   }
+  },
+  {
+   "id": "ucec-np137-gse225690",
+   "label": "Cassier et al. 2023, NP137 trial",
+   "title": "Netrin-1 blockade inhibits tumour growth and EMT features in endometrial cancer",
+   "citation": {
+    "authors": "Cassier PA, et al.",
+    "title": "Netrin-1 blockade inhibits tumour growth and EMT features in endometrial cancer",
+    "journal": "Nature",
+    "year": 2023,
+    "doi": "10.1038/s41586-023-06367-z",
+    "url": "https://doi.org/10.1038/s41586-023-06367-z"
+   },
+   "cancers": [
+    "UCEC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "treated",
+    "he-not-located"
+   ],
+   "accession": "GSE225690",
+   "access": {
+    "category": "open",
+    "route": "public processed GEO",
+    "links": [
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE225690"
+     ],
+     [
+      "Publication",
+      "https://doi.org/10.1038/s41586-023-06367-z"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Visium FFPE profiles of endometrial cancer metastasis biopsies from the NP137 netrin-1 blockade trial: four sections from two patients, each at baseline and after one month of NP137. The trial supplement identifies 01-034 as endometrioid adenocarcinoma (initial grade 2) and 01-039 as papillary serous adenocarcinoma (initial grade 3), and every trial participant had received at least two earlier lines of systemic therapy (two to six, median three), so both patients were previously treated even at baseline. All four section packages have expression barcodes that match their tissue coordinates exactly (539 to 2,141 spots); the images are previews of at most 2,000 pixels. An exploratory treated, metastatic comparison of two histologies, not a homogeneous endometrioid reference.",
+   "compartments": [
+    "metastatic-tumour"
+   ],
+   "reported": [
+    [
+     2,
+     "patients",
+     "trial publication"
+    ],
+    [
+     4,
+     "metastasis biopsy sections profiled",
+     "GEO series"
+    ],
+    [
+     2,
+     "timepoints per patient (baseline and after one month)",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "All four samples are metastatic biopsies",
+    "Use for exploratory treatment effects, not untreated primary reference",
+    "Two histologies: 01-034 endometrioid (initial grade 2) and 01-039 papillary serous (initial grade 3); do not pool as one endometrioid reference",
+    "Both patients had at least two earlier systemic lines; baseline means before NP137"
+   ],
+   "spatial_review": {
+    "id": "ucec-np137-gse225690",
+    "date": "2026-10-15",
+    "analysis_cohort": "UCEC",
+    "assay_classes": [
+     "whole-transcriptome"
+    ],
+    "platform": "Visium FFPE",
+    "role": "exploratory treated/metastatic spatial comparison",
+    "image_status": "All four section packages checked: exact barcode-coordinate agreement; previews of at most 2,000 pixels",
+    "treatment_status": "every trial participant had two to six earlier systemic lines; sampled at baseline and after one month of NP137",
+    "treatment_class": "baseline-and-on-treatment",
+    "eligible_patients": null,
+    "strict_core_promoted": false,
+    "sample_ids": {
+     "sample_ids": [
+      "GSM7054270",
+      "GSM7054271",
+      "GSM7054272",
+      "GSM7054273"
+     ]
+    },
+    "route_review": {
+     "date": "2026-10-15",
+     "status": "Two previously treated patients and four sections confirmed",
+     "states": [
+      "public-download",
+      "author-release",
+      "local-qc"
+     ],
+     "next_step": "Ask the trial team for original H&E and calibration, and for exact earlier regimens only if a response analysis needs them.",
+     "sections_with_matching_coordinates": 4
+    }
+   }
+  }
+ ],
+ "located_sections": [],
+ "other_resources": [
+  {
+   "id": "tcga-ucec",
+   "label": "TCGA-UCEC",
+   "citation": {
+    "authors": "The Cancer Genome Atlas Research Network",
+    "title": null,
+    "journal": "NCI Genomic Data Commons",
+    "year": null,
+    "doi": null,
+    "url": "https://portal.gdc.cancer.gov/projects/TCGA-UCEC"
+   },
+   "related_citations": [
+    {
+     "authors": "Liu J, et al.",
+     "title": "An Integrated TCGA Pan-Cancer Clinical Data Resource to Drive High-Quality Survival Outcome Analytics",
+     "journal": "Cell",
+     "year": 2018,
+     "doi": "10.1016/j.cell.2018.02.052",
+     "url": "https://doi.org/10.1016/j.cell.2018.02.052"
+    }
+   ],
+   "cancers": [
+    "UCEC"
+   ],
+   "layer": "wsi-bulk",
+   "status": "screened",
+   "tcga_project": "UCEC",
+   "modalities": [
+    "he-wsi",
+    "bulk-rna",
+    "methylation-450k",
+    "raw-reads",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Diagnostic and tissue slides",
+    "RNA-seq",
+    "Illumina 450k methylation"
+   ],
+   "preservation": [
+    "FFPE",
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "linkage": "same-patient",
+   "gates": [
+    "tumour-slide-linkage",
+    "image-qc"
+   ],
+   "access": {
+    "category": "open",
+    "route": "Slide images, processed RNA-seq, methylation beta values and clinical data are open on the GDC; raw sequencing reads are controlled through dbGaP. PanCanAtlas harmonized matrices and quality annotations are open downloads.",
+    "links": [
+     [
+      "GDC project",
+      "https://portal.gdc.cancer.gov/projects/TCGA-UCEC"
+     ],
+     [
+      "PanCanAtlas data",
+      "https://gdc.cancer.gov/about-data/publications/pancanatlas"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-10-15",
+   "description": "Uterine corpus endometrial carcinoma. Slide images, RNA-seq and Illumina 450k methylation from the same patients, with solid normal tissue from some patients. Analysed as one pooled cohort with publication-first histology, grade and molecular-group annotations. Counts are shown after PanCanAtlas assay exclusions, after a patient-level treatment and diagnosis screen, and for the selected analysis set. Tumour slide linkage and image QC have not yet been checked.",
+   "notes": [
+    "Pooled endometrial carcinoma (523 patients, 413 with both assays) with an endometrioid-only sensitivity subset (398 / 303). Nineteen publication and GDC histology labels differ; both are kept. Uterine carcinosarcoma is not added.",
+    "Normal tissue comes from patients with cancer, usually adjacent to the tumour. It is not a healthy-donor control."
+   ],
+   "analysis_cohort": "UCEC"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "hausser-2019",
+   "short": "Hausser et al. 2019",
+   "cancers": [
+    "BRCA",
+    "COAD",
+    "THCA",
+    "BLCA",
+    "LGG",
+    "LIHC",
+    "LUAD",
+    "HNSC",
+    "CESC",
+    "KIRC",
+    "LUSC",
+    "PRAD",
+    "STAD",
+    "UCEC",
+    "CRC",
+    "GLIOMA"
+   ],
+   "citation": "Hausser J, Szekely P, Bar N, Zimmer A, Sheftel H, Caldas C, Alon U. Tumor diversity and the trade-off between universal cancer tasks. Nature Communications 10, 5423 (2019).",
+   "doi": "10.1038/s41467-019-13195-1",
+   "url": "https://www.nature.com/articles/s41467-019-13195-1",
+   "scale": "Bulk tumour RNA (TCGA; METABRIC for breast)",
+   "definition": "Archetypes are vertices of a polytope fitted to tumour expression (Pareto task inference); each vertex is interpreted as a profile specialised for a task.",
+   "finding": "Of 15 cancer types with at least 250 primary tumours, six showed significant within-type structure under the authors' strong criterion (LGG, THCA, BRCA, BLCA, LIHC, COAD) and lung adenocarcinoma and head and neck carcinoma were borderline. The other seven (CESC, KIRC, LUSC, OV, PRAD, STAD, UCEC) had no detectable vertices in the RNA representation tested. After removing cancer-type means, 3,180 tumours from the six significant types fitted five archetypes, interpreted as cell division, biomass and energy, lipogenesis, immune interaction and invasion/tissue remodelling.",
+   "limits": "Task labels are interpretations of enrichment near each vertex. The five-task result depends on the six selected cancers and on centring within cancer type; it does not establish five tasks in every cancer or in morphology. A negative geometry test in one RNA representation does not show that archetypes are absent. Cancer types outside the screen, including ESCA, PAAD and READ, were not tested."
+  }
+ ]
+}
