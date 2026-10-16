@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -82,6 +82,14 @@
   {
    "term": "size threshold",
    "definition": "The minimum cohort size of the selected panel: at least 150 patients with a primary-tumour RNA-seq or 450k methylation profile and at least 100 with both, counted after assay-quality exclusions and before the patient screen. It applies to analysis cohorts, not TCGA projects; ESCC (90 patients) and PDAC (149) are explicit exceptions, and TCGA-SARC is not in the panel because each of its sarcoma types is below the threshold."
+  },
+  {
+   "term": "image pixel size",
+   "definition": "A pixel size read from an image header (for example an OME PhysicalSizeX value, an Aperio MPP tag or a TIFF resolution tag in real units), recorded with its basis. It is an observation of the file, not an independent calibration; display resolutions such as 72 DPI, objective magnifications and spot-derived estimates are not pixel sizes."
+  },
+  {
+   "term": "frame check",
+   "definition": "Whether every spot or cell coordinate of a section falls inside its image after the supplied scale. It does not establish tissue registration."
   },
   {
    "term": "pooled page",
@@ -471,9 +479,26 @@
    "unspecified-vendor-lead": "Vendor catalogue without a specific dataset",
    "vendor-boundary": "Vendor registration and terms"
   },
+  "followupOutcome": {
+   "original-ready": "Original H&E and matched data checked",
+   "preview-ready": "Matched data checked; preview image only",
+   "preview-ready-partial": "Part of the study checked; preview image only",
+   "preview-clinical-correction": "Clinical details corrected",
+   "preview-additional-route": "Further data route found; no files listed",
+   "bounded-public-work": "Public files listed; inspection not finished",
+   "bounded-public-work-reuse-known": "Public files listed; reused data identified",
+   "image-linkage-gap": "No H&E correspondence for the measured data",
+   "image-alias-review": "Image and sample labels conflict",
+   "public-processed-decoding-gap": "Public processed files not yet decoded",
+   "spatial-release-unresolved": "Spatial data release not identified",
+   "public-portal-link-resolved": "Public portal found; files not yet inspected",
+   "coordinate-gap": "Coordinates or image scale missing",
+   "barcode-grid-gap": "Barcode-to-grid map missing"
+  },
   "donorMapping": {
    "source-established": "Established within the source",
    "source-patient-column": "From the source's patient ID column",
+   "source-sample-title": "From the source sample title",
    "unresolved": "Not mapped: the source does not establish the donor"
   },
   "gate": {

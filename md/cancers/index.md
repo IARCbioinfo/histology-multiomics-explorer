@@ -1,6 +1,6 @@
 # Cancer types
 
-Release 0.10.0, 16 October 2026. Web page: [cancers.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html).
+Release 0.11.0, 16 October 2026. Web page: [cancers.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html).
 
 Each page brings together the TCGA data and the spatial studies for one cancer type, with its selection history, other resources and open checks. Colorectal cancer (CRC) and diffuse glioma (GLIOMA) also have pooled pages; the glioma cohort is a classification benchmark.
 
@@ -11,13 +11,13 @@ Each page brings together the TCGA data and the spatial studies for one cancer t
 | [Rectal adenocarcinoma](READ.md) | READ | 154 TCGA patients in the selected panel, within pooled CRC | 11 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
 | [Colorectal adenocarcinoma](CRC.md) | CRC | 581 TCGA patients in the selected panel (pooled TCGA-COAD + TCGA-READ) | 11 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
 | [Thyroid carcinoma](THCA.md) | THCA | 495 TCGA patients in the selected panel | 9 spatial resources, 2 with original H&E located, 1 with matched data and a preview image |
-| [Bladder urothelial carcinoma](BLCA.md) | BLCA | 388 TCGA patients in the selected panel | 10 spatial resources, 2 with original H&E located, 2 with matched data and a preview image |
+| [Bladder urothelial carcinoma](BLCA.md) | BLCA | 388 TCGA patients in the selected panel | 10 spatial resources, 2 with original H&E located, 3 with matched data and a preview image |
 | [Lower-grade glioma](LGG.md) | LGG | 502 TCGA patients in the selected panel, within pooled GLIOMA | 10 spatial resources, 1 with original H&E located, 4 with matched data and a preview image |
 | [Glioblastoma (historical TCGA diagnosis)](GBM.md) | GBM | 225 TCGA patients in the selected panel, within pooled GLIOMA | 3 spatial resources, 1 with original H&E located, 1 with matched data and a preview image |
 | [Diffuse glioma classification benchmark](GLIOMA.md) | GLIOMA | 727 TCGA patients in the selected panel (pooled TCGA-LGG + TCGA-GBM) | 10 spatial resources, 1 with original H&E located, 4 with matched data and a preview image |
-| [Liver hepatocellular carcinoma](LIHC.md) | LIHC | 357 TCGA patients in the selected panel | 17 spatial resources, 1 with original H&E located, 2 with matched data and a preview image |
+| [Liver hepatocellular carcinoma](LIHC.md) | LIHC | 357 TCGA patients in the selected panel | 17 spatial resources, 1 with original H&E located, 3 with matched data and a preview image |
 | [Lung adenocarcinoma](LUAD.md) | LUAD | 457 TCGA patients in the selected panel | 11 spatial resources, 2 with original H&E located, 3 with matched data and a preview image |
-| [Head and neck squamous cell carcinoma](HNSC.md) | HNSC | 514 TCGA patients in the selected panel | 13 spatial resources, 2 with original H&E located, 4 with matched data and a preview image |
+| [Head and neck squamous cell carcinoma](HNSC.md) | HNSC | 514 TCGA patients in the selected panel | 13 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
 | [Cervical squamous cell carcinoma and endocervical adenocarcinoma](CESC.md) | CESC | 249 TCGA patients in the selected panel, squamous cell carcinoma only (CSCC) | 3 spatial resources, verification pending |
 | [Oesophageal carcinoma](ESCA.md) | ESCA | 90 TCGA patients in the selected panel, squamous cell carcinoma only (ESCC) | 3 spatial resources, verification pending |
 | [Kidney renal clear cell carcinoma](KIRC.md) | KIRC | 494 TCGA patients in the selected panel | 4 spatial resources, 2 with matched data and a preview image |

@@ -35,7 +35,7 @@ SOURCE_FILES = {  # file: (description, how records are counted)
     "release.json": ("Release version, date and the dates on which sources were checked", None),
     "cancers.json": ("Cancer types: page codes, panel rationale, linked TCGA project and analysis cohort, histology strata, summary and gaps", "list"),
     "evidence.json": ("Published archetype studies used as the panel's selection history", "list"),
-    "cohorts.json": ("Studies and resources in every data layer, with image level, linkage, access, open checks, reported counts and the spatial and package review details", "list"),
+    "cohorts.json": ("Studies and resources in every data layer, with image level, linkage, access, open checks, reported counts and the spatial, package and follow-up review details", "list"),
     "captures.json": ("Located spatial transcriptomics tissue section records, one per study and section, with measured expression, coordinates and the original H&E or a preview image (image_level)", "list"),
     "tcga_counts.json": ("TCGA molecular screen: patients with RNA-seq and 450k methylation per project, before and after assay-quality exclusions, with normal tissue", "projects"),
     "tcga_eligibility.json": ("TCGA selected analysis panel: counts per project after assay QC, after the patient screen and selected, and the 18 analysis cohorts", "cohorts"),
@@ -79,6 +79,8 @@ CONCEPTS = [  # terms agents most often need, in the site's own definitions (see
     ("strict subset", "Located tissue sections in the core tier (primary tumour within a defined histology stratum) documented as untreated before sampling."),
     ("reported counts", "Counts in a study's own units (sections, slides, samples, donor labels) for resources without section records. They are not patient counts unless stated, are never added across studies, and an unknown count is absent, not zero."),
     ("size threshold", "The minimum cohort size of the selected panel: at least 150 patients with a primary-tumour RNA-seq or 450k methylation profile and at least 100 with both, counted after assay-quality exclusions and before the patient screen. It applies to analysis cohorts, not TCGA projects; ESCC (90 patients) and PDAC (149) are explicit exceptions, and TCGA-SARC is not in the panel because each of its sarcoma types is below the threshold."),
+    ("image pixel size", "A pixel size read from an image header (for example an OME PhysicalSizeX value, an Aperio MPP tag or a TIFF resolution tag in real units), recorded with its basis. It is an observation of the file, not an independent calibration; display resolutions such as 72 DPI, objective magnifications and spot-derived estimates are not pixel sizes."),
+    ("frame check", "Whether every spot or cell coordinate of a section falls inside its image after the supplied scale. It does not establish tissue registration."),
     ("pooled page", "A cancer page combining others (CRC from COAD and READ, GLIOMA from LGG and GBM). It reuses the resources of its constituent cancers, so its counts must not be added to theirs."),
 ]
 
@@ -407,7 +409,7 @@ def cancer_md(S, page):
         lines += [f"Located tissue section records: {plural(len(caps), 'section', 'sections')} ({fmt(n_o)} with original H&E, {fmt(len(caps) - n_o)} with a preview image) "
                   f"from {plural(S.patients(caps), 'known patient', 'known patients')}, each with measured spatial RNA and coordinates. "
                   f"Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. "
-                  "Checked preview packages that are not listed one by one are not included.", ""]
+                  + ("Checked preview packages that are not listed one by one are not included." if any(S.counted_preview(c) for c in spatial) else ""), ""]
         if page.get("includes"):
             groups = [(page.get("unstated_label") or "Not stated") if k == code else S.by_code[k]["name"] for k in [*page["includes"], code]]
             sels = [lambda x, k=k: x["cancer"] == k for k in [*page["includes"], code]]
@@ -545,7 +547,10 @@ def spatial_md(S):
         rows.append([f"[{p['name']}]({md})", p["code"], fmt(len(lst)) if lst else "None catalogued", "—" if not lst else fmt(n), "—" if not lst else fmt(k)])
     route_reviewed = [c for c in S.spatial if (c.get("spatial_review") or {}).get("route_review")]
     pkg = [c for c in S.spatial if c.get("backlog_review")]
-    states = lambda c: (c.get("backlog_review") or {}).get("states") or ((c.get("spatial_review") or {}).get("route_review") or {}).get("states") or []
+    states = lambda c: ((c.get("followup_review") or {}).get("states") or (c.get("backlog_review") or {}).get("states")
+                        or ((c.get("spatial_review") or {}).get("route_review") or {}).get("states") or [])
+    fu = [c for c in S.spatial if c.get("followup_review")]
+    fu_changed = [c for c in fu if c["followup_review"].get("outcome")]
     reviewed = [c for c in S.spatial if states(c)]
     route_counts = {k: sum(k in states(c) for c in reviewed) for k in S.L["routeState"]}
     outcomes = [(k, [c for c in pkg if c["backlog_review"]["outcome"] == k]) for k in S.L["backlogOutcome"]]
@@ -561,7 +566,7 @@ def spatial_md(S):
         f"{fmt(len(S.spatial))} catalogued spatial resources: {fmt(located)} with original H&E located, {fmt(preview)} with matched data and a preview image, and {fmt(len(S.spatial) - located - preview)} not yet verified; "
         f"{fmt(represented)} cancer types represented. "
         f"{plural(len(s_o), 'tissue section record has', 'tissue section records have')} the original H&E, and {fmt(len(s_p) + counted)} have a preview image "
-        f"({fmt(len(s_p))} listed one by one, {fmt(counted)} counted for their resource), from {plural(S.patients(S.captures), 'known study-local patient', 'known study-local patients')}; "
+        + (f"({fmt(len(s_p))} listed one by one, {fmt(counted)} counted for their resource), " if counted else "") + f"from {plural(S.patients(S.captures), 'known study-local patient', 'known study-local patients')}; "
         f"{fmt(sum(not x['patient'] for x in S.captures))} listed sections have no patient ID. No eligible-patient total is established.", "",
         "## By cancer type", "",
         table(["Cancer type", "Code", "Catalogued resources", "Original H&E located", "Matched data with preview image"], rows), "",
@@ -577,12 +582,18 @@ def spatial_md(S):
         "Image level is separate from registration, scanner calibration, clinical eligibility and assay QC.", "",
         table(["Image level", "Resources", "Section records", "Known patients", "Sections without a patient ID"], [
             ["Original H&E located", fmt(located), fmt(len(s_o)), fmt(S.patients(s_o)), fmt(sum(not x["patient"] for x in s_o))],
-            ["Matched data with preview image", fmt(preview), f"{fmt(len(s_p) + counted)} ({fmt(len(s_p))} listed, {fmt(counted)} counted for their resource)", fmt(S.patients(s_p)), fmt(sum(not x["patient"] for x in s_p))]]), "",
+            ["Matched data with preview image", fmt(preview), f"{fmt(len(s_p) + counted)}" + (f" ({fmt(len(s_p))} listed, {fmt(counted)} counted for their resource)" if counted else ""), fmt(S.patients(s_p)), fmt(sum(not x["patient"] for x in s_p))]]), "",
         "## Package review", "",
         f"{fmt(len(pkg))} candidates that had not been checked file by file were reviewed against their public records and packages. "
         "Sections were listed only where the source supports them; the others stay candidates with their dependencies, and no eligible-patient count is given.", "",
         table(["Result", "Resources", "Now shown as"], [[S.L["backlogOutcome"][k], fmt(len(l)), "; ".join(sorted({S.L["status"][c["status"]] for c in l}))] for k, l in outcomes if l]), "",
         table(["Resource", "ID", "Result", "Next step"], [[c["label"], f"`{c['id']}`", S.L["backlogOutcome"][c["backlog_review"]["outcome"]], c["backlog_review"]["next_step"]] for c in pkg]), "",
+        "## Follow-up review", "",
+        f"{fmt(len(fu))} reviewed resources were checked again from public sources: original scans for preview-level resources, image headers and coordinate frames for original-level ones, "
+        "patient and clinical details for listed sections, and the remaining public packages and releases. "
+        "Pixel sizes read from image headers and frame checks are recorded on the sections; they do not sign off registration or calibration accuracy. "
+        f"{fmt(len(fu) - len(fu_changed))} resources were checked again without change.", "",
+        table(["Resource", "ID", "Follow-up result", "Now shown as", "Next step"], [[c["label"], f"`{c['id']}`", S.L["followupOutcome"][c["followup_review"]["outcome"]], S.L["status"][c["status"]], c["followup_review"]["next_step"]] for c in fu_changed]), "",
         "## Open dependencies", "",
         f"The {len(reviewed)} reviewed resources ({len(route_reviewed)} in the public-route review, {len(pkg)} in the package review) were followed to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. "
         "The open dependencies below are kept apart: a download failure is a technical gap, not a permission requirement. "
@@ -651,6 +662,7 @@ ENUM_AT = {  # (file, path) -> vocabulary; [] marks list items, {} map values
     ("cohorts", "[].access.category"): "access", ("cohorts", "[].verification"): "verification",
     ("cohorts", "[].spatial_review.assay_classes[]"): "assay_class", ("cohorts", "[].spatial_review.treatment_class"): "treatment_class",
     ("cohorts", "[].backlog_review.outcome"): "backlog_outcome", ("cohorts", "[].backlog_review.states[]"): "route_state",
+    ("cohorts", "[].followup_review.outcome"): "followup_outcome", ("cohorts", "[].followup_review.states[]"): "route_state",
     ("cohorts", "[].spatial_review.route_review.states[]"): "route_state",
     ("captures", "[].tier"): "tier", ("captures", "[].site"): "site", ("captures", "[].treatment"): "treatment",
     ("captures", "[].image_level"): "image_level", ("captures", "[].donor_mapping"): "donor_mapping",
@@ -687,6 +699,10 @@ DOCS = {
     ("captures", "[].patient"): "Study-local patient ID given by the source, or null when the source does not establish the donor",
     ("captures", "[].donor_mapping"): "How the patient ID was established; unresolved means no patient ID is assigned",
     ("captures", "[].assay_area_id"): "Array area shared with other sections; use the record's expression_subset or region_label",
+    ("captures", "[].geometry_check"): "Frame check: finite coordinates and positions inside the original or preview frame after the supplied scale; not a registration sign-off",
+    ("captures", "[].field_sources"): "Evidence URL of each field changed by the follow-up review",
+    ("captures", "[].sampled_recurrence"): "True for a sampled recurrent tumour sector",
+    ("cohorts", "[].followup_review"): "Follow-up review: outcome, depth, findings, open dependencies and next step where the result changed, and the checks made without change",
 }
 FILE_DOCS = {**{Path(k).stem: v[0] for k, v in SOURCE_FILES.items()},
              "by-cancer": "One cancer page: the cancer record, its TCGA panel and availability counts, spatial resources, located sections, other resources and evidence",

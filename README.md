@@ -53,6 +53,7 @@ The site is static HTML, CSS and JavaScript with no build step and no dependenci
 | `scripts/import_spatial_review.py` | Imports reviewed spatial-resource records into `data/cohorts.json`, enriching existing entries and checking counts against the review's metadata |
 | `scripts/import_spatial_route_review.py` | Run after the previous script: applies the public-route review to the 26 reviewed resources and writes the related leads (`data/leads.json`), checking the review ledger's checksum, IDs and totals |
 | `scripts/import_spatial_backlog_review.py` | Run after the previous script: applies the package review of the other 77 candidates (image levels, section records, outcomes and access corrections), checking the review files' checksums and every count, donor and array join; running it again changes nothing |
+| `scripts/import_spatial_followup_review.py` | Run after the previous script: applies the follow-up review (new section records, guarded field changes with their evidence URLs and resource results), accepting a change only where the record holds the stated old value; running it again changes nothing |
 | `scripts/remove_excluded_projects.py` | Run after the TCGA imports: removes projects outside the study (TCGA-SARC) from the patient-level files, keeping their project-level availability |
 | `scripts/import_patient_review.py` | Imports the TCGA patient review (treatment and diagnosis screen, histology panel revision, analysis cohorts and subsets) and recomputes eligibility counts |
 

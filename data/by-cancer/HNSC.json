@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -224,7 +224,17 @@
    ],
    "compartments": [
     "primary-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "cand-simkin2026-gse268014-hd",
@@ -297,7 +307,19 @@
    ],
    "notes": [
     "HD re-assays of the existing Simkin patients P5684 and P5624; they add no patients"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "image-alias-review",
+    "depth": "both public HD barcode vectors/Parquet coordinates/scalefactors downloaded",
+    "findings": "Both Visium HD barcode sets match their in-tissue positions exactly (169,359 and 166,335). In each sample, the main TIFF and the brightfield file names carry opposite patient labels (P5684, P5624). The re-assays add no patients.",
+    "next_step": "Confirm the matrix, image, transform and source labels before listing HD sections; keep the source labels and the existing patients.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
+   }
   },
   {
    "id": "cand-arora2023-gse208253",
@@ -367,6 +389,30 @@
     "next_step": "Patient IDs, treatment and original scans.",
     "sections_listed": 12,
     "study_local_donors": null
+   },
+   "reported": [
+    [
+     12,
+     "spatial samples",
+     "primary paper Results"
+    ],
+    [
+     10,
+     "unique patients",
+     "primary paper Results"
+    ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-clinical-correction",
+    "depth": "primary Results and GEO section metadata; supplementary data workbook inspected",
+    "findings": "The primary paper reports 12 spatial samples from 10 unique patients; GEO does not give the sample-to-patient join.",
+    "next_step": "Find the sample-to-patient join; until then the 12 records keep no patient ID, and the 10 patients are reported for the study only.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -437,6 +483,16 @@
     "next_step": "Original scans and treatment; repeated invasive-front and inner sections of two patients.",
     "sections_listed": 8,
     "study_local_donors": 2
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -455,7 +511,7 @@
     "HNSC"
    ],
    "layer": "matched-spatial",
-   "status": "preview",
+   "status": "verified",
    "modalities": [
     "spatial-rna"
    ],
@@ -466,7 +522,6 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "he-not-located",
     "image-qc",
     "calibration"
    ],
@@ -482,6 +537,10 @@
      [
       "Data record",
       "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281978"
+     ],
+     [
+      "Original images (Zenodo 15226540)",
+      "https://zenodo.org/records/15226540"
      ]
     ]
    },
@@ -489,7 +548,8 @@
    "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
-    "tumour-unspecified"
+    "primary-tumour",
+    "metastatic-tumour"
    ],
    "backlog_review": {
     "date": "2026-10-16",
@@ -505,6 +565,18 @@
     "next_step": "Donor and site join before counting the three paired donors; the PT and LNMT labels conflict with the primary-tissue metadata.",
     "sections_listed": 6,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "original-ready",
+    "depth": "six direct microscopy TIFF byte-range headers; exact source labels; prior molecular checks; coordinate/preview-scale consistency",
+    "findings": "Zenodo 15226540 holds six original RGB OME-TIFFs whose names match the six GEO section titles. Coordinates fit the originals, the supplied scales reproduce the preview dimensions, and the headers give 0.287545 µm per pixel. Three sections are primary tumour and three are nodal metastases.",
+    "next_step": "Join the sections to their donors; registration, calibration accuracy and pathology QC remain open.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -573,6 +645,18 @@
     "next_step": "Recover validated barcode-to-grid/JSON map and original-image relation; no direct expression-coordinate verification yet.",
     "sections_listed": null,
     "study_local_donors": 3
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "barcode-grid-gap",
+    "depth": "all three deposited JSON alignment files and barcode vectors inspected",
+    "findings": "Each of the three alignment JSON files lists 4,992 grid and image positions without barcode identifiers; the filtered matrices have 1,340, 2,913 and 1,552 barcodes.",
+    "next_step": "Find a source-backed barcode-to-grid map and validate the transformed positions.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -640,6 +724,18 @@
     "next_step": "Decode the counts, positions and preview inside the .cloupe files; transfer of the original whole-slide images needs a separate agreement.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "public-processed-decoding-gap",
+    "depth": "1024-byte cloupe header and 9500-byte index decoded to 65362-byte JSON",
+    "findings": "One .cloupe file's header and index were decoded: 17,945 features, 3,346 barcodes, a spatial projection of each barcode and an embedded 7,572 × 7,626 brightfield image. The numeric blocks and image tiles are not decoded, and the projection scale is not a scanner calibration.",
+    "next_step": "Decode and count-check the expression and spatial blocks and the embedded image transform; transfer of the original whole-slide images needs a separate agreement.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -709,6 +805,16 @@
     "next_step": "Treatment and timing; 11 tissue blocks from ten donors share four array areas, and the recurrence field is a later outcome.",
     "sections_listed": 11,
     "study_local_donors": 10
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
    }
   },
   {
@@ -775,6 +881,16 @@
     "next_step": "Retrieve exact UQ processed spatial package and assayed-section H&E; separate PhenoCycler and controlled raw reads.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public route retry",
+      "depth": "primary XML, public repository tree and two failed public landing retries",
+      "result": "The UQ DOI and landing page return HTTP 403, a technical gap; the paper states that processed Visium and PhenoCycler data are public and raw reads restricted."
+     }
+    ]
    }
   },
   {
@@ -839,6 +955,16 @@
     "next_step": "Processed public alternative or formal approval.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -901,6 +1027,16 @@
     "next_step": "Author/institution release needed for processed RNA/image/clinical map.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -969,6 +1105,16 @@
     "next_step": "Clinical timing and source site; response labels do not show that samples were taken after immunotherapy.",
     "sections_listed": 8,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -1029,6 +1175,21 @@
     "next_step": "Identify human invasive subset and accession; exclude mouse/precursor counts from invasive HNSC denominator.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   }
  ],
@@ -1540,15 +1701,15 @@
    "stratum": null,
    "patient": null,
    "capture": "GSM8633891",
-   "image_level": "preview",
+   "image_level": "original",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Unknown",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.287545,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1565,15 +1726,15 @@
    "stratum": null,
    "patient": null,
    "capture": "GSM8633892",
-   "image_level": "preview",
-   "tier": "review",
-   "site": "Unknown",
+   "image_level": "original",
+   "tier": "metastatic",
+   "site": "Metastasis",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Unknown",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.287545,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1590,15 +1751,15 @@
    "stratum": null,
    "patient": null,
    "capture": "GSM8633893",
-   "image_level": "preview",
+   "image_level": "original",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Unknown",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.287545,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1615,15 +1776,15 @@
    "stratum": null,
    "patient": null,
    "capture": "GSM8633894",
-   "image_level": "preview",
-   "tier": "review",
-   "site": "Unknown",
+   "image_level": "original",
+   "tier": "metastatic",
+   "site": "Metastasis",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Unknown",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.287545,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1640,15 +1801,15 @@
    "stratum": null,
    "patient": null,
    "capture": "GSM8633895",
-   "image_level": "preview",
+   "image_level": "original",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Unknown",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.287545,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1665,15 +1826,15 @@
    "stratum": null,
    "patient": null,
    "capture": "GSM8633896",
-   "image_level": "preview",
-   "tier": "review",
-   "site": "Unknown",
+   "image_level": "original",
+   "tier": "metastatic",
+   "site": "Metastasis",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Unknown",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.287545,
    "access": {
     "he": "open",
     "processed": "open",

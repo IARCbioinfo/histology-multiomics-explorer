@@ -93,7 +93,7 @@ function locatedBreakdown(d, page, caps) {
     <div class="table-wrap" style="margin-top:.5rem"><table class="stack compact">
     <thead><tr><th scope="col">${page.includes ? "Stated site" : "Histology stratum"}</th><th scope="col" class="num">Patients, primary tumour</th><th scope="col" class="num">Sections, primary tumour</th><th scope="col" class="num">Other sections, original H&amp;E</th><th scope="col" class="num">Other sections, preview image</th><th scope="col">Explore</th></tr></thead>
     <tbody>${rows}</tbody>
-    <caption>Section records listed in this release. Primary tumour counts sections from primary tumours within the stratum, all with original H&amp;E located; other sections are metastatic, under review, held for quality control or outside the stratum, and are split by image level. Patients are known study-local IDs; sections without one are not counted as patients. Checked preview packages not yet listed one by one are not included. Treatment before sampling is recorded per section in the data explorer.</caption>
+    <caption>Section records listed in this release. Primary tumour counts sections from primary tumours within the stratum, all with original H&amp;E located; other sections are metastatic, under review, held for quality control or outside the stratum, and are split by image level. Patients are known study-local IDs; sections without one are not counted as patients. Treatment before sampling is recorded per section in the data explorer.</caption>
   </table></div></details>`;
 }
 

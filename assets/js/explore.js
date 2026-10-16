@@ -1,6 +1,6 @@
 import {
   loadData, LABELS, esc, chip, fmt, tally, cancerName, stratumLabel, setFooter,
-  showCapture, showCohort, cohortCounts, showError, loadTcgaPatients, tcgaTally, showTcgaPatient, tcgaPasses, cohortName, countedPreview,
+  showCapture, showCohort, cohortCounts, showError, loadTcgaPatients, tcgaTally, showTcgaPatient, tcgaPasses, cohortName, countedPreview, geometryText,
 } from "./common.js";
 
 const PAGE = 60;
@@ -34,7 +34,8 @@ const COHORT_FACETS = [
   { key: "treat", label: "Treatment (spatial review)", get: c => [c.spatial_review ? c.spatial_review.treatment_class : "na"] },
   { key: "sreview", label: "Spatial review", get: c => [c.spatial_review ? c.spatial_review.analysis_cohort : "none"] },
   { key: "outcome", label: "Package review result", get: c => [c.backlog_review ? c.backlog_review.outcome : "na"] },
-  { key: "route", label: "Open dependency (spatial reviews)", get: c => c.backlog_review?.states || c.spatial_review?.route_review?.states || ["na"] },
+  { key: "followup", label: "Follow-up review result", get: c => [c.followup_review ? (c.followup_review.outcome ?? "checked") : "na"] },
+  { key: "route", label: "Open dependency (spatial reviews)", get: c => c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || ["na"] },
   { key: "specimen", label: "Specimens", get: c => [c.specimen] },
   { key: "verification", label: "Verification", get: c => [c.verification] },
 ];
@@ -79,6 +80,7 @@ const VOCAB = {
   level: LABELS.imageLevel, pid: { known: "Given by the source", unknown: "Not given or not mapped" },
   area: { own: "One section per array area", shared: "Array area shared with other sections" },
   outcome: { ...LABELS.backlogOutcome, na: "Not in the package review" },
+  followup: { ...LABELS.followupOutcome, checked: "Checked again; no change", na: "Not in the follow-up review" },
   sreview: { ...Object.fromEntries(Object.keys(LABELS.spatialScope).map(k => [k, `Reviewed for ${k}`])), none: "Not in the spatial review" },
 };
 
@@ -311,7 +313,9 @@ function renderSummary(list) {
     const pl = (n, one, many) => `<strong>${fmt(n)}</strong> ${n === 1 ? one : many}`;
     const nOrig = list.filter(c => c.image_level === "original").length;
     el.innerHTML = `${pl(t.captures, "tissue section record", "tissue section records")} <span class="small muted">(${fmt(nOrig)} with original H&amp;E, ${fmt(t.captures - nOrig)} with a preview image)</span> from ${pl(t.patients, "known patient", "known patients")} in ${pl(t.cohorts, "study", "studies")}${t.unknown ? ` <span class="small muted">· ${fmt(t.unknown)} without a patient ID</span>` : ""}`;
-    note.textContent = "Each row is one tissue section record with measured spatial RNA and coordinates, such as one Visium capture area, and either the original H&E scan or only a preview image (see the image level; preview sections are not suited to whole-slide or tile models, morphology or distance measurements). Known patients are study-local IDs given by the source, counted once per study; sections without one are not counted as patients, and no patient is known to appear in more than one study. Records are not globally unique physical sections, and they are not eligible-patient counts. Counts are lower bounds before image registration and tissue QC. Checked preview packages of seven studies are counted for their study on the spatial page and are not listed here.";
+    const counted = D.cohorts.filter(c => countedPreview(D, c)).length;
+    note.textContent = "Each row is one tissue section record with measured spatial RNA and coordinates, such as one Visium capture area, and either the original H&E scan or only a preview image (see the image level; preview sections are not suited to whole-slide or tile models, morphology or distance measurements). Known patients are study-local IDs given by the source, counted once per study; sections without one are not counted as patients, and no patient is known to appear in more than one study. Records are not globally unique physical sections, and they are not eligible-patient counts. Counts are lower bounds before image registration and tissue QC."
+      + (counted ? ` Checked preview packages of ${counted} ${counted === 1 ? "study are" : "studies are"} counted for their study on the spatial page and are not listed here.` : "");
   } else if (state.view === "tcga") {
     const t = tcgaTally(list);
     el.innerHTML = `<strong>${fmt(t.union)}</strong> tumour patients after assay QC → <strong>${fmt(t.eligible)}</strong> after the patient screen →
@@ -368,6 +372,8 @@ function captureRecord(c) {
     tissue: c.compartment ? (LABELS.compartment[c.compartment] ?? c.compartment) : "",
     technique: c.technique, preservation: c.preservation, he_rna_linkage: LABELS.linkage[c.linkage], expression_data: c.expression_type,
     out_of_tissue_expression_spots: c.out_of_tissue_expression_spots ?? "", recurrence_later_outcome: c.recurrence_outcome ?? "",
+    sampled_recurrence: c.sampled_recurrence ?? "", frame_check: c.geometry_check ? geometryText(c.geometry_check) : "",
+    response_label_source: cl.response ?? "", evidence_for_reviewed_fields: Object.entries(c.field_sources || {}).map(([f, u]) => `${f}: ${u}`),
     original_image_match_inferred: c.original_crosswalk_inferred ?? "", open_checks: c.open_checks || [],
     he_um_per_pixel: c.he_mpp, he_resolution_basis: c.he_mpp_basis, he_url: c.links.he, expression_url: c.links.expression,
     coordinates_url: c.links.coordinates, raw_urls: c.links.raw, access_he: LABELS.access[c.access.he],
@@ -401,6 +407,10 @@ function cohortRecord(c) {
     package_review_expression_and_coordinates: c.backlog_review?.molecular_finding ?? "",
     package_review_open_dependencies: (c.backlog_review?.states || []).map(x => LABELS.routeState[x] ?? x),
     package_review_next_step: c.backlog_review?.next_step ?? "",
+    followup_review_result: c.followup_review ? (c.followup_review.outcome ? LABELS.followupOutcome[c.followup_review.outcome] : "checked again; no change") : "",
+    followup_review_findings: c.followup_review?.findings ?? "", followup_review_next_step: c.followup_review?.next_step ?? "",
+    followup_review_checks: (c.followup_review?.checks || []).map(x => `${x.check}: ${x.result}`),
+    open_dependencies_latest: (c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || []).map(x => LABELS.routeState[x] ?? x),
     spatial_analysis_scope: c.spatial_review?.analysis_cohort ?? "",
     spatial_assay_classes: (c.spatial_review?.assay_classes || []).map(a => LABELS.assayClass[a]),
     spatial_platform_reported: c.spatial_review?.platform ?? "", spatial_image_status: c.spatial_review?.image_status ?? "",

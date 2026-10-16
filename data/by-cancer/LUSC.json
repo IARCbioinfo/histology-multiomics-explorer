@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -301,6 +301,16 @@
      "next_step": "Ask the study team for original scans and the prior treatment of Patients 11 and 19.",
      "sections_with_matching_coordinates": 10
     }
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -399,7 +409,258 @@
    }
   }
  ],
- "located_sections": [],
+ "located_sections": [
+  {
+   "id": "cand-dezuani-cvejic-2024:P11_T1",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P11",
+   "capture": "P11_T1",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P11_T2",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P11",
+   "capture": "P11_T2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P11_T3",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P11",
+   "capture": "P11_T3",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P11_T4",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P11",
+   "capture": "P11_T4",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P11_B1",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P11",
+   "capture": "P11_B1",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P11_B2",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P11",
+   "capture": "P11_B2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P19_T1",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P19",
+   "capture": "P19_T1",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P19_T2",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P19",
+   "capture": "P19_T2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P19_B1",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P19",
+   "capture": "P19_B1",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-dezuani-cvejic-2024:P19_B2",
+   "cohort": "cand-dezuani-cvejic-2024",
+   "cancer": "LUSC",
+   "stratum": null,
+   "patient": "P19",
+   "capture": "P19_B2",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  }
+ ],
  "other_resources": [
   {
    "id": "tcga-lusc",

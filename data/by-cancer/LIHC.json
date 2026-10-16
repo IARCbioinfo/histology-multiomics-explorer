@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -213,7 +213,17 @@
    ],
    "compartments": [
     "primary-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "cand-spatch-hcc",
@@ -285,6 +295,16 @@
     "next_step": "Join HCC assays to measured expression/coordinates; preserve multi-assay overlap and serial/same-section relation.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Package join",
+      "depth": "public file-list metadata",
+      "result": "The same 36-file list does not establish the HCC RNA and coordinate join."
+     }
+    ]
    }
   },
   {
@@ -356,6 +376,16 @@
     "next_step": "Original scans; all seven donors were treated with cabozantinib and nivolumab.",
     "sections_listed": 7,
     "study_local_donors": 7
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -426,6 +456,16 @@
     "next_step": "Donor total (the B0013 and B013 aliases conflict); regions, recurrent versus primary labels and one normal section are kept.",
     "sections_listed": 17,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -492,6 +532,21 @@
     "next_step": "Resolve processed release and original-image coordinates separately from HRA raw access.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -510,7 +565,7 @@
     "LIHC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -524,7 +579,10 @@
    "linkage": "unverified",
    "gates": [
     "serial-section",
-    "treated"
+    "treated",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "Zenodo19123188;15392699",
    "access": {
@@ -541,8 +599,8 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
@@ -559,6 +617,18 @@
     "next_step": "Join RNA sections to 22 preview image libraries and independent position tables; do not substitute 36 CODEX-region H&E images for 22 Visium sections.",
     "sections_listed": null,
     "study_local_donors": 11
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready",
+    "depth": "complete source H5AD row/image-library/scale checks; independent 28 CSV join unresolved",
+    "findings": "The source H5AD holds 104,418 expression rows and 22 named image libraries; rows, observation index and spatial coordinates align, and every coordinate falls inside its supplied preview. The 36 CODEX-region H&E images are not Visium originals.",
+    "next_step": "Recover the original H&E of the assayed sections, join the 28 separate position tables independently and establish a public alias for the 11 source patients.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -625,6 +695,16 @@
     "next_step": "Recover intact HCC-only release; keep mixed/cholangiocarcinoma out and preserve sample/donor repeats.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public route retry",
+      "depth": "bounded public route retry",
+      "result": "The Lifeome server refuses connections; no archive was inspected."
+     }
+    ]
    }
   },
   {
@@ -691,6 +771,16 @@
     "next_step": "Public processed/original-image route or formal access decision; preserve four primary-liver histologies.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -757,6 +847,16 @@
     "next_step": "Resolve processed matrix/image/coordinates separately from raw permission.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -821,6 +921,16 @@
     "next_step": "Obtain approved access or public processed alternative.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -1009,6 +1119,21 @@
     "next_step": "Resolve original data accession and metastatic histology; do not pool liver metastasis as HCC.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -1076,6 +1201,16 @@
     "next_step": "Recover two physical-section coordinate/scale crosswalk; do not count platform resequencing as four independent sections/patients.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Coordinate join",
+      "depth": "complete GEO sample metadata; primary XML",
+      "result": "GEO sample metadata and positions do not resolve the physical-section, grid and scale association."
+     }
+    ]
    }
   },
   {
@@ -1142,6 +1277,16 @@
     "next_step": "Join images to actual BioProject spatial samples and processed counts/positions; raw SRA alone insufficient.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Package join",
+      "depth": "complete public Figshare API metadata",
+      "result": "Figshare lists four public images (HCC, HCC-adjacent, CRC and CRC-adjacent); their RNA, coordinate and sample association is unresolved."
+     }
+    ]
    }
   },
   {
@@ -1204,6 +1349,21 @@
     "next_step": "Find an actionable processed/image accession or later author release.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -1266,6 +1426,16 @@
     "next_step": "Processed RNA, coordinates, images and clinical/region map require release.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   }
  ],
@@ -1325,7 +1495,7 @@
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "A009",
    "capture": "GSM8627601",
    "image_level": "preview",
    "tier": "review",
@@ -1343,18 +1513,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627602",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "A009",
    "capture": "GSM8627602",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1368,18 +1538,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627603",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "A009",
    "capture": "GSM8627603",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1393,18 +1563,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627604",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "A009",
    "capture": "GSM8627604",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1418,18 +1588,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627605",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "A009",
    "capture": "GSM8627605",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1443,18 +1613,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627606",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "A009",
    "capture": "GSM8627606",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1468,7 +1638,7 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627607",
@@ -1479,7 +1649,7 @@
    "capture": "GSM8627607",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1504,7 +1674,7 @@
    "capture": "GSM8627608",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1529,7 +1699,7 @@
    "capture": "GSM8627609",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1554,7 +1724,7 @@
    "capture": "GSM8627610",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1579,7 +1749,7 @@
    "capture": "GSM8627611",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1600,11 +1770,11 @@
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "C004",
    "capture": "GSM8627612",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1618,14 +1788,14 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627613",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "C004",
    "capture": "GSM8627613",
    "image_level": "preview",
    "tier": "review",
@@ -1643,18 +1813,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627614",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "C008",
    "capture": "GSM8627614",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1668,18 +1838,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627615",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "C008",
    "capture": "GSM8627615",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1693,18 +1863,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627616",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "C008",
    "capture": "GSM8627616",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1718,18 +1888,18 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse281759:GSM8627617",
    "cohort": "cand-gse281759",
    "cancer": "LIHC",
    "stratum": null,
-   "patient": null,
+   "patient": "C008",
    "capture": "GSM8627617",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium",
    "preservation": "Fresh frozen",
@@ -1743,7 +1913,7 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-gse238264:GSM7661261",
@@ -1919,6 +2089,556 @@
    "verification": "file-checked",
    "assay_area_id": null,
    "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_70_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_70_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_70_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_70_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_71_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_71_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_71_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_71_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_72_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_72_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_72_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_72_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_73_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_73_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_73_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_73_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_74_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_74_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_74_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_74_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_76_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_76_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_76_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_76_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_79_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_79_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_79_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_79_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_83_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_83_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_83_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_83_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_84_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_84_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_84_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_84_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_85_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_85_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_85_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_85_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_86_post",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_86_post",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-wu2025-zenodo:cytassist_86_pre",
+   "cohort": "cand-wu2025-zenodo",
+   "cancer": "LIHC",
+   "stratum": null,
+   "patient": null,
+   "capture": "cytassist_86_pre",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
   }
  ],
  "other_resources": [

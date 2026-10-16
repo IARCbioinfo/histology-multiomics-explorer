@@ -1,6 +1,6 @@
 # Pheochromocytoma and paraganglioma
 
-Code `PCPG`. Molecular screen; not screened by Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=PCPG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PCPG). Data: [data/by-cancer/PCPG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PCPG.json).
+Code `PCPG`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=PCPG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PCPG). Data: [data/by-cancer/PCPG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PCPG.json).
 
 Pheochromocytoma and paraganglioma were not among the cancer types screened by Hausser et al. The project meets the molecular screen, with RNA-seq and 450k methylation for every selected patient, and is analysed as one pooled cohort with tumour location, published molecular subtype and adrenal-cortical admixture kept as annotations.
 

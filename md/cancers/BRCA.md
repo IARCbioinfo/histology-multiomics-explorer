@@ -1,6 +1,6 @@
 # Breast invasive carcinoma
 
-Code `BRCA`. Significant geometry in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=BRCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BRCA). Data: [data/by-cancer/BRCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BRCA.json).
+Code `BRCA`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=BRCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BRCA). Data: [data/by-cancer/BRCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BRCA.json).
 
 Breast cancer is one of six TCGA cancer types in which Hausser et al. found significant within-type polyhedral structure in tumour expression, and one of the six pooled in their shared-task analysis. Ductal/NST and lobular carcinomas are kept as separate strata here.
 
@@ -31,13 +31,13 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Wu et al. 2021 (`cand-wu-2021`) | Visium | Open download | No count reported | Matched data with preview image: 6 sections with a preview image; 6 known patients |
 | Spatial transcriptomic analysis of a diverse patient cohort reveals a conserved architecture in triple-negative breast cancer (`cand-bassiouni-gse210616`) | Visium | Open download | No count reported | Matched data with preview image: 43 sections with a preview image; 22 known patients |
 | 10x Genomics human breast Visium demonstration datasets (`cand-official-10x-breast-demos`) | Visium HD, Visium CytAssist | Open download | No count reported | Verification pending |
-| Wang et al. 2024 (`cand-wang-venet-2024-legacy-st`) | Spatial Transcriptomics (legacy arrays) | Open download | No count reported | Verification pending |
+| Wang et al. 2024 (`cand-wang-venet-2024-legacy-st`) | Spatial Transcriptomics (legacy arrays) | Open download | 281 arrays | Verification pending |
 | Spatial atlas of tertiary lymphoid structures and high endothelial venules in breast cancer (`cand-bcarc-tls-hev-2026`) | Visium HD | Not released | No count reported | Verification pending |
 | TNBC spatial transcriptomics resource (AACR 2026 abstract 1442) (`cand-dartmouth-aacr2026-1442`) | Visium | Not released | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 90 sections (41 with original H&E, 49 with a preview image) from 44 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. Checked preview packages that are not listed one by one are not included.
+Located tissue section records: 90 sections (41 with original H&E, 49 with a preview image) from 44 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |

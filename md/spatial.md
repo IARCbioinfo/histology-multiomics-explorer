@@ -1,10 +1,10 @@
 # Spatial studies
 
-Release 0.10.0, 16 October 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
+Release 0.11.0, 16 October 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
 
 Published spatial omics studies show where molecular programmes and cell states sit within a tumour and how they relate to its morphology. They usually come from patients other than those in TCGA, so they add tissue context to the reference but no measurements for TCGA patients.
 
-113 catalogued spatial resources: 15 with original H&E located, 28 with matched data and a preview image, and 70 not yet verified; 20 cancer types represented. 255 tissue section records have the original H&E, and 483 have a preview image (359 listed one by one, 124 counted for their resource), from 193 known study-local patients; 283 listed sections have no patient ID. No eligible-patient total is established.
+113 catalogued spatial resources: 16 with original H&E located, 29 with matched data and a preview image, and 68 not yet verified; 20 cancer types represented. 261 tissue section records have the original H&E, and 500 have a preview image from 266 known study-local patients; 246 listed sections have no patient ID. No eligible-patient total is established.
 
 ## By cancer type
 
@@ -15,13 +15,13 @@ Published spatial omics studies show where molecular programmes and cell states 
 | [Rectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/READ.md) | READ | 11 | 3 | 3 |
 | [Colorectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CRC.md) | CRC | 11 | 3 | 3 |
 | [Thyroid carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/THCA.md) | THCA | 9 | 2 | 1 |
-| [Bladder urothelial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BLCA.md) | BLCA | 10 | 2 | 2 |
+| [Bladder urothelial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BLCA.md) | BLCA | 10 | 2 | 3 |
 | [Lower-grade glioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LGG.md) | LGG | 10 | 1 | 4 |
 | [Glioblastoma (historical TCGA diagnosis)](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GBM.md) | GBM | 3 | 1 | 1 |
 | [Diffuse glioma classification benchmark](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GLIOMA.md) | GLIOMA | 10 | 1 | 4 |
-| [Liver hepatocellular carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LIHC.md) | LIHC | 17 | 1 | 2 |
+| [Liver hepatocellular carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LIHC.md) | LIHC | 17 | 1 | 3 |
 | [Lung adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUAD.md) | LUAD | 11 | 2 | 3 |
-| [Head and neck squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/HNSC.md) | HNSC | 13 | 2 | 4 |
+| [Head and neck squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/HNSC.md) | HNSC | 13 | 3 | 3 |
 | [Cervical squamous cell carcinoma and endocervical adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CESC.md) | CESC | 3 | 0 | 0 |
 | [Oesophageal carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/ESCA.md) | ESCA | 3 | 0 | 0 |
 | [Kidney renal clear cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRC.md) | KIRC | 4 | 0 | 2 |
@@ -46,8 +46,8 @@ A resource counts once, at its best level; when only some of its sections have a
 
 | Image level | Resources | Section records | Known patients | Sections without a patient ID |
 | --- | --- | --- | --- | --- |
-| Original H&E located | 15 | 255 | 134 | 12 |
-| Matched data with preview image | 28 | 483 (359 listed, 124 counted for their resource) | 59 | 271 |
+| Original H&E located | 16 | 261 | 140 | 8 |
+| Matched data with preview image | 29 | 500 | 128 | 238 |
 
 ## Package review
 
@@ -56,17 +56,17 @@ A resource counts once, at its best level; when only some of its sections have a
 | Result | Resources | Now shown as |
 | --- | --- | --- |
 | Original H&E and matched data checked | 4 | Original H&E located |
-| Matched data checked; preview image only | 21 | Matched data with preview image |
+| Matched data checked; preview image only | 21 | Matched data with preview image; Original H&E located |
 | Public files listed; inspection not finished | 11 | Candidate, not yet verified |
 | Access needs approval or permission | 11 | Candidate, not yet verified |
 | Data release not identified | 8 | Candidate, not yet verified |
 | Release by the authors needed | 6 | Candidate, not yet verified |
 | Public record without downloadable files | 1 | Candidate, not yet verified |
 | Code only; no data package identified | 1 | Candidate, not yet verified |
-| Public download failed (technical) | 5 | Candidate, not yet verified |
+| Public download failed (technical) | 5 | Candidate, not yet verified; Matched data with preview image |
 | Coordinates or image scale missing | 3 | Candidate, not yet verified |
 | Original image or its transform missing | 1 | Candidate, not yet verified |
-| Image and expression files not yet joined | 1 | Candidate, not yet verified |
+| Image and expression files not yet joined | 1 | Matched data with preview image |
 | Free account needed | 2 | Candidate, not yet verified |
 | Vendor catalogue without a specific dataset | 1 | Candidate, not yet verified |
 | Vendor registration and terms | 1 | Candidate, not yet verified |
@@ -151,19 +151,40 @@ A resource counts once, at its best level; when only some of its sections have a
 | Head and neck squamous cell carcinoma immune-checkpoint inhibitor spatial study | `cand-gse301720-ici2026` | Matched data checked; preview image only | Clinical timing and source site; response labels do not show that samples were taken after immunotherapy. |
 | Integrative spatiotemporal analysis of squamous tumorigenesis | `cand-oraltumorigenesis2025-preprint` | Data release not identified | Identify human invasive subset and accession; exclude mouse/precursor counts from invasive HNSC denominator. |
 
+## Follow-up review
+
+88 reviewed resources were checked again from public sources: original scans for preview-level resources, image headers and coordinate frames for original-level ones, patient and clinical details for listed sections, and the remaining public packages and releases. Pixel sizes read from image headers and frame checks are recorded on the sections; they do not sign off registration or calibration accuracy. 74 resources were checked again without change.
+
+| Resource | ID | Follow-up result | Now shown as | Next step |
+| --- | --- | --- | --- | --- |
+| Wang et al. 2024 | `cand-wang-venet-2024-legacy-st` | Public files listed; inspection not finished | Candidate, not yet verified | Inspect selected array and image members and verify the count, coordinate and image join, keeping arrays and donors separate. |
+| Liu et al. 2026 | `cand-crc-liu-maru2026` | Further data route found; no files listed | Matched data with preview image | Check Zenodo 19043057 for a file release and a clinical sample join; no records are added from it yet. |
+| Yoshihara et al. 2026 | `cand-yoshihara2026erbt` | Part of the study checked; preview image only | Matched data with preview image | Check the six other packages, then recover original scans and the clinical scope. |
+| Grande et al. 2025 | `cand-dutreneo` | No H&E correspondence for the measured data | Candidate, not yet verified | Join the targeted expression and centroids to H&E if a public H&E is released; fluorescence morphology is not a substitute. |
+| Hoefflin et al. 2026 | `cand-hoefflin2026` | Public files listed; reused data identified | Candidate, not yet verified | Inspect a selected IDH-mutant package and the source donor map; the reused Ravi samples are not new patients. |
+| Tang et al. 2025 | `cand-tang2025` | Public portal found; files not yet inspected | Candidate, not yet verified | Inspect the portal's dataset and file metadata; raw GSA routes and processed spatial data stay separate. |
+| Spatial multi-omics and deep learning reveal fingerprints of immunotherapy response and resistance in hepatocellular carcinoma | `cand-wu2025-zenodo` | Matched data checked; preview image only | Matched data with preview image | Recover the original H&E of the assayed sections, join the 28 separate position tables independently and establish a public alias for the 11 source patients. |
+| Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma | `cand-knuch-2026` | Spatial data release not identified | Candidate, not yet verified | Locate the released spatial subset and its matched H&E separately from the single-cell data. |
+| METI lung adenocarcinoma sample LUAD-14C | `cand-meti-luad14c` | Coordinates or image scale missing | Candidate, not yet verified | Find the spot-coordinate table and a source-backed image scale; QC metrics are not coordinates. |
+| Simkin et al. 2026 | `cand-simkin2026-gse268014-hd` | Image and sample labels conflict | Candidate, not yet verified | Confirm the matrix, image, transform and source labels before listing HD sections; keep the source labels and the existing patients. |
+| Arora et al. 2023 | `cand-arora2023-gse208253` | Clinical details corrected | Matched data with preview image | Find the sample-to-patient join; until then the 12 records keep no patient ID, and the 10 patients are reported for the study only. |
+| Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences | `cand-gse281978-hpv2024` | Original H&E and matched data checked | Original H&E located | Join the sections to their donors; registration, calibration accuracy and pathology QC remain open. |
+| Spatial Transcriptomic Analysis of Surgical Resection Specimens of Primary Head and Neck Squamous Cell Carcinoma Treated with Afatinib in a Window-of-Opportunity Study (EORTC 90111-24111) | `cand-beyaert2025-gse289908` | Barcode-to-grid map missing | Candidate, not yet verified | Find a source-backed barcode-to-grid map and validate the transformed positions. |
+| TREM2-Expressing Multinucleated Giant Macrophages Are a Biomarker of Good Prognosis in Head and Neck Squamous Cell Carcinoma | `cand-gessain2024-e-mtab-14409` | Public processed files not yet decoded | Candidate, not yet verified | Decode and count-check the expression and spatial blocks and the embedded image transform; transfer of the original whole-slide images needs a separate agreement. |
+
 ## Open dependencies
 
 The 103 reviewed resources (26 in the public-route review, 77 in the package review) were followed to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. The open dependencies below are kept apart: a download failure is a technical gap, not a permission requirement. In the public-route review, 144 section packages have expression barcodes that match their tissue coordinates exactly; this is not a patient count or final QC.
 
 | Open dependency | Resources |
 | --- | --- |
-| Public download works | 49 |
-| Public files listed, download failed (technical) | 9 |
+| Public download works | 54 |
+| Public files listed, download failed (technical) | 7 |
 | Vendor registration and terms | 8 |
 | Free account registration | 2 |
 | Data access committee approval | 11 |
-| Author release or metadata needed | 61 |
-| Local scientific QC remaining | 63 |
+| Author release or metadata needed | 56 |
+| Local scientific QC remaining | 65 |
 
 | Resource | ID | Route status | Next step |
 | --- | --- | --- | --- |
@@ -207,6 +228,7 @@ These releases add no resources or patients to the totals above.
 | Resource | ID | Cancer codes | Status | Access | Assay |
 | --- | --- | --- | --- | --- | --- |
 | Batf3+ DCs and the 4–1BB/4–1BBL axis are required at the effector phase in the tumor microenvironment for PD-1/PD-L1 blockade efficacy | `cand-ziblat2024` | BLCA | Original H&E located | Open download | Visium HD, Visium CytAssist |
+| Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences | `cand-gse281978-hpv2024` | HNSC | Original H&E located | Open download | Visium |
 | Giraud et al. 2024 | `gse245908-lihc` | LIHC | Original H&E located | Open download | Visium |
 | Gouin et al. 2021 | `gouin-2021` | BLCA | Original H&E located | Open download | Visium |
 | Greenwald et al. 2024 | `cand-greenwald2024` | LGG, GBM | Original H&E located | Open download | Visium |
@@ -225,7 +247,6 @@ These releases add no resources or patients to the totals above.
 | Barkley et al. 2022, UCEC sample | `ucec-barkley-gse203612` | UCEC | Matched data with preview image | Open download | Visium |
 | Cassier et al. 2023, NP137 trial | `ucec-np137-gse225690` | UCEC | Matched data with preview image | Open download | Visium FFPE |
 | De Zuani et al. 2024 | `cand-dezuani-cvejic-2024` | LUAD, LUSC | Matched data with preview image | Open download | Visium |
-| Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences | `cand-gse281978-hpv2024` | HNSC | Matched data with preview image | Open download | Visium |
 | Gao et al. 2026 | `stad-gse270678` | STAD | Matched data with preview image | Open download | Visium |
 | GSE294006, treated advanced ccRCC | `kirc-treated-gse294006` | KIRC | Matched data with preview image | Open download | Visium FFPE |
 | He et al. 2024 | `cand-he2024` | LGG | Matched data with preview image | Open download | Visium |
@@ -242,12 +263,14 @@ These releases add no resources or patients to the totals above.
 | Ritter et al. 2025 | `cand-ritternepsta2025` | LGG, GBM | Matched data with preview image | Open download | Visium FFPE |
 | Schmitt et al. 2026 | `schmitt-2026` | PDAC | Matched data with preview image | Open download | Visium FFPE |
 | Snail-regulated exosomal microRNA-21 suppresses NLRP3 inflammasome activity to enhance cisplatin resistance | `cand-cheng2022-gse181300` | HNSC | Matched data with preview image | Open download | Visium |
+| Spatial multi-omics and deep learning reveal fingerprints of immunotherapy response and resistance in hepatocellular carcinoma | `cand-wu2025-zenodo` | LIHC | Matched data with preview image | Open download | Visium FFPE |
 | Spatial transcriptomic analysis of a diverse patient cohort reveals a conserved architecture in triple-negative breast cancer | `cand-bassiouni-gse210616` | BRCA | Matched data with preview image | Open download | Visium |
 | Spatial transcriptomics analysis of neoadjuvant cabozantinib and nivolumab in advanced hepatocellular carcinoma identifies independent mechanisms of resistance and recurrence | `cand-gse238264` | LIHC | Matched data with preview image | Open download | Visium |
 | Spatially resolved gene expression and tumour-microenvironment interactions across malignant transformation in IDH-mutant glioma | `cand-longitudinal2026` | LGG | Matched data with preview image | Open download | Visium CytAssist |
 | Unveiling Immune Metabolic Mechanisms in Bladder Cancer: Spatial Profiling Identifies ZFP36 as a Therapeutic Target | `cand-zheng2025` | BLCA | Matched data with preview image | Open download | Visium |
 | Webb et al. 2025 | `cand-webb2025` | LGG | Matched data with preview image | Open download | Visium |
 | Wu et al. 2021 | `cand-wu-2021` | BRCA | Matched data with preview image | Open download | Visium |
+| Yoshihara et al. 2026 | `cand-yoshihara2026erbt` | BLCA | Matched data with preview image | Open download | Visium CytAssist |
 | Yu et al. 2026 | `cand-yu2026atlas` | BLCA | Matched data with preview image | Open download | Visium CytAssist |
 | 10x Genomics ccRCC, Xenium RNA and protein | `kirc-10x-xenium-protein` | KIRC | Candidate, not yet verified | Free account | Xenium |
 | 10x Genomics cervical SCC, Visium FFPE | `cscc-10x-ffpe` | CESC | Candidate, not yet verified | Free account | Visium FFPE |
@@ -301,7 +324,6 @@ These releases add no resources or patients to the totals above.
 | Soupir et al., papillary RCC CosMx study | `kirp-macrophage-abstract` | KIRP | Candidate, not yet verified | Open download | Multiplex immunofluorescence, Targeted spatial RNA (960 transcripts) |
 | Spatial atlas of tertiary lymphoid structures and high endothelial venules in breast cancer | `cand-bcarc-tls-hev-2026` | BRCA | Candidate, not yet verified | Not released | Visium HD |
 | Spatial maps of hepatocellular carcinoma transcriptomes reveal spatial expression patterns in tumor immune microenvironment | `cand-xin2022-hcc` | LIHC | Candidate, not yet verified | Unresolved | Visium |
-| Spatial multi-omics and deep learning reveal fingerprints of immunotherapy response and resistance in hepatocellular carcinoma | `cand-wu2025-zenodo` | LIHC | Candidate, not yet verified | Open download | Visium FFPE |
 | Spatial Transcriptomic Analysis of Surgical Resection Specimens of Primary Head and Neck Squamous Cell Carcinoma Treated with Afatinib in a Window-of-Opportunity Study (EORTC 90111-24111) | `cand-beyaert2025-gse289908` | HNSC | Candidate, not yet verified | Open download | Visium FFPE |
 | Spatial Transcriptomics and snRNA-seq Expose CAF Niches Orchestrating Dual Stromal-Immune Barriers in Hepatocellular Carcinoma | `cand-li2025-caf` | LIHC | Candidate, not yet verified | Author request | Visium |
 | Spatial Transcriptomics Reveals Distinct Architectures but Shared Vulnerabilities in Primary and Metastatic Liver Tumors | `cand-adapa2025-hd` | LIHC | Candidate, not yet verified | Unresolved | Visium HD |
@@ -316,6 +338,5 @@ These releases add no resources or patients to the totals above.
 | Wang et al. 2023 | `cand-lu-cell-discovery-2023` | LUAD | Candidate, not yet verified | Controlled access | Visium |
 | Wang et al. 2024 | `cand-wang-venet-2024-legacy-st` | BRCA | Candidate, not yet verified | Open download | Spatial Transcriptomics (legacy arrays) |
 | Wu et al. 2021 | `cand-wu2021-hcc` | LIHC | Candidate, not yet verified | Open download | Visium |
-| Yoshihara et al. 2026 | `cand-yoshihara2026erbt` | BLCA | Candidate, not yet verified | Open download | Visium CytAssist |
 | Zhao et al. 2025 | `cand-zhao-htapp-2025` | LUAD | Candidate, not yet verified | Open download | Visium |
 | Zhu et al. 2026, preprint | `pcpg-developmental-preprint` | PCPG | Candidate, not yet verified | Not released | Spatial transcriptomics (human assay details unverified) |

@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -398,7 +398,17 @@
    "compartments": [
     "primary-tumour",
     "metastatic-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "pei-2025",
@@ -450,7 +460,17 @@
    "compartments": [
     "primary-tumour",
     "metastatic-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "schmitt-2026",
@@ -522,6 +542,16 @@
     "next_step": "Original scans; clinical and image QC.",
     "sections_listed": 14,
     "study_local_donors": 14
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   }
  ],

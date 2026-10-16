@@ -63,7 +63,7 @@
       <h2 id="status-h">Verification and access</h2>
       <dl class="defs">
         <div><dt>Original H&amp;E located</dt><dd>The original H&amp;E image, measured expression and spatial coordinates were found for individual tissue sections, which are listed one by one in the data explorer. Image registration, scanner calibration and tissue QC are still to be completed.</dd></div>
-        <div><dt>Matched data with preview image</dt><dd>Measured expression and spatial coordinates were found and match each other, with a preview image released alongside them; the original H&amp;E scan was not located. The sections are listed one by one where the review recorded them, and otherwise counted for the study.</dd></div>
+        <div><dt>Matched data with preview image</dt><dd>Measured expression and spatial coordinates were found and match each other, with a preview image released alongside them; the original H&amp;E scan was not located. The sections are listed one by one in the data explorer.</dd></div>
         <div><dt>Verification pending</dt><dd>A catalogued study that may provide matched data but has an open check, such as original scans not located, an unconfirmed section relationship, an unresolved donor count or a pending histology review. Its eligible patients are not established.</dd></div>
         <div><dt>Access-dependent</dt><dd>Data that are controlled, available on request, not yet released or without an established release route. Listing them does not mean that access has been requested or granted.</dd></div>
       </dl>
@@ -74,6 +74,9 @@
       <h2 id="package-review-h">Package review</h2>
       <p>Candidates that had not yet been checked file by file were reviewed against their public records and packages. Each result states how far the check went, what was found for the images and for the expression and coordinates, and the next step. Sections were listed only where the source supports them, and unsupported resources stay candidates with their dependencies. No author was contacted and no access was requested.</p>
       <div id="package-table"><p class="muted">Loading…</p></div>
+      <h3>Follow-up review</h3>
+      <p>A follow-up pass checked the reviewed resources again from public sources: original scans for the preview-level resources, image headers and coordinate frames for the original-level ones, patient and clinical details for listed sections, and the remaining public packages and releases. It found original scans for one resource, qualified two more at the preview level and listed the sections that had been counted only for their study. Pixel sizes read from image headers and frame checks are recorded on the sections; they do not sign off registration or calibration accuracy.</p>
+      <div id="followup-table"><p class="muted">Loading…</p></div>
     </section>
 
     <section id="route" class="prose" aria-labelledby="route-h">

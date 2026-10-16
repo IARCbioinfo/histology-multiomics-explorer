@@ -1,6 +1,6 @@
 # Kidney renal clear cell carcinoma
 
-Code `KIRC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=KIRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRC). Data: [data/by-cancer/KIRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRC.json).
+Code `KIRC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=KIRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRC). Data: [data/by-cancer/KIRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; a large share of retained patients have RNA-seq without 450k methylation.
 
@@ -26,12 +26,18 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
-| Meylan et al. 2022 (`kirc-meylan-gse175540`) | Visium FFPE, Visium | Open download | 24 spatial samples | Matched data with preview image: 24 sections with a preview image, not listed one by one |
-| GSE294006, treated advanced ccRCC (`kirc-treated-gse294006`); includes treated tissue | Visium FFPE | Open download | 3 primary-tumour samples after systemic treatment | Matched data with preview image: 3 sections with a preview image, not listed one by one |
+| Meylan et al. 2022 (`kirc-meylan-gse175540`) | Visium FFPE, Visium | Open download | 24 spatial samples | Matched data with preview image: 24 sections with a preview image |
+| GSE294006, treated advanced ccRCC (`kirc-treated-gse294006`); includes treated tissue | Visium FFPE | Open download | 3 primary-tumour samples after systemic treatment | Matched data with preview image: 3 sections with a preview image |
 | Li et al. 2022, ccRCC Visium (EGAD00001008781) (`kirc-egad00001008781`) | Visium | Open download | 8 patients with ccRCC | Verification pending |
 | 10x Genomics ccRCC, Xenium RNA and protein (`kirc-10x-xenium-protein`) | Xenium | Free account | 1 sample (vendor specimen) | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
+
+Located tissue section records: 27 sections (0 with original H&E, 27 with a preview image) from 0 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
+
+| Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
+| --- | --- | --- | --- | --- |
+| No stratum assigned | 0 | 0 | 0 | 27 |
 
 ## Selection history: published archetype evidence
 

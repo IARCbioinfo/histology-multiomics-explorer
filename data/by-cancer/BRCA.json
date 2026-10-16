@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -236,7 +236,17 @@
    "compartments": [
     "primary-tumour",
     "metastatic-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "janesick-2023",
@@ -288,7 +298,17 @@
    ],
    "compartments": [
     "primary-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "cand-wu-2021",
@@ -358,6 +378,16 @@
     "next_step": "Original scans and the provenance of the image PDF; filter the out-of-tissue spots in three sections explicitly.",
     "sections_listed": 6,
     "study_local_donors": 6
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -428,6 +458,16 @@
     "next_step": "Treatment, original scans and registration QC.",
     "sections_listed": 43,
     "study_local_donors": 22
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -490,6 +530,16 @@
     "next_step": "Await an actionable public file release; do not count record views as released data.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     }
+    ]
    }
   },
   {
@@ -624,6 +674,30 @@
     "next_step": "Use 8135721, inspect code/data README and array-to-patient/image join; old 13867935/36 is code.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "reported": [
+    [
+     281,
+     "arrays",
+     "Zenodo 8135721 clinical archive"
+    ],
+    [
+     94,
+     "clinical IDs",
+     "Zenodo 8135721 clinical archive"
+    ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work",
+    "depth": "complete README and 64 KB clinical archive; base-R object join",
+    "findings": "The complete README and clinical archive join 281 arrays to 94 clinical IDs; the count, coordinate and original-image association is not yet verified.",
+    "next_step": "Inspect selected array and image members and verify the count, coordinate and image join, keeping arrays and donors separate.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -679,6 +753,16 @@
     "next_step": "Find final publication and released accession, then inspect patient/section/image files; 25 is a reported denominator, not available matched patients.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     }
+    ]
    }
   }
  ],

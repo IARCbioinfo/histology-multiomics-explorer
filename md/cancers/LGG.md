@@ -1,6 +1,6 @@
 # Lower-grade glioma
 
-Code `LGG`. Significant geometry in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=LGG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LGG). Data: [data/by-cancer/LGG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LGG.json).
+Code `LGG`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=LGG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LGG). Data: [data/by-cancer/LGG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LGG.json).
 
 Lower-grade glioma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. The TCGA LGG cohort predates current molecular glioma classification, so astrocytoma and oligodendroglioma are separated here using IDH and 1p/19q status where available. In the TCGA analyses, LGG is part of the pooled glioma classification benchmark with TCGA-GBM rather than a discovery cohort; the LGG-only set is a subset of that benchmark.
 
@@ -28,7 +28,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | Greenwald et al. 2024 (`cand-greenwald2024`) | Visium | Open download | 6 IDH-mutant glioma sections | Original H&E located |
-| Webb et al. 2025 (`cand-webb2025`) | Visium | Open download | No count reported | Matched data with preview image: 17 sections with a preview image |
+| Webb et al. 2025 (`cand-webb2025`) | Visium | Open download | No count reported | Matched data with preview image: 17 sections with a preview image; 1 known patient |
 | Ritter et al. 2025 (`cand-ritternepsta2025`) | Visium FFPE | Open download | No count reported | Matched data with preview image: 1 section with a preview image |
 | Spatially resolved gene expression and tumour-microenvironment interactions across malignant transformation in IDH-mutant glioma (`cand-longitudinal2026`) | Visium CytAssist | Open download | No count reported | Matched data with preview image: 3 sections with a preview image |
 | He et al. 2024 (`cand-he2024`) | Visium | Open download | No count reported | Matched data with preview image: 4 sections with a preview image |
@@ -40,7 +40,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 25 sections (0 with original H&E, 25 with a preview image) from 0 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. Checked preview packages that are not listed one by one are not included.
+Located tissue section records: 25 sections (0 with original H&E, 25 with a preview image) from 1 known patient, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |

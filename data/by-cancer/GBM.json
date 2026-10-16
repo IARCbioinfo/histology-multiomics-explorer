@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -1782,6 +1782,16 @@
      "next_step": "Ask the study team for the five missing originals, confirmation of the crossed ZH881 labels, the ZH1019 patient ID, BWH23 and BWH28 diagnosis and grade, scanner calibration and treatment and recurrence; then image and pathology QC.",
      "sections_with_matching_coordinates": 19
     }
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
    }
   },
   {
@@ -2020,6 +2030,16 @@
     "next_step": "Donor independence; 15 gliosarcoma sections are kept as glioblastoma variants, unrelated to TCGA-SARC; other CNS tumour types excluded.",
     "sections_listed": 46,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   }
  ],

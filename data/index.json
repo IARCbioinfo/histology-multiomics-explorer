@@ -1,7 +1,7 @@
 {
  "name": "Tumour Histology and Multi-omics Explorer",
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -31,7 +31,7 @@
    "description": "Release version, date and the dates on which sources were checked",
    "records": null,
    "bytes": 149,
-   "sha256": "49095d41b91c361b3fe5ac51c0c32e64c4942499519b78a53a8a3ee75956a2b9",
+   "sha256": "85b114c5f4da0e8a4480faa2ac3bf3e460e80c9b21712c06d3ef8480a7e120a0",
    "schema": "schemas/release.schema.json"
   },
   {
@@ -52,18 +52,18 @@
   },
   {
    "path": "data/cohorts.json",
-   "description": "Studies and resources in every data layer, with image level, linkage, access, open checks, reported counts and the spatial and package review details",
+   "description": "Studies and resources in every data layer, with image level, linkage, access, open checks, reported counts and the spatial, package and follow-up review details",
    "records": 133,
-   "bytes": 298853,
-   "sha256": "8c917e4b29b6d5116c44dbcbef1e8f83a08d0735947e121093c2413ae0e7aa71",
+   "bytes": 338530,
+   "sha256": "a84747301867a668f7a2ddf3da84ef32bce7d7abe2ec772f4b7feb3da9b62992",
    "schema": "schemas/cohorts.schema.json"
   },
   {
    "path": "data/captures.json",
    "description": "Located spatial transcriptomics tissue section records, one per study and section, with measured expression, coordinates and the original H&E or a preview image (image_level)",
-   "records": 614,
-   "bytes": 1059195,
-   "sha256": "12d1745157c31cefc88afbd120c66ca27f9a4184c466c5e7ea929951cc16ecb2",
+   "records": 761,
+   "bytes": 1402411,
+   "sha256": "dbb3605a6e5ea72ecb47f8545626c7be8a6086fd7670dc2cdd3bd1b2e241fff5",
    "schema": "schemas/captures.schema.json"
   },
   {
@@ -134,96 +134,96 @@
    "path": "data/by-cancer/BRCA.json",
    "description": "Cancer page BRCA: Breast invasive carcinoma",
    "records": null,
-   "bytes": 87869,
-   "sha256": "497232abfb4e74c33a6e275f3dcf2dbae58b236c07bae596deefd101d40844be",
+   "bytes": 91021,
+   "sha256": "9ce31d02056b16c9681f9f529cca07731e6644ac60c5997dc2e8e0a47fad486a",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/COAD.json",
    "description": "Cancer page COAD: Colon adenocarcinoma",
    "records": null,
-   "bytes": 41304,
-   "sha256": "c5295dc67dc00df80fc33e3507d81ff62f30f82956e11352a47076be6c535977",
+   "bytes": 45587,
+   "sha256": "b243e38f2bedf9226a1fde1d365c2a9849f68d11d30a99d8acef928922fddfb5",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/READ.json",
    "description": "Cancer page READ: Rectal adenocarcinoma",
    "records": null,
-   "bytes": 36049,
-   "sha256": "d5bff4ca1e83e840e105c4a34415ef310da83426df9e8b254da656e945759a01",
+   "bytes": 40332,
+   "sha256": "766b99afd71e902a4cb70ad22e7895265dd1f4e6fa9812685330c5c52896352a",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/CRC.json",
    "description": "Cancer page CRC: Colorectal adenocarcinoma",
    "records": null,
-   "bytes": 103072,
-   "sha256": "a07d2970b05a468b74f86043d4a678f1ad3d656d4624ffc87fc391c64938c639",
+   "bytes": 107355,
+   "sha256": "9b5c9e4230b1eb37fc117354a3500f7bd9647c2db1bb964e6aa25a27e4149f62",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/THCA.json",
    "description": "Cancer page THCA: Thyroid carcinoma",
    "records": null,
-   "bytes": 51172,
-   "sha256": "68fcc95fd7a1c0043708c1a60cef974cb073811e971fa22d5db92258fbf2da44",
+   "bytes": 55076,
+   "sha256": "f41febdd90ae4c41401ad9e6d7458735862bfc10fcadae7272ecda08d4bac7cf",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/BLCA.json",
    "description": "Cancer page BLCA: Bladder urothelial carcinoma",
    "records": null,
-   "bytes": 54931,
-   "sha256": "d077f84dfb957d06d91f4bfb0b8521e7e37fcb7321d19bec2fc4b1163d6aa9a7",
+   "bytes": 59833,
+   "sha256": "b473e38ed5ff18795e90bb30ebc7c4280d7abd49347d740ef3590fc769e114fa",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/LGG.json",
    "description": "Cancer page LGG: Lower-grade glioma",
    "records": null,
-   "bytes": 81994,
-   "sha256": "68ac991c8ec03b64f19500e99052800bcb86bcef45c7b0b78e8dac72e760e80e",
+   "bytes": 85987,
+   "sha256": "dd22b11480a67593e8d5ffef2f8d2168366198a18d768ff1855c7418269b08d1",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/GBM.json",
    "description": "Cancer page GBM: Glioblastoma (historical TCGA diagnosis)",
    "records": null,
-   "bytes": 79905,
-   "sha256": "faa6ce61a4ef91a0389ca2af51b713ef40b581127963596dbed84e7c49543e50",
+   "bytes": 80793,
+   "sha256": "c08999c8c4897c2f237e888ee4eb914003ff816d03829b1c3e26c454268a1588",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/GLIOMA.json",
    "description": "Cancer page GLIOMA: Diffuse glioma classification benchmark",
    "records": null,
-   "bytes": 126787,
-   "sha256": "6b206b3db19ac09ee95e204f81fbe1a27db7f5077c17ad408253a9029faef813",
+   "bytes": 130971,
+   "sha256": "66763fc7eb0dcfcd0894b8656d039d52d46700582165df044adae9ad550bcad8",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/LIHC.json",
    "description": "Cancer page LIHC: Liver hepatocellular carcinoma",
    "records": null,
-   "bytes": 56131,
-   "sha256": "2c7ea991807b8f3efc884bd537c4edba6b75c40454f73241728c899412dfc36a",
+   "bytes": 76684,
+   "sha256": "344c04933f0a4e9eaa72b3855b3456ae0c5db6d0055a862d6be861661decd3a2",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/LUAD.json",
    "description": "Cancer page LUAD: Lung adenocarcinoma",
    "records": null,
-   "bytes": 80060,
-   "sha256": "27fe10534db700b41450c8ce22f2d17110a2616451aa44b9be43ae7922390679",
+   "bytes": 85469,
+   "sha256": "7320461574f82c7ed5f1802856742ec7f55816a77ab1706f8d379a2e08752ad7",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/HNSC.json",
    "description": "Cancer page HNSC: Head and neck squamous cell carcinoma",
    "records": null,
-   "bytes": 75910,
-   "sha256": "f6ed1f7517331d350380d0a4b24333eb31881cd0911ef20f2dd98d1bbf63734c",
+   "bytes": 83050,
+   "sha256": "a472ec9a086d41c92519b753bf1ee09496170759439556381b927fbaeed12022",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
@@ -231,7 +231,7 @@
    "description": "Cancer page CESC: Cervical squamous cell carcinoma and endocervical adenocarcinoma",
    "records": null,
    "bytes": 22993,
-   "sha256": "e0560a5dc3f90eff155edd317b0f72389cc72fc01c188c9e784256907c7b6fcb",
+   "sha256": "66d956022813534136007b490270bff42ec911c250fbae30b6fdb01535bb1e0f",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
@@ -239,15 +239,15 @@
    "description": "Cancer page ESCA: Oesophageal carcinoma",
    "records": null,
    "bytes": 18269,
-   "sha256": "cb864f4a7f6362880b6dbaca5d2502648b883bb03f04af5151dde81ab33a1c6f",
+   "sha256": "21f3b46332dab7f264e7b80d860bb985eabaad1f79f645ed8dce202088067fe7",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/KIRC.json",
    "description": "Cancer page KIRC: Kidney renal clear cell carcinoma",
    "records": null,
-   "bytes": 23517,
-   "sha256": "2b32749c051f740d7f5e8fe902b8ca6ac27343cefbf659b1617275481fe9f33d",
+   "bytes": 41171,
+   "sha256": "5bd4d363d98751c1dbb9557bdcb80629efd2f79c63ca0968af8bc9e2700c8b4d",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
@@ -255,15 +255,15 @@
    "description": "Cancer page KIRP: Kidney renal papillary cell carcinoma",
    "records": null,
    "bytes": 15283,
-   "sha256": "ad4a1f3d0aaf7f0949f8a8b2433121853a3bec82cc3a5f8736bc1e32603472a6",
+   "sha256": "b25d93bb2ef179835e4c7ea09425f4113a845fe75fd84ce6736f501eda4d64d7",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/LUSC.json",
    "description": "Cancer page LUSC: Lung squamous cell carcinoma",
    "records": null,
-   "bytes": 16583,
-   "sha256": "e4e16d990a719698a06b4b21408d78d309f7a946215cc03bc986b77a680bc804",
+   "bytes": 23206,
+   "sha256": "f6e8369e6be79567ffc54d800729c809cfc2317b2d61dfc26f0bae2dacec70dc",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
@@ -271,7 +271,7 @@
    "description": "Cancer page PCPG: Pheochromocytoma and paraganglioma",
    "records": null,
    "bytes": 21156,
-   "sha256": "8e0a5ac015e10375574e4ce6c252c0402752643d82c3df134708cf081ed8e853",
+   "sha256": "6da9cdd92bf9e1a3e2faf9edd8cba0915dae6adfbb6e89ec4f0153eb4a743d51",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
@@ -279,39 +279,39 @@
    "description": "Cancer page PRAD: Prostate adenocarcinoma",
    "records": null,
    "bytes": 22679,
-   "sha256": "457f706a88a63522878fda6900685c5686c752f4e00dbf0c31b0aae526864a06",
+   "sha256": "0c966ba9fcc268fc171c38cbbe4fa751678a2ef36791cab72e890cdf487a009b",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/STAD.json",
    "description": "Cancer page STAD: Stomach adenocarcinoma",
    "records": null,
-   "bytes": 16410,
-   "sha256": "45534ac31f30f47671e6f9a18b903c77725402d7621b94dd12c1960ecee0b114",
+   "bytes": 67212,
+   "sha256": "926dff9a193d72d7f4b84343f4dce2b0e17517ec306b2c81d2799550ae26639d",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/UCEC.json",
    "description": "Cancer page UCEC: Uterine corpus endometrial carcinoma",
    "records": null,
-   "bytes": 32595,
-   "sha256": "88f5785d629f8b117222b9f61f03aa6c5a41d7bf720c93d428cd18682b9e2d00",
+   "bytes": 36586,
+   "sha256": "4e5cd36c47c27c2d7dd72d4b65faf8eccc3004f08e4e984e7a647b157c6b9d45",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/by-cancer/PDAC.json",
    "description": "Cancer page PDAC: Pancreatic ductal adenocarcinoma",
    "records": null,
-   "bytes": 75895,
-   "sha256": "7a4c207626a96ce87d659cea747809bc1beddc7c8af829a0945d1a8b6f57d575",
+   "bytes": 77249,
+   "sha256": "311f63195741fa4050c557b002cff8c23f911f100f09ddae89fed1f569e15147",
    "schema": "schemas/by-cancer.schema.json"
   },
   {
    "path": "data/glossary.json",
    "description": "Definitions of the terms used for counts and curation, and every display vocabulary of the site",
-   "records": 19,
-   "bytes": 26231,
-   "sha256": "a235c12e1bdcf81f8e08eddb42970787a180a11176503cb7a2a35f20177a0b1b",
+   "records": 21,
+   "bytes": 27890,
+   "sha256": "1820e8e8e929a9e61d86b2b8e00de974d4b8a982c1f5414f6610ba7106de2729",
    "schema": "schemas/glossary.schema.json"
   }
  ]

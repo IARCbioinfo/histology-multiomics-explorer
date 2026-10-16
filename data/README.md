@@ -51,6 +51,7 @@ One object per underlying study or resource.
 | `spatial_review` | For the 26 spatial resources reviewed on 15 October 2026: review `id` and `date`, `analysis_cohort` (selected histology, for example `CSCC` shown on the CESC page), `assay_classes` (`whole-transcriptome`, `targeted-rna`, `rna-protein`, `roi`, `protein-imaging`, `unverified`), reported `platform`, `role`, `image_status`, `treatment_status` with `treatment_class` (`unknown`, `reported-untreated`, `treated`, `baseline-and-on-treatment`), `eligible_patients` (always null: unknown), `strict_core_promoted` (false), `sample_ids` by role (selected, excluded, normal or precursor, tumour, adjacent, metastatic) and specimen details where given. Written by `scripts/import_spatial_review.py`; three earlier entries keep their IDs and are enriched |
 | `spatial_review.route_review` | Public-route review of 15 October 2026, written by `scripts/import_spatial_route_review.py`: `date`, a plain `status`, `states` (open dependencies: `public-download`, `download-failure` for a technical download failure, `vendor-terms`, `account-registration` for a free account, `dac-approval`, `author-release` for a release or metadata the authors still have to provide, `local-qc`), `next_step` and `sections_with_matching_coordinates` (sections whose expression barcodes match the in-tissue coordinates exactly; null when not checked). Not a patient count or final QC |
 | `backlog_review` | Package review of the 77 candidates not checked file by file before, written by `scripts/import_spatial_backlog_review.py`: `date`, `outcome` (`original-ready`, `preview-ready`, `bounded-public-work`, `access-dependent`, `release-unresolved`, `author-release`, `release-gap`, `code-only-lead`, `technical-gap`, `coordinate-gap`, `registration-gap`, `linkage-gap`, `account-route`, `unspecified-vendor-lead`, `vendor-boundary`), `depth` of the check, `states` (open dependencies, as in `route_review`), `image_finding`, `molecular_finding`, `next_step`, `sections_listed` (section records it added, or null) and `study_local_donors` (donor labels the source establishes for the reviewed selection, or null; for a resource with original and preview sections, the original-image sections). Eligible patients are not given |
+| `followup_review` | Follow-up review, written by `scripts/import_spatial_followup_review.py`: `date`; where the result changed, `outcome` (`original-ready`, `preview-ready`, `preview-ready-partial`, `preview-clinical-correction`, `preview-additional-route`, `bounded-public-work`, `bounded-public-work-reuse-known`, `image-linkage-gap`, `image-alias-review`, `public-processed-decoding-gap`, `spatial-release-unresolved`, `public-portal-link-resolved`, `coordinate-gap`, `barcode-grid-gap`), `depth`, `findings`, `states` (latest open dependencies) and `next_step`; and `checks`, the checks made without change, each with `check`, `depth` and `result` |
 | `derived_from` | Cohort IDs this resource reuses |
 | `verification`, `verified_on` | Verification label and date |
 | `description`, `notes` | Curated text |
@@ -69,12 +70,15 @@ One object per study–section record: an assayed section or capture area of one
 | `cohort`, `cancer`, `stratum` | Cross-references; `stratum` is null when no stratum applies |
 | `patient`, `capture`, `accession`, `source_name` | Source identifiers; `patient` is null when the source does not establish the donor |
 | `image_level` | `original` (original H&E scan located) or `preview` (preview image only; not for whole-slide or tile models, morphology, distances or registration sign-off) |
-| `donor_mapping` | Package-review records: `source-established`, `source-patient-column` or `unresolved` (no patient ID) |
+| `donor_mapping` | Reviewed records: `source-established`, `source-patient-column`, `source-sample-title` or `unresolved` (no patient ID) |
 | `assay_area_id`, `region_label`, `expression_subset` | For sections that share an array area: the area, the source region and the slide and tissue labels of this section's expression subset |
 | `compartment` | Tissue compartment where it is not the primary or metastatic tumour (for example `precursor` or `normal`) |
 | `open_checks` | Checks still open for this section |
 | `out_of_tissue_expression_spots`, `recurrence_outcome`, `original_crosswalk_inferred` | Expression spots outside the tissue to filter; a recurrence recorded as a later outcome; whether the original-image match was inferred (then held at preview level) |
-| `review_batch` | The review that added the record, where it was not curated by hand |
+| `review_batch` | The review that added the record (`backlog-2026-10-16` or `followup-2026-10-16`), where it was not curated by hand |
+| `geometry_check` | Frame check: finite coordinates and positions inside the original or preview frame after the supplied scale, with the scale used; not a registration sign-off |
+| `sampled_recurrence` | True for a sampled recurrent tumour sector |
+| `field_sources` | Evidence URL of each field changed by the follow-up review, keyed by field (`clinical.<field>` for clinical fields) |
 | `tier` | `core`, `metastatic`, `review`, `outside-stratum`, `held`; `tier_reason` gives the source-backed reason |
 | `site`, `site_source` | `Primary`, `Metastasis` or `Unknown`, with the source wording |
 | `treatment`, `treatment_note` | `Untreated`, `Post-treatment` or `Unknown` before sampling, with the evidence |
@@ -82,12 +86,12 @@ One object per study–section record: an assayed section or capture area of one
 | `technique`, `preservation` | Assay and tissue preparation |
 | `linkage`, `registration` | H&E–RNA linkage level and alignment status |
 | `expression_type` | The expression data and how they were checked against the coordinates |
-| `he_mpp`, `he_mpp_basis` | Image resolution in µm/pixel where established, and how it was obtained |
+| `he_mpp`, `he_mpp_basis` | Image resolution in µm/pixel where established, and how it was obtained; a value read from an image header is an observation, not an independent calibration |
 | `he_file` | Original image filename where recorded |
 | `links` | `he`, `expression`, `coordinates` and `raw` (list) URLs |
 | `access` | Access category for `he`, `processed` and `raw` data |
 | `verification`, `verified_on` | Verification label and date |
-| `clinical` | `age`, `sex`, `stage`, `grade`, `subsite`, `markers` as reported by the source |
+| `clinical` | `age`, `sex`, `stage`, `grade`, `subsite`, `markers` and `response` (a response label, which does not show when the sample was taken) as reported by the source |
 
 Known patients are unique `(cohort, patient)` pairs with a patient ID; records without one are not counted as patients, and no count here is an eligible-patient count.
 

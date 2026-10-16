@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -414,7 +414,17 @@
    "compartments": [
     "primary-tumour",
     "metastatic-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "valdeolivas-2024",
@@ -465,7 +475,17 @@
    ],
    "compartments": [
     "primary-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "oliveira-2025",
@@ -516,7 +536,17 @@
    ],
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "cand-crc-colonmap-heiser2023",
@@ -654,6 +684,16 @@
     "next_step": "Map donor IDs and primary or metastatic site before counting patients; keep the shared barcode-vector provenance.",
     "sections_listed": 12,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -725,6 +765,16 @@
     "next_step": "Original scans and treatment; the primary and metastatic sections of patients 21 and 17 stay separate sites.",
     "sections_listed": 4,
     "study_local_donors": 2
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -793,6 +843,16 @@
     "next_step": "FFCD controls measured PETACC8-Visium use; separate measured packages from model-predicted outputs, and verify any public processed alternative before a permission decision.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -861,6 +921,21 @@
     "next_step": "Locate released measured development-cohort files; do not count virtual RNA as measured spatial RNA.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -910,6 +985,10 @@
      [
       "Data record",
       "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE294385"
+     ],
+     [
+      "Further processed data (Zenodo 19043057; no files listed)",
+      "https://zenodo.org/records/19043057"
      ]
     ]
    },
@@ -933,6 +1012,18 @@
     "next_step": "Donor count and treatment; all 37 tissues are colorectal metastases.",
     "sections_listed": 37,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-additional-route",
+    "depth": "primary data-availability statement and linked Zenodo record metadata",
+    "findings": "The paper links further processed data in Zenodo 19043057, but the record listed no downloadable files when checked; the 37 Visium records are unchanged.",
+    "next_step": "Check Zenodo 19043057 for a file release and a clinical sample join; no records are added from it yet.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -1006,6 +1097,16 @@
     "next_step": "Match each COAD platform to its measured RNA/coordinates; do not count CODEX/DAPI as H&E or colon specimens as READ.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Package join",
+      "depth": "public file-list metadata",
+      "result": "The public 36-file image list does not establish which RNA and coordinates belong to each COAD platform."
+     }
+    ]
    }
   },
   {

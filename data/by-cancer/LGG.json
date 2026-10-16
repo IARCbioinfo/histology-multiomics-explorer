@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -1700,6 +1700,18 @@
     "next_step": "Inspect IDH-mutant image/matrix packages and clinical alias map; reused Ravi GBM is not independent new patients.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work-reuse-known",
+    "depth": "public sample list, explicit 25-row Ravi conversion table and archive prefixes",
+    "findings": "The public sample list declares 25 relabelled glioblastoma samples reused from Ravi et al.; the IDH-mutant and glioblastoma archives were not fully read.",
+    "next_step": "Inspect a selected IDH-mutant package and the source donor map; the reused Ravi samples are not new patients.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -1850,6 +1862,16 @@
      "next_step": "Ask the study team for the five missing originals, confirmation of the crossed ZH881 labels, the ZH1019 patient ID, BWH23 and BWH28 diagnosis and grade, scanner calibration and treatment and recurrence; then image and pathology QC.",
      "sections_with_matching_coordinates": 19
     }
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
    }
   },
   {
@@ -1920,6 +1942,16 @@
     "next_step": "Donor independence and two image-frame checks; recurrent, oligodendroglioma and astrocytoma labels are kept.",
     "sections_listed": 17,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2158,6 +2190,16 @@
     "next_step": "Donor independence; 15 gliosarcoma sections are kept as glioblastoma variants, unrelated to TCGA-SARC; other CNS tumour types excluded.",
     "sections_listed": 46,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2204,6 +2246,10 @@
      [
       "Data record",
       "https://wang-lab.hkust.edu.hk/software/STP"
+     ],
+     [
+      "Public data portal",
+      "http://lfz178.ust.hk:8088/"
      ]
     ]
    },
@@ -2225,6 +2271,18 @@
     "next_step": "Resolve study-specific processed-data/source image links; software page is not package evidence.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "public-portal-link-resolved",
+    "depth": "source portal redirect and destination page read",
+    "findings": "The software link now redirects to a public portal; no package-to-section join was inspected.",
+    "next_step": "Inspect the portal's dataset and file metadata; raw GSA routes and processed spatial data stay separate.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -2292,6 +2350,16 @@
     "next_step": "Same-patient timeline and the crosswalk of a fourth sample.",
     "sections_listed": 3,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2363,6 +2431,16 @@
     "next_step": "Original scans and the donor, histology, grade and reuse crosswalk.",
     "sections_listed": 4,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2493,6 +2571,21 @@
     "next_step": "Find final publication and actionable accession before counts.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   }
  ],
@@ -2577,7 +2670,7 @@
    "cohort": "cand-webb2025",
    "cancer": "LGG",
    "stratum": null,
-   "patient": null,
+   "patient": "Glioblastoma A1",
    "capture": "GSM7759698",
    "image_level": "preview",
    "tier": "review",
@@ -2595,7 +2688,7 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-webb2025:GSM7759699",
@@ -2627,7 +2720,7 @@
    "cohort": "cand-webb2025",
    "cancer": "LGG",
    "stratum": null,
-   "patient": null,
+   "patient": "Glioblastoma A1",
    "capture": "GSM7759700",
    "image_level": "preview",
    "tier": "review",
@@ -2645,7 +2738,7 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-webb2025:GSM7759701",

@@ -47,7 +47,7 @@ try {
   document.getElementById("levels-counts").innerHTML = `<div class="table-wrap"><table class="stack compact">
     <thead><tr><th scope="col">Image level</th><th scope="col" class="num">Resources</th><th scope="col" class="num">Section records</th><th scope="col" class="num">Known patients</th><th scope="col" class="num">Sections without a patient ID</th></tr></thead>
     <tbody>${lv(LABELS.imageLevel.original, "original", located, secOrig)}${lv(LABELS.imageLevel.preview, "preview", preview, secPrev, counted)}</tbody>
-    <caption>Resources count at their best level, so a resource with both original and preview sections is counted once under original H&amp;E and its preview sections are counted under the preview level. ${fmt(tally(caps).patients)} known study-local patients in all; they are not eligible patients, and checked packages counted for their study add no patients.</caption>
+    <caption>Resources count at their best level, so a resource with both original and preview sections is counted once under original H&amp;E and its preview sections are counted under the preview level. ${fmt(tally(caps).patients)} known study-local patients in all; they are not eligible patients${counted ? ", and checked packages counted for their study add no patients" : ""}.</caption>
   </table></div>`;
 
   // Package review: outcome of each candidate checked file by file.
@@ -61,8 +61,21 @@ try {
     <caption>${fmt(pkg.length)} resources reviewed. Results describe what the public records and packages showed, not the scientific value of a study. Each resource's image and molecular findings and its next step are in its details in the data explorer.</caption>
   </table></div>`;
 
+  // Follow-up review: resources with a changed result, and those checked again without change.
+  const fu = spatial.filter(c => c.followup_review);
+  const fuOut = Object.keys(LABELS.followupOutcome).map(k => [k, fu.filter(c => c.followup_review.outcome === k)]).filter(([, l]) => l.length);
+  const fuSame = fu.filter(c => !c.followup_review.outcome).length;
+  document.getElementById("followup-table").innerHTML = `<div class="table-wrap"><table class="stack compact">
+    <thead><tr><th scope="col">Follow-up result</th><th scope="col" class="num">Resources</th><th scope="col">Now shown as</th><th scope="col">Explore</th></tr></thead>
+    <tbody>${fuOut.map(([k, l]) => `<tr><td class="primary" data-label="Follow-up result"><div>${esc(LABELS.followupOutcome[k])}</div></td><td class="num" data-label="Resources"><div>${fmt(l.length)}</div></td>
+      <td data-label="Now shown as"><div>${esc([...new Set(l.map(c => LABELS.status[c.status]))].join("; "))}</div></td>
+      <td data-label="Explore"><div><a href="explore.html?view=cohorts&followup=${k}">View resources</a></div></td></tr>`).join("")}
+      ${fuSame ? `<tr><td class="primary" data-label="Follow-up result"><div>Checked again; no change</div></td><td class="num" data-label="Resources"><div>${fmt(fuSame)}</div></td><td data-label="Now shown as"><div>Unchanged</div></td><td data-label="Explore"><div><a href="explore.html?view=cohorts&followup=checked">View resources</a></div></td></tr>` : ""}</tbody>
+    <caption>${fmt(fu.length)} resources were checked again. A changed result can come with new or updated section records; the checks of each resource, with how far they went, are in its details in the data explorer.</caption>
+  </table></div>`;
+
   // Open dependencies from both reviews.
-  const statesOf = c => c.backlog_review?.states || c.spatial_review?.route_review?.states || [];
+  const statesOf = c => c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || [];
   const reviewed = spatial.filter(c => statesOf(c).length);
   const sections = spatial.reduce((a, c) => a + (c.spatial_review?.route_review?.sections_with_matching_coordinates || 0), 0);
   document.getElementById("route-table").innerHTML = `<div class="table-wrap"><table class="stack compact">

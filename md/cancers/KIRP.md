@@ -1,6 +1,6 @@
 # Kidney renal papillary cell carcinoma
 
-Code `KIRP`. Molecular screen; not screened by Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=KIRP](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRP). Data: [data/by-cancer/KIRP.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRP.json).
+Code `KIRP`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=KIRP](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRP). Data: [data/by-cancer/KIRP.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRP.json).
 
 Papillary renal cell carcinoma is a separate TCGA project from clear cell carcinoma. It was not among the cancer types screened by Hausser et al. and is included because it meets the molecular screen.
 

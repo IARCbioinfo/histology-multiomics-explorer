@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -210,7 +210,17 @@
    ],
    "compartments": [
     "primary-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "cand-yu2026atlas",
@@ -280,6 +290,16 @@
     "next_step": "Clinical adjudication against the reported 22-patient denominator; one preview has an out-of-frame spot flagged.",
     "sections_listed": 22,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -350,6 +370,16 @@
     "next_step": "Original-image overlay and calibration QC; the ten smaller-image regions share eight array areas and need multi-specimen review.",
     "sections_listed": 12,
     "study_local_donors": 2
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
    }
   },
   {
@@ -417,6 +447,16 @@
     "next_step": "Recover original/transform or establish source-backed scaling; TIFF extension is not original-scan proof.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Image scale",
+      "depth": "associated public GEO metadata",
+      "result": "Source-backed scaling is still open; the METI LUAD14C metadata do not supply image coordinates."
+     }
+    ]
    }
   },
   {
@@ -435,7 +475,7 @@
     "BLCA"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -448,7 +488,9 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "calibration"
+    "calibration",
+    "he-not-located",
+    "image-qc"
    ],
    "accession": "E-GEAD-1186",
    "access": {
@@ -465,8 +507,8 @@
      ]
     ]
    },
-   "verification": "source-described",
-   "verified_on": "2026-10-09",
+   "verification": "file-checked",
+   "verified_on": "2026-10-16",
    "description": null,
    "compartments": [
     "tumour-unspecified"
@@ -483,6 +525,18 @@
     "next_step": "Retry authoritative DDBJ/GEA release listing and specimen identifiers; technical failure is not access denial.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "preview-ready-partial",
+    "depth": "seven-entry remote ZIP listing and one complete 75.6 MB section package",
+    "findings": "The public DDBJ archive lists seven section packages. Sample1 was read completely: its 2,078 matrix barcodes equal the in-tissue positions, all inside the scaled preview. The CytAssist TIFF is not an original scan.",
+    "next_step": "Check the six other packages, then recover original scans and the clinical scope.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -550,6 +604,16 @@
     "next_step": "Inspect metadata and combined measured-count object, original H&E and reuse crosswalk; raw GHGA is a separate permission route.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Package join",
+      "depth": "ZIP central directory; failed selected-member retry",
+      "result": "The 108-entry archive inventory is kept; reading a selected member over the network failed, which is a technical gap."
+     }
+    ]
    }
   },
   {
@@ -616,6 +680,16 @@
     "next_step": "Inspect supporting tables and recover public NODE listing before inferring author-only access.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public route retry",
+      "depth": "bounded public route retry",
+      "result": "NODE still returns HTTP 403; no processed package was inspected."
+     }
+    ]
    }
   },
   {
@@ -683,6 +757,16 @@
     "next_step": "Donor, site and treatment from the source; original image QC.",
     "sections_listed": 6,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -745,6 +829,16 @@
     "next_step": "Locate any public processed/original-image alternative; approval needed only for actually controlled files.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -816,6 +910,18 @@
     "next_step": "Inspect the targeted expression and centroids and their relation to the H&E; do not infer 20 independent patients.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "image-linkage-gap",
+    "depth": "32 GB ZIP central directory plus selected Xenium JSON members",
+    "findings": "The 32 GB archive has 1,457 entries in 20 Xenium sample folders with morphology-focus and per-cycle fluorescence images, which are not H&E; no H&E correspondence is given.",
+    "next_step": "Join the targeted expression and centroids to H&E if a public H&E is released; fluorescence morphology is not a substitute.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   }
  ],
@@ -929,7 +1035,7 @@
    "capture": "GSM9519394",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -954,7 +1060,7 @@
    "capture": "GSM9519395",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -979,7 +1085,7 @@
    "capture": "GSM9519396",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1004,7 +1110,7 @@
    "capture": "GSM9519397",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1029,7 +1135,7 @@
    "capture": "GSM9519398",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1054,7 +1160,7 @@
    "capture": "GSM9519399",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1079,7 +1185,7 @@
    "capture": "GSM9519400",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1104,7 +1210,7 @@
    "capture": "GSM9519401",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1129,7 +1235,7 @@
    "capture": "GSM9519402",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1154,7 +1260,7 @@
    "capture": "GSM9519403",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1179,7 +1285,7 @@
    "capture": "GSM9519404",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1204,7 +1310,7 @@
    "capture": "GSM9519405",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1229,7 +1335,7 @@
    "capture": "GSM9519406",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1254,7 +1360,7 @@
    "capture": "GSM9519407",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1279,7 +1385,7 @@
    "capture": "GSM9519408",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1304,7 +1410,7 @@
    "capture": "GSM9519409",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1329,7 +1435,7 @@
    "capture": "GSM9519410",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1354,7 +1460,7 @@
    "capture": "GSM9519411",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1379,7 +1485,7 @@
    "capture": "GSM9519412",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1404,7 +1510,7 @@
    "capture": "GSM9519413",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1429,7 +1535,7 @@
    "capture": "GSM9519414",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1454,7 +1560,7 @@
    "capture": "GSM9519415",
    "image_level": "preview",
    "tier": "review",
-   "site": "Unknown",
+   "site": "Primary",
    "treatment": "Unknown",
    "technique": "Visium CytAssist",
    "preservation": "FFPE",
@@ -1919,6 +2025,31 @@
    "verification": "file-checked",
    "assay_area_id": "GSM8171248",
    "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-yoshihara2026erbt:sample1",
+   "cohort": "cand-yoshihara2026erbt",
+   "cancer": "BLCA",
+   "stratum": null,
+   "patient": "sample1",
+   "capture": "sample1",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
   }
  ],
  "other_resources": [

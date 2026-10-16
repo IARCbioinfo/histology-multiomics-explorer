@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -948,6 +948,16 @@
      "next_step": "Ask the study team to restore the public data links and for the original image, histological subtype and treatment of NYU_UCEC3.",
      "sections_with_matching_coordinates": 1
     }
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -1062,10 +1072,146 @@
      "next_step": "Ask the trial team for original H&E and calibration, and for exact earlier regimens only if a response analysis needs them.",
      "sections_with_matching_coordinates": 4
     }
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   }
  ],
- "located_sections": [],
+ "located_sections": [
+  {
+   "id": "ucec-barkley-gse203612:GSM6177623",
+   "cohort": "ucec-barkley-gse203612",
+   "cancer": "UCEC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6177623",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "ucec-np137-gse225690:GSM7054270",
+   "cohort": "ucec-np137-gse225690",
+   "cancer": "UCEC",
+   "stratum": null,
+   "patient": "01-034",
+   "capture": "GSM7054270",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "ucec-np137-gse225690:GSM7054271",
+   "cohort": "ucec-np137-gse225690",
+   "cancer": "UCEC",
+   "stratum": null,
+   "patient": "01-034",
+   "capture": "GSM7054271",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "ucec-np137-gse225690:GSM7054272",
+   "cohort": "ucec-np137-gse225690",
+   "cancer": "UCEC",
+   "stratum": null,
+   "patient": "01-039",
+   "capture": "GSM7054272",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "ucec-np137-gse225690:GSM7054273",
+   "cohort": "ucec-np137-gse225690",
+   "cancer": "UCEC",
+   "stratum": null,
+   "patient": "01-039",
+   "capture": "GSM7054273",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  }
+ ],
  "other_resources": [
   {
    "id": "tcga-ucec",

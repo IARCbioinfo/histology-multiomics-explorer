@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -210,7 +210,17 @@
    ],
    "compartments": [
     "primary-tumour"
-   ]
+   ],
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
+   }
   },
   {
    "id": "cand-liao-2025-gse250521",
@@ -280,6 +290,16 @@
     "next_step": "Original scans; four anaplastic thyroid carcinoma sections and nine single-cell samples stay outside this selection.",
     "sections_listed": 12,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -346,6 +366,16 @@
     "next_step": "Lead-contact/institutional permission required for individual data; aggregate results on request do not replace spatial package.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -413,6 +443,16 @@
     "next_step": "Locate processed public supplement/image package independently of controlled raw reads.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -479,6 +519,21 @@
     "next_step": "Resolve project-to-spatial accession and processed original-image/coordinate release.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -545,6 +600,16 @@
     "next_step": "Author/repository release of processed matrix, coordinates and original image.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -607,6 +672,16 @@
     "next_step": "Locate a released processed-data accession or obtain author release later.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -673,6 +748,16 @@
     "next_step": "Processed spatial-RNA and matched-image release needed.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Public processed alternative",
+      "depth": "primary availability XML read",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   },
   {
@@ -743,6 +828,16 @@
     "next_step": "Overlay and calibration QC for the legacy arrays; section treatment and site unknown; 12 anaplastic sections excluded.",
     "sections_listed": 25,
     "study_local_donors": 10
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
    }
   }
  ],
@@ -1462,7 +1557,7 @@
    "preservation": "FFPE",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.22118021764133416,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1612,7 +1707,7 @@
    "preservation": "FFPE",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.22118021764133416,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1637,7 +1732,7 @@
    "preservation": "FFPE",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.22118021764133416,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1662,7 +1757,7 @@
    "preservation": "FFPE",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.22118021764133416,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1687,7 +1782,7 @@
    "preservation": "FFPE",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.22118021764133416,
    "access": {
     "he": "open",
     "processed": "open",
@@ -1712,7 +1807,7 @@
    "preservation": "FFPE",
    "linkage": "listed-together",
    "registration": "Not yet checked",
-   "he_mpp": null,
+   "he_mpp": 0.22118021764133416,
    "access": {
     "he": "open",
     "processed": "open",

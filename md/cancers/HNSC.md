@@ -1,6 +1,6 @@
 # Head and neck squamous cell carcinoma
 
-Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.10.0, 16 October 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
+Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
 
 Hausser et al. described head and neck cancer as borderline under their significance criterion. HPV status, keratinization and subsite are kept as separate strata because they correspond to different tumour biology.
 
@@ -22,15 +22,15 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-13 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 4. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+13 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | Simkin et al. 2026 (`simkin-2026`); includes treated tissue | Visium | Open download | No count reported | Original H&E located: 20 sections with original H&E; 20 known patients |
+| Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences (`cand-gse281978-hpv2024`); includes metastases | Visium | Open download | No count reported | Original H&E located: 6 sections with original H&E |
 | Weeramange et al. 2026 (`cand-frontiers2026-zenodo18238293`) | Visium FFPE | Open download | No count reported | Original H&E located: 11 sections with original H&E; 10 known patients |
-| Arora et al. 2023 (`cand-arora2023-gse208253`) | Visium | Open download | No count reported | Matched data with preview image: 12 sections with a preview image |
+| Arora et al. 2023 (`cand-arora2023-gse208253`) | Visium | Open download | 12 spatial samples | Matched data with preview image: 12 sections with a preview image |
 | Snail-regulated exosomal microRNA-21 suppresses NLRP3 inflammasome activity to enhance cisplatin resistance (`cand-cheng2022-gse181300`) | Visium | Open download | No count reported | Matched data with preview image: 8 sections with a preview image; 2 known patients |
-| Deciphering head and neck cancer microenvironment: Single-cell and spatial transcriptomics reveals HPV-associated differences (`cand-gse281978-hpv2024`) | Visium | Open download | No count reported | Matched data with preview image: 6 sections with a preview image |
 | Head and neck squamous cell carcinoma immune-checkpoint inhibitor spatial study (`cand-gse301720-ici2026`) | Visium | Open download | No count reported | Matched data with preview image: 8 sections with a preview image |
 | Simkin et al. 2026 (`cand-simkin2026-gse268014-hd`) | Visium HD | Open download | No count reported | Verification pending |
 | Spatial Transcriptomic Analysis of Surgical Resection Specimens of Primary Head and Neck Squamous Cell Carcinoma Treated with Afatinib in a Window-of-Opportunity Study (EORTC 90111-24111) (`cand-beyaert2025-gse289908`) | Visium FFPE | Open download | No count reported | Verification pending |
@@ -42,13 +42,13 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 65 sections (31 with original H&E, 34 with a preview image) from 32 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. Checked preview packages that are not listed one by one are not included.
+Located tissue section records: 65 sections (37 with original H&E, 28 with a preview image) from 32 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |
 | HPV-negative keratinizing SCC | 12 | 12 | 0 | 0 |
 | HPV-positive nonkeratinizing SCC | 8 | 8 | 0 | 0 |
-| No stratum assigned | 0 | 0 | 11 | 34 |
+| No stratum assigned | 0 | 0 | 17 | 28 |
 
 ## Selection history: published archetype evidence
 

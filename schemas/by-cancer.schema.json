@@ -994,6 +994,60 @@
        "type": "string"
       }
      },
+     "followup_review": {
+      "type": "object",
+      "properties": {
+       "date": {
+        "type": "string"
+       },
+       "checks": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "properties": {
+          "check": {
+           "type": "string"
+          },
+          "depth": {
+           "type": "string"
+          },
+          "result": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "check",
+          "depth",
+          "result"
+         ],
+         "additionalProperties": false
+        }
+       },
+       "outcome": {
+        "type": "string"
+       },
+       "depth": {
+        "type": "string"
+       },
+       "findings": {
+        "type": "string"
+       },
+       "next_step": {
+        "type": "string"
+       },
+       "states": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       }
+      },
+      "required": [
+       "date",
+       "checks"
+      ],
+      "additionalProperties": false
+     },
      "title": {
       "type": "string"
      },

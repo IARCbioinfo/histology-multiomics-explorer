@@ -262,6 +262,9 @@
        "null",
        "string"
       ]
+     },
+     "response": {
+      "type": "string"
      }
     },
     "required": [],
@@ -274,6 +277,99 @@
      "original",
      "preview"
     ]
+   },
+   "field_sources": {
+    "type": "object",
+    "description": "Evidence URL of each field changed by the follow-up review",
+    "properties": {
+     "geometry_check": {
+      "type": "string"
+     },
+     "he_mpp": {
+      "type": "string"
+     },
+     "he_mpp_basis": {
+      "type": "string"
+     },
+     "diagnosis": {
+      "type": "string"
+     },
+     "site": {
+      "type": "string"
+     },
+     "image_level": {
+      "type": "string"
+     },
+     "he_file": {
+      "type": "string"
+     },
+     "links": {
+      "type": "string"
+     },
+     "tier_reason": {
+      "type": "string"
+     },
+     "clinical.subsite": {
+      "type": "string"
+     },
+     "patient": {
+      "type": "string"
+     },
+     "clinical.response": {
+      "type": "string"
+     },
+     "clinical.stage": {
+      "type": "string"
+     },
+     "donor_mapping": {
+      "type": "string"
+     },
+     "treatment": {
+      "type": "string"
+     },
+     "clinical.grade": {
+      "type": "string"
+     }
+    },
+    "required": [],
+    "additionalProperties": false
+   },
+   "geometry_check": {
+    "type": "object",
+    "description": "Frame check: finite coordinates and positions inside the original or preview frame after the supplied scale; not a registration sign-off",
+    "properties": {
+     "finite_positions": {
+      "type": "boolean"
+     },
+     "in_tissue_positions": {
+      "type": "integer"
+     },
+     "positions_outside_original": {
+      "type": "integer"
+     },
+     "registration_signed_off": {
+      "type": "boolean"
+     },
+     "supplied_scale_matches_original_dimensions": {
+      "type": "boolean"
+     },
+     "positions_outside_preview": {
+      "type": "integer"
+     },
+     "preview_scale": {
+      "type": "number"
+     },
+     "preview_shape": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      }
+     }
+    },
+    "required": [
+     "finite_positions"
+    ],
+    "additionalProperties": false
    },
    "source_name": {
     "type": "string"
@@ -293,6 +389,7 @@
     "enum": [
      "source-established",
      "source-patient-column",
+     "source-sample-title",
      "unresolved"
     ]
    },
@@ -301,6 +398,10 @@
     "items": {
      "type": "string"
     }
+   },
+   "sampled_recurrence": {
+    "type": "boolean",
+    "description": "True for a sampled recurrent tumour sector"
    },
    "out_of_tissue_expression_spots": {
     "type": "integer"
@@ -320,12 +421,12 @@
      },
      "tissues": {
       "type": "string"
+     },
+     "sample_id": {
+      "type": "string"
      }
     },
-    "required": [
-     "slide",
-     "tissues"
-    ],
+    "required": [],
     "additionalProperties": false
    },
    "recurrence_outcome": {

@@ -255,6 +255,8 @@ def main():
 
     cohorts = json.loads((DATA / "cohorts.json").read_text(encoding="utf-8"))
     captures = json.loads((DATA / "captures.json").read_text(encoding="utf-8"))
+    if any(c.get("review_batch") == "followup-2026-10-16" for c in captures):
+        stop("the follow-up review is already applied; restore data/cohorts.json and data/captures.json of release 0.10.0 before rerunning")
     by_id = {c["id"]: c for c in cohorts}
     L = {r["id"]: r for r in ledger["resources"]}
     backlog = {c["id"] for c in cohorts if c["layer"] == "matched-spatial" and not c.get("spatial_review")

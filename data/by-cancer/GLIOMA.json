@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -1783,6 +1783,18 @@
     "next_step": "Inspect IDH-mutant image/matrix packages and clinical alias map; reused Ravi GBM is not independent new patients.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "bounded-public-work-reuse-known",
+    "depth": "public sample list, explicit 25-row Ravi conversion table and archive prefixes",
+    "findings": "The public sample list declares 25 relabelled glioblastoma samples reused from Ravi et al.; the IDH-mutant and glioblastoma archives were not fully read.",
+    "next_step": "Inspect a selected IDH-mutant package and the source donor map; the reused Ravi samples are not new patients.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -1933,6 +1945,16 @@
      "next_step": "Ask the study team for the five missing originals, confirmation of the crossed ZH881 labels, the ZH1019 patient ID, BWH23 and BWH28 diagnosis and grade, scanner calibration and treatment and recurrence; then image and pathology QC.",
      "sections_with_matching_coordinates": 19
     }
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original level and calibration",
+      "depth": "bounded public image header/range and coordinate checks; retained complete-image checks reused where available",
+      "result": "Original level kept. Pixel sizes read from image headers and frame checks are recorded on the sections where available; registration and calibration accuracy are not signed off."
+     }
+    ]
    }
   },
   {
@@ -2003,6 +2025,16 @@
     "next_step": "Donor independence and two image-frame checks; recurrent, oligodendroglioma and astrocytoma labels are kept.",
     "sections_listed": 17,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2241,6 +2273,16 @@
     "next_step": "Donor independence; 15 gliosarcoma sections are kept as glioblastoma variants, unrelated to TCGA-SARC; other CNS tumour types excluded.",
     "sections_listed": 46,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2287,6 +2329,10 @@
      [
       "Data record",
       "https://wang-lab.hkust.edu.hk/software/STP"
+     ],
+     [
+      "Public data portal",
+      "http://lfz178.ust.hk:8088/"
      ]
     ]
    },
@@ -2308,6 +2354,18 @@
     "next_step": "Resolve study-specific processed-data/source image links; software page is not package evidence.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "outcome": "public-portal-link-resolved",
+    "depth": "source portal redirect and destination page read",
+    "findings": "The software link now redirects to a public portal; no package-to-section join was inspected.",
+    "next_step": "Inspect the portal's dataset and file metadata; raw GSA routes and processed spatial data stay separate.",
+    "states": [
+     "public-download",
+     "local-qc"
+    ],
+    "checks": []
    }
   },
   {
@@ -2375,6 +2433,16 @@
     "next_step": "Same-patient timeline and the crosswalk of a fourth sample.",
     "sections_listed": 3,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2446,6 +2514,16 @@
     "next_step": "Original scans and the donor, histology, grade and reuse crosswalk.",
     "sections_listed": 4,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Original scans",
+      "depth": "public series/supplementary listings and source data routes; earlier complete package checks reused; primary availability re-read where retrieved",
+      "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
+     }
+    ]
    }
   },
   {
@@ -2576,6 +2654,21 @@
     "next_step": "Find final publication and actionable accession before counts.",
     "sections_listed": null,
     "study_local_donors": null
+   },
+   "followup_review": {
+    "date": "2026-10-16",
+    "checks": [
+     {
+      "check": "Release search",
+      "depth": "bounded Europe PMC title search",
+      "result": "A bounded literature search found no measured spatial package with original images; other routes may still need review."
+     },
+     {
+      "check": "Public processed alternative",
+      "depth": "bounded primary metadata/availability retrieval; incomplete availability coverage",
+      "result": "No qualified public processed or image alternative found; declared access restrictions apply only to those files, and retrieval failures are technical gaps."
+     }
+    ]
    }
   }
  ],
@@ -2660,7 +2753,7 @@
    "cohort": "cand-webb2025",
    "cancer": "LGG",
    "stratum": null,
-   "patient": null,
+   "patient": "Glioblastoma A1",
    "capture": "GSM7759698",
    "image_level": "preview",
    "tier": "review",
@@ -2678,7 +2771,7 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-webb2025:GSM7759699",
@@ -2710,7 +2803,7 @@
    "cohort": "cand-webb2025",
    "cancer": "LGG",
    "stratum": null,
-   "patient": null,
+   "patient": "Glioblastoma A1",
    "capture": "GSM7759700",
    "image_level": "preview",
    "tier": "review",
@@ -2728,7 +2821,7 @@
    },
    "verification": "file-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-webb2025:GSM7759701",
@@ -4335,7 +4428,7 @@
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "MGH258",
    "capture": "GSM7596587",
    "image_level": "original",
    "tier": "review",
@@ -4353,14 +4446,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596588",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH881",
    "capture": "GSM7596588",
    "image_level": "original",
    "tier": "review",
@@ -4378,14 +4471,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596589",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH881",
    "capture": "GSM7596589",
    "image_level": "original",
    "tier": "review",
@@ -4403,14 +4496,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596590",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH916",
    "capture": "GSM7596590",
    "image_level": "preview",
    "tier": "review",
@@ -4428,14 +4521,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596591",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH916",
    "capture": "GSM7596591",
    "image_level": "original",
    "tier": "review",
@@ -4453,14 +4546,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596592",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH916",
    "capture": "GSM7596592",
    "image_level": "original",
    "tier": "review",
@@ -4478,14 +4571,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596593",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH1007",
    "capture": "GSM7596593",
    "image_level": "original",
    "tier": "review",
@@ -4503,14 +4596,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596594",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH1007",
    "capture": "GSM7596594",
    "image_level": "original",
    "tier": "review",
@@ -4528,7 +4621,7 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596595",
@@ -4585,7 +4678,7 @@
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH881",
    "capture": "GSM7596597",
    "image_level": "preview",
    "tier": "review",
@@ -4603,14 +4696,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596598",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH881",
    "capture": "GSM7596598",
    "image_level": "preview",
    "tier": "review",
@@ -4628,14 +4721,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596599",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "ZH881",
    "capture": "GSM7596599",
    "image_level": "original",
    "tier": "review",
@@ -4653,14 +4746,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596600",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "BWH23",
    "capture": "GSM7596600",
    "image_level": "preview",
    "tier": "review",
@@ -4678,14 +4771,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596601",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "BWH24",
    "capture": "GSM7596601",
    "image_level": "preview",
    "tier": "review",
@@ -4703,14 +4796,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596602",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "BWH25",
    "capture": "GSM7596602",
    "image_level": "preview",
    "tier": "review",
@@ -4728,14 +4821,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596603",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "BWH28",
    "capture": "GSM7596603",
    "image_level": "preview",
    "tier": "review",
@@ -4753,14 +4846,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596604",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "BWH35",
    "capture": "GSM7596604",
    "image_level": "original",
    "tier": "review",
@@ -4778,14 +4871,14 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   },
   {
    "id": "cand-greenwald2024:GSM7596605",
    "cohort": "cand-greenwald2024",
    "cancer": "GLIOMA",
    "stratum": null,
-   "patient": null,
+   "patient": "MGH259",
    "capture": "GSM7596605",
    "image_level": "original",
    "tier": "review",
@@ -4803,7 +4896,7 @@
    },
    "verification": "metadata-checked",
    "assay_area_id": null,
-   "donor_mapping": "unresolved"
+   "donor_mapping": "source-established"
   }
  ],
  "other_resources": [

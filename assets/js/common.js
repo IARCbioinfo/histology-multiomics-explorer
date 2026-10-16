@@ -355,9 +355,26 @@ export const LABELS = {
     "unspecified-vendor-lead": "Vendor catalogue without a specific dataset",
     "vendor-boundary": "Vendor registration and terms",
   },
+  followupOutcome: {
+    "original-ready": "Original H&E and matched data checked",
+    "preview-ready": "Matched data checked; preview image only",
+    "preview-ready-partial": "Part of the study checked; preview image only",
+    "preview-clinical-correction": "Clinical details corrected",
+    "preview-additional-route": "Further data route found; no files listed",
+    "bounded-public-work": "Public files listed; inspection not finished",
+    "bounded-public-work-reuse-known": "Public files listed; reused data identified",
+    "image-linkage-gap": "No H&E correspondence for the measured data",
+    "image-alias-review": "Image and sample labels conflict",
+    "public-processed-decoding-gap": "Public processed files not yet decoded",
+    "spatial-release-unresolved": "Spatial data release not identified",
+    "public-portal-link-resolved": "Public portal found; files not yet inspected",
+    "coordinate-gap": "Coordinates or image scale missing",
+    "barcode-grid-gap": "Barcode-to-grid map missing",
+  },
   donorMapping: {
     "source-established": "Established within the source",
     "source-patient-column": "From the source's patient ID column",
+    "source-sample-title": "From the source sample title",
     unresolved: "Not mapped: the source does not establish the donor",
   },
   gate: {
@@ -736,6 +753,25 @@ function linkButton(label, url, note) {
   return `<a href="${esc(url)}" rel="noopener" target="_blank">${esc(label)} <span aria-hidden="true">↗</span></a>`;
 }
 
+const FIELD_NAMES = { patient: "Patient", donor_mapping: "Patient mapping", diagnosis: "Diagnosis", site: "Site", treatment: "Treatment",
+  he_mpp: "H&E pixel size", he_mpp_basis: "Pixel-size basis", geometry_check: "Frame check", image_level: "Image level", he_file: "H&E file",
+  links: "Data links", tier_reason: "Tier reason", "clinical.subsite": "Subsite", "clinical.grade": "Grade", "clinical.stage": "Stage", "clinical.response": "Response label" };
+
+function subsetText(x) {
+  return Object.entries(x).map(([k, v]) => `${k.replace(/_/g, " ")} ${v}`).join(", ");
+}
+
+// A frame or geometry check in words: positions inside the image frame, the scale used, and what it does not establish.
+export function geometryText(g) {
+  const frame = "positions_outside_preview" in g ? "preview" : "original image";
+  const out = g.positions_outside_preview ?? g.positions_outside_original;
+  const bits = [g.in_tissue_positions ? `${fmt(g.in_tissue_positions)} in-tissue positions` : "", g.finite_positions ? "all coordinates finite" : "",
+    out === 0 ? `all inside the ${frame} frame` : out != null ? `${fmt(out)} outside the ${frame} frame` : "",
+    g.supplied_scale_matches_original_dimensions ? "the supplied scale matches the original dimensions" : "",
+    g.preview_scale ? `preview scale ${g.preview_scale}` : ""].filter(Boolean);
+  return `${bits.join("; ")}. Not a registration sign-off.`.replace(/^./, m => m.toUpperCase());
+}
+
 export function showCapture(d, id) {
   const c = d.captures.find(x => x.id === id);
   if (!c) return;
@@ -767,13 +803,15 @@ export function showCapture(d, id) {
     <div class="links">${links}</div>
     ${kv([
       ["Image level", `${esc(LABELS.imageLevel[c.image_level])}<span class="cell-sub">${esc(LABELS.imageLevelNote[c.image_level])}</span>`],
-      ["Shared assay area", c.assay_area_id ? `<span class="mono">${esc(c.assay_area_id)}</span><span class="cell-sub">Several sections share this array area; use only this section's expression subset${c.expression_subset ? ` (slide ${esc(c.expression_subset.slide)}, tissue ${esc(c.expression_subset.tissues)})` : ""}${c.region_label ? ` (source region ${esc(c.region_label)})` : ""}.</span>` : ""],
+      ["Shared assay area", c.assay_area_id ? `<span class="mono">${esc(c.assay_area_id)}</span><span class="cell-sub">Several sections share this array area; use only this section's expression subset${c.expression_subset ? ` (${esc(subsetText(c.expression_subset))})` : ""}${c.region_label ? ` (source region ${esc(c.region_label)})` : ""}.</span>` : ""],
+      ["Expression subset", !c.assay_area_id && c.expression_subset ? `${esc(subsetText(c.expression_subset))}<span class="cell-sub">These rows of the source object belong to this section.</span>` : ""],
       ["Technique", esc(c.technique)],
       ["Preservation", esc(c.preservation)],
       ["H&E–RNA linkage", esc(LABELS.linkage[c.linkage] ?? c.linkage)],
       ["H&E resolution", c.he_mpp ? `${c.he_mpp} µm/pixel <span class="cell-sub">${esc(c.he_mpp_basis || "")}</span>` : esc(c.he_mpp_basis || "Unknown")],
       ["H&E file", c.he_file ? `<span class="mono">${esc(c.he_file)}</span>` : ""],
       ["Expression data", esc(c.expression_type)],
+      ["Frame check", c.geometry_check ? esc(geometryText(c.geometry_check)) : ""],
       ["Out-of-tissue spots", c.out_of_tissue_expression_spots ? `${fmt(c.out_of_tissue_expression_spots)}<span class="cell-sub">Expression spots outside the tissue; filter them explicitly.</span>` : ""],
       ["Registration", esc(c.registration)],
       ["Access", `H&E: ${esc(LABELS.access[c.access.he])} · processed data: ${esc(LABELS.access[c.access.processed])} · raw reads: ${esc(LABELS.access[c.access.raw])}`],
@@ -783,12 +821,15 @@ export function showCapture(d, id) {
       ["Capture tier", `${esc(LABELS.tier[c.tier])}${c.tier_reason ? `<span class="cell-sub">${esc(c.tier_reason)}</span>` : ""}`],
       ["Treatment before sampling", `${esc(c.treatment)}${c.treatment_note ? `<span class="cell-sub">${esc(c.treatment_note)}</span>` : ""}`],
       ["Verification", esc(LABELS.verification[c.verification])],
+      ["Sampled recurrence", c.sampled_recurrence ? "Yes: a recurrent tumour sector, kept apart from the primary sectors" : ""],
       ["Recurrence (later outcome)", c.recurrence_outcome ? esc(c.recurrence_outcome === "N" ? "No recurrence reported" : c.recurrence_outcome) : ""],
       ["Original image match", c.original_crosswalk_inferred === true ? "Inferred from crossed labels; held at preview level" : ""],
     ])}
     ${c.open_checks && c.open_checks.length ? `<h3 class="section-title">Open checks for this section</h3><ul class="notes">${c.open_checks.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+    ${c.field_sources && Object.keys(c.field_sources).length ? `<h3 class="section-title">Evidence for reviewed fields</h3><ul class="notes">${Object.entries(c.field_sources).map(([f, u]) => `<li>${esc(FIELD_NAMES[f] ?? f)}: <a href="${esc(u)}" rel="noopener" target="_blank">${esc(hostOf(u))}</a></li>`).join("")}</ul>` : ""}
     <h3 class="section-title">Clinical fields reported by the source</h3>
-    ${kv([["Age", esc(clin.age)], ["Sex", esc(clin.sex)], ["Stage / TNM", esc(clin.stage)], ["Grade", esc(clin.grade)], ["Subsite", esc(clin.subsite)], ["Markers", esc(clin.markers)]]) || '<p class="muted small">None extracted for this section.</p>'}
+    ${kv([["Age", esc(clin.age)], ["Sex", esc(clin.sex)], ["Stage / TNM", esc(clin.stage)], ["Grade", esc(clin.grade)], ["Subsite", esc(clin.subsite)], ["Markers", esc(clin.markers)],
+      ["Response label", clin.response ? `${esc(clin.response)}<span class="cell-sub">As labelled by the source; it does not show when the sample was taken relative to treatment.</span>` : ""]]) || '<p class="muted small">None extracted for this section.</p>'}
     <p class="muted small">Values are copied from the source with their original wording; missing fields were not reported or not extracted. Consult the source tables before analysis.</p>`;
   openDialog(esc(c.capture), esc(`${cancerName(d, c.cancer)} · ${cohort?.label ?? c.cohort}`), body);
 }
@@ -843,7 +884,7 @@ export function showCohort(d, id) {
       ["Section packages checked", sr.route_review.sections_with_matching_coordinates ? `${fmt(sr.route_review.sections_with_matching_coordinates)}<span class="cell-sub">sections whose expression barcodes match their tissue coordinates exactly; not a patient count or final QC</span>` : "Not part of this check"],
     ])}` : ""}` : "";
   const b = c.backlog_review;
-  const backlogHtml = b ? `<h3 class="section-title">Package review</h3>
+  const backlogHtml = b ? `<h3 class="section-title">Package review${c.followup_review?.outcome ? " (earlier result)" : ""}</h3>
     ${kv([
       ["Result", esc(LABELS.backlogOutcome[b.outcome] ?? b.outcome)],
       ["How far it was checked", esc(b.depth)],
@@ -853,6 +894,16 @@ export function showCohort(d, id) {
       ["Open dependencies", esc(b.states.map(x => LABELS.routeState[x] ?? x).join("; "))],
       ["Next step", esc(b.next_step)],
       ["Eligible patients", "Unknown: no patient is promoted into the strict core by this review"],
+    ])}` : "";
+  const f = c.followup_review;
+  const followupHtml = f ? `<h3 class="section-title">Follow-up review</h3>
+    ${kv([
+      ["Result", f.outcome ? esc(LABELS.followupOutcome[f.outcome] ?? f.outcome) : "Checked again; no change"],
+      ["How far it was checked", esc(f.depth || "")],
+      ["Findings", esc(f.findings || "")],
+      ["Checks", f.checks && f.checks.length ? `<ul class="notes">${f.checks.map(x => `<li><strong>${esc(x.check)}:</strong> ${esc(x.result)} <span class="muted">(${esc(x.depth)})</span></li>`).join("")}</ul>` : ""],
+      ["Open dependencies", f.states ? esc(f.states.map(x => LABELS.routeState[x] ?? x).join("; ")) : ""],
+      ["Next step", esc(f.next_step || "")],
     ])}` : "";
   const level = c.status === "verified" || c.status === "preview" ? `<p class="small">${esc(LABELS.imageLevelNote[c.status === "verified" ? "original" : "preview"])}${levelText(d, c) ? ` <strong>${esc(levelText(d, c))}.</strong>` : ""}</p>` : "";
   const body = `
@@ -877,6 +928,7 @@ export function showCohort(d, id) {
     ])}
     ${c.tcga_project ? tcgaSection(d, c.tcga_project) : ""}
     ${reviewHtml}
+    ${followupHtml}
     ${backlogHtml}
     ${c.gates && c.gates.length ? `<h3 class="section-title">${c.status === "screened" ? "Checks still open" : "Open checks before inclusion"}</h3><ul class="notes">${c.gates.map(g => `<li>${esc(LABELS.gate[g] ?? g)}</li>`).join("")}</ul>` : ""}
     <h3 class="section-title">Access</h3>
