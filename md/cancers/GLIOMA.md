@@ -1,6 +1,6 @@
 # Diffuse glioma classification benchmark
 
-Code `GLIOMA`. Pooled analysis cohort (LGG + GBM). Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=GLIOMA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=GLIOMA). Data: [data/by-cancer/GLIOMA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/GLIOMA.json).
+Code `GLIOMA`. Pooled analysis cohort (LGG + GBM). Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=GLIOMA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=GLIOMA). Data: [data/by-cancer/GLIOMA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/GLIOMA.json).
 
 TCGA-LGG and TCGA-GBM pooled as one classification benchmark rather than a discovery cohort. It asks whether a molecular target, frozen before comparison, recovers the historical diagnosis-plus-grade labels or an independently curated integrated (WHO CNS5) diagnosis and grade better, using held-out comparisons and sensitivity analyses within each entity. Recovering known diagnostic groups would not by itself show that the target adds biological information.
 

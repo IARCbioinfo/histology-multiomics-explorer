@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.0",
+  "version": "0.11.1",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -570,7 +570,7 @@
    "gates": [
     "he-not-located"
    ],
-   "accession": "GHGAS23497594176126;Zenodo20085382",
+   "accession": "GHGAS23497594176126; Zenodo 20085382",
    "access": {
     "category": "open",
     "route": null,
@@ -872,7 +872,7 @@
    "gates": [
     "request"
    ],
-   "accession": "GSE328930(bulkonly);Zenodo19693316(Xeniumonly)",
+   "accession": "GSE328930 (bulk only); Zenodo 19693316 (Xenium only)",
    "access": {
     "category": "open",
     "route": "Public targeted-RNA data in Zenodo 19693316; the earlier request-only label is corrected",

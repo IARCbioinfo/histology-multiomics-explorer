@@ -1,6 +1,6 @@
 # Spatial studies
 
-Release 0.11.0, 16 October 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
+Release 0.11.1, 16 October 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
 
 Published spatial omics studies show where molecular programmes and cell states sit within a tumour and how they relate to its morphology. They usually come from patients other than those in TCGA, so they add tissue context to the reference but no measurements for TCGA patients.
 

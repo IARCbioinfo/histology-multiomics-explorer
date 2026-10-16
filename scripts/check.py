@@ -104,6 +104,8 @@ for c in cohorts:
             err(f"{w}: derived_from unknown cohort {parent}")
     for label, url in c["access"].get("links", []):
         check_url(w, url)
+    if c.get("accession") and re.search(r";(?=\S)|\b(zenodo|figshare)\d|\d\(|\(\w+only\)", c["accession"], re.I):
+        err(f"{w}: accession {c['accession']!r} needs a space after each semicolon and between a repository name and its number")
     check_url(w, (c.get("citation") or {}).get("url"))
     for item in c.get("reported") or []:
         if not (isinstance(item[0], int) and item[0] >= 0 and item[1] and item[2]) or len(item) > 4 or (len(item) == 4 and item[3] not in c["cancers"]):

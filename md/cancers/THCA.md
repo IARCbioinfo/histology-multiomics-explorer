@@ -1,6 +1,6 @@
 # Thyroid carcinoma
 
-Code `THCA`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=THCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=THCA). Data: [data/by-cancer/THCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/THCA.json).
+Code `THCA`. Significant geometry in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=THCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=THCA). Data: [data/by-cancer/THCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/THCA.json).
 
 Thyroid carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Papillary carcinoma variants and background thyroiditis are recorded where sources report them.
 

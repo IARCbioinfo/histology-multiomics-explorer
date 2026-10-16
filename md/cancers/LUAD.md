@@ -1,6 +1,6 @@
 # Lung adenocarcinoma
 
-Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
+Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
 
 Hausser et al. described lung as borderline under their significance criterion, so it was not part of the pooled analysis. Predominant growth patterns are recorded for each tissue section where the source provides them.
 

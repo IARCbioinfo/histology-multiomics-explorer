@@ -1,6 +1,6 @@
 # Oesophageal carcinoma
 
-Code `ESCA`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=ESCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=ESCA). Data: [data/by-cancer/ESCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/ESCA.json).
+Code `ESCA`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=ESCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=ESCA). Data: [data/by-cancer/ESCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/ESCA.json).
 
 Oesophageal carcinoma combines two distinct diseases, squamous cell carcinoma and adenocarcinoma. It was not among the cancer types screened by Hausser et al. The project meets the molecular screen; analyses use a histology-defined squamous cell carcinoma cohort rather than the pooled project.
 

@@ -1,6 +1,6 @@
 # Bladder urothelial carcinoma
 
-Code `BLCA`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=BLCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BLCA). Data: [data/by-cancer/BLCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BLCA.json).
+Code `BLCA`. Significant geometry in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=BLCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BLCA). Data: [data/by-cancer/BLCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BLCA.json).
 
 Bladder urothelial carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Variant morphology is not always reported and may need pathology review.
 

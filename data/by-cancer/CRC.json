@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.0",
+  "version": "0.11.1",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -1056,7 +1056,7 @@
     "image-qc",
     "calibration"
    ],
-   "accession": "GSE294385; Zenodo19043057",
+   "accession": "GSE294385; Zenodo 19043057",
    "access": {
     "category": "open",
     "route": null,

@@ -1,6 +1,6 @@
 # Tumour Histology and Multi-omics Explorer
 
-> A curated catalogue of public tumour datasets that link histology with molecular measurements: TCGA patients with RNA-seq and DNA methylation (450k), and published spatial omics studies with matched H&E images. Release 0.11.0, 16 October 2026.
+> A curated catalogue of public tumour datasets that link histology with molecular measurements: TCGA patients with RNA-seq and DNA methylation (450k), and published spatial omics studies with matched H&E images. Release 0.11.1, 16 October 2026.
 
 The selected TCGA analysis panel has 7,826 patients in 18 analysis cohorts, 6,561 with both RNA-seq and 450k methylation. 113 spatial omics resources are catalogued: 16 with the original H&E and matched molecular data located, and 29 more with matched molecular data and a preview image only. 22 cancer types have their own page. The web pages draw their tables with JavaScript; the Markdown and JSON files below hold the same content as text.
 

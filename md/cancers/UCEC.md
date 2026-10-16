@@ -1,6 +1,6 @@
 # Uterine corpus endometrial carcinoma
 
-Code `UCEC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=UCEC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=UCEC). Data: [data/by-cancer/UCEC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/UCEC.json).
+Code `UCEC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=UCEC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=UCEC). Data: [data/by-cancer/UCEC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/UCEC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen and is analysed as one pooled endometrial carcinoma cohort, with reviewed histology, grade and the published molecular groups kept as annotations and an endometrioid-only sensitivity subset.
 

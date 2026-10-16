@@ -1,6 +1,6 @@
 # Colon adenocarcinoma
 
-Code `COAD`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=COAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=COAD). Data: [data/by-cancer/COAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/COAD.json).
+Code `COAD`. Significant geometry in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=COAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=COAD). Data: [data/by-cancer/COAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/COAD.json).
 
 Colon adenocarcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled six-cancer analysis. Mucinous carcinomas and metastatic deposits are listed but kept outside the conventional primary stratum.
 

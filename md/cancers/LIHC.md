@@ -1,6 +1,6 @@
 # Liver hepatocellular carcinoma
 
-Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
+Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
 
 Hepatocellular carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Combined hepatocellular–cholangiocarcinoma and post-treatment cohorts are kept separate.
 

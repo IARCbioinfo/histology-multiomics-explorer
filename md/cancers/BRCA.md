@@ -1,6 +1,6 @@
 # Breast invasive carcinoma
 
-Code `BRCA`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=BRCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BRCA). Data: [data/by-cancer/BRCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BRCA.json).
+Code `BRCA`. Significant geometry in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=BRCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BRCA). Data: [data/by-cancer/BRCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BRCA.json).
 
 Breast cancer is one of six TCGA cancer types in which Hausser et al. found significant within-type polyhedral structure in tumour expression, and one of the six pooled in their shared-task analysis. Ductal/NST and lobular carcinomas are kept as separate strata here.
 

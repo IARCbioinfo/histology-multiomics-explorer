@@ -1,6 +1,6 @@
 # Kidney renal clear cell carcinoma
 
-Code `KIRC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=KIRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRC). Data: [data/by-cancer/KIRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRC.json).
+Code `KIRC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=KIRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRC). Data: [data/by-cancer/KIRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; a large share of retained patients have RNA-seq without 450k methylation.
 

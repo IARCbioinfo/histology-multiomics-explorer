@@ -1,6 +1,6 @@
 # Cervical squamous cell carcinoma and endocervical adenocarcinoma
 
-Code `CESC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=CESC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CESC). Data: [data/by-cancer/CESC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CESC.json).
+Code `CESC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=CESC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CESC). Data: [data/by-cancer/CESC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CESC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation; that result does not rule out archetypes under another representation. It is included because it meets the RNA and 450k methylation screen. Analyses use cervical squamous cell carcinoma (CSCC), selected by histology from the TCGA cervical study with the GDC label as an explicit fallback; adenocarcinomas and adenosquamous carcinomas are outside the selected cohort.
 

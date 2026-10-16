@@ -1,6 +1,6 @@
 # Lower-grade glioma
 
-Code `LGG`. Significant geometry in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=LGG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LGG). Data: [data/by-cancer/LGG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LGG.json).
+Code `LGG`. Significant geometry in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=LGG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LGG). Data: [data/by-cancer/LGG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LGG.json).
 
 Lower-grade glioma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. The TCGA LGG cohort predates current molecular glioma classification, so astrocytoma and oligodendroglioma are separated here using IDH and 1p/19q status where available. In the TCGA analyses, LGG is part of the pooled glioma classification benchmark with TCGA-GBM rather than a discovery cohort; the LGG-only set is a subset of that benchmark.
 

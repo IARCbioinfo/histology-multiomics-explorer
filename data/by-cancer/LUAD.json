@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.0",
+  "version": "0.11.1",
   "date": "2026-10-16",
   "audit_dates": [
    "2026-10-09",
@@ -491,7 +491,7 @@
     "calibration",
     "identity"
    ],
-   "accession": "HTAN HTAPP / Zenodo16546233 (version19559522)",
+   "accession": "HTAN HTAPP; Zenodo 16546233 (version 19559522)",
    "access": {
     "category": "open",
     "route": null,
@@ -650,7 +650,7 @@
     "image-qc",
     "calibration"
    ],
-   "accession": "Zenodo13337961",
+   "accession": "Zenodo 13337961",
    "access": {
     "category": "open",
     "route": null,

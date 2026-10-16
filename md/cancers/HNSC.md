@@ -1,6 +1,6 @@
 # Head and neck squamous cell carcinoma
 
-Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
+Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
 
 Hausser et al. described head and neck cancer as borderline under their significance criterion. HPV status, keratinization and subsite are kept as separate strata because they correspond to different tumour biology.
 

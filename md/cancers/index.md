@@ -1,6 +1,6 @@
 # Cancer types
 
-Release 0.11.0, 16 October 2026. Web page: [cancers.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html).
+Release 0.11.1, 16 October 2026. Web page: [cancers.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html).
 
 Each page brings together the TCGA data and the spatial studies for one cancer type, with its selection history, other resources and open checks. Colorectal cancer (CRC) and diffuse glioma (GLIOMA) also have pooled pages; the glioma cohort is a classification benchmark.
 

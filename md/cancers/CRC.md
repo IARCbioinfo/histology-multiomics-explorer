@@ -1,6 +1,6 @@
 # Colorectal adenocarcinoma
 
-Code `CRC`. Pooled analysis cohort (COAD + READ). Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=CRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CRC). Data: [data/by-cancer/CRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CRC.json).
+Code `CRC`. Pooled analysis cohort (COAD + READ). Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=CRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CRC). Data: [data/by-cancer/CRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CRC.json).
 
 Colon and rectal adenocarcinomas pooled as one colorectal analysis cohort. The TCGA colorectal study characterised both together and found broadly similar genomic alterations outside the hypermutated group; molecular features also vary along the bowel. The submitted project, reported anatomical site, MSI/MMR status and methylation phenotype should be kept as annotations for location-association checks and colon-only sensitivity analyses. The administrative COAD/READ split should not be treated as a biological boundary.
 

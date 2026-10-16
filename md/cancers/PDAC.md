@@ -1,6 +1,6 @@
 # Pancreatic ductal adenocarcinoma
 
-Code `PDAC`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=PDAC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PDAC). Data: [data/by-cancer/PDAC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PDAC.json).
+Code `PDAC`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=PDAC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PDAC). Data: [data/by-cancer/PDAC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PDAC.json).
 
 Pancreatic ductal adenocarcinoma was not among the cancer types screened by Hausser et al. TCGA-PAAD meets the molecular screen; analyses use a histology-confirmed ductal adenocarcinoma cohort selected by documented pathology review rather than the whole project.
 

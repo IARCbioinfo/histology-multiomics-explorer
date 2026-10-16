@@ -1,6 +1,6 @@
 # Rectal adenocarcinoma
 
-Code `READ`. Colorectal extension; pooled in CRC. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=READ](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=READ). Data: [data/by-cancer/READ.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/READ.json).
+Code `READ`. Colorectal extension; pooled in CRC. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=READ](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=READ). Data: [data/by-cancer/READ.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/READ.json).
 
 Rectal adenocarcinoma was not part of the Hausser et al. geometry analysis. It is kept as a separate rectal stratum for spatial data, and TCGA-READ is analysed together with TCGA-COAD as the pooled colorectal cohort (CRC).
 

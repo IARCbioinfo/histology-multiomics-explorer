@@ -1,6 +1,6 @@
 # Glioblastoma (historical TCGA diagnosis)
 
-Code `GBM`. Glioma benchmark extension; pooled in GLIOMA. Release 0.11.0, 16 October 2026. Web page: [cancers.html?c=GBM](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=GBM). Data: [data/by-cancer/GBM.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/GBM.json).
+Code `GBM`. Glioma benchmark extension; pooled in GLIOMA. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=GBM](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=GBM). Data: [data/by-cancer/GBM.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/GBM.json).
 
 TCGA-GBM is used only within the pooled glioma classification benchmark, with TCGA-LGG. Its diagnoses are historical histological categories that predate the integrated molecular classification of CNS tumours; they are kept as labels to be compared with an independently curated integrated diagnosis, not treated as one.
 

@@ -2442,7 +2442,7 @@
    "image-qc",
    "calibration"
   ],
-  "accession": "GSE294385; Zenodo19043057",
+  "accession": "GSE294385; Zenodo 19043057",
   "access": {
    "category": "open",
    "route": null,
@@ -3606,7 +3606,7 @@
   "gates": [
    "he-not-located"
   ],
-  "accession": "GHGAS23497594176126;Zenodo20085382",
+  "accession": "GHGAS23497594176126; Zenodo 20085382",
   "access": {
    "category": "open",
    "route": null,
@@ -3908,7 +3908,7 @@
   "gates": [
    "request"
   ],
-  "accession": "GSE328930(bulkonly);Zenodo19693316(Xeniumonly)",
+  "accession": "GSE328930 (bulk only); Zenodo 19693316 (Xenium only)",
   "access": {
    "category": "open",
    "route": "Public targeted-RNA data in Zenodo 19693316; the earlier request-only label is corrected",
@@ -5272,7 +5272,7 @@
    "image-qc",
    "calibration"
   ],
-  "accession": "Zenodo19123188;15392699",
+  "accession": "Zenodo 19123188 (earlier version 15392699)",
   "access": {
    "category": "open",
    "route": null,
@@ -5350,7 +5350,7 @@
   "gates": [
    "he-not-located"
   ],
-  "accession": "HRA000437;author Lifeome portal",
+  "accession": "HRA000437; author Lifeome portal",
   "access": {
    "category": "open",
    "route": null,
@@ -5576,7 +5576,7 @@
   "gates": [
    "controlled"
   ],
-  "accession": "JGAD000422;JGAS000311;hum0286v2",
+  "accession": "JGAD000422; JGAS000311; hum0286v2",
   "access": {
    "category": "controlled",
    "route": null,
@@ -5712,7 +5712,7 @@
   "gates": [
    "controlled"
   ],
-  "accession": "EGAD50000001506;EGAS50000001034",
+  "accession": "EGAD50000001506; EGAS50000001034",
   "access": {
    "category": "controlled",
    "route": null,
@@ -5855,7 +5855,7 @@
   "gates": [
    "he-not-located"
   ],
-  "accession": "GSE283406;GSE283404/405",
+  "accession": "GSE283406; GSE283404/405",
   "access": {
    "category": "open",
    "route": null,
@@ -5931,7 +5931,7 @@
    "package-unverified",
    "identity"
   ],
-  "accession": "PRJNA858545;figshare21061990",
+  "accession": "PRJNA858545; Figshare 21061990",
   "access": {
    "category": "open",
    "route": null,
@@ -6387,7 +6387,7 @@
    "calibration",
    "identity"
   ],
-  "accession": "HTAN HTAPP / Zenodo16546233 (version19559522)",
+  "accession": "HTAN HTAPP; Zenodo 16546233 (version 19559522)",
   "access": {
    "category": "open",
    "route": null,
@@ -6546,7 +6546,7 @@
    "image-qc",
    "calibration"
   ],
-  "accession": "Zenodo13337961",
+  "accession": "Zenodo 13337961",
   "access": {
    "category": "open",
    "route": null,
