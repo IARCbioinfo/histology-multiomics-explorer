@@ -171,7 +171,8 @@ for c in captures:
         err(f"{w}: links must use https")
 
 # Section records imported before the backlog review keep their maintained values: image_level was added, and the
-# follow-up review added header pixel sizes (four Steiner images) and frame checks (two GSE245908 sections).
+# follow-up review added header pixel sizes (four Steiner images) and frame checks (Steiner LM_SD_1216_8 and LM_SD_1216_1,
+# GSE245908 CHC20 and CHC23).
 import hashlib  # noqa: E402
 _base = [{k: v for k, v in c.items() if k != "image_level"} for c in captures if not c.get("review_batch")]
 if len(_base) != 204 or hashlib.sha256(json.dumps(_base, sort_keys=True, ensure_ascii=False).encode()).hexdigest() != \
