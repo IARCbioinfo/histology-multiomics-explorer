@@ -373,10 +373,11 @@ n_orig = sum(x["image_level"] == "original" for x in captures)
 n_prev_rows = sum(x["image_level"] == "preview" for x in captures)
 n_prev_counted = sum((c["spatial_review"]["route_review"]["sections_with_matching_coordinates"] or 0) for c in prev if not any(x["cohort"] == c["id"] for x in captures))
 n_known = len({(x["cohort"], x["patient"]) for x in captures if x["patient"]})
+# Release 0.11.2 (21 November 2026) adds two colorectal candidates (GSE206552, GSE236697) without section records: 68 to 70 candidates.
 if (len(orig), len(prev), len(spatial) - len(orig) - len(prev), n_orig, n_prev_rows, n_prev_counted, len(captures), n_known, sum(not x["patient"] for x in captures)) \
-        != (16, 29, 68, 261, 500, 0, 761, 266, 246):
+        != (16, 29, 70, 261, 500, 0, 761, 266, 246):
     err(f"spatial: {len(orig)} original-level, {len(prev)} preview-level and {len(spatial) - len(orig) - len(prev)} candidate studies; {n_orig} original and "
-        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients. Expected 16, 29 and 68; 261 and 500 + 0 (761 study–section records); "
+        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients. Expected 16, 29 and 70; 261 and 500 + 0 (761 study–section records); "
         "266 known patients and 246 records without a patient ID")
 for cid, n_sec, n_area in (("cand-frontiers2026-zenodo18238293", 11, 4),):
     rows = [x for x in captures if x["cohort"] == cid]

@@ -1,13 +1,14 @@
 {
  "release": {
-  "version": "0.11.1",
-  "date": "2026-10-16",
+  "version": "0.11.2",
+  "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
    "2026-10-10",
    "2026-10-14",
    "2026-10-15",
-   "2026-10-16"
+   "2026-10-16",
+   "2026-11-21"
   ]
  },
  "code": "READ",
@@ -460,6 +461,14 @@
      [
       "Zenodo 7760264",
       "https://zenodo.org/records/7760264"
+     ],
+     [
+      "Full text (PMC)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10781769/"
+     ],
+     [
+      "CROST sample browser (secondary index; VISDP000156)",
+      "https://ngdc.cncb.ac.cn/crost/browse/samples"
      ]
     ]
    },
@@ -469,7 +478,8 @@
    "notes": [
     "All retained tumour donors had no pretreatment according to the publication's patient table.",
     "One donor has mucinous adenocarcinoma and is kept outside the conventional stratum; one donor's sections are predominantly non-neoplastic and are excluded; one capture has author-reported low RNA quality.",
-    "Some primary tumours come from patients with liver or lymph-node metastases."
+    "Some primary tumours come from patients with liver or lymph-node metastases.",
+    "CROST project VISDP000156 mirrors 14 sections from the same seven patients; it is a secondary index, not new coverage."
    ],
    "compartments": [
     "primary-tumour"
@@ -522,6 +532,14 @@
      [
       "GEO GSE280318",
       "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE280318"
+     ],
+     [
+      "Publication Table 1 (PMC)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12165841/#Tab1"
+     ],
+     [
+      "CROST sample browser (secondary index; GSE280315)",
+      "https://ngdc.cncb.ac.cn/crost/browse/samples"
      ]
     ]
    },
@@ -530,7 +548,10 @@
    "description": "Visium HD profiles of colorectal tumours with same-section high-resolution H&E. Three tumour sections are catalogued; normal-adjacent sections are excluded.",
    "notes": [
     "Primary versus metastatic specimen status is not stated explicitly; these captures are listed as under review.",
-    "The publication reports the patients as pretreatment."
+    "The publication reports the patients as pretreatment.",
+    "GEO GSE280315 (Visium HD) holds five sections: colorectal cancer from P1, P2 and P5 and normal-adjacent mucosa from P3 and P5, so P5 has a paired tumour and normal-adjacent section (publication Table 1). Only the three tumour sections are catalogued; the normal-adjacent sections are not qualified.",
+    "GEO GSE280313 is a related Visium v2 series from donors shared with the Visium HD set (P2, P3 and P5), not independent coverage.",
+    "The CROST secondary index labels the two normal-adjacent Visium HD sections as lung in its free text; GEO and publication Table 1 identify them as colon normal-adjacent tissue, which is kept here."
    ],
    "compartments": [
     "tumour-unspecified"
@@ -740,6 +761,10 @@
      [
       "Data record",
       "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267401"
+     ],
+     [
+      "CROST sample browser (secondary index; GSE267401)",
+      "https://ngdc.cncb.ac.cn/crost/browse/samples"
      ]
     ]
    },
@@ -773,7 +798,10 @@
       "result": "No further original scan matched to the expression and coordinates in the public listings and data routes checked."
      }
     ]
-   }
+   },
+   "notes": [
+    "The current GEO series lists four sample records (GSM8265211–GSM8265214), the four preview sections listed here. CROST indexes the same records as a secondary mirror, not an independent cohort or a new qualification."
+   ]
   },
   {
    "id": "cand-crc-miso-petacc8",
@@ -1168,6 +1196,156 @@
     "sections_listed": null,
     "study_local_donors": null
    }
+  },
+  {
+   "id": "cand-crc-garbarino-gse206552",
+   "label": "Garbarino et al. 2023",
+   "title": "Spatial resolution of cellular senescence dynamics in human colorectal liver metastasis",
+   "citation": {
+    "authors": "Garbarino O, et al.",
+    "title": "Spatial resolution of cellular senescence dynamics in human colorectal liver metastasis",
+    "journal": "Aging Cell",
+    "year": 2023,
+    "doi": "10.1111/acel.13853",
+    "url": "https://doi.org/10.1111/acel.13853"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity",
+    "treatment-review",
+    "image-qc"
+   ],
+   "accession": "GSE206552 (GSM6256810–GSM6256813); CROST VISDS000005–VISDS000008",
+   "access": {
+    "category": "open",
+    "route": "Space Ranger matrices, positions, scale factors and images per sample on GEO; CROST is a secondary index of the four records.",
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1111/acel.13853"
+     ],
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE206552"
+     ],
+     [
+      "CROST sample browser (secondary index; VISDS000005–VISDS000008)",
+      "https://ngdc.cncb.ac.cn/crost/browse/samples"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Four Visium records of colorectal liver metastasis biopsies (GEO GSM6256810–GSM6256813, titled meta1 to meta4). Each GEO sample lists filtered and raw matrices, spot positions, scale factors, low- and high-resolution images and a TIF file that the series describes as the H&E image. A bounded check of the CROST spatial package of one record (VISDS000005) found coordinates, scale factors and a 1,887 × 2,000 pixel preview. The expression-to-image join of all four records and whether any TIF is an original-resolution scan are not verified.",
+   "compartments": [
+    "metastatic-tumour"
+   ],
+   "reported": [
+    [
+     4,
+     "Visium biopsy records",
+     "GEO series"
+    ]
+   ],
+   "notes": [
+    "The four records are biopsy records, not a donor count: the number of independent donors, treatment before sampling and eligible patients are unknown.",
+    "The colorectal primary subsite is not stated, so the resource is shown on both the colon and rectum pages."
+   ]
+  },
+  {
+   "id": "cand-crc-zhou-gse236697",
+   "label": "Zhou et al. 2024",
+   "title": "Integrating single-cell and spatial analysis reveals MUC1-mediated cellular crosstalk in mucinous colorectal adenocarcinoma",
+   "citation": {
+    "authors": "Zhou H, et al.",
+    "title": "Integrating single-cell and spatial analysis reveals MUC1-mediated cellular crosstalk in mucinous colorectal adenocarcinoma",
+    "journal": "Clinical and Translational Medicine",
+    "year": 2024,
+    "doi": "10.1002/ctm2.1701",
+    "url": "https://doi.org/10.1002/ctm2.1701"
+   },
+   "cancers": [
+    "COAD",
+    "READ"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity",
+    "treatment-review",
+    "image-qc"
+   ],
+   "accession": "GSE236697 (GSM7573205, GSM8286350; SuperSeries GSE236698); CROST VISDS001755",
+   "access": {
+    "category": "open",
+    "route": "Space Ranger matrices, positions, scale factors and images per sample on GEO; CROST is a secondary index.",
+    "links": [
+     [
+      "Publication",
+      "https://doi.org/10.1002/ctm2.1701"
+     ],
+     [
+      "GEO series",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236697"
+     ],
+     [
+      "CROST sample browser (secondary index; VISDS001755)",
+      "https://ngdc.cncb.ac.cn/crost/browse/samples"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Visium profiles of a mucinous colorectal adenocarcinoma and adjacent normal tissue from one patient, as the GEO series design states. The current series lists the tumour record GSM7573205 (disease state given as tumour and normal) and the normal record GSM8286350, each with a matrix, spot positions, scale factors and low- and high-resolution images. CROST VISDS001755 lists GSM7573206 instead, which is not a member of the current GEO series (the GEO record with that ID is an unrelated mouse brain sample), so the CROST record's join to the GEO records is unresolved. No package, original scan or same-section image match has been checked.",
+   "compartments": [
+    "primary-tumour",
+    "solid-normal"
+   ],
+   "reported": [
+    [
+     2,
+     "spatial records (tumour and adjacent normal)",
+     "GEO series"
+    ],
+    [
+     1,
+     "patient",
+     "GEO series design"
+    ]
+   ],
+   "notes": [
+    "The source reports one patient; this is not an eligible-patient count. Treatment before sampling is unknown.",
+    "The colorectal primary subsite is not established here, so the resource is shown on both the colon and rectum pages."
+   ]
   }
  ],
  "located_sections": [

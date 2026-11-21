@@ -1,19 +1,19 @@
 # Spatial studies
 
-Release 0.11.1, 16 October 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
+Release 0.11.2, 21 November 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
 
 Published spatial omics studies show where molecular programmes and cell states sit within a tumour and how they relate to its morphology. They usually come from patients other than those in TCGA, so they add tissue context to the reference but no measurements for TCGA patients.
 
-113 catalogued spatial resources: 16 with original H&E located, 29 with matched data and a preview image, and 68 not yet verified; 20 cancer types represented. 261 tissue section records have the original H&E, and 500 have a preview image from 266 known study-local patients; 246 listed sections have no patient ID. No eligible-patient total is established.
+115 catalogued spatial resources: 16 with original H&E located, 29 with matched data and a preview image, and 70 not yet verified; 20 cancer types represented. 261 tissue section records have the original H&E, and 500 have a preview image from 266 known study-local patients; 246 listed sections have no patient ID. No eligible-patient total is established.
 
 ## By cancer type
 
 | Cancer type | Code | Catalogued resources | Original H&E located | Matched data with preview image |
 | --- | --- | --- | --- | --- |
 | [Breast invasive carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BRCA.md) | BRCA | 8 | 2 | 2 |
-| [Colon adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/COAD.md) | COAD | 11 | 3 | 3 |
-| [Rectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/READ.md) | READ | 11 | 3 | 3 |
-| [Colorectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CRC.md) | CRC | 11 | 3 | 3 |
+| [Colon adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/COAD.md) | COAD | 13 | 3 | 3 |
+| [Rectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/READ.md) | READ | 13 | 3 | 3 |
+| [Colorectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CRC.md) | CRC | 13 | 3 | 3 |
 | [Thyroid carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/THCA.md) | THCA | 9 | 2 | 1 |
 | [Bladder urothelial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BLCA.md) | BLCA | 10 | 2 | 3 |
 | [Lower-grade glioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LGG.md) | LGG | 10 | 1 | 4 |
@@ -288,6 +288,7 @@ These releases add no resources or patients to the totals above.
 | Deng et al. 2025 | `cand-deng-micropapillary-2025` | LUAD | Candidate, not yet verified | Author request | Visium CytAssist |
 | Erickson et al. 2022 | `prad-erickson-clonal` | PRAD | Candidate, not yet verified | Open download | Spatial Transcriptomics (legacy arrays), Visium |
 | Fan et al. 2024 | `cand-fan2024-hra006757` | LIHC | Candidate, not yet verified | Controlled access | Visium FFPE |
+| Garbarino et al. 2023 | `cand-crc-garbarino-gse206552` | COAD, READ | Candidate, not yet verified | Open download | Visium |
 | Gaspard-Boulinc et al. 2025 | `cand-gaspardboulin2025` | LGG | Candidate, not yet verified | Unresolved | Visium |
 | Grande et al. 2025 | `cand-dutreneo` | BLCA | Candidate, not yet verified | Open download | Visium FFPE |
 | Guo et al. 2023, HPV progression series | `cscc-hpv-gse208654` | CESC | Candidate, not yet verified | Open download | Spatial transcriptomics array (platform to confirm) |
@@ -339,4 +340,5 @@ These releases add no resources or patients to the totals above.
 | Wang et al. 2024 | `cand-wang-venet-2024-legacy-st` | BRCA | Candidate, not yet verified | Open download | Spatial Transcriptomics (legacy arrays) |
 | Wu et al. 2021 | `cand-wu2021-hcc` | LIHC | Candidate, not yet verified | Open download | Visium |
 | Zhao et al. 2025 | `cand-zhao-htapp-2025` | LUAD | Candidate, not yet verified | Open download | Visium |
+| Zhou et al. 2024 | `cand-crc-zhou-gse236697` | COAD, READ | Candidate, not yet verified | Open download | Visium |
 | Zhu et al. 2026, preprint | `pcpg-developmental-preprint` | PCPG | Candidate, not yet verified | Not released | Spatial transcriptomics (human assay details unverified) |

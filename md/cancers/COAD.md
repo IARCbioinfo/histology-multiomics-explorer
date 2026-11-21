@@ -1,6 +1,6 @@
 # Colon adenocarcinoma
 
-Code `COAD`. Significant geometry in Hausser et al. 2019. Release 0.11.1, 16 October 2026. Web page: [cancers.html?c=COAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=COAD). Data: [data/by-cancer/COAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/COAD.json).
+Code `COAD`. Significant geometry in Hausser et al. 2019. Release 0.11.2, 21 November 2026. Web page: [cancers.html?c=COAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=COAD). Data: [data/by-cancer/COAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/COAD.json).
 
 Colon adenocarcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled six-cancer analysis. Mucinous carcinomas and metastatic deposits are listed but kept outside the conventional primary stratum.
 
@@ -23,7 +23,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-11 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+13 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -36,6 +36,8 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors (`cand-crc-colonmap-heiser2023`) | Visium FFPE | Free account | No count reported | Verification pending |
 | Ren et al. 2025 (`cand-crc-spatch-ren2025`) | Visium HD | Open download | No count reported | Verification pending |
 | HTAN Vanderbilt colorectal CytAssist captures (`cand-crc-cottam-htan2025`) | Visium CytAssist | Free account | No count reported | Verification pending |
+| Garbarino et al. 2023 (`cand-crc-garbarino-gse206552`); metastases only | Visium | Open download | 4 Visium biopsy records (all cancer sites) | Verification pending |
+| Zhou et al. 2024 (`cand-crc-zhou-gse236697`); includes normal or adjacent tissue | Visium | Open download | 2 spatial records (tumour and adjacent normal) (all cancer sites) | Verification pending |
 | Schmauch et al. 2025 (`cand-crc-miso-petacc8`) | Visium FFPE | Controlled access | No count reported | Verification pending |
 | Srinivasan et al. 2025 (`cand-crc-vri-dartmouth2025`) | Spatial Transcriptomics (legacy arrays), Visium CytAssist | Unresolved | No count reported | Verification pending |
 
