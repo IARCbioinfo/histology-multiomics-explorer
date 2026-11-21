@@ -1,15 +1,15 @@
 # Cancer types
 
-Release 0.11.2, 21 November 2026. Web page: [cancers.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html).
+Release 0.11.3, 21 November 2026. Web page: [cancers.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html).
 
 Each page brings together the TCGA data and the spatial studies for one cancer type, with its selection history, other resources and open checks. Colorectal cancer (CRC) and diffuse glioma (GLIOMA) also have pooled pages; the glioma cohort is a classification benchmark.
 
 | Cancer type | Code | TCGA | Spatial studies |
 | --- | --- | --- | --- |
 | [Breast invasive carcinoma](BRCA.md) | BRCA | 1,062 TCGA patients in the selected panel | 8 spatial resources, 2 with original H&E located, 2 with matched data and a preview image |
-| [Colon adenocarcinoma](COAD.md) | COAD | 427 TCGA patients in the selected panel, within pooled CRC | 13 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
-| [Rectal adenocarcinoma](READ.md) | READ | 154 TCGA patients in the selected panel, within pooled CRC | 13 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
-| [Colorectal adenocarcinoma](CRC.md) | CRC | 581 TCGA patients in the selected panel (pooled TCGA-COAD + TCGA-READ) | 13 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
+| [Colon adenocarcinoma](COAD.md) | COAD | 427 TCGA patients in the selected panel, within pooled CRC | 11 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
+| [Rectal adenocarcinoma](READ.md) | READ | 154 TCGA patients in the selected panel, within pooled CRC | 11 spatial resources, 3 with original H&E located, 3 with matched data and a preview image |
+| [Colorectal adenocarcinoma](CRC.md) | CRC | 581 TCGA patients in the selected panel (pooled TCGA-COAD + TCGA-READ) | 13 spatial resources, 3 with original H&E located, 5 with matched data and a preview image |
 | [Thyroid carcinoma](THCA.md) | THCA | 495 TCGA patients in the selected panel | 9 spatial resources, 2 with original H&E located, 1 with matched data and a preview image |
 | [Bladder urothelial carcinoma](BLCA.md) | BLCA | 388 TCGA patients in the selected panel | 10 spatial resources, 2 with original H&E located, 3 with matched data and a preview image |
 | [Lower-grade glioma](LGG.md) | LGG | 502 TCGA patients in the selected panel, within pooled GLIOMA | 10 spatial resources, 1 with original H&E located, 4 with matched data and a preview image |

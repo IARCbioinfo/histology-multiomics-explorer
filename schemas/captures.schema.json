@@ -329,6 +329,9 @@
      },
      "clinical.grade": {
       "type": "string"
+     },
+     "linkage": {
+      "type": "string"
      }
     },
     "required": [],

@@ -1,6 +1,6 @@
 # Colorectal adenocarcinoma
 
-Code `CRC`. Pooled analysis cohort (COAD + READ). Release 0.11.2, 21 November 2026. Web page: [cancers.html?c=CRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CRC). Data: [data/by-cancer/CRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CRC.json).
+Code `CRC`. Pooled analysis cohort (COAD + READ). Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=CRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CRC). Data: [data/by-cancer/CRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CRC.json).
 
 Colon and rectal adenocarcinomas pooled as one colorectal analysis cohort. The TCGA colorectal study characterised both together and found broadly similar genomic alterations outside the hypermutated group; molecular features also vary along the bowel. The submitted project, reported anatomical site, MSI/MMR status and methylation phenotype should be kept as annotations for location-association checks and colon-only sensitivity analyses. The administrative COAD/READ split should not be treated as a biological boundary.
 
@@ -25,7 +25,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-13 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+13 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 5. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -35,23 +35,23 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Neve et al. 2026 (`cand-crc-orgares-gse283052`) | Visium | Open download | No count reported | Matched data with preview image: 12 sections with a preview image |
 | Primary colorectal cancer and liver metastasis, Visium CytAssist (`cand-crc-mahidol-gse267401`); includes metastases | Visium CytAssist | Open download | No count reported | Matched data with preview image: 4 sections with a preview image; 2 known patients |
 | Liu et al. 2026 (`cand-crc-liu-maru2026`); includes metastases | Visium HD | Open download | No count reported | Matched data with preview image: 37 sections with a preview image |
+| Garbarino et al. 2023 (`cand-crc-garbarino-gse206552`); metastases only | Visium | Open download | 4 Visium biopsy records | Matched data with preview image: 4 sections with a preview image |
+| Zhou et al. 2024 (`cand-crc-zhou-gse236697`); includes normal or adjacent tissue | Visium | Open download | 2 spatial records (tumour and adjacent normal) | Matched data with preview image: 2 sections with a preview image; 1 known patient |
 | Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors (`cand-crc-colonmap-heiser2023`) | Visium FFPE | Free account | No count reported | Verification pending |
 | Ren et al. 2025 (`cand-crc-spatch-ren2025`) | Visium HD | Open download | No count reported | Verification pending |
 | HTAN Vanderbilt colorectal CytAssist captures (`cand-crc-cottam-htan2025`) | Visium CytAssist | Free account | No count reported | Verification pending |
-| Garbarino et al. 2023 (`cand-crc-garbarino-gse206552`); metastases only | Visium | Open download | 4 Visium biopsy records | Verification pending |
-| Zhou et al. 2024 (`cand-crc-zhou-gse236697`); includes normal or adjacent tissue | Visium | Open download | 2 spatial records (tumour and adjacent normal) | Verification pending |
 | Schmauch et al. 2025 (`cand-crc-miso-petacc8`) | Visium FFPE | Controlled access | No count reported | Verification pending |
 | Srinivasan et al. 2025 (`cand-crc-vri-dartmouth2025`) | Spatial Transcriptomics (legacy arrays), Visium CytAssist | Unresolved | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 98 sections (45 with original H&E, 53 with a preview image) from 28 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
+Located tissue section records: 104 sections (45 with original H&E, 59 with a preview image) from 29 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Stated site | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |
 | Colon adenocarcinoma | 4 | 7 | 3 | 0 |
 | Rectal adenocarcinoma | 2 | 4 | 1 | 0 |
-| Bowel site not stated | 0 | 0 | 30 | 53 |
+| Bowel site not stated | 0 | 0 | 30 | 59 |
 
 ## Selection history: published archetype evidence
 

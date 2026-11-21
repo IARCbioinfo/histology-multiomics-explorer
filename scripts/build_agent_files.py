@@ -408,8 +408,8 @@ def cancer_md(S, page):
         n_o = sum(x["image_level"] == "original" for x in caps)
         lines += [f"Located tissue section records: {plural(len(caps), 'section', 'sections')} ({fmt(n_o)} with original H&E, {fmt(len(caps) - n_o)} with a preview image) "
                   f"from {plural(S.patients(caps), 'known patient', 'known patients')}, each with measured spatial RNA and coordinates. "
-                  f"Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. "
-                  + ("Checked preview packages that are not listed one by one are not included." if any(S.counted_preview(c) for c in spatial) else ""), ""]
+                  f"Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum."
+                  + (" Checked preview packages that are not listed one by one are not included." if any(S.counted_preview(c) for c in spatial) else ""), ""]
         if page.get("includes"):
             groups = [(page.get("unstated_label") or "Not stated") if k == code else S.by_code[k]["name"] for k in [*page["includes"], code]]
             sels = [lambda x, k=k: x["cancer"] == k for k in [*page["includes"], code]]

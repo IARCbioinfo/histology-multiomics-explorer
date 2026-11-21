@@ -37268,5 +37268,383 @@
    "positions_outside_preview": 0,
    "preview_scale": 0.11215792
   }
+ },
+ {
+  "id": "cand-crc-garbarino-gse206552:GSM6256810",
+  "cohort": "cand-crc-garbarino-gse206552",
+  "stratum": null,
+  "cancer": "CRC",
+  "treatment": "Unknown",
+  "treatment_note": null,
+  "technique": "Visium",
+  "preservation": "Fresh frozen",
+  "registration": "Not yet checked",
+  "he_mpp": null,
+  "access": {
+   "he": "open",
+   "processed": "open",
+   "raw": "unresolved"
+  },
+  "verification": "file-checked",
+  "verified_on": "2026-11-21",
+  "clinical": {},
+  "image_level": "preview",
+  "review_batch": "crost-2026-11-21",
+  "patient": null,
+  "capture": "GSM6256810",
+  "accession": "GSM6256810",
+  "source_name": "meta1,CRLM biopsy, Spatial transcriptomic",
+  "tier": "metastatic",
+  "tier_reason": "Matched data with preview image; the largest H&E located in the reviewed GEO release appears to be a reduced-resolution export, not a native scan. Liver metastasis; not curated into a histology stratum.",
+  "site": "Metastasis",
+  "site_source": "CRLM biopsy (GEO sample title)",
+  "diagnosis": "colorectal liver metastasis",
+  "histology": "colorectal liver metastasis",
+  "linkage": "same-section",
+  "he_mpp_basis": "No trustworthy pixel size: the TIFF's 300 dpi header is display metadata, not a tissue calibration",
+  "he_file": "GSM6256810_meta1.tif.gz",
+  "links": {
+   "he": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256810/suppl/GSM6256810_meta1.tif.gz",
+   "expression": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256810/suppl/GSM6256810_meta1_filtered_feature_bc_matrix.h5",
+   "coordinates": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256810/suppl/GSM6256810_meta1_tissue_positions_list.csv.gz",
+   "raw": []
+  },
+  "expression_type": "Filtered H5: its 3,498 barcodes equal the in-tissue coordinate barcodes exactly (complete package check)",
+  "compartment": "metastatic-tumour",
+  "donor_mapping": "unresolved",
+  "geometry_check": {
+   "finite_positions": true,
+   "in_tissue_positions": 3498,
+   "positions_outside_preview": 0,
+   "preview_scale": 0.6666667,
+   "preview_shape": [
+    2000,
+    1886,
+    3
+   ]
+  },
+  "field_sources": {
+   "linkage": "https://doi.org/10.1111/acel.13853",
+   "geometry_check": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256810/suppl/GSM6256810_meta1_scalefactors_json.json.gz"
+  },
+  "open_checks": [
+   "The standalone RGB TIFF (2,829 × 3,000 pixels) fits the coordinate frame and matches the high-resolution preview, but its size and spot span suggest a reduced-resolution export; no native-resolution scan or trustworthy pixel size was located in the reviewed GEO release, so the section stays at the preview level.",
+   "Independent donors are not established; treatment, registration, calibration and pathology QC remain open."
+  ]
+ },
+ {
+  "id": "cand-crc-garbarino-gse206552:GSM6256811",
+  "cohort": "cand-crc-garbarino-gse206552",
+  "stratum": null,
+  "cancer": "CRC",
+  "treatment": "Unknown",
+  "treatment_note": null,
+  "technique": "Visium",
+  "preservation": "Fresh frozen",
+  "registration": "Not yet checked",
+  "he_mpp": null,
+  "access": {
+   "he": "open",
+   "processed": "open",
+   "raw": "unresolved"
+  },
+  "verification": "file-checked",
+  "verified_on": "2026-11-21",
+  "clinical": {},
+  "image_level": "preview",
+  "review_batch": "crost-2026-11-21",
+  "patient": null,
+  "capture": "GSM6256811",
+  "accession": "GSM6256811",
+  "source_name": "meta2,CRLM biopsy, Spatial transcriptomic",
+  "tier": "metastatic",
+  "tier_reason": "Matched data with preview image; the largest H&E located in the reviewed GEO release appears to be a reduced-resolution export, not a native scan. Liver metastasis; not curated into a histology stratum.",
+  "site": "Metastasis",
+  "site_source": "CRLM biopsy (GEO sample title)",
+  "diagnosis": "colorectal liver metastasis",
+  "histology": "colorectal liver metastasis",
+  "linkage": "same-section",
+  "he_mpp_basis": "No trustworthy pixel size: the TIFF's 300 dpi header is display metadata, not a tissue calibration",
+  "he_file": "GSM6256811_meta2.tif.gz",
+  "links": {
+   "he": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256811/suppl/GSM6256811_meta2.tif.gz",
+   "expression": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256811/suppl/GSM6256811_meta2_filtered_feature_bc_matrix.h5",
+   "coordinates": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256811/suppl/GSM6256811_meta2_tissue_positions_list.csv.gz",
+   "raw": []
+  },
+  "expression_type": "Filtered H5: its 3,776 barcodes equal the in-tissue coordinate barcodes exactly (complete package check)",
+  "compartment": "metastatic-tumour",
+  "donor_mapping": "unresolved",
+  "geometry_check": {
+   "finite_positions": true,
+   "in_tissue_positions": 3776,
+   "positions_outside_preview": 0,
+   "preview_scale": 0.79113925,
+   "preview_shape": [
+    2000,
+    1978,
+    3
+   ]
+  },
+  "field_sources": {
+   "linkage": "https://doi.org/10.1111/acel.13853",
+   "geometry_check": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256811/suppl/GSM6256811_meta2_scalefactors_json.json.gz"
+  },
+  "open_checks": [
+   "The standalone RGB TIFF (2,500 × 2,528 pixels) fits the coordinate frame and matches the high-resolution preview, but its size and spot span suggest a reduced-resolution export; no native-resolution scan or trustworthy pixel size was located in the reviewed GEO release, so the section stays at the preview level.",
+   "Independent donors are not established; treatment, registration, calibration and pathology QC remain open."
+  ]
+ },
+ {
+  "id": "cand-crc-garbarino-gse206552:GSM6256812",
+  "cohort": "cand-crc-garbarino-gse206552",
+  "stratum": null,
+  "cancer": "CRC",
+  "treatment": "Unknown",
+  "treatment_note": null,
+  "technique": "Visium",
+  "preservation": "Fresh frozen",
+  "registration": "Not yet checked",
+  "he_mpp": null,
+  "access": {
+   "he": "open",
+   "processed": "open",
+   "raw": "unresolved"
+  },
+  "verification": "file-checked",
+  "verified_on": "2026-11-21",
+  "clinical": {},
+  "image_level": "preview",
+  "review_batch": "crost-2026-11-21",
+  "patient": null,
+  "capture": "GSM6256812",
+  "accession": "GSM6256812",
+  "source_name": "meta3,CRLM biopsy, Spatial transcriptomic",
+  "tier": "metastatic",
+  "tier_reason": "Matched data with preview image; the largest H&E located in the reviewed GEO release appears to be a reduced-resolution export, not a native scan. Liver metastasis; not curated into a histology stratum.",
+  "site": "Metastasis",
+  "site_source": "CRLM biopsy (GEO sample title)",
+  "diagnosis": "colorectal liver metastasis",
+  "histology": "colorectal liver metastasis",
+  "linkage": "same-section",
+  "he_mpp_basis": "No trustworthy pixel size: the TIFF's 300 dpi header is display metadata, not a tissue calibration",
+  "he_file": "GSM6256812_meta3.tif.gz",
+  "links": {
+   "he": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256812/suppl/GSM6256812_meta3.tif.gz",
+   "expression": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256812/suppl/GSM6256812_meta3_filtered_feature_bc_matrix.h5",
+   "coordinates": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256812/suppl/GSM6256812_meta3_tissue_positions_list.csv.gz",
+   "raw": []
+  },
+  "expression_type": "Filtered H5: its 1,248 barcodes equal the in-tissue coordinate barcodes exactly (complete package check)",
+  "compartment": "metastatic-tumour",
+  "donor_mapping": "unresolved",
+  "geometry_check": {
+   "finite_positions": true,
+   "in_tissue_positions": 1248,
+   "positions_outside_preview": 0,
+   "preview_scale": 0.8,
+   "preview_shape": [
+    2000,
+    1972,
+    3
+   ]
+  },
+  "field_sources": {
+   "linkage": "https://doi.org/10.1111/acel.13853",
+   "geometry_check": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256812/suppl/GSM6256812_meta3_scalefactors_json.json.gz"
+  },
+  "open_checks": [
+   "The standalone RGB TIFF (2,465 × 2,500 pixels) fits the coordinate frame and matches the high-resolution preview, but its size and spot span suggest a reduced-resolution export; no native-resolution scan or trustworthy pixel size was located in the reviewed GEO release, so the section stays at the preview level.",
+   "Independent donors are not established; treatment, registration, calibration and pathology QC remain open."
+  ]
+ },
+ {
+  "id": "cand-crc-garbarino-gse206552:GSM6256813",
+  "cohort": "cand-crc-garbarino-gse206552",
+  "stratum": null,
+  "cancer": "CRC",
+  "treatment": "Unknown",
+  "treatment_note": null,
+  "technique": "Visium",
+  "preservation": "Fresh frozen",
+  "registration": "Not yet checked",
+  "he_mpp": null,
+  "access": {
+   "he": "open",
+   "processed": "open",
+   "raw": "unresolved"
+  },
+  "verification": "file-checked",
+  "verified_on": "2026-11-21",
+  "clinical": {},
+  "image_level": "preview",
+  "review_batch": "crost-2026-11-21",
+  "patient": null,
+  "capture": "GSM6256813",
+  "accession": "GSM6256813",
+  "source_name": "meta4,CRLM biopsy, Spatial transcriptomic",
+  "tier": "metastatic",
+  "tier_reason": "Matched data with preview image; the largest H&E located in the reviewed GEO release appears to be a reduced-resolution export, not a native scan. Liver metastasis; not curated into a histology stratum.",
+  "site": "Metastasis",
+  "site_source": "CRLM biopsy (GEO sample title)",
+  "diagnosis": "colorectal liver metastasis",
+  "histology": "colorectal liver metastasis",
+  "linkage": "same-section",
+  "he_mpp_basis": "No trustworthy pixel size: the TIFF's 300 dpi header is display metadata, not a tissue calibration",
+  "he_file": "GSM6256813_meta4.tif.gz",
+  "links": {
+   "he": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256813/suppl/GSM6256813_meta4.tif.gz",
+   "expression": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256813/suppl/GSM6256813_meta4_filtered_feature_bc_matrix.h5",
+   "coordinates": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256813/suppl/GSM6256813_meta4_tissue_positions_list.csv.gz",
+   "raw": []
+  },
+  "expression_type": "Filtered H5: its 1,537 barcodes equal the in-tissue coordinate barcodes exactly (complete package check)",
+  "compartment": "metastatic-tumour",
+  "donor_mapping": "unresolved",
+  "geometry_check": {
+   "finite_positions": true,
+   "in_tissue_positions": 1537,
+   "positions_outside_preview": 0,
+   "preview_scale": 0.6666667,
+   "preview_shape": [
+    2000,
+    1960,
+    3
+   ]
+  },
+  "field_sources": {
+   "linkage": "https://doi.org/10.1111/acel.13853",
+   "geometry_check": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6256nnn/GSM6256813/suppl/GSM6256813_meta4_scalefactors_json.json.gz"
+  },
+  "open_checks": [
+   "The standalone RGB TIFF (2,940 × 3,000 pixels) fits the coordinate frame and matches the high-resolution preview, but its size and spot span suggest a reduced-resolution export; no native-resolution scan or trustworthy pixel size was located in the reviewed GEO release, so the section stays at the preview level.",
+   "Independent donors are not established; treatment, registration, calibration and pathology QC remain open."
+  ]
+ },
+ {
+  "id": "cand-crc-zhou-gse236697:GSM7573205",
+  "cohort": "cand-crc-zhou-gse236697",
+  "stratum": null,
+  "cancer": "CRC",
+  "treatment": "Unknown",
+  "treatment_note": null,
+  "technique": "Visium",
+  "preservation": "Fresh frozen",
+  "registration": "Not yet checked",
+  "he_mpp": null,
+  "access": {
+   "he": "open",
+   "processed": "open",
+   "raw": "unresolved"
+  },
+  "verification": "file-checked",
+  "verified_on": "2026-11-21",
+  "clinical": {},
+  "image_level": "preview",
+  "review_batch": "crost-2026-11-21",
+  "patient": "P1",
+  "capture": "GSM7573205",
+  "accession": "GSM7573205",
+  "source_name": "spatial transcriptomics of patient 1",
+  "tier": "review",
+  "tier_reason": "Matched data with preview image; the original H&E was not located. Not curated into a histology stratum.",
+  "site": "Primary",
+  "site_source": "Tumour (GEO series design); the sample's disease state reads tumour and normal",
+  "diagnosis": "mucinous colorectal adenocarcinoma",
+  "histology": "mucinous colorectal adenocarcinoma",
+  "linkage": "listed-together",
+  "he_mpp_basis": "Scanner calibration pending",
+  "he_file": null,
+  "links": {
+   "he": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7573nnn/GSM7573205/suppl/GSM7573205_p1.tissue_hires_image.png.gz",
+   "expression": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7573nnn/GSM7573205/suppl/GSM7573205_p1.matrix.mtx.gz",
+   "coordinates": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7573nnn/GSM7573205/suppl/GSM7573205_p1.tissue_positions_list.csv.gz",
+   "raw": []
+  },
+  "expression_type": "Matrix barcodes equal the 3,602 in-tissue coordinate barcodes exactly (complete package check)",
+  "compartment": "primary-tumour",
+  "donor_mapping": "source-established",
+  "geometry_check": {
+   "finite_positions": true,
+   "in_tissue_positions": 3602,
+   "positions_outside_preview": 0,
+   "preview_scale": 0.065834954,
+   "preview_shape": [
+    2000,
+    1984,
+    3
+   ]
+  },
+  "field_sources": {
+   "patient": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236697",
+   "geometry_check": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7573nnn/GSM7573205/suppl/GSM7573205_p1.scalefactors_json.json.gz"
+  },
+  "open_checks": [
+   "The sample metadata give the disease state as tumour and normal, so the section may include non-tumour tissue.",
+   "No standalone H&E was located in the reviewed GEO release, and the annotated QC JPEGs are not original scans; registration, calibration, treatment and pathology QC remain open."
+  ]
+ },
+ {
+  "id": "cand-crc-zhou-gse236697:GSM8286350",
+  "cohort": "cand-crc-zhou-gse236697",
+  "stratum": null,
+  "cancer": "CRC",
+  "treatment": "Unknown",
+  "treatment_note": null,
+  "technique": "Visium",
+  "preservation": "Fresh frozen",
+  "registration": "Not yet checked",
+  "he_mpp": null,
+  "access": {
+   "he": "open",
+   "processed": "open",
+   "raw": "unresolved"
+  },
+  "verification": "file-checked",
+  "verified_on": "2026-11-21",
+  "clinical": {},
+  "image_level": "preview",
+  "review_batch": "crost-2026-11-21",
+  "patient": "P1",
+  "capture": "GSM8286350",
+  "accession": "GSM8286350",
+  "source_name": "spatial transcriptomics of normal tissue of patient 1",
+  "tier": "review",
+  "tier_reason": "Matched data with preview image; the original H&E was not located. Not curated into a histology stratum.",
+  "site": "Unknown",
+  "site_source": "Adjacent normal (GEO disease state: normal; donor's tumour: mucinous colorectal adenocarcinoma)",
+  "diagnosis": "adjacent non-tumour colorectal tissue",
+  "histology": "adjacent non-tumour colorectal tissue",
+  "linkage": "listed-together",
+  "he_mpp_basis": "Scanner calibration pending",
+  "he_file": null,
+  "links": {
+   "he": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8286nnn/GSM8286350/suppl/GSM8286350_p1.tissue_hires_image.png.gz",
+   "expression": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8286nnn/GSM8286350/suppl/GSM8286350_p1_N.matrix.mtx.gz",
+   "coordinates": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8286nnn/GSM8286350/suppl/GSM8286350_p1_N.tissue_positions_list.csv.gz",
+   "raw": []
+  },
+  "expression_type": "Matrix barcodes equal the 1,725 in-tissue coordinate barcodes exactly (complete package check)",
+  "compartment": "solid-normal",
+  "donor_mapping": "source-established",
+  "geometry_check": {
+   "finite_positions": true,
+   "in_tissue_positions": 1725,
+   "positions_outside_preview": 0,
+   "preview_scale": 0.070382886,
+   "preview_shape": [
+    1910,
+    2000,
+    3
+   ]
+  },
+  "field_sources": {
+   "patient": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236697",
+   "geometry_check": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8286nnn/GSM8286350/suppl/GSM8286350_p1_N.scalefactors_json.json.gz"
+  },
+  "open_checks": [
+   "The preview also shows a second tissue fragment outside the capture area.",
+   "No standalone H&E was located in the reviewed GEO release, and the annotated QC JPEGs are not original scans; registration, calibration, treatment and pathology QC remain open."
+  ]
  }
 ]

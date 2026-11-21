@@ -1,6 +1,6 @@
 # Rectal adenocarcinoma
 
-Code `READ`. Colorectal extension; pooled in CRC. Release 0.11.2, 21 November 2026. Web page: [cancers.html?c=READ](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=READ). Data: [data/by-cancer/READ.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/READ.json).
+Code `READ`. Colorectal extension; pooled in CRC. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=READ](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=READ). Data: [data/by-cancer/READ.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/READ.json).
 
 Rectal adenocarcinoma was not part of the Hausser et al. geometry analysis. It is kept as a separate rectal stratum for spatial data, and TCGA-READ is analysed together with TCGA-COAD as the pooled colorectal cohort (CRC).
 
@@ -23,7 +23,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-13 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+11 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -36,14 +36,12 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors (`cand-crc-colonmap-heiser2023`) | Visium FFPE | Free account | No count reported | Verification pending |
 | Ren et al. 2025 (`cand-crc-spatch-ren2025`) | Visium HD | Open download | No count reported | Verification pending |
 | HTAN Vanderbilt colorectal CytAssist captures (`cand-crc-cottam-htan2025`) | Visium CytAssist | Free account | No count reported | Verification pending |
-| Garbarino et al. 2023 (`cand-crc-garbarino-gse206552`); metastases only | Visium | Open download | 4 Visium biopsy records (all cancer sites) | Verification pending |
-| Zhou et al. 2024 (`cand-crc-zhou-gse236697`); includes normal or adjacent tissue | Visium | Open download | 2 spatial records (tumour and adjacent normal) (all cancer sites) | Verification pending |
 | Schmauch et al. 2025 (`cand-crc-miso-petacc8`) | Visium FFPE | Controlled access | No count reported | Verification pending |
 | Srinivasan et al. 2025 (`cand-crc-vri-dartmouth2025`) | Spatial Transcriptomics (legacy arrays), Visium CytAssist | Unresolved | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 5 sections (5 with original H&E, 0 with a preview image) from 3 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
+Located tissue section records: 5 sections (5 with original H&E, 0 with a preview image) from 3 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |

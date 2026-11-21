@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.2",
+  "version": "0.11.3",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -1295,31 +1295,31 @@
     "url": "https://doi.org/10.1111/acel.13853"
    },
    "cancers": [
-    "COAD",
-    "READ"
+    "CRC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
    "techniques": [
     "Visium"
    ],
-   "preservation": [],
+   "preservation": [
+    "Fresh frozen"
+   ],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity",
+    "he-not-located",
     "treatment-review",
-    "image-qc"
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE206552 (GSM6256810–GSM6256813); CROST VISDS000005–VISDS000008",
    "access": {
     "category": "open",
-    "route": "Space Ranger matrices, positions, scale factors and images per sample on GEO; CROST is a secondary index of the four records.",
+    "route": "Filtered matrices, spot positions, scale factors, previews and a standalone H&E TIFF per sample on GEO; CROST is a secondary index of the four records.",
     "links": [
      [
       "Publication",
@@ -1335,9 +1335,9 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Four Visium records of colorectal liver metastasis biopsies (GEO GSM6256810–GSM6256813, titled meta1 to meta4). Each GEO sample lists filtered and raw matrices, spot positions, scale factors, low- and high-resolution images and a TIF file that the series describes as the H&E image. A bounded check of the CROST spatial package of one record (VISDS000005) found coordinates, scale factors and a 1,887 × 2,000 pixel preview. The expression-to-image join of all four records and whether any TIF is an original-resolution scan are not verified.",
+   "description": "Four Visium sections of colorectal liver metastasis biopsies (GEO GSM6256810–GSM6256813, titled meta1 to meta4); the paper reports that the same sections were imaged at 20x before permeabilisation. In each GEO package the filtered matrix barcodes equal the in-tissue coordinates exactly, all spots fall inside the supplied preview, and a standalone RGB TIFF (2,500 to 3,000 pixels on its long side) fits the same frame and matches the high-resolution preview. The TIFFs are linked as the largest matched images, but their size and 300 dpi display header point to reduced-resolution exports, not native scans, so the sections are held at the preview level.",
    "compartments": [
     "metastatic-tumour"
    ],
@@ -1349,8 +1349,8 @@
     ]
    ],
    "notes": [
-    "The four records are biopsy records, not a donor count: the number of independent donors, treatment before sampling and eligible patients are unknown.",
-    "The colorectal primary subsite is not stated, so the resource is shown on both the colon and rectum pages."
+    "The four sections are not a donor count: the number of independent donors, treatment before sampling and eligible patients are unknown.",
+    "Pooled colorectal coverage: the primary subsite (colon or rectum) of these liver metastases is unknown, so the resource is listed under CRC only."
    ]
   },
   {
@@ -1366,11 +1366,10 @@
     "url": "https://doi.org/10.1002/ctm2.1701"
    },
    "cancers": [
-    "COAD",
-    "READ"
+    "CRC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -1383,16 +1382,16 @@
    "specimen": "clinical-tumour",
    "linkage": "unverified",
    "gates": [
-    "package-unverified",
-    "he-unverified",
+    "he-not-located",
     "identity",
     "treatment-review",
-    "image-qc"
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE236697 (GSM7573205, GSM8286350; SuperSeries GSE236698); CROST VISDS001755",
    "access": {
     "category": "open",
-    "route": "Space Ranger matrices, positions, scale factors and images per sample on GEO; CROST is a secondary index.",
+    "route": "Matrices, spot positions, scale factors and previews per sample on GEO; CROST is a secondary index.",
     "links": [
      [
       "Publication",
@@ -1408,9 +1407,9 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Visium profiles of a mucinous colorectal adenocarcinoma and adjacent normal tissue from one patient, as the GEO series design states. The current series lists the tumour record GSM7573205 (disease state given as tumour and normal) and the normal record GSM8286350, each with a matrix, spot positions, scale factors and low- and high-resolution images. CROST VISDS001755 lists GSM7573206 instead, which is not a member of the current GEO series (the GEO record with that ID is an unrelated mouse brain sample), so the CROST record's join to the GEO records is unresolved. No package, original scan or same-section image match has been checked.",
+   "description": "Visium profiles of a mucinous colorectal adenocarcinoma (GSM7573205) and adjacent normal tissue (GSM8286350) from one patient, as the GEO series design states; the tumour sample's metadata give its disease state as tumour and normal. In both GEO packages the matrix barcodes equal the in-tissue coordinates exactly and all spots fall inside the supplied preview. No standalone H&E was located in the reviewed GEO release, and the annotated QC JPEGs are not original scans. CROST VISDS001755 lists GSM7573206 instead, which is not a member of the current GEO series (the GEO record with that ID is an unrelated mouse brain sample); the catalogue uses the GEO accession, and the CROST record's join remains unresolved.",
    "compartments": [
     "primary-tumour",
     "solid-normal"
@@ -1428,8 +1427,8 @@
     ]
    ],
    "notes": [
-    "The source reports one patient; this is not an eligible-patient count. Treatment before sampling is unknown.",
-    "The colorectal primary subsite is not established here, so the resource is shown on both the colon and rectum pages."
+    "The source reports one patient, given the study-local label P1 on both sections; this is not an eligible-patient count. Treatment before sampling is unknown.",
+    "Pooled colorectal coverage: the primary subsite (colon or rectum) is unknown, so the resource is listed under CRC only."
    ]
   }
  ],
@@ -3883,6 +3882,156 @@
    "verification": "file-checked",
    "assay_area_id": null,
    "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-garbarino-gse206552:GSM6256810",
+   "cohort": "cand-crc-garbarino-gse206552",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6256810",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-garbarino-gse206552:GSM6256811",
+   "cohort": "cand-crc-garbarino-gse206552",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6256811",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-garbarino-gse206552:GSM6256812",
+   "cohort": "cand-crc-garbarino-gse206552",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6256812",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-garbarino-gse206552:GSM6256813",
+   "cohort": "cand-crc-garbarino-gse206552",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6256813",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crc-zhou-gse236697:GSM7573205",
+   "cohort": "cand-crc-zhou-gse236697",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": "P1",
+   "capture": "GSM7573205",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crc-zhou-gse236697:GSM8286350",
+   "cohort": "cand-crc-zhou-gse236697",
+   "cancer": "CRC",
+   "stratum": null,
+   "patient": "P1",
+   "capture": "GSM8286350",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
   }
  ],
  "other_resources": [

@@ -1,6 +1,6 @@
 # Lung squamous cell carcinoma
 
-Code `LUSC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.2, 21 November 2026. Web page: [cancers.html?c=LUSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUSC). Data: [data/by-cancer/LUSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUSC.json).
+Code `LUSC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=LUSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUSC). Data: [data/by-cancer/LUSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUSC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; about a quarter of retained patients have RNA-seq without 450k methylation.
 
@@ -31,7 +31,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 10 sections (0 with original H&E, 10 with a preview image) from 2 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
+Located tissue section records: 10 sections (0 with original H&E, 10 with a preview image) from 2 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |

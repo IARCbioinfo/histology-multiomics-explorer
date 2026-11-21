@@ -1,6 +1,6 @@
 # Head and neck squamous cell carcinoma
 
-Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.11.2, 21 November 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
+Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
 
 Hausser et al. described head and neck cancer as borderline under their significance criterion. HPV status, keratinization and subsite are kept as separate strata because they correspond to different tumour biology.
 
@@ -42,7 +42,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 65 sections (37 with original H&E, 28 with a preview image) from 32 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
+Located tissue section records: 65 sections (37 with original H&E, 28 with a preview image) from 32 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |

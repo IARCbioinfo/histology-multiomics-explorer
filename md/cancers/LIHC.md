@@ -1,6 +1,6 @@
 # Liver hepatocellular carcinoma
 
-Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.11.2, 21 November 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
+Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
 
 Hepatocellular carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Combined hepatocellular–cholangiocarcinoma and post-treatment cohorts are kept separate.
 
@@ -46,7 +46,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 48 sections (2 with original H&E, 46 with a preview image) from 12 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum. 
+Located tissue section records: 48 sections (2 with original H&E, 46 with a preview image) from 12 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |

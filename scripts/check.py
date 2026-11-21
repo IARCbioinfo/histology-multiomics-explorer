@@ -149,7 +149,7 @@ for c in captures:
         check_url(w, u)
     if not c.get("patient") and c["tier"] == "core":
         err(f"{w}: core capture without patient ID")
-    if c.get("review_batch") in ("backlog-2026-10-16", "followup-2026-10-16"):
+    if c.get("review_batch") in ("backlog-2026-10-16", "followup-2026-10-16", "crost-2026-11-21"):
         if c["tier"] not in ("review", "metastatic") or c["stratum"] or (c["tier"] == "metastatic") != (c["site"] == "Metastasis"):
             err(f"{w}: reviewed sections stay outside the core and any histology stratum")
         if c.get("donor_mapping") not in ENUMS["donor_mapping"] or (c["patient"] is not None) != (c["donor_mapping"] != "unresolved"):
@@ -373,12 +373,14 @@ n_orig = sum(x["image_level"] == "original" for x in captures)
 n_prev_rows = sum(x["image_level"] == "preview" for x in captures)
 n_prev_counted = sum((c["spatial_review"]["route_review"]["sections_with_matching_coordinates"] or 0) for c in prev if not any(x["cohort"] == c["id"] for x in captures))
 n_known = len({(x["cohort"], x["patient"]) for x in captures if x["patient"]})
-# Release 0.11.2 (21 November 2026) adds two colorectal candidates (GSE206552, GSE236697) without section records: 68 to 70 candidates.
+# Release 0.11.2 (21 November 2026) added two colorectal candidates (GSE206552, GSE236697); release 0.11.3 lists their six checked
+# preview sections (review batch crost-2026-11-21), so both are preview-level: 29 to 31 preview resources, 70 back to 68 candidates,
+# 500 to 506 preview sections, one new study-local patient (Zhou P1) and four sections without a patient ID (Garbarino).
 if (len(orig), len(prev), len(spatial) - len(orig) - len(prev), n_orig, n_prev_rows, n_prev_counted, len(captures), n_known, sum(not x["patient"] for x in captures)) \
-        != (16, 29, 70, 261, 500, 0, 761, 266, 246):
+        != (16, 31, 68, 261, 506, 0, 767, 267, 250):
     err(f"spatial: {len(orig)} original-level, {len(prev)} preview-level and {len(spatial) - len(orig) - len(prev)} candidate studies; {n_orig} original and "
-        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients. Expected 16, 29 and 70; 261 and 500 + 0 (761 study–section records); "
-        "266 known patients and 246 records without a patient ID")
+        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients. Expected 16, 31 and 68; 261 and 506 + 0 (767 study–section records); "
+        "267 known patients and 250 records without a patient ID")
 for cid, n_sec, n_area in (("cand-frontiers2026-zenodo18238293", 11, 4),):
     rows = [x for x in captures if x["cohort"] == cid]
     if len(rows) != n_sec or len({x.get("assay_area_id") for x in rows}) != n_area or len({x["patient"] for x in rows}) != 10:
@@ -390,6 +392,21 @@ if sum(x["image_level"] == "original" for x in zb) != 2 or len([x for x in zb if
 gw = [x for x in captures if x["cohort"] == "cand-greenwald2024"]
 if (sum(x["image_level"] == "original" for x in gw), sum(x["image_level"] == "preview" for x in gw)) != (12, 7):
     err("spatial Greenwald: 12 direct original matches and 7 preview-level sections expected")
+# CROST colorectal sections of 21 November 2026: six preview sections listed under pooled CRC, subsite not inferred.
+CR = {x["id"]: x for x in captures if x.get("review_batch") == "crost-2026-11-21"}
+_gb, _zh = "cand-crc-garbarino-gse206552", "cand-crc-zhou-gse236697"
+if set(CR) != {f"{_gb}:GSM62568{n}" for n in (10, 11, 12, 13)} | {f"{_zh}:GSM7573205", f"{_zh}:GSM8286350"} \
+        or any(x["image_level"] != "preview" or x["tier"] == "core" or x["he_mpp"] is not None or x["treatment"] != "Unknown"
+               or x["cancer"] != "CRC" or x["capture"] != x["accession"] or x["id"] != f"{x['cohort']}:{x['capture']}" for x in CR.values()) \
+        or any(cohort_by_id[k]["cancers"] != ["CRC"] or cohort_by_id[k]["status"] != "preview" for k in (_gb, _zh)):
+    err("CROST sections: exactly the six GSE206552/GSE236697 preview records under CRC, without core tier, pixel size or treatment status")
+_zr = [x for x in CR.values() if x["cohort"] == _zh]
+if any(x["patient"] is not None or x["site"] != "Metastasis" or x["compartment"] != "metastatic-tumour" for x in CR.values() if x["cohort"] == _gb) \
+        or len({x["patient"] for x in _zr}) != 1 or not _zr[0]["patient"] or any(x["donor_mapping"] != "source-established" for x in _zr) \
+        or {(x["accession"], x["site"], x["compartment"]) for x in _zr} != {("GSM7573205", "Primary", "primary-tumour"), ("GSM8286350", "Unknown", "solid-normal")} \
+        or any(re.search(r"carcinoma|(?<!non-)tumou?r", f"{x['diagnosis']} {x['histology']}", re.I) for x in _zr if x["compartment"] == "solid-normal"):
+    err("CROST sections: Garbarino metastases keep no donor; the two Zhou sections share one source-established donor, tumour and adjacent normal, "
+        "and the adjacent-normal section does not carry tumour histology")
 if any(c["cancers"] == ["SARC"] or "SARC" in c["cancers"] for c in spatial):
     err("spatial: no resource is assigned to TCGA-SARC")
 

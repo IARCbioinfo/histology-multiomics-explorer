@@ -12,7 +12,7 @@ One object per cancer type.
 
 | Field | Meaning |
 | --- | --- |
-| `code` | Short code, following TCGA where one exists (`PDAC` is used for pancreatic ductal adenocarcinoma; `CRC` is the pooled colorectal adenocarcinoma page and also marks spatial captures whose colon or rectal origin is not stated; `GLIOMA` is the pooled LGG and GBM classification benchmark) |
+| `code` | Short code, following TCGA where one exists (`PDAC` is used for pancreatic ductal adenocarcinoma; `CRC` is the pooled colorectal adenocarcinoma page and also marks spatial resources and captures whose colon or rectal origin is not stated; `GLIOMA` is the pooled LGG and GBM classification benchmark) |
 | `name` | Display name |
 | `group` | `hausser`, `tcga-panel` (added by the molecular screen), `extension`, `additional`, `pooled` (a page combining other cancers, listed in `includes`), `excluded` (kept for provenance, outside the study and the navigation) or `aggregate` |
 | `hausser` | Result in Hausser et al. 2019: `significant`, `borderline`, `no-geometry` (screened, no vertices detected) or `not-screened` |
@@ -75,10 +75,10 @@ One object per study–section record: an assayed section or capture area of one
 | `compartment` | Tissue compartment where it is not the primary or metastatic tumour (for example `precursor` or `normal`) |
 | `open_checks` | Checks still open for this section |
 | `out_of_tissue_expression_spots`, `recurrence_outcome`, `original_crosswalk_inferred` | Expression spots outside the tissue to filter; a recurrence recorded as a later outcome; whether the original-image match was inferred (then held at preview level) |
-| `review_batch` | The review that added the record (`backlog-2026-10-16` or `followup-2026-10-16`), where it was not curated by hand |
+| `review_batch` | The review that added the record (`backlog-2026-10-16`, `followup-2026-10-16`, or `crost-2026-11-21` for the six colorectal preview sections of GSE206552 and GSE236697 added in release 0.11.3), where it was not curated by hand |
 | `geometry_check` | Frame check: finite coordinates and positions inside the original or preview frame after the supplied scale, with the scale used; not a registration sign-off |
 | `sampled_recurrence` | True for a sampled recurrent tumour sector |
-| `field_sources` | Evidence URL of each field changed by the follow-up review, keyed by field (`clinical.<field>` for clinical fields) |
+| `field_sources` | Evidence URL of each field changed by the follow-up review, or set by a later review batch, keyed by field (`clinical.<field>` for clinical fields) |
 | `tier` | `core`, `metastatic`, `review`, `outside-stratum`, `held`; `tier_reason` gives the source-backed reason |
 | `site`, `site_source` | `Primary`, `Metastasis` or `Unknown`, with the source wording |
 | `treatment`, `treatment_note` | `Untreated`, `Post-treatment` or `Unknown` before sampling, with the evidence |
@@ -87,7 +87,7 @@ One object per study–section record: an assayed section or capture area of one
 | `linkage`, `registration` | H&E–RNA linkage level and alignment status |
 | `expression_type` | The expression data and how they were checked against the coordinates |
 | `he_mpp`, `he_mpp_basis` | Image resolution in µm/pixel where established, and how it was obtained; a value read from an image header is an observation, not an independent calibration |
-| `he_file` | Original image filename where recorded |
+| `he_file` | Filename of the largest matched H&E image where recorded; at the preview level it is not an original scan |
 | `links` | `he`, `expression`, `coordinates` and `raw` (list) URLs |
 | `access` | Access category for `he`, `processed` and `raw` data |
 | `verification`, `verified_on` | Verification label and date |
