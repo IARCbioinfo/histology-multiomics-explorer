@@ -367,6 +367,15 @@
       "items": {
        "type": "integer"
       }
+     },
+     "original_shape": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      }
+     },
+     "coordinate_source": {
+      "type": "string"
      }
     },
     "required": [

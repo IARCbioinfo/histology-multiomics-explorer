@@ -1,6 +1,6 @@
 # Kidney renal clear cell carcinoma
 
-Code `KIRC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=KIRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRC). Data: [data/by-cancer/KIRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRC.json).
+Code `KIRC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.5, 21 November 2026. Web page: [cancers.html?c=KIRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=KIRC). Data: [data/by-cancer/KIRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/KIRC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; a large share of retained patients have RNA-seq without 450k methylation.
 
@@ -22,29 +22,30 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-11 spatial resources are catalogued; matched molecular data with a preview image only for 2. Verification is pending for the others. Five of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
+12 spatial resources are catalogued; the original H&E and matched molecular data are located for 4, and matched molecular data with a preview image only for 5. Verification is pending for the others. Five of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
+| GSE171406 non-tumour reference (`cand-crost-gse171406`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Original H&E located: 1 section with original H&E |
+| GSE179572 spatial study (`cand-crost-gse179572`); metastases only | Visium | Open download | No count reported | Original H&E located: 1 section with a preview image only; 1 known patient |
+| GSE206306 non-tumour reference (`cand-crost-gse206306`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Original H&E located: 1 section with original H&E |
+| GSE183456 non-tumour reference (`cand-crost-gse183456`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Original H&E located: 2 sections with original H&E |
 | Meylan et al. 2022 (`kirc-meylan-gse175540`) | Visium FFPE, Visium | Open download | 24 spatial samples | Matched data with preview image: 24 sections with a preview image |
 | GSE294006, treated advanced ccRCC (`kirc-treated-gse294006`); includes treated tissue | Visium FFPE | Open download | 3 primary-tumour samples after systemic treatment | Matched data with preview image: 3 sections with a preview image |
+| GSE210041 spatial study (`cand-crost-gse210041`); includes treated tissue; treatment review pending | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image; 2 known patients |
+| GSE250138 non-tumour reference (`cand-crost-gse250138`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image: 3 sections with a preview image |
+| GSE250163 spatial study (`cand-crost-gse250163`) | Visium | Open download | No count reported | Matched data with preview image: 3 sections with a preview image |
 | Li et al. 2022, ccRCC Visium (EGAD00001008781) (`kirc-egad00001008781`) | Visium | Open download | 8 patients with ccRCC | Verification pending |
 | 10x Genomics ccRCC, Xenium RNA and protein (`kirc-10x-xenium-protein`) | Xenium | Free account | 1 sample (vendor specimen) | Verification pending |
 | E-MTAB-11721 non-tumour reference (`cand-crost-e-mtab-11721`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE171406 non-tumour reference (`cand-crost-gse171406`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE206306 non-tumour reference (`cand-crost-gse206306`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE183456 non-tumour reference (`cand-crost-gse183456`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE210041 spatial study (`cand-crost-gse210041`); treatment review pending | Visium | Open download | No count reported | Verification pending |
-| GSE250138 non-tumour reference (`cand-crost-gse250138`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE250163 spatial study (`cand-crost-gse250163`) | Visium | Open download | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 27 sections (0 with original H&E, 27 with a preview image) from 0 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
+Located tissue section records: 40 sections (4 with original H&E, 36 with a preview image) from 3 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |
-| No stratum assigned | 0 | 0 | 0 | 27 |
+| No stratum assigned | 0 | 0 | 4 | 36 |
 
 ## Selection history: published archetype evidence
 

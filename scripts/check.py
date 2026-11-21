@@ -149,7 +149,7 @@ for c in captures:
         check_url(w, u)
     if not c.get("patient") and c["tier"] == "core":
         err(f"{w}: core capture without patient ID")
-    if c.get("review_batch") in ("backlog-2026-10-16", "followup-2026-10-16", "crost-2026-11-21"):
+    if c.get("review_batch") in ("backlog-2026-10-16", "followup-2026-10-16", "crost-2026-11-21", "crost-origin-2026-11-21"):
         if c["tier"] not in ("review", "metastatic") or c["stratum"] or (c["tier"] == "metastatic") != (c["site"] == "Metastasis"):
             err(f"{w}: reviewed sections stay outside the core and any histology stratum")
         if c.get("donor_mapping") not in ENUMS["donor_mapping"] or (c["patient"] is not None) != (c["donor_mapping"] != "unresolved"):
@@ -377,11 +377,14 @@ n_known = len({(x["cohort"], x["patient"]) for x in captures if x["patient"]})
 # preview sections (review batch crost-2026-11-21), so both are preview-level: 29 to 31 preview resources, 70 back to 68 candidates,
 # 500 to 506 preview sections, one new study-local patient (Zhou P1) and four sections without a patient ID (Garbarino).
 # Release 0.11.4 (21 November 2026) adds 69 CROST pan-cancer candidates without section records: 68 to 137 candidates.
+# Release 0.11.5 (21 November 2026) checks the 69 against their originating repositories (review batch crost-origin-2026-11-21,
+# scripts/import_crost_origin_review.py); see CROST_ORIGIN below for the resources and sections it adds.
+EXPECTED_SPATIAL = (16 + 8, 31 + 50, 137 - 8 - 50, 261 + 42, 506 + 225, 0, 767 + 42 + 225, 267 + 57, 250 + 181)
 if (len(orig), len(prev), len(spatial) - len(orig) - len(prev), n_orig, n_prev_rows, n_prev_counted, len(captures), n_known, sum(not x["patient"] for x in captures)) \
-        != (16, 31, 137, 261, 506, 0, 767, 267, 250):
+        != EXPECTED_SPATIAL:
     err(f"spatial: {len(orig)} original-level, {len(prev)} preview-level and {len(spatial) - len(orig) - len(prev)} candidate studies; {n_orig} original and "
-        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients. Expected 16, 31 and 137; 261 and 506 + 0 (767 study–section records); "
-        "267 known patients and 250 records without a patient ID")
+        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients; {sum(not x['patient'] for x in captures)} records without a patient ID. "
+        f"Expected {EXPECTED_SPATIAL}")
 for cid, n_sec, n_area in (("cand-frontiers2026-zenodo18238293", 11, 4),):
     rows = [x for x in captures if x["cohort"] == cid]
     if len(rows) != n_sec or len({x.get("assay_area_id") for x in rows}) != n_area or len({x["patient"] for x in rows}) != 10:
@@ -408,15 +411,20 @@ if any(x["patient"] is not None or x["site"] != "Metastasis" or x["compartment"]
         or any(re.search(r"carcinoma|(?<!non-)tumou?r", f"{x['diagnosis']} {x['histology']}", re.I) for x in _zr if x["compartment"] == "solid-normal"):
     err("CROST sections: Garbarino metastases keep no donor; the two Zhou sections share one source-established donor, tumour and adjacent normal, "
         "and the adjacent-normal section does not carry tumour histology")
-# CROST pan-cancer candidates of release 0.11.4 (ids cand-crost-*): every earlier cohort object, all section records and all
-# TCGA files stay as in release 0.11.3; the 69 new entries are unqualified candidates without section records, and the 29
-# non-tumour references (specimen clinical-reference) carry only normal or adjacent-normal compartments. Update a pin only for a deliberate edit.
+# CROST pan-cancer candidates of release 0.11.4 (ids cand-crost-*): every earlier cohort object, the 767 section records of
+# release 0.11.4 and all TCGA files stay as they were; the 29 non-tumour references (specimen clinical-reference) carry only
+# normal or adjacent-normal compartments. Release 0.11.5 checks the 69 against their originating repositories: each carries an
+# origin_review, its status follows its new section records (batch crost-origin-2026-11-21), and nothing else changes.
+# Update a pin only for a deliberate edit.
 _digest = lambda o: hashlib.sha256(json.dumps(o, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 _cr = [c for c in cohorts if c["id"].startswith("cand-crost-")]
 _cr_ids = {c["id"] for c in _cr}
 if _digest([c for c in cohorts if c["id"] not in _cr_ids]) != "dadb5f487e7b575c98967bc437cec3cbfd2f45f4cb5564f89d0d4a70a6c87f00":
     err("cohorts: the 135 cohort objects of release 0.11.3 changed")
-for _name, _pin in (("captures", "fda67012e4e134f236db438d93cb656809ae4fa5bed1930647fbb9c8f41ff4d6"),
+_OB = "crost-origin-2026-11-21"
+if _digest([x for x in captures if x.get("review_batch") != _OB]) != "fda67012e4e134f236db438d93cb656809ae4fa5bed1930647fbb9c8f41ff4d6":
+    err("captures: the 767 section records of release 0.11.4 changed")
+for _name, _pin in (
                     ("tcga_counts", "be9cadf3f1a034054aed9c358f90e0c437f7cd2b119c4e4a915afc208a96155e"),
                     ("tcga_patients", "b372dd0665eb8639d7540525ec451baa90d283309e51cb78314e7f2d2e90d112"),
                     ("tcga_flags", "267a28550c4457dccd0810ae7ddd133bb272bb32c1eee5b9467067300e0cda5e"),
@@ -429,10 +437,327 @@ for _name, _pin in (("captures", "fda67012e4e134f236db438d93cb656809ae4fa5bed193
 _ref = [c for c in _cr if c["specimen"] == "clinical-reference"]
 if len(_cr) != 69 or len(_ref) != 29 or any(c["specimen"] not in ("clinical-tumour", "clinical-reference") for c in _cr):
     err(f"CROST candidates: 69 entries expected with 29 non-tumour references, found {len(_cr)} and {len(_ref)}")
-if any(c["layer"] != "matched-spatial" or c["status"] != "candidate" or c["verification"] != "metadata-checked" or c["linkage"] != "unverified"
-       or not {"package-unverified", "he-unverified"} <= set(c["gates"]) or {"reported", "spatial_review", "backlog_review", "followup_review"} & set(c)
-       for c in _cr) or any(x["cohort"] in _cr_ids for x in captures):
-    err("CROST candidates: unqualified candidates only, with no section records, reported counts or review promotion")
+_orows = [x for x in captures if x.get("review_batch") == _OB]
+# CROST_ORIGIN: promoted CROST candidates of release 0.11.5 -> [status, original sections, preview sections]; all others stay candidates.
+CROST_ORIGIN = {
+ "cand-crost-e-mtab-11640": [
+  "verified",
+  20,
+  0
+ ],
+ "cand-crost-gse158328": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse171406": [
+  "verified",
+  1,
+  0
+ ],
+ "cand-crost-gse172416": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse178361": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse179572": [
+  "verified",
+  2,
+  3
+ ],
+ "cand-crost-gse183456": [
+  "verified",
+  2,
+  0
+ ],
+ "cand-crost-gse184510": [
+  "preview",
+  0,
+  4
+ ],
+ "cand-crost-gse185477": [
+  "preview",
+  0,
+  1
+ ],
+ "cand-crost-gse189042": [
+  "preview",
+  0,
+  1
+ ],
+ "cand-crost-gse194329": [
+  "preview",
+  0,
+  6
+ ],
+ "cand-crost-gse206306": [
+  "verified",
+  1,
+  0
+ ],
+ "cand-crost-gse206621": [
+  "preview",
+  0,
+  5
+ ],
+ "cand-crost-gse208747": [
+  "preview",
+  0,
+  5
+ ],
+ "cand-crost-gse210041": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse211895": [
+  "verified",
+  3,
+  0
+ ],
+ "cand-crost-gse213688": [
+  "verified",
+  11,
+  4
+ ],
+ "cand-crost-gse217414": [
+  "preview",
+  0,
+  4
+ ],
+ "cand-crost-gse220978": [
+  "preview",
+  0,
+  4
+ ],
+ "cand-crost-gse223559": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse224411": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse225857": [
+  "preview",
+  0,
+  6
+ ],
+ "cand-crost-gse230282": [
+  "preview",
+  0,
+  1
+ ],
+ "cand-crost-gse233293": [
+  "preview",
+  0,
+  13
+ ],
+ "cand-crost-gse235315": [
+  "preview",
+  0,
+  7
+ ],
+ "cand-crost-gse235672": [
+  "preview",
+  0,
+  20
+ ],
+ "cand-crost-gse240429": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse242311": [
+  "preview",
+  0,
+  16
+ ],
+ "cand-crost-gse243022": [
+  "preview",
+  0,
+  4
+ ],
+ "cand-crost-gse245704": [
+  "preview",
+  0,
+  1
+ ],
+ "cand-crost-gse246495": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse248082": [
+  "preview",
+  0,
+  5
+ ],
+ "cand-crost-gse248205": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse250138": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse250163": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse251693": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse253080": [
+  "preview",
+  0,
+  16
+ ],
+ "cand-crost-gse254364": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse254829": [
+  "preview",
+  0,
+  14
+ ],
+ "cand-crost-gse262276": [
+  "preview",
+  0,
+  1
+ ],
+ "cand-crost-gse263034": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse264692": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse268049": [
+  "preview",
+  0,
+  15
+ ],
+ "cand-crost-gse268427": [
+  "verified",
+  2,
+  0
+ ],
+ "cand-crost-gse273275": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse273432": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse274103": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse274665": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse276841": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse278687": [
+  "preview",
+  0,
+  3
+ ],
+ "cand-crost-gse278936": [
+  "preview",
+  0,
+  4
+ ],
+ "cand-crost-gse279181": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse280316": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse281288": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse286413": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse290350": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse296626": [
+  "preview",
+  0,
+  2
+ ],
+ "cand-crost-gse313918": [
+  "preview",
+  0,
+  2
+ ]
+}
+for c in _cr:
+    _rw = [x for x in _orows if x["cohort"] == c["id"]]
+    _got = [c["status"], sum(x["image_level"] == "original" for x in _rw), sum(x["image_level"] == "preview" for x in _rw)]
+    if _got != CROST_ORIGIN.get(c["id"], ["candidate", 0, 0]):
+        err(f"CROST {c['id']}: status and section records {_got} differ from the reviewed origin check {CROST_ORIGIN.get(c['id'], ['candidate', 0, 0])}")
+if any(x["cohort"] in _cr_ids for x in captures if x.get("review_batch") != _OB) or any(x["cohort"] not in _cr_ids for x in _orows):
+    err("CROST candidates: section records of the 69 come only from the originating-repository check, and that batch covers only them")
+for c in _cr:
+    rows = [x for x in _orows if x["cohort"] == c["id"]]
+    o = c.get("origin_review") or {}
+    want = "verified" if any(x["image_level"] == "original" for x in rows) else "preview" if rows else "candidate"
+    if c["layer"] != "matched-spatial" or c["status"] != want or {"spatial_review", "backlog_review", "followup_review"} & set(c) \
+            or o.get("date") != "2026-11-21" or o.get("outcome") not in ENUMS["backlog_outcome"] or not o.get("next_step") \
+            or any(s not in ENUMS["route_state"] for s in o.get("states", [None])) or (o.get("sections_listed") or 0) != len(rows) \
+            or (want == "candidate") != (c["verification"] == "metadata-checked") or (want == "candidate" and not {"package-unverified", "he-unverified"} & set(c["gates"])):
+        err(f"CROST {c['id']}: needs an origin review whose status, verification and listed sections follow its section records")
+    if want != "candidate" and (re.search(r"Candidate only|have not been qualified", c["description"]) or c["linkage"] == "unverified"
+                                or any(n.startswith("No new confirmed section records") for n in c.get("notes", []))):
+        err(f"CROST {c['id']}: a promoted resource must not keep its candidate wording or unverified linkage")
+    if o.get("sections_listed") and (o.get("sections_checked") or 0) < o["sections_listed"]:
+        err(f"CROST {c['id']}: more sections listed than file-checked")
+if any(x["tier"] == "core" or x["stratum"] or x["he_mpp"] is not None or x["registration"] != "Not yet checked" or x["verification"] != "file-checked"
+       or x["id"] != f"{x['cohort']}:{x['capture']}" for x in _orows):
+    err("CROST origin sections: outside the core and any stratum, no pixel size, registration unchecked, file-checked")
+if any(x["compartment"] not in ("normal", "solid-normal") or x["site"] != "Unknown" or re.search(r"carcinoma|(?<!non-)tumou?r|metasta|neoplas|glioblastoma|glioma", f"{x['diagnosis']} {x['histology']}", re.I)
+       for x in _orows if cohort_by_id[x["cohort"]]["specimen"] == "clinical-reference"):
+    err("CROST references: non-tumour reference sections keep a normal or adjacent-normal compartment, no tumour site and no tumour histology")
 if any(not set(c["compartments"]) <= {"normal", "solid-normal"} or "normal-reference" not in c["modalities"] or "reference" not in c["label"] or re.search(r"clinical tumou?r", c["label"] + c["description"], re.I)
        for c in _ref) or any(c["specimen"] == "clinical-reference" for c in cohorts if c["id"] not in _cr_ids):
     err("CROST references: non-tumour references carry only normal or adjacent-normal compartments, the normal-reference modality, and are not labelled clinical tumours")
@@ -1001,6 +1326,23 @@ for c in (cancers if not any(e.startswith("MCP catalogue") for e in errors) else
     bc = json.loads((DATA / "by-cancer" / f"{c['code']}.json").read_text(encoding="utf-8"))
     if mcp_cat.search_resources(cancer=c["code"], layer="matched-spatial", limit=1)["total"] != len(bc["spatial_resources"]):
         err(f"MCP search_resources {c['code']}: spatial resources differ from the cancer page")
+# The originating-repository check of the CROST candidates is the latest package-level result: searches by result and by open
+# dependency must find a CROST candidate through its origin_review, while a resource with only a package review keeps that result.
+if not any(e.startswith("MCP catalogue") for e in errors):
+    for c in _cr:
+        o = c["origin_review"]
+        found = {x["id"]: x for x in mcp_cat.search_resources(package_review_result=o["outcome"], limit=500)["resources"]}
+        if c["id"] not in found or (found[c["id"]].get("origin_review") or {}).get("result") != o["outcome"] \
+                or any(c["id"] not in {x["id"] for x in mcp_cat.search_resources(open_dependency=st, limit=500)["resources"]} for st in o["states"]):
+            err(f"MCP search_resources: {c['id']} is not found through its origin review result or each open dependency")
+    # A present latest review with no open dependency must not fall back to older review states.
+    from explorer_mcp.catalogue import latest_states as _ls, latest_package_result as _lp  # noqa: E402
+    if _ls({"origin_review": {"states": [], "outcome": "original-ready"}, "backlog_review": {"states": ["author-release"], "outcome": "release-gap"}}) != [] \
+            or _lp({"origin_review": {"outcome": "original-ready"}, "backlog_review": {"outcome": "release-gap"}}) != "original-ready":
+        err("MCP latest_states/latest_package_result: the latest present review must take precedence, including an empty dependency list")
+    _bk = next(c for c in spatial if c.get("backlog_review") and not c.get("origin_review"))
+    if _bk["id"] not in {x["id"] for x in mcp_cat.search_resources(package_review_result=_bk["backlog_review"]["outcome"], limit=500)["resources"]}:
+        err("MCP search_resources: a resource without an origin review must keep its package-review result")
 for doc in ("agents.html", "README.md"):
     text = (DATA.parent / doc).read_text(encoding="utf-8")
     for name, _ in MCP_TOOLS:

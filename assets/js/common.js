@@ -900,6 +900,19 @@ export function showCohort(d, id) {
       ["Next step", esc(b.next_step)],
       ["Eligible patients", "Unknown: no patient is promoted into the strict core by this review"],
     ])}` : "";
+  const o = c.origin_review;
+  const originHtml = o ? `<h3 class="section-title">Originating-repository check</h3>
+    ${kv([
+      ["Result", esc(LABELS.backlogOutcome[o.outcome] ?? o.outcome)],
+      ["How far it was checked", esc(o.depth)],
+      ["Images", esc(o.image_finding)],
+      ["Expression and coordinates", esc(o.molecular_finding)],
+      ["Sample packages checked", o.sections_checked == null ? "Not checked" : `${fmt(o.sections_checked)}<span class="cell-sub">selected sample or capture-area packages whose files were checked; not a count of physical sections or donors</span>`],
+      ["Section records listed", o.sections_listed ? `${fmt(o.sections_listed)}<span class="cell-sub">${esc(levelText(d, c))}</span>` : o.sections_listed === 0 ? "0" : "None"],
+      ["Open dependencies", esc(o.states.map(x => LABELS.routeState[x] ?? x).join("; "))],
+      ["Next step", esc(o.next_step)],
+      ["Eligible patients", "Unknown: no patient is promoted into the strict core by this check"],
+    ])}` : "";
   const f = c.followup_review;
   const followupHtml = f ? `<h3 class="section-title">Follow-up review</h3>
     ${kv([
@@ -934,6 +947,7 @@ export function showCohort(d, id) {
     ])}
     ${c.tcga_project ? tcgaSection(d, c.tcga_project) : ""}
     ${reviewHtml}
+    ${originHtml}
     ${followupHtml}
     ${backlogHtml}
     ${c.gates && c.gates.length ? `<h3 class="section-title">${c.status === "screened" ? "Checks still open" : "Open checks before inclusion"}</h3><ul class="notes">${c.gates.map(g => `<li>${esc(LABELS.gate[g] ?? g)}</li>`).join("")}</ul>` : ""}

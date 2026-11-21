@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.4",
+  "version": "0.11.5",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -457,7 +457,21 @@
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "coordinate-gap",
+    "depth": "BioStudies file listing and SDRF read; one image file downloaded",
+    "image_finding": "The study files list four human kidney images (15 to 16 MB TIFFs) and five mouse kidney images; Human_kidney1.tif was fully downloaded: 2,000 × 2,026 pixels, full page decoded [2026, 2000, 4].",
+    "molecular_finding": "No processed matrix, spot positions or scale factors are deposited with the study; the SDRF links the human sections to raw reads only.",
+    "next_step": "Space Ranger processing of the raw reads with the deposited images, or an author release of the processed outputs, is needed before any section check.",
+    "states": [
+     "author-release"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 0,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse171406",
@@ -476,7 +490,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -486,16 +500,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE171406",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE171406",
@@ -511,16 +525,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Nephrectomy reference tissue, not a claim of a healthy independent donor. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Nephrectomy reference tissue, not a claim of a healthy independent donor. Originating-repository check (21 November 2026): 1 of 1 file-checked sample packages are listed as section records (1 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "1 of 1 file-checked sample packages are listed with original H&E: the primary publication (JCI Insight 2021) describes H&E-stained brightfield imaging of the Visium section; the series processed package was validated and the 166 MB native TIFF (A1) was fully downloaded (gzip CRC) and decoded, sharing the spot-coordinate frame.",
+    "molecular_finding": "1 section(s) come from the reviewed independent check (full sparse validation and exact barcode-to-coordinate equality). The series-level processed archive GSE171406_Human_Nephrectomy.tar.gz holds the Space Ranger outputs of the human section.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 1,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse206306",
@@ -539,7 +567,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -549,16 +577,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE206306",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE206306",
@@ -570,16 +598,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Reference kidney papilla only; stone-disease samples are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Reference kidney papilla only; stone-disease samples are not normal references. Originating-repository check (21 November 2026): 1 of 1 file-checked sample packages are listed as section records (1 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "1 of 1 file-checked sample packages are listed with original H&E: the GEO series design states that the H&E-stained Visium sections were imaged on a Keyence BZ-X810 with a 10x objective, and the deposited TIFF of the sample shares the spot-coordinate frame (complete download with gzip CRC and listed size; whole image decoded).",
+    "molecular_finding": "1 of 1 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 1.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 1,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse183456",
@@ -598,7 +640,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -608,16 +650,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE183456",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE183456",
@@ -633,16 +675,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Reference kidney subset of a healthy/injured atlas; do not treat all samples as normal. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Reference kidney subset of a healthy/injured atlas; do not treat all samples as normal. Originating-repository check (21 November 2026): 2 of 3 file-checked sample packages are listed as section records (2 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "2 of 3 file-checked sample packages are listed with original H&E: the GEO series design states that H&E-stained brightfield mosaics were acquired on a Keyence BZ-X810 with a 10x objective, and each deposited TIFF shares the spot-coordinate frame (complete gzip stream with valid CRC and listed size; one complete block decoded for the resource).",
+    "molecular_finding": "3 of 3 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 3. Sample GSM6047774 reuses the processed package of GSE171406 GSM5224978 byte for byte; it is not counted again.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 3,
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse250138",
@@ -661,7 +717,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -671,16 +727,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE250138",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE250138",
@@ -696,16 +753,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Control kidney subset only; ANCA-associated glomerulonephritis cases are not normal tissue. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Control kidney subset only; ANCA-associated glomerulonephritis cases are not normal tissue. Originating-repository check (21 November 2026): 3 of 3 file-checked sample packages are listed as section records (0 with original H&E, 3 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "3 of 3 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 3.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 3,
+    "sections_listed": 3,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [],

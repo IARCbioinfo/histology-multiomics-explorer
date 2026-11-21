@@ -1,6 +1,6 @@
 # Lung adenocarcinoma
 
-Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
+Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.11.5, 21 November 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
 
 Hausser et al. described lung as borderline under their significance criterion, so it was not part of the pooled analysis. Predominant growth patterns are recorded for each tissue section where the source provides them.
 
@@ -22,24 +22,24 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-18 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 3. Verification is pending for the others. Five of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
+18 spatial resources are catalogued; the original H&E and matched molecular data are located for 4, and matched molecular data with a preview image only for 7. Verification is pending for the others. Five of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | Steiner et al. 2026 (`steiner-2026`) | Visium FFPE | Open download | No count reported | Original H&E located: 15 sections with original H&E; 13 known patients |
 | Takano et al. 2024 (`cand-takano-suzuki-2024`) | Visium FFPE | Open download | No count reported | Original H&E located: 1 section with original H&E; 1 known patient |
+| GSE179572 spatial study (`cand-crost-gse179572`); metastases only | Visium | Open download | No count reported | Original H&E located: 2 sections with original H&E; 1 section with a preview image only; 3 known patients |
+| E-MTAB-11640 non-tumour reference (`cand-crost-e-mtab-11640`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Original H&E located: 20 sections with original H&E; 6 known patients |
 | De Zuani et al. 2024 (`cand-dezuani-cvejic-2024`); includes normal or adjacent tissue | Visium | Open download | 40 sections in the complete study, all histologies (all cancer sites) | Matched data with preview image |
 | Peng et al. 2026 (`cand-peng-kadara-2025`) | Visium CytAssist | Open download | No count reported | Matched data with preview image: 56 sections with a preview image; 25 known patients |
 | Luo et al. 2024 (`cand-chen-liu-2024`) | Visium CytAssist | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
+| GSE178361 non-tumour reference (`cand-crost-gse178361`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
+| GSE172416 non-tumour reference (`cand-crost-gse172416`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image; 1 known patient |
+| GSE268049 spatial study (`cand-crost-gse268049`) | Visium | Open download | No count reported | Matched data with preview image: 15 sections with a preview image |
+| GSE248082 non-tumour reference (`cand-crost-gse248082`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image: 5 sections with a preview image |
 | Zhao et al. 2025 (`cand-zhao-htapp-2025`) | Visium | Open download | No count reported | Verification pending |
 | Visium HD CytAssist Gene Expression Human Lung Cancer post-Xenium experiment (`cand-10x-post-xenium-hd`) | Visium HD | Open download | No count reported | Verification pending |
 | METI lung adenocarcinoma sample LUAD-14C (`cand-meti-luad14c`) | Visium CytAssist | Open download | No count reported | Verification pending |
-| GSE178361 non-tumour reference (`cand-crost-gse178361`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE179572 spatial study (`cand-crost-gse179572`); metastases only | Visium | Open download | No count reported | Verification pending |
-| E-MTAB-11640 non-tumour reference (`cand-crost-e-mtab-11640`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE172416 non-tumour reference (`cand-crost-gse172416`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE268049 spatial study (`cand-crost-gse268049`) | Visium | Open download | No count reported | Verification pending |
-| GSE248082 non-tumour reference (`cand-crost-gse248082`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
 | GSE269354 non-tumour reference (`cand-crost-gse269354`); non-tumour reference only, listed by organ | Xenium | Open download | No count reported | Verification pending |
 | Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma (`cand-knuch-2026`) | Visium | Unresolved | No count reported | Verification pending |
 | Deng et al. 2025 (`cand-deng-micropapillary-2025`) | Visium CytAssist | Author request | No count reported | Verification pending |
@@ -47,12 +47,12 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 74 sections (16 with original H&E, 58 with a preview image) from 39 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
+Located tissue section records: 121 sections (38 with original H&E, 83 with a preview image) from 49 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |
 | Invasive non-mucinous adenocarcinoma | 13 | 15 | 0 | 0 |
-| No stratum assigned | 0 | 0 | 1 | 58 |
+| No stratum assigned | 0 | 0 | 23 | 83 |
 
 ## Selection history: published archetype evidence
 

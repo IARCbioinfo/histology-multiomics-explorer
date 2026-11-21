@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.4",
+  "version": "0.11.5",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -667,7 +667,21 @@
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "coordinate-gap",
+    "depth": "BioStudies file listing and SDRF read; one image file downloaded",
+    "image_finding": "The study files list four human kidney images (15 to 16 MB TIFFs) and five mouse kidney images; Human_kidney1.tif was fully downloaded: 2,000 × 2,026 pixels, full page decoded [2026, 2000, 4].",
+    "molecular_finding": "No processed matrix, spot positions or scale factors are deposited with the study; the SDRF links the human sections to raw reads only.",
+    "next_step": "Space Ranger processing of the raw reads with the deposited images, or an author release of the processed outputs, is needed before any section check.",
+    "states": [
+     "author-release"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 0,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse171406",
@@ -686,7 +700,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -696,16 +710,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE171406",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE171406",
@@ -721,16 +735,107 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Nephrectomy reference tissue, not a claim of a healthy independent donor. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Nephrectomy reference tissue, not a claim of a healthy independent donor. Originating-repository check (21 November 2026): 1 of 1 file-checked sample packages are listed as section records (1 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "1 of 1 file-checked sample packages are listed with original H&E: the primary publication (JCI Insight 2021) describes H&E-stained brightfield imaging of the Visium section; the series processed package was validated and the 166 MB native TIFF (A1) was fully downloaded (gzip CRC) and decoded, sharing the spot-coordinate frame.",
+    "molecular_finding": "1 section(s) come from the reviewed independent check (full sparse validation and exact barcode-to-coordinate equality). The series-level processed archive GSE171406_Human_Nephrectomy.tar.gz holds the Space Ranger outputs of the human section.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 1,
+    "study_local_donors": null
+   }
+  },
+  {
+   "id": "cand-crost-gse179572",
+   "label": "GSE179572 spatial study",
+   "title": "Spatial transcriptomics of human brain metastases",
+   "citation": {
+    "authors": null,
+    "title": "Distinct phenotypic states and spatial distribution of CD8+ T cell clonotypes in human brain metastases.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.1016/j.xcrm.2022.100620",
+    "url": "https://doi.org/10.1016/j.xcrm.2022.100620"
+   },
+   "cancers": [
+    "LUAD",
+    "BRCA",
+    "KIRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "verified",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "same-section",
+   "gates": [
+    "identity",
+    "image-qc",
+    "calibration"
+   ],
+   "accession": "GSE179572",
+   "access": {
+    "category": "open",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
+    "links": [
+     [
+      "Originating study GSE179572",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179572"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000040"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1016/j.xcrm.2022.100620"
+     ]
+    ]
+   },
+   "verification": "file-checked",
+   "verified_on": "2026-11-21",
+   "description": "Brain metastases from lung adenocarcinoma, breast carcinoma and clear cell renal cell carcinoma (GEO GSM5420752, patient 24); the melanoma metastasis of the series is outside this resource. Originating-repository check (21 November 2026): 5 of 5 file-checked sample packages are listed as section records (2 with original H&E, 3 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
+   ],
+   "compartments": [
+    "metastatic-tumour"
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "2 of 5 file-checked sample packages are listed with original H&E: the primary publication reports H&E-based annotation of these spatial sections, and the series archive all_spatial_images.tar.gz holds one TIFF per patient (mapped by the patient number in the GEO title); for these sections the TIFF equals the Space Ranger full-resolution frame on both axes and holds every in-tissue spot (archive streamed completely with listed size; one complete block of each TIFF decoded; whole-image pixels not decoded). 3 further sections are listed at the preview level. Three archive TIFFs (patients 24, 26 and 27) have their axes swapped relative to the coordinate frame (a rotation), so those sections stay at the preview level.",
+    "molecular_finding": "5 of 5 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 5.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 5,
+    "sections_listed": 5,
+    "study_local_donors": 5
+   }
   },
   {
    "id": "cand-crost-gse206306",
@@ -749,7 +854,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -759,16 +864,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE206306",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE206306",
@@ -780,16 +885,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Reference kidney papilla only; stone-disease samples are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Reference kidney papilla only; stone-disease samples are not normal references. Originating-repository check (21 November 2026): 1 of 1 file-checked sample packages are listed as section records (1 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "1 of 1 file-checked sample packages are listed with original H&E: the GEO series design states that the H&E-stained Visium sections were imaged on a Keyence BZ-X810 with a 10x objective, and the deposited TIFF of the sample shares the spot-coordinate frame (complete download with gzip CRC and listed size; whole image decoded).",
+    "molecular_finding": "1 of 1 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 1.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 1,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse183456",
@@ -808,7 +927,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -818,16 +937,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE183456",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE183456",
@@ -843,16 +962,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Reference kidney subset of a healthy/injured atlas; do not treat all samples as normal. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Reference kidney subset of a healthy/injured atlas; do not treat all samples as normal. Originating-repository check (21 November 2026): 2 of 3 file-checked sample packages are listed as section records (2 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "2 of 3 file-checked sample packages are listed with original H&E: the GEO series design states that H&E-stained brightfield mosaics were acquired on a Keyence BZ-X810 with a 10x objective, and each deposited TIFF shares the spot-coordinate frame (complete gzip stream with valid CRC and listed size; one complete block decoded for the resource).",
+    "molecular_finding": "3 of 3 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 3. Sample GSM6047774 reuses the processed package of GSE171406 GSM5224978 byte for byte; it is not counted again.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 3,
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse210041",
@@ -870,7 +1003,7 @@
     "KIRC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -879,17 +1012,18 @@
    ],
    "preservation": [],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
     "identity",
-    "treatment-review"
+    "treatment-review",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE210041",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE210041",
@@ -905,16 +1039,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Clear-cell RCC spatial study; sample T1 explicitly records prior nivolumab plus ipilimumab. Treatment varies or requires review for other samples. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Clear-cell RCC spatial study; sample T1 explicitly records prior nivolumab plus ipilimumab. Treatment varies or requires review for other samples. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": 2
+   }
   },
   {
    "id": "cand-crost-gse250138",
@@ -933,7 +1082,7 @@
     "KIRP"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -943,16 +1092,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE250138",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE250138",
@@ -968,16 +1118,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Control kidney subset only; ANCA-associated glomerulonephritis cases are not normal tissue. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Control kidney subset only; ANCA-associated glomerulonephritis cases are not normal tissue. Originating-repository check (21 November 2026): 3 of 3 file-checked sample packages are listed as section records (0 with original H&E, 3 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "3 of 3 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 3.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 3,
+    "sections_listed": 3,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse250163",
@@ -995,7 +1160,7 @@
     "KIRC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -1004,16 +1169,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE250163",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE250163",
@@ -1029,16 +1195,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Source identifies stage III clear-cell RCC specimens. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Source identifies stage III clear-cell RCC specimens. Originating-repository check (21 November 2026): 3 of 3 file-checked sample packages are listed as section records (0 with original H&E, 3 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "3 of 3 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 3.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 3,
+    "sections_listed": 3,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -1703,6 +1884,331 @@
    "tier": "review",
    "site": "Primary",
    "treatment": "Post-treatment",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse171406:GSM5224978",
+   "cohort": "cand-crost-gse171406",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM5224978",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse179572:GSM5420752",
+   "cohort": "cand-crost-gse179572",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": "24",
+   "capture": "GSM5420752",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-gse183456:GSM6047775",
+   "cohort": "cand-crost-gse183456",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6047775",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse183456:GSM6047776",
+   "cohort": "cand-crost-gse183456",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6047776",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse206306:GSM6250307",
+   "cohort": "cand-crost-gse206306",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM6250307",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Fresh frozen",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse210041:GSM6415705",
+   "cohort": "cand-crost-gse210041",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": "Patient 1",
+   "capture": "GSM6415705",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-gse210041:GSM6415706",
+   "cohort": "cand-crost-gse210041",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": "Patient 7",
+   "capture": "GSM6415706",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-gse250138:GSM7974495",
+   "cohort": "cand-crost-gse250138",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7974495",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse250138:GSM7974496",
+   "cohort": "cand-crost-gse250138",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7974496",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse250138:GSM7974497",
+   "cohort": "cand-crost-gse250138",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7974497",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse250163:GSM7974884",
+   "cohort": "cand-crost-gse250163",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7974884",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse250163:GSM7974885",
+   "cohort": "cand-crost-gse250163",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7974885",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium FFPE",
+   "preservation": "FFPE",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse250163:GSM7974886",
+   "cohort": "cand-crost-gse250163",
+   "cancer": "KIRC",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7974886",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
    "technique": "Visium FFPE",
    "preservation": "FFPE",
    "linkage": "listed-together",

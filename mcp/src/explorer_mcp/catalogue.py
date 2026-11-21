@@ -24,7 +24,7 @@ INSTRUCTIONS = (
 TOOLS = [  # (method, description shown to agents)
     ("catalogue_overview", "Release, the points to read before using any count, headline figures and every cancer page with its TCGA and spatial summary. Call this first."),
     ("get_cancer_type", "One cancer page by code (for example BRCA, CRC, GLIOMA, PDAC): TCGA selected-panel and availability counts, normal reference, spatial resources, located tissue sections by stratum, other resources, selection evidence and gaps."),
-    ("search_resources", "Search catalogued studies and resources by text, cancer code, data layer, status (for spatial studies the image level: verified = original H&E located, preview = matched data with preview image, candidate = not yet verified), access category, technique, package-review result or the latest open dependency from the spatial reviews (public-download, download-failure, vendor-terms, account-registration, dac-approval, author-release, local-qc). Pooled codes (CRC, GLIOMA) include their constituent cancers. Returns compact records and the total."),
+    ("search_resources", "Search catalogued studies and resources by text, cancer code, data layer, status (for spatial studies the image level: verified = original H&E located, preview = matched data with preview image, candidate = not yet verified), access category, technique, package-review result (the latest of the originating-repository check of the CROST candidates and the package review) or the latest open dependency from the spatial reviews (originating-repository check, then follow-up, package and public-route reviews) (public-download, download-failure, vendor-terms, account-registration, dac-approval, author-release, local-qc). Pooled codes (CRC, GLIOMA) include their constituent cancers. Returns compact records and the total."),
     ("get_resource", "Full record of one study or resource by id, with its located tissue sections counted by tier and image level, and known study-local patients."),
     ("search_spatial_sections", "Located spatial transcriptomics tissue section records (measured spatial RNA and coordinates with the original H&E or only a preview image), filtered by cancer, resource, image level (original or preview), histology stratum, primary or metastatic site, treatment before sampling, curation tier or technique. strict=true keeps core primary sections documented as untreated. Preview-level sections do not support whole-slide or tile models, morphology or distances. Returns totals (section records, known study-local patients, sections without a patient ID, resources) and compact rows; records are not globally unique physical sections or eligible patients."),
     ("get_spatial_section", "Full record of one located tissue section by id (<resource>:<section>), with links, source wording and reported clinical fields."),
@@ -87,6 +87,22 @@ def page(items, limit, offset):
     limit = max(1, min(int(limit), 500))
     offset = max(0, int(offset))
     return items[offset:offset + limit], {"total": len(items), "offset": offset, "returned": len(items[offset:offset + limit])}
+
+
+def latest_states(c):
+    """Open dependencies of the latest spatial review present: originating-repository check, follow-up (with a changed result),
+    package review, public-route review. A present latest review with no open dependency returns [] without falling back."""
+    f = c.get("followup_review") or {}
+    for r in (c.get("origin_review"), f if "states" in f else None, c.get("backlog_review"), (c.get("spatial_review") or {}).get("route_review")):
+        if r is not None:
+            return r.get("states") or []
+    return []
+
+
+def latest_package_result(c):
+    """Result of the latest package-level check: the originating-repository check of a CROST candidate, else the package review."""
+    r = c.get("origin_review") if c.get("origin_review") is not None else c.get("backlog_review")
+    return (r or {}).get("outcome")
 
 
 class Catalogue:
@@ -308,6 +324,10 @@ class Catalogue:
         if (c.get("followup_review") or {}).get("outcome"):
             f = c["followup_review"]
             row["followup_review"] = {"result": f["outcome"], "open_dependencies": f["states"], "next_step": f["next_step"]}
+        if c.get("origin_review"):
+            o = c["origin_review"]
+            row["origin_review"] = {"result": o["outcome"], "open_dependencies": o["states"], "next_step": o["next_step"],
+                                    "sections_checked": o.get("sections_checked"), "sections_listed": o.get("sections_listed")}
         if (c.get("citation") or {}).get("doi"):
             row["doi"] = c["citation"]["doi"]
         if c["layer"] == "matched-spatial":
@@ -334,11 +354,9 @@ class Catalogue:
                 continue
             if technique and not any(technique.lower() in t.lower() for t in c.get("techniques") or []):
                 continue
-            states = ((c.get("followup_review") or {}).get("states") or (c.get("backlog_review") or {}).get("states")
-                      or ((c.get("spatial_review") or {}).get("route_review") or {}).get("states", []))
-            if open_dependency and open_dependency not in states:
+            if open_dependency and open_dependency not in latest_states(c):
                 continue
-            if package_review_result and (c.get("backlog_review") or {}).get("outcome") != package_review_result:
+            if package_review_result and latest_package_result(c) != package_review_result:
                 continue
             if text:
                 cit = c.get("citation") or {}

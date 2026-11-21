@@ -76,7 +76,7 @@ try {
   </table></div>`;
 
   // Open dependencies from both reviews.
-  const statesOf = c => c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || [];
+  const statesOf = c => c.origin_review?.states || c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || [];
   const reviewed = spatial.filter(c => statesOf(c).length);
   const sections = spatial.reduce((a, c) => a + (c.spatial_review?.route_review?.sections_with_matching_coordinates || 0), 0);
   document.getElementById("route-table").innerHTML = `<div class="table-wrap"><table class="stack compact">
@@ -86,7 +86,7 @@ try {
       return `<tr><td class="primary" data-label="Open dependency"><div>${esc(label)}</div></td><td class="num" data-label="Resources"><div>${fmt(n)}</div></td>
         <td data-label="Explore"><div>${n ? `<a href="explore.html?view=cohorts&route=${k}">View resources</a>` : '<span class="muted">—</span>'}</div></td></tr>`;
     }).join("")}</tbody>
-    <caption>${fmt(reviewed.length)} resources reviewed (${fmt(reviewed.filter(c => c.spatial_review).length)} in the public-route review and ${fmt(pkg.length)} in the package review); a resource can have several open dependencies, so the rows are not added. In the public-route review, ${fmt(sections)} tissue sections have expression barcodes that match their coordinates exactly, which is not a patient count or final QC.</caption>
+    <caption>${fmt(reviewed.length)} resources reviewed (${fmt(reviewed.filter(c => c.spatial_review).length)} in the public-route review, ${fmt(pkg.length)} in the package review and ${fmt(spatial.filter(c => c.origin_review).length)} in the originating-repository check); a resource can have several open dependencies, so the rows are not added. In the public-route review, ${fmt(sections)} tissue sections have expression barcodes that match their coordinates exactly, which is not a patient count or final QC.</caption>
   </table></div>`;
   document.getElementById("leads-list").innerHTML = `<ul class="notes">${(d.leads || []).map(x => `<li><a href="${esc(x.url)}" rel="noopener"><strong>${esc(x.label)}</strong></a>. ${esc(x.description)} <span class="muted">${esc(x.not_counted)}</span></li>`).join("")}</ul>`;
   if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();

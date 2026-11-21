@@ -1,6 +1,6 @@
 # Glioblastoma (historical TCGA diagnosis)
 
-Code `GBM`. Glioma benchmark extension; pooled in GLIOMA. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=GBM](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=GBM). Data: [data/by-cancer/GBM.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/GBM.json).
+Code `GBM`. Glioma benchmark extension; pooled in GLIOMA. Release 0.11.5, 21 November 2026. Web page: [cancers.html?c=GBM](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=GBM). Data: [data/by-cancer/GBM.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/GBM.json).
 
 TCGA-GBM is used only within the pooled glioma classification benchmark, with TCGA-LGG. Its diagnoses are historical histological categories that predate the integrated molecular classification of CNS tumours; they are kept as labels to be compared with an independently curated integrated diagnosis, not treated as one.
 
@@ -23,37 +23,37 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-19 spatial resources are catalogued; the original H&E and matched molecular data are located for 1, and matched molecular data with a preview image only for 1. Verification is pending for the others. Seven of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
+19 spatial resources are catalogued; the original H&E and matched molecular data are located for 1, and matched molecular data with a preview image only for 15. Verification is pending for the others. Seven of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | Greenwald et al. 2024 (`cand-greenwald2024`) | Visium | Open download | 13 IDH-wildtype glioblastoma sections | Original H&E located |
 | Ritter et al. 2025 (`cand-ritternepsta2025`) | Visium FFPE | Open download | No count reported | Matched data with preview image: 44 sections with a preview image |
+| GSE184510 non-tumour reference (`cand-crost-gse184510`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE194329 spatial study (`cand-crost-gse194329`) | Visium | Open download | No count reported | Matched data with preview image: 6 sections with a preview image |
+| GSE235672 spatial study (`cand-crost-gse235672`); includes treated tissue; treatment review pending | Visium | Open download | No count reported | Matched data with preview image: 20 sections with a preview image; 18 known patients |
+| GSE208747 non-tumour reference (`cand-crost-gse208747`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE253080 spatial study (`cand-crost-gse253080`) | Visium | Open download | No count reported | Matched data with preview image: 16 sections with a preview image; 3 known patients |
+| GSE263034 non-tumour reference (`cand-crost-gse263034`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE273432 spatial study (`cand-crost-gse273432`) | Visium | Open download | No count reported | Matched data with preview image: 3 sections with a preview image |
+| GSE273275 spatial study (`cand-crost-gse273275`); includes normal or adjacent tissue | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
+| GSE276841 spatial study (`cand-crost-gse276841`) | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
+| GSE279181 non-tumour reference (`cand-crost-gse279181`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE280316 non-tumour reference (`cand-crost-gse280316`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE286413 spatial study (`cand-crost-gse286413`); includes normal or adjacent tissue | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
+| GSE264692 non-tumour reference (`cand-crost-gse264692`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE313918 non-tumour reference (`cand-crost-gse313918`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
 | Sonpatki et al. 2026 (`cand-snu2026`) | Visium FFPE, Visium, Xenium | Open download | 13 patients with glioblastoma | Verification pending |
-| GSE184510 non-tumour reference (`cand-crost-gse184510`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE194329 spatial study (`cand-crost-gse194329`) | Visium | Open download | No count reported | Verification pending |
-| GSE235672 spatial study (`cand-crost-gse235672`); treatment review pending | Visium | Open download | No count reported | Verification pending |
-| GSE208747 non-tumour reference (`cand-crost-gse208747`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE253080 spatial study (`cand-crost-gse253080`) | Visium | Open download | No count reported | Verification pending |
-| GSE263034 non-tumour reference (`cand-crost-gse263034`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE273432 spatial study (`cand-crost-gse273432`) | Visium | Open download | No count reported | Verification pending |
-| GSE273275 spatial study (`cand-crost-gse273275`); includes normal or adjacent tissue | Visium | Open download | No count reported | Verification pending |
-| GSE276841 spatial study (`cand-crost-gse276841`) | Visium | Open download | No count reported | Verification pending |
-| GSE279181 non-tumour reference (`cand-crost-gse279181`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE280316 non-tumour reference (`cand-crost-gse280316`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
 | GSE296577 spatial study (`cand-crost-gse296577`); treatment review pending | Xenium | Open download | No count reported | Verification pending |
-| GSE286413 spatial study (`cand-crost-gse286413`); includes normal or adjacent tissue | Visium | Open download | No count reported | Verification pending |
-| GSE264692 non-tumour reference (`cand-crost-gse264692`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE313918 non-tumour reference (`cand-crost-gse313918`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
 | Human glioblastoma, whole-transcriptome and targeted Visium (`cand-crost-10x-104`) | Visium | Unresolved | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 44 sections (0 with original H&E, 44 with a preview image) from 0 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
+Located tissue section records: 95 sections (0 with original H&E, 95 with a preview image) from 21 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |
-| No stratum assigned | 0 | 0 | 0 | 44 |
+| No stratum assigned | 0 | 0 | 0 | 95 |
 
 ## Selection history: published archetype evidence
 

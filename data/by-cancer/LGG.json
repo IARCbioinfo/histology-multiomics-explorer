@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.4",
+  "version": "0.11.5",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -2606,7 +2606,7 @@
     "GBM"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -2616,16 +2616,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE184510",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE184510",
@@ -2641,16 +2642,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Orbitofrontal neocortex reference; region and staining must be checked before comparison with glioma. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Orbitofrontal neocortex reference; region and staining must be checked before comparison with glioma. Originating-repository check (21 November 2026): 4 of 8 file-checked sample packages are listed as section records (0 with original H&E, 4 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "The four H&E sections (title prefix HE) have a standalone JPEG that shares the spot-coordinate frame, but its native-scan provenance is not established (the paper reports 20x acquisition and horizontal flipping before Space Ranger); they are listed at the preview level. The four consecutive sections (prefix CR) are stained with haematoxylin and Congo red and are not listed.",
+    "molecular_finding": "8 of 8 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 8.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 8,
+    "sections_listed": 4,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse208747",
@@ -2669,7 +2685,7 @@
     "GBM"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -2679,16 +2695,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE208747",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE208747",
@@ -2704,16 +2721,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Non-demented brain-control subset only; multiple sclerosis samples are excluded from this reference role. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Non-demented brain-control subset only; multiple sclerosis samples are excluded from this reference role. Originating-repository check (21 November 2026): 5 of 5 file-checked sample packages are listed as section records (0 with original H&E, 5 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Standalone images deposited with the sections share the coordinate frame, but the source does not establish them as the native H&E of the sections; the sections are listed at the preview level.",
+    "molecular_finding": "5 of 5 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 5.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 5,
+    "sections_listed": 5,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse263034",
@@ -2732,7 +2764,7 @@
     "GBM"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -2742,16 +2774,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE263034",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE263034",
@@ -2767,16 +2800,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Non-neurological control frontal-cortex subset only; immunised and untreated Alzheimer disease cases are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Non-neurological control frontal-cortex subset only; immunised and untreated Alzheimer disease cases are not normal references. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse279181",
@@ -2795,7 +2843,7 @@
     "GBM"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -2805,16 +2853,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE279181",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE279181",
@@ -2830,16 +2879,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Control brain subset only; multiple sclerosis cases are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Control brain subset only; multiple sclerosis cases are not normal references. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "The primary publication's spatial methods state that sections were stained per the Visium protocol (CG000160) and imaged on a Leica DMi8 with a 10x lens, and GEO describes the deposited images as H&E; each deposited TIFF was fully downloaded and decoded and shares the spot-coordinate frame, but whether it is the original acquisition rather than a scaled export is not established, so the sections are listed at the preview level.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse280316",
@@ -2858,7 +2922,7 @@
     "GBM"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -2868,16 +2932,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE280316",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE280316",
@@ -2889,16 +2954,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Postmortem adult hypothalamus reference. This is anatomically distinct from most glioma sampling sites; a cancer tag does not establish a region-matched comparator. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Postmortem adult hypothalamus reference. This is anatomically distinct from most glioma sampling sites; a cancer tag does not establish a region-matched comparator. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal all array spots (raw matrix) in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse264692",
@@ -2906,18 +2986,18 @@
    "title": "An integrated single-nucleus and spatial transcriptomics atlas reveals the molecular landscape of the human hippocampus [spatial-visium]",
    "citation": {
     "authors": null,
-    "title": "An integrated single-nucleus and spatial transcriptomics atlas reveals the molecular landscape of the human hippocampus [spatial-visium]",
-    "journal": null,
-    "year": null,
-    "doi": null,
-    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE264692"
+    "title": "An integrated single-nucleus and spatial transcriptomics atlas reveals the molecular landscape of the human hippocampus",
+    "journal": "Nature Neuroscience",
+    "year": 2025,
+    "doi": "10.1038/s41593-025-02022-0",
+    "url": "https://doi.org/10.1038/s41593-025-02022-0"
    },
    "cancers": [
     "LGG",
     "GBM"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -2927,16 +3007,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE264692",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE264692",
@@ -2948,16 +3029,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Postmortem hippocampal reference; CROST appends section suffixes to GSM identifiers. Raw suffixes are not exact GEO accessions or donor labels. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Postmortem hippocampal reference; CROST appends section suffixes to GSM identifiers. Raw suffixes are not exact GEO accessions or donor labels. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal all array spots (raw matrix) in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": 2
+   }
   },
   {
    "id": "cand-crost-gse313918",
@@ -2976,7 +3072,7 @@
     "GBM"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -2986,16 +3082,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE313918",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE313918",
@@ -3007,16 +3104,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Control BA46 cortex subset only; ALS samples are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Control BA46 cortex subset only; ALS samples are not normal references. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": 1
+   }
   }
  ],
  "located_sections": [

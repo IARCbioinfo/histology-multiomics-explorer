@@ -1,6 +1,6 @@
 # Lower-grade glioma
 
-Code `LGG`. Significant geometry in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=LGG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LGG). Data: [data/by-cancer/LGG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LGG.json).
+Code `LGG`. Significant geometry in Hausser et al. 2019. Release 0.11.5, 21 November 2026. Web page: [cancers.html?c=LGG](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LGG). Data: [data/by-cancer/LGG.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LGG.json).
 
 Lower-grade glioma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. The TCGA LGG cohort predates current molecular glioma classification, so astrocytoma and oligodendroglioma are separated here using IDH and 1p/19q status where available. In the TCGA analyses, LGG is part of the pooled glioma classification benchmark with TCGA-GBM rather than a discovery cohort; the LGG-only set is a subset of that benchmark.
 
@@ -23,7 +23,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-17 spatial resources are catalogued; the original H&E and matched molecular data are located for 1, and matched molecular data with a preview image only for 4. Verification is pending for the others. Seven of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
+17 spatial resources are catalogued; the original H&E and matched molecular data are located for 1, and matched molecular data with a preview image only for 11. Verification is pending for the others. Seven of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -32,15 +32,15 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Ritter et al. 2025 (`cand-ritternepsta2025`) | Visium FFPE | Open download | No count reported | Matched data with preview image: 1 section with a preview image |
 | Spatially resolved gene expression and tumour-microenvironment interactions across malignant transformation in IDH-mutant glioma (`cand-longitudinal2026`) | Visium CytAssist | Open download | No count reported | Matched data with preview image: 3 sections with a preview image |
 | He et al. 2024 (`cand-he2024`) | Visium | Open download | No count reported | Matched data with preview image: 4 sections with a preview image |
+| GSE184510 non-tumour reference (`cand-crost-gse184510`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE208747 non-tumour reference (`cand-crost-gse208747`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE263034 non-tumour reference (`cand-crost-gse263034`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE279181 non-tumour reference (`cand-crost-gse279181`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE280316 non-tumour reference (`cand-crost-gse280316`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE264692 non-tumour reference (`cand-crost-gse264692`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
+| GSE313918 non-tumour reference (`cand-crost-gse313918`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image |
 | Hoefflin et al. 2026 (`cand-hoefflin2026`) | Visium | Open download | No count reported | Verification pending |
 | Sonpatki et al. 2026 (`cand-snu2026`) | Visium FFPE, Visium, Xenium | Open download | 3 patients with IDH-mutant astrocytoma | Verification pending |
-| GSE184510 non-tumour reference (`cand-crost-gse184510`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE208747 non-tumour reference (`cand-crost-gse208747`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE263034 non-tumour reference (`cand-crost-gse263034`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE279181 non-tumour reference (`cand-crost-gse279181`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE280316 non-tumour reference (`cand-crost-gse280316`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE264692 non-tumour reference (`cand-crost-gse264692`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE313918 non-tumour reference (`cand-crost-gse313918`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
 | Tang et al. 2025 (`cand-tang2025`) | Visium HD | Unresolved | No count reported | Verification pending |
 | Kuchroo et al. 2022 (`cand-kuchroosparc2022`) | Visium | Unresolved | No count reported | Verification pending |
 | Gaspard-Boulinc et al. 2025 (`cand-gaspardboulin2025`) | Visium | Unresolved | No count reported | Verification pending |

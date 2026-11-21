@@ -1,6 +1,6 @@
 # Prostate adenocarcinoma
 
-Code `PRAD`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=PRAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PRAD). Data: [data/by-cancer/PRAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PRAD.json).
+Code `PRAD`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.5, 21 November 2026. Web page: [cancers.html?c=PRAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PRAD). Data: [data/by-cancer/PRAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PRAD.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen after a substantial number of pathology-group exclusions.
 
@@ -22,20 +22,26 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-8 spatial resources are catalogued. Verification of the matched image and molecular data is pending. One of them is a non-tumour reference, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
+8 spatial resources are catalogued; matched molecular data with a preview image only for 3. Verification is pending for the others. One of them is a non-tumour reference, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
+| GSE230282 spatial study (`cand-crost-gse230282`) | Visium | Open download | No count reported | Matched data with preview image: 1 section with a preview image |
+| GSE262276 spatial study (`cand-crost-gse262276`) | Visium | Open download | No count reported | Matched data with preview image: 1 section with a preview image |
+| GSE278936 spatial study (`cand-crost-gse278936`); includes treated tissue; includes metastases; treatment review pending | Visium | Open download | No count reported | Matched data with preview image: 4 sections with a preview image |
 | 10x Genomics prostate acinar carcinoma, Visium FFPE (`prad-10x-acinar`) | Visium FFPE | Free account | 1 sample (vendor specimen) | Verification pending |
 | 10x Genomics prostate invasive adenocarcinoma, Visium FFPE (`prad-10x-invasive`) | Visium FFPE | Free account | 1 sample (vendor specimen) | Verification pending |
 | Hirz et al. 2023 (`prad-hirz-slideseq`); includes normal or adjacent tissue; H&E from serial sections | Slide-seqV2 | Open download | 2 prostate cancer donors | Verification pending |
 | Erickson et al. 2022 (`prad-erickson-clonal`); includes normal or adjacent tissue | Spatial Transcriptomics (legacy arrays), Visium | Open download | 2 patients with public image folders | Verification pending |
-| GSE230282 spatial study (`cand-crost-gse230282`) | Visium | Open download | No count reported | Verification pending |
-| GSE262276 spatial study (`cand-crost-gse262276`) | Visium | Open download | No count reported | Verification pending |
-| GSE278936 spatial study (`cand-crost-gse278936`); treatment review pending | Visium | Open download | No count reported | Verification pending |
 | Human normal prostate, Visium FFPE reference (`cand-crost-10x-119`); non-tumour reference only, listed by organ | Visium FFPE | Unresolved | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
+
+Located tissue section records: 6 sections (0 with original H&E, 6 with a preview image) from 0 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
+
+| Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
+| --- | --- | --- | --- | --- |
+| No stratum assigned | 0 | 0 | 0 | 6 |
 
 ## Selection history: published archetype evidence
 

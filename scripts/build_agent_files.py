@@ -20,7 +20,7 @@ from pathlib import Path
 from vocab import ENUMS
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "mcp" / "src"))
-from explorer_mcp.catalogue import TOOLS as MCP_TOOLS  # noqa: E402  (standard library module)
+from explorer_mcp.catalogue import TOOLS as MCP_TOOLS, latest_states as MCP_LATEST_STATES  # noqa: E402  (standard library module)
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -569,13 +569,14 @@ def spatial_md(S):
         rows.append([f"[{p['name']}]({md})", p["code"], (fmt(len(lst)) + (f" ({reference_text(references(lst))})" if references(lst) else "")) if lst else "None catalogued", "—" if not lst else fmt(n), "—" if not lst else fmt(k)])
     route_reviewed = [c for c in S.spatial if (c.get("spatial_review") or {}).get("route_review")]
     pkg = [c for c in S.spatial if c.get("backlog_review")]
-    states = lambda c: ((c.get("followup_review") or {}).get("states") or (c.get("backlog_review") or {}).get("states")
-                        or ((c.get("spatial_review") or {}).get("route_review") or {}).get("states") or [])
+    states = MCP_LATEST_STATES   # same precedence as the MCP server and the data explorer
     fu = [c for c in S.spatial if c.get("followup_review")]
     fu_changed = [c for c in fu if c["followup_review"].get("outcome")]
     reviewed = [c for c in S.spatial if states(c)]
     route_counts = {k: sum(k in states(c) for c in reviewed) for k in S.L["routeState"]}
     outcomes = [(k, [c for c in pkg if c["backlog_review"]["outcome"] == k]) for k in S.L["backlogOutcome"]]
+    origin = [c for c in S.spatial if c.get("origin_review")]
+    origin_outcomes = [(k, [c for c in origin if c["origin_review"]["outcome"] == k]) for k in S.L["backlogOutcome"]]
     order = {"verified": 0, "preview": 1}
     res = [[c["label"], f"`{c['id']}`", ", ".join(c["cancers"]), S.L["status"][c["status"]], S.L["access"][c["access"]["category"]], ", ".join(c.get("techniques") or []) or "Not specified"]
            for c in sorted(S.spatial, key=lambda c: (order.get(c["status"], 2), c["label"].lower()))]
@@ -611,6 +612,19 @@ def spatial_md(S):
         "Sections were listed only where the source supports them; the others stay candidates with their dependencies, and no eligible-patient count is given.", "",
         table(["Result", "Resources", "Now shown as"], [[S.L["backlogOutcome"][k], fmt(len(l)), "; ".join(sorted({S.L["status"][c["status"]] for c in l}))] for k, l in outcomes if l]), "",
         table(["Resource", "ID", "Result", "Next step"], [[c["label"], f"`{c['id']}`", S.L["backlogOutcome"][c["backlog_review"]["outcome"]], c["backlog_review"]["next_step"]] for c in pkg]), "",
+        "## Originating-repository check of the CROST candidates", "",
+        f"The {fmt(len(origin))} CROST candidates were checked against their originating repositories (GEO, BioStudies, Zenodo, SRA or the vendor). "
+        "For a bounded, representative set of sections per resource, the required files were retrieved and checked: transfer size against the repository listing, "
+        "a computed SHA-256 fingerprint (not an authoritative checksum unless the repository publishes one), archive CRC, full sparse validation of the expression matrix, "
+        "strict validation of the spot or cell coordinates and their exact barcode join, and a decoded preview or native image holding every coordinate. "
+        "A section is listed only where its required package passed; a failed optional download does not block it, and one checked section does not qualify the rest of a study. "
+        "Original H&E means a source-backed native H&E of that section in the pixel frame of its coordinates (the Space Ranger full-resolution frame or a native-coordinate table); "
+        "very large images were checked by header and a representative decoded block, never as whole-file integrity, and each resource states its depth. "
+        "Registration, scanner calibration, pathology, treatment and eligibility are not signed off.", "",
+        table(["Result", "Resources", "Now shown as"], [[S.L["backlogOutcome"][k], fmt(len(l)), "; ".join(sorted({S.L["status"][c["status"]] for c in l}))] for k, l in origin_outcomes if l]), "",
+        table(["Resource", "ID", "Result", "Sample packages checked", "Section records listed", "Next step"], [[c["label"], f"`{c['id']}`", S.L["backlogOutcome"][c["origin_review"]["outcome"]],
+              "Not checked" if c["origin_review"]["sections_checked"] is None else fmt(c["origin_review"]["sections_checked"]),
+              "None" if c["origin_review"]["sections_listed"] is None else fmt(c["origin_review"]["sections_listed"]), c["origin_review"]["next_step"]] for c in origin]), "",
         "## Follow-up review", "",
         f"{fmt(len(fu))} reviewed resources were checked again from public sources: original scans for preview-level resources, image headers and coordinate frames for original-level ones, "
         "patient and clinical details for listed sections, and the remaining public packages and releases. "
@@ -618,7 +632,7 @@ def spatial_md(S):
         f"{fmt(len(fu) - len(fu_changed))} resources were checked again without change.", "",
         table(["Resource", "ID", "Follow-up result", "Now shown as", "Next step"], [[c["label"], f"`{c['id']}`", S.L["followupOutcome"][c["followup_review"]["outcome"]], S.L["status"][c["status"]], c["followup_review"]["next_step"]] for c in fu_changed]), "",
         "## Open dependencies", "",
-        f"The {len(reviewed)} reviewed resources ({len(route_reviewed)} in the public-route review, {len(pkg)} in the package review) were followed to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. "
+        f"The {len(reviewed)} reviewed resources ({len(route_reviewed)} in the public-route review, {len(pkg)} in the package review, {len(origin)} in the originating-repository check) were followed to a retrieved result, a registration or controlled-access boundary, a missing release or a reproducible download failure. "
         "The open dependencies below are kept apart: a download failure is a technical gap, not a permission requirement. "
         f"In the public-route review, {fmt(sum(c['spatial_review']['route_review']['sections_with_matching_coordinates'] or 0 for c in route_reviewed))} section packages have expression barcodes that match their tissue coordinates exactly; "
         "this is not a patient count or final QC.", "",
@@ -685,6 +699,7 @@ ENUM_AT = {  # (file, path) -> vocabulary; [] marks list items, {} map values
     ("cohorts", "[].access.category"): "access", ("cohorts", "[].verification"): "verification",
     ("cohorts", "[].spatial_review.assay_classes[]"): "assay_class", ("cohorts", "[].spatial_review.treatment_class"): "treatment_class",
     ("cohorts", "[].backlog_review.outcome"): "backlog_outcome", ("cohorts", "[].backlog_review.states[]"): "route_state",
+    ("cohorts", "[].origin_review.outcome"): "backlog_outcome", ("cohorts", "[].origin_review.states[]"): "route_state",
     ("cohorts", "[].followup_review.outcome"): "followup_outcome", ("cohorts", "[].followup_review.states[]"): "route_state",
     ("cohorts", "[].spatial_review.route_review.states[]"): "route_state",
     ("captures", "[].tier"): "tier", ("captures", "[].site"): "site", ("captures", "[].treatment"): "treatment",
@@ -710,6 +725,7 @@ DOCS = {
     ("cancers", "[].strata"): "[id, label] pairs for the histology strata used by located sections",
     ("cohorts", "[].layer"): "Data layer: matched H&E and spatial RNA, whole-slide images with bulk data, bulk RNA, single-cell or image only",
     ("cohorts", "[].status"): "For spatial studies the image level: verified = original H&E located; preview = matched data with preview image (original scan not located); candidate = not yet verified",
+    ("cohorts", "[].origin_review"): "Originating-repository check of a CROST candidate: outcome, depth, image and molecular findings, open dependencies, next step, sections file-checked and section records listed",
     ("cohorts", "[].backlog_review"): "Package review: outcome, depth of the check, image and molecular findings, open dependencies, next step and the section records it listed",
     ("cohorts", "[].reported"): "[value, unit, basis] or [value, unit, basis, cancer] in the source's own units; never added across studies",
     ("cohorts", "[].gates"): "Open checks: what prevents inclusion, or the curation still to do",

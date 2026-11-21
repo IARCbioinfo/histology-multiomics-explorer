@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.4",
+  "version": "0.11.5",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -608,7 +608,21 @@
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "access-dependent",
+    "depth": "official web summary and HTTP HEAD of the file routes; earlier anonymous GET of the image",
+    "image_finding": "The file route lists a 370 MB microscope JPEG for the normal prostate FFPE dataset; an anonymous GET of the image returned HTTP 403, and no image content was retrieved.",
+    "molecular_finding": "Filtered matrix and spatial archives are listed on the same route; not retrieved.",
+    "next_step": "Obtain the files through the vendor's download route, then check the image frame and matrix barcodes.",
+    "states": [
+     "vendor-terms"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": null,
+    "sections_listed": 0,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse230282",
@@ -626,7 +640,7 @@
     "PRAD"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -635,16 +649,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE230282",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE230282",
@@ -660,16 +675,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Contains de novo neuroendocrine and androgen-receptor prostate cancer; histological strata must remain separate. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Contains de novo neuroendocrine and androgen-receptor prostate cancer; histological strata must remain separate. Originating-repository check (21 November 2026): 1 of 1 file-checked sample packages are listed as section records (0 with original H&E, 1 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "1 of 1 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal all array spots (raw matrix) in 1.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 1,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse262276",
@@ -687,7 +717,7 @@
     "PRAD"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -696,16 +726,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE262276",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE262276",
@@ -721,16 +752,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Intraductal carcinoma of the prostate; keep this histological component distinct from conventional invasive acinar disease. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Intraductal carcinoma of the prostate; keep this histological component distinct from conventional invasive acinar disease. Originating-repository check (21 November 2026): 1 of 1 file-checked sample packages are listed as section records (0 with original H&E, 1 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "1 of 1 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 1.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 1,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse278936",
@@ -748,7 +794,7 @@
     "PRAD"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -757,17 +803,18 @@
    ],
    "preservation": [],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
     "identity",
-    "treatment-review"
+    "treatment-review",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE278936",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE278936",
@@ -783,19 +830,185 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Prostate cancer treatment-timeline study also contains benign prostatic tissue; treatment and tissue roles need sample-level review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Prostate cancer treatment-timeline study also contains benign prostatic tissue; treatment and tissue roles need sample-level review. Originating-repository check (21 November 2026): 4 of 4 file-checked sample packages are listed as section records (0 with original H&E, 4 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "4 of 4 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 4.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC. A representative subset of the 52 sections, across treatment-naive, neoadjuvant, castration-resistant and metastatic groups, was checked.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 4,
+    "sections_listed": 4,
+    "study_local_donors": null
+   }
   }
  ],
- "located_sections": [],
+ "located_sections": [
+  {
+   "id": "cand-crost-gse230282:GSM7211257",
+   "cohort": "cand-crost-gse230282",
+   "cancer": "PRAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM7211257",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse262276:GSM8162516",
+   "cohort": "cand-crost-gse262276",
+   "cancer": "PRAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8162516",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse278936:GSM8557980",
+   "cohort": "cand-crost-gse278936",
+   "cancer": "PRAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8557980",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Untreated",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse278936:GSM8557997",
+   "cohort": "cand-crost-gse278936",
+   "cancer": "PRAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8557997",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse278936:GSM8558019",
+   "cohort": "cand-crost-gse278936",
+   "cancer": "PRAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8558019",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Primary",
+   "treatment": "Post-treatment",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse278936:GSM8558024",
+   "cohort": "cand-crost-gse278936",
+   "cancer": "PRAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8558024",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  }
+ ],
  "other_resources": [
   {
    "id": "tcga-prad",

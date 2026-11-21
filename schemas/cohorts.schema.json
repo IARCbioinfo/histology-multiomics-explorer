@@ -655,6 +655,90 @@
     "items": {
      "type": "string"
     }
+   },
+   "origin_review": {
+    "type": "object",
+    "description": "Originating-repository check of a CROST candidate: outcome, depth, image and molecular findings, open dependencies, next step, sections file-checked and section records listed",
+    "properties": {
+     "outcome": {
+      "type": "string",
+      "enum": [
+       "access-dependent",
+       "account-route",
+       "author-release",
+       "bounded-public-work",
+       "code-only-lead",
+       "coordinate-gap",
+       "linkage-gap",
+       "original-ready",
+       "preview-ready",
+       "registration-gap",
+       "release-gap",
+       "release-unresolved",
+       "technical-gap",
+       "unspecified-vendor-lead",
+       "vendor-boundary"
+      ]
+     },
+     "depth": {
+      "type": "string"
+     },
+     "image_finding": {
+      "type": "string"
+     },
+     "molecular_finding": {
+      "type": "string"
+     },
+     "next_step": {
+      "type": "string"
+     },
+     "states": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "enum": [
+        "account-registration",
+        "author-release",
+        "dac-approval",
+        "download-failure",
+        "local-qc",
+        "public-download",
+        "vendor-terms"
+       ]
+      }
+     },
+     "date": {
+      "type": "string"
+     },
+     "sections_checked": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "sections_listed": {
+      "type": "integer"
+     },
+     "study_local_donors": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     }
+    },
+    "required": [
+     "outcome",
+     "depth",
+     "image_finding",
+     "molecular_finding",
+     "next_step",
+     "states",
+     "date",
+     "sections_checked",
+     "sections_listed",
+     "study_local_donors"
+    ],
+    "additionalProperties": false
    }
   },
   "required": [

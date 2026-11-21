@@ -33,9 +33,10 @@ const COHORT_FACETS = [
   { key: "linkage", label: "H&E linkage", get: c => [c.linkage] },
   { key: "treat", label: "Treatment (spatial review)", get: c => [c.spatial_review ? c.spatial_review.treatment_class : "na"] },
   { key: "sreview", label: "Spatial review", get: c => [c.spatial_review ? c.spatial_review.analysis_cohort : "none"] },
-  { key: "outcome", label: "Package review result", get: c => [c.backlog_review ? c.backlog_review.outcome : "na"] },
+  // Latest package-level result: the originating-repository check of a CROST candidate, else the package review.
+  { key: "outcome", label: "Package review result", get: c => [(c.origin_review ?? c.backlog_review)?.outcome ?? "na"] },
   { key: "followup", label: "Follow-up review result", get: c => [c.followup_review ? (c.followup_review.outcome ?? "checked") : "na"] },
-  { key: "route", label: "Open dependency (spatial reviews)", get: c => c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || ["na"] },
+  { key: "route", label: "Open dependency (spatial reviews)", get: c => c.origin_review?.states || c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || ["na"] },
   { key: "specimen", label: "Specimens", get: c => [c.specimen] },
   { key: "verification", label: "Verification", get: c => [c.verification] },
 ];
@@ -384,6 +385,8 @@ function captureRecord(c) {
   };
 }
 
+const pkgReview = c => c.origin_review ?? c.backlog_review ?? null;
+
 function cohortRecord(c) {
   const k = cohortCounts(D, c);
   return {
@@ -403,15 +406,23 @@ function cohortRecord(c) {
     route_open_dependencies: (c.spatial_review?.route_review?.states || []).map(x => LABELS.routeState[x] ?? x),
     route_next_step: c.spatial_review?.route_review?.next_step ?? "",
     route_sections_with_matching_coordinates: c.spatial_review?.route_review?.sections_with_matching_coordinates ?? "",
-    package_review_result: c.backlog_review ? LABELS.backlogOutcome[c.backlog_review.outcome] : "",
-    package_review_depth: c.backlog_review?.depth ?? "", package_review_images: c.backlog_review?.image_finding ?? "",
-    package_review_expression_and_coordinates: c.backlog_review?.molecular_finding ?? "",
-    package_review_open_dependencies: (c.backlog_review?.states || []).map(x => LABELS.routeState[x] ?? x),
-    package_review_next_step: c.backlog_review?.next_step ?? "",
+    // package_review_* describe one review: the latest package-level check (origin review of a CROST candidate, else the package review).
+    package_review_source: pkgReview(c) ? (c.origin_review ? "originating-repository check" : "package review") : "",
+    package_review_result: pkgReview(c) ? LABELS.backlogOutcome[pkgReview(c).outcome] : "",
+    package_review_depth: pkgReview(c)?.depth ?? "", package_review_images: pkgReview(c)?.image_finding ?? "",
+    package_review_expression_and_coordinates: pkgReview(c)?.molecular_finding ?? "",
+    package_review_open_dependencies: (pkgReview(c)?.states || []).map(x => LABELS.routeState[x] ?? x),
+    package_review_next_step: pkgReview(c)?.next_step ?? "",
+    origin_check_result: c.origin_review ? LABELS.backlogOutcome[c.origin_review.outcome] : "",
+    origin_check_depth: c.origin_review?.depth ?? "", origin_check_images: c.origin_review?.image_finding ?? "",
+    origin_check_expression_and_coordinates: c.origin_review?.molecular_finding ?? "",
+    origin_check_sections_checked: c.origin_review?.sections_checked ?? "",
+    origin_check_open_dependencies: (c.origin_review?.states || []).map(x => LABELS.routeState[x] ?? x),
+    origin_check_next_step: c.origin_review?.next_step ?? "",
     followup_review_result: c.followup_review ? (c.followup_review.outcome ? LABELS.followupOutcome[c.followup_review.outcome] : "checked again; no change") : "",
     followup_review_findings: c.followup_review?.findings ?? "", followup_review_next_step: c.followup_review?.next_step ?? "",
     followup_review_checks: (c.followup_review?.checks || []).map(x => `${x.check}: ${x.result}`),
-    open_dependencies_latest: (c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || []).map(x => LABELS.routeState[x] ?? x),
+    open_dependencies_latest: (c.origin_review?.states || c.followup_review?.states || c.backlog_review?.states || c.spatial_review?.route_review?.states || []).map(x => LABELS.routeState[x] ?? x),
     spatial_analysis_scope: c.spatial_review?.analysis_cohort ?? "",
     spatial_assay_classes: (c.spatial_review?.assay_classes || []).map(a => LABELS.assayClass[a]),
     spatial_platform_reported: c.spatial_review?.platform ?? "", spatial_image_status: c.spatial_review?.image_status ?? "",

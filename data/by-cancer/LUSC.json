@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.4",
+  "version": "0.11.5",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -426,7 +426,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -436,16 +436,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE178361",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE178361",
@@ -461,16 +462,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-e-mtab-11640",
@@ -489,7 +505,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -499,16 +515,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "E-MTAB-11640",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study E-MTAB-11640",
@@ -524,16 +540,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Originating-repository check (21 November 2026): 20 of 20 file-checked sample packages are listed as section records (20 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "20 of 20 file-checked sample packages are listed with original H&E: the BioStudies protocol states that haematoxylin and eosin images generated during the Visium protocol were captured at 20x; each deposited image is the SDRF image file of its sample, shares the pixel frame of the spot coordinates (every in-tissue spot inside) and was fully downloaded with its whole JPEG bitstream decoded at reduced (1/8) resolution (not every native pixel reconstructed), or, for the 1.9 GB TIFFs, read by HTTP range (header, terminal IFD and one decoded 128-row RGB strip of one file; whole-file checksum not verified).",
+    "molecular_finding": "20 of 20 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 20.",
+    "next_step": "Image registration, scanner calibration and tissue QC. Three sections passed only on a retry after a failed first transfer; first attempts are kept with the evidence.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 20,
+    "sections_listed": 20,
+    "study_local_donors": 6
+   }
   },
   {
    "id": "cand-crost-gse172416",
@@ -552,7 +582,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -562,16 +592,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE172416",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE172416",
@@ -587,16 +618,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Primary GEO design establishes two normal-lung sections from one lung-cancer resection patient. Tumour-adjacent reference, not independent healthy controls. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Primary GEO design establishes two normal-lung sections from one lung-cancer resection patient. Tumour-adjacent reference, not independent healthy controls. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "solid-normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": 1
+   }
   },
   {
    "id": "cand-crost-gse248082",
@@ -615,7 +661,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -625,16 +671,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE248082",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE248082",
@@ -650,16 +697,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Control-lung subset only; pulmonary fibrosis specimens are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Control-lung subset only; pulmonary fibrosis specimens are not normal references. Originating-repository check (21 November 2026): 5 of 5 file-checked sample packages are listed as section records (0 with original H&E, 5 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "5 of 5 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 5.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 5,
+    "sections_listed": 5,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse269354",
@@ -722,7 +784,21 @@
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "registration-gap",
+    "depth": "complete download of the cell matrix and cell table of one Xenium slide (the cell table recovered at its published size with gzip CRC after a short first transfer); morphology image not retrieved",
+    "image_finding": "Only DAPI morphology images (4.1 and 5.4 GB) are deposited; no post-assay H&E is listed. The primary publication imaged additional sections on separate slides for H&E, which do not share the Xenium coordinate frame. Slide 0013717 combines four healthy-control and four asthma biopsies (GEO metadata workbook) without a cell-to-biopsy join, so the healthy reference cells cannot yet be separated.",
+    "molecular_finding": "Whole-slide matrix of 541 features × 62,732 cells passed full sparse validation; its cell IDs equal the cell table exactly, with unique IDs and finite centroids in micrometres. These are all cells of the mixed slide, not a validated healthy reference.",
+    "next_step": "Locate a post-Xenium H&E and the biopsy-level split of the healthy reference cells.",
+    "states": [
+     "author-release"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 0,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [

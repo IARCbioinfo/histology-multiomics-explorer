@@ -1128,6 +1128,63 @@
        }
       }
      },
+     "origin_review": {
+      "type": "object",
+      "properties": {
+       "outcome": {
+        "type": "string"
+       },
+       "depth": {
+        "type": "string"
+       },
+       "image_finding": {
+        "type": "string"
+       },
+       "molecular_finding": {
+        "type": "string"
+       },
+       "next_step": {
+        "type": "string"
+       },
+       "states": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "date": {
+        "type": "string"
+       },
+       "sections_checked": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "sections_listed": {
+        "type": "integer"
+       },
+       "study_local_donors": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "outcome",
+       "depth",
+       "image_finding",
+       "molecular_finding",
+       "next_step",
+       "states",
+       "date",
+       "sections_checked",
+       "sections_listed",
+       "study_local_donors"
+      ],
+      "additionalProperties": false
+     },
      "spatial_review": {
       "type": "object",
       "properties": {

@@ -1,6 +1,6 @@
 # Uterine corpus endometrial carcinoma
 
-Code `UCEC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=UCEC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=UCEC). Data: [data/by-cancer/UCEC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/UCEC.json).
+Code `UCEC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.5, 21 November 2026. Web page: [cancers.html?c=UCEC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=UCEC). Data: [data/by-cancer/UCEC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/UCEC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen and is analysed as one pooled endometrial carcinoma cohort, with reviewed histology, grade and the published molecular groups kept as annotations and an endometrioid-only sensitivity subset.
 
@@ -22,22 +22,22 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-4 spatial resources are catalogued; matched molecular data with a preview image only for 2. Verification is pending for the others. Two of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
+4 spatial resources are catalogued; matched molecular data with a preview image only for 3. Verification is pending for the other. Two of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | Barkley et al. 2022, UCEC sample (`ucec-barkley-gse203612`) | Visium | Open download | 1 endometrial carcinoma spatial sample (GSM6177623) | Matched data with preview image: 1 section with a preview image |
 | Cassier et al. 2023, NP137 trial (`ucec-np137-gse225690`); includes treated tissue; metastases only | Visium FFPE | Open download | 2 patients | Matched data with preview image: 4 sections with a preview image; 2 known patients |
+| GSE246495 non-tumour reference (`cand-crost-gse246495`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
 | E-MTAB-9260 non-tumour reference (`cand-crost-e-mtab-9260`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
-| GSE246495 non-tumour reference (`cand-crost-gse246495`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 
-Located tissue section records: 5 sections (0 with original H&E, 5 with a preview image) from 2 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
+Located tissue section records: 7 sections (0 with original H&E, 7 with a preview image) from 2 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
 
 | Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
 | --- | --- | --- | --- | --- |
-| No stratum assigned | 0 | 0 | 0 | 5 |
+| No stratum assigned | 0 | 0 | 0 | 7 |
 
 ## Selection history: published archetype evidence
 

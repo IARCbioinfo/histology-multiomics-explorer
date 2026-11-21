@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.4",
+  "version": "0.11.5",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -1083,7 +1083,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -1093,16 +1093,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE178361",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE178361",
@@ -1118,16 +1119,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse179572",
@@ -1143,10 +1159,11 @@
    },
    "cancers": [
     "LUAD",
-    "BRCA"
+    "BRCA",
+    "KIRC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna"
    ],
@@ -1155,16 +1172,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE179572",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE179572",
@@ -1180,16 +1197,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Brain metastases from lung adenocarcinoma and breast carcinoma; other primary cancers in the series remain outside these routes. Primary subtype for the renal metastasis is not established here. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Brain metastases from lung adenocarcinoma, breast carcinoma and clear cell renal cell carcinoma (GEO GSM5420752, patient 24); the melanoma metastasis of the series is outside this resource. Originating-repository check (21 November 2026): 5 of 5 file-checked sample packages are listed as section records (2 with original H&E, 3 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "metastatic-tumour"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "2 of 5 file-checked sample packages are listed with original H&E: the primary publication reports H&E-based annotation of these spatial sections, and the series archive all_spatial_images.tar.gz holds one TIFF per patient (mapped by the patient number in the GEO title); for these sections the TIFF equals the Space Ranger full-resolution frame on both axes and holds every in-tissue spot (archive streamed completely with listed size; one complete block of each TIFF decoded; whole-image pixels not decoded). 3 further sections are listed at the preview level. Three archive TIFFs (patients 24, 26 and 27) have their axes swapped relative to the coordinate frame (a rotation), so those sections stay at the preview level.",
+    "molecular_finding": "5 of 5 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 5.",
+    "next_step": "Image registration, scanner calibration and tissue QC.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 5,
+    "sections_listed": 5,
+    "study_local_donors": 5
+   }
   },
   {
    "id": "cand-crost-e-mtab-11640",
@@ -1208,7 +1239,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "verified",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -1218,16 +1249,16 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "same-section",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "image-qc",
+    "calibration"
    ],
    "accession": "E-MTAB-11640",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study E-MTAB-11640",
@@ -1243,16 +1274,30 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Originating-repository check (21 November 2026): 20 of 20 file-checked sample packages are listed as section records (20 with original H&E, 0 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "original-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "20 of 20 file-checked sample packages are listed with original H&E: the BioStudies protocol states that haematoxylin and eosin images generated during the Visium protocol were captured at 20x; each deposited image is the SDRF image file of its sample, shares the pixel frame of the spot coordinates (every in-tissue spot inside) and was fully downloaded with its whole JPEG bitstream decoded at reduced (1/8) resolution (not every native pixel reconstructed), or, for the 1.9 GB TIFFs, read by HTTP range (header, terminal IFD and one decoded 128-row RGB strip of one file; whole-file checksum not verified).",
+    "molecular_finding": "20 of 20 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 20.",
+    "next_step": "Image registration, scanner calibration and tissue QC. Three sections passed only on a retry after a failed first transfer; first attempts are kept with the evidence.",
+    "states": [
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 20,
+    "sections_listed": 20,
+    "study_local_donors": 6
+   }
   },
   {
    "id": "cand-crost-gse172416",
@@ -1271,7 +1316,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -1281,16 +1326,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE172416",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE172416",
@@ -1306,16 +1352,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Primary GEO design establishes two normal-lung sections from one lung-cancer resection patient. Tumour-adjacent reference, not independent healthy controls. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Primary GEO design establishes two normal-lung sections from one lung-cancer resection patient. Tumour-adjacent reference, not independent healthy controls. Originating-repository check (21 November 2026): 2 of 2 file-checked sample packages are listed as section records (0 with original H&E, 2 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "solid-normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "2 of 2 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 2.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 2,
+    "sections_listed": 2,
+    "study_local_donors": 1
+   }
   },
   {
    "id": "cand-crost-gse268049",
@@ -1333,7 +1394,7 @@
     "LUAD"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna"
    ],
@@ -1342,16 +1403,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-tumour",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE268049",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE268049",
@@ -1367,16 +1429,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Originating GEO design explicitly identifies lung adenocarcinoma samples. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Originating GEO design explicitly identifies lung adenocarcinoma samples. Originating-repository check (21 November 2026): 15 of 15 file-checked sample packages are listed as section records (0 with original H&E, 15 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "tumour-unspecified"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "15 of 15 file-checked sample packages have a supplied matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 15.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 15,
+    "sections_listed": 15,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse248082",
@@ -1395,7 +1472,7 @@
     "LUSC"
    ],
    "layer": "matched-spatial",
-   "status": "candidate",
+   "status": "preview",
    "modalities": [
     "spatial-rna",
     "normal-reference"
@@ -1405,16 +1482,17 @@
    ],
    "preservation": [],
    "specimen": "clinical-reference",
-   "linkage": "unverified",
+   "linkage": "listed-together",
    "gates": [
-    "package-unverified",
-    "he-unverified",
-    "identity"
+    "identity",
+    "he-not-located",
+    "image-qc",
+    "calibration"
    ],
    "accession": "GSE248082",
    "access": {
     "category": "open",
-    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "route": "Processed outputs and images per section on the originating repository; the file-checked sample packages are listed as section records.",
     "links": [
      [
       "Originating study GSE248082",
@@ -1430,16 +1508,31 @@
      ]
     ]
    },
-   "verification": "metadata-checked",
+   "verification": "file-checked",
    "verified_on": "2026-11-21",
-   "description": "Control-lung subset only; pulmonary fibrosis specimens are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "description": "Control-lung subset only; pulmonary fibrosis specimens are not normal references. Originating-repository check (21 November 2026): 5 of 5 file-checked sample packages are listed as section records (0 with original H&E, 5 with a preview image only); the other sections of the study were not file-checked or did not qualify.",
    "notes": [
     "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
-    "No new confirmed section records or eligible-patient counts are added."
+    "Section records list only the file-checked sample packages that qualified; eligible patients are not established."
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "preview-ready",
+    "depth": "complete transfer of the listed section files, with large compressed images streamed without being stored; archive CRC, listed size and SHA-256; full sparse matrix validation; spot positions, scale factors and image headers parsed; Space Ranger preview images decoded",
+    "image_finding": "Only Space Ranger preview images (high- and low-resolution images and QC JPEGs) were found in the checked release; no native H&E was located.",
+    "molecular_finding": "5 of 5 file-checked sample packages have a filtered matrix that passed full sparse validation; its barcodes equal the in-tissue spots in 5.",
+    "next_step": "Locate source-backed native H&E for the sections; registration and tissue QC.",
+    "states": [
+     "author-release",
+     "local-qc"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 5,
+    "sections_listed": 5,
+    "study_local_donors": null
+   }
   },
   {
    "id": "cand-crost-gse269354",
@@ -1502,7 +1595,21 @@
    ],
    "compartments": [
     "normal"
-   ]
+   ],
+   "origin_review": {
+    "outcome": "registration-gap",
+    "depth": "complete download of the cell matrix and cell table of one Xenium slide (the cell table recovered at its published size with gzip CRC after a short first transfer); morphology image not retrieved",
+    "image_finding": "Only DAPI morphology images (4.1 and 5.4 GB) are deposited; no post-assay H&E is listed. The primary publication imaged additional sections on separate slides for H&E, which do not share the Xenium coordinate frame. Slide 0013717 combines four healthy-control and four asthma biopsies (GEO metadata workbook) without a cell-to-biopsy join, so the healthy reference cells cannot yet be separated.",
+    "molecular_finding": "Whole-slide matrix of 541 features × 62,732 cells passed full sparse validation; its cell IDs equal the cell table exactly, with unique IDs and finite centroids in micrometres. These are all cells of the mixed slide, not a validated healthy reference.",
+    "next_step": "Locate a post-Xenium H&E and the biopsy-level split of the healthy reference cells.",
+    "states": [
+     "author-release"
+    ],
+    "date": "2026-11-21",
+    "sections_checked": 1,
+    "sections_listed": 0,
+    "study_local_donors": null
+   }
   }
  ],
  "located_sections": [
@@ -3355,6 +3462,1181 @@
    "verification": "file-checked",
    "assay_area_id": null,
    "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10193345",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A48",
+   "capture": "WSA_LngSP10193345",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10193346",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A48",
+   "capture": "WSA_LngSP10193346",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10193347",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A37",
+   "capture": "WSA_LngSP10193347",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10193348",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A37",
+   "capture": "WSA_LngSP10193348",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10972072",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A61",
+   "capture": "WSA_LngSP10972072",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10972073",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A61",
+   "capture": "WSA_LngSP10972073",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10972074",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A61",
+   "capture": "WSA_LngSP10972074",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP10972075",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A61",
+   "capture": "WSA_LngSP10972075",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP8759310",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A42",
+   "capture": "WSA_LngSP8759310",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP8759311",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A42",
+   "capture": "WSA_LngSP8759311",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP8759312",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A42",
+   "capture": "WSA_LngSP8759312",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP8759313",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A42",
+   "capture": "WSA_LngSP8759313",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258462",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A50",
+   "capture": "WSA_LngSP9258462",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258463",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A50",
+   "capture": "WSA_LngSP9258463",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258464",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A37",
+   "capture": "WSA_LngSP9258464",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258465",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A47",
+   "capture": "WSA_LngSP9258465",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258466",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A50",
+   "capture": "WSA_LngSP9258466",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258467",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A50",
+   "capture": "WSA_LngSP9258467",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258468",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A37",
+   "capture": "WSA_LngSP9258468",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-e-mtab-11640:WSA_LngSP9258469",
+   "cohort": "cand-crost-e-mtab-11640",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "A47",
+   "capture": "WSA_LngSP9258469",
+   "image_level": "original",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-gse172416:GSM5255579",
+   "cohort": "cand-crost-gse172416",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "No.1",
+   "capture": "GSM5255579",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-gse172416:GSM5255580",
+   "cohort": "cand-crost-gse172416",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "No.1",
+   "capture": "GSM5255580",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-established"
+  },
+  {
+   "id": "cand-crost-gse178361:GSM5388414",
+   "cohort": "cand-crost-gse178361",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM5388414",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse178361:GSM5388415",
+   "cohort": "cand-crost-gse178361",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM5388415",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse179572:GSM5420749",
+   "cohort": "cand-crost-gse179572",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "15",
+   "capture": "GSM5420749",
+   "image_level": "original",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-sample-title"
+  },
+  {
+   "id": "cand-crost-gse179572:GSM5420751",
+   "cohort": "cand-crost-gse179572",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "19",
+   "capture": "GSM5420751",
+   "image_level": "original",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "same-section",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-sample-title"
+  },
+  {
+   "id": "cand-crost-gse179572:GSM5420754",
+   "cohort": "cand-crost-gse179572",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": "27",
+   "capture": "GSM5420754",
+   "image_level": "preview",
+   "tier": "metastatic",
+   "site": "Metastasis",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "source-sample-title"
+  },
+  {
+   "id": "cand-crost-gse248082:GSM8087031",
+   "cohort": "cand-crost-gse248082",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8087031",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse248082:GSM8087032",
+   "cohort": "cand-crost-gse248082",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8087032",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse248082:GSM8087033",
+   "cohort": "cand-crost-gse248082",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8087033",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium CytAssist",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse248082:GSM8087034",
+   "cohort": "cand-crost-gse248082",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8087034",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse248082:GSM8087035",
+   "cohort": "cand-crost-gse248082",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8087035",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284978",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284978",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284979",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284979",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284980",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284980",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284981",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284981",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284982",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284982",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284983",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284983",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284984",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284984",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284985",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284985",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284986",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284986",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284987",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284987",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284988",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284988",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284989",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284989",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284990",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284990",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284991",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284991",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
+  },
+  {
+   "id": "cand-crost-gse268049:GSM8284992",
+   "cohort": "cand-crost-gse268049",
+   "cancer": "LUAD",
+   "stratum": null,
+   "patient": null,
+   "capture": "GSM8284992",
+   "image_level": "preview",
+   "tier": "review",
+   "site": "Unknown",
+   "treatment": "Unknown",
+   "technique": "Visium",
+   "preservation": "Unknown",
+   "linkage": "listed-together",
+   "registration": "Not yet checked",
+   "he_mpp": null,
+   "access": {
+    "he": "open",
+    "processed": "open",
+    "raw": "unresolved"
+   },
+   "verification": "file-checked",
+   "assay_area_id": null,
+   "donor_mapping": "unresolved"
   }
  ],
  "other_resources": [

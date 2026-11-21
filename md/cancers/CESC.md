@@ -1,6 +1,6 @@
 # Cervical squamous cell carcinoma and endocervical adenocarcinoma
 
-Code `CESC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=CESC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CESC). Data: [data/by-cancer/CESC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CESC.json).
+Code `CESC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.5, 21 November 2026. Web page: [cancers.html?c=CESC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CESC). Data: [data/by-cancer/CESC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CESC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation; that result does not rule out archetypes under another representation. It is included because it meets the RNA and 450k methylation screen. Analyses use cervical squamous cell carcinoma (CSCC), selected by histology from the TCGA cervical study with the GDC label as an explicit fallback; adenocarcinomas and adenosquamous carcinomas are outside the selected cohort.
 
@@ -22,16 +22,22 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-4 spatial resources are catalogued. Verification of the matched image and molecular data is pending. One of them is a non-tumour reference, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
+4 spatial resources are catalogued; matched molecular data with a preview image only for 1. Verification is pending for the others. One of them is a non-tumour reference, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
+| GSE290350 non-tumour reference (`cand-crost-gse290350`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Matched data with preview image: 2 sections with a preview image |
 | 10x Genomics cervical SCC, Visium FFPE (`cscc-10x-ffpe`) | Visium FFPE | Free account | 1 section (vendor specimen) | Verification pending |
 | Guo et al. 2023, HPV progression series (`cscc-hpv-gse208654`); includes normal or adjacent tissue; includes precursor lesions | Spatial transcriptomics array (platform to confirm) | Open download | 1 squamous cell carcinoma section (GSM6360691) | Verification pending |
-| GSE290350 non-tumour reference (`cand-crost-gse290350`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
 | Ou et al. 2022 (`cscc-ou-stereo`); includes normal or adjacent tissue; H&E from serial sections | Stereo-seq | Unresolved | 14 tumour patients | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
+
+Located tissue section records: 2 sections (0 with original H&E, 2 with a preview image) from 0 known patients, each with measured spatial RNA and coordinates. Primary tumour counts sections from primary tumours within the stratum, all with original H&E; other sections are metastatic, under review, held for quality control or outside the stratum.
+
+| Histology stratum | Patients, primary tumour | Sections, primary tumour | Other sections, original H&E | Other sections, preview image |
+| --- | --- | --- | --- | --- |
+| No stratum assigned | 0 | 0 | 0 | 2 |
 
 ## Selection history: published archetype evidence
 
