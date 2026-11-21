@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -840,6 +840,68 @@
      }
     ]
    }
+  },
+  {
+   "id": "cand-crost-gse248205",
+   "label": "GSE248205 non-tumour reference",
+   "title": "Unraveling the molecular architecture of autoimmune thyroid diseases at spatial resolution",
+   "citation": {
+    "authors": null,
+    "title": "Unraveling the molecular architecture of autoimmune thyroid diseases at spatial resolution.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1038/s41467-024-50192-5",
+    "url": "https://doi.org/10.1038/s41467-024-50192-5"
+   },
+   "cancers": [
+    "THCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE248205",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE248205",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE248205"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000433"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41467-024-50192-5"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Control thyroid subset only; Graves disease and Hashimoto thyroiditis samples remain separate. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
   }
  ],
  "located_sections": [

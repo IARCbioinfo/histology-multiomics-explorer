@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -550,6 +550,249 @@
      "sections_with_matching_coordinates": null
     }
    }
+  },
+  {
+   "id": "cand-crost-10x-119",
+   "label": "Human normal prostate, Visium FFPE reference",
+   "title": "Human normal prostate, Visium FFPE reference",
+   "citation": {
+    "authors": "10x Genomics",
+    "title": "Human normal prostate, Visium FFPE reference",
+    "journal": "10x Genomics datasets",
+    "year": null,
+    "doi": null,
+    "url": "https://cf.10xgenomics.com/samples/spatial-exp/1.3.0/Visium_FFPE_Human_Normal_Prostate/Visium_FFPE_Human_Normal_Prostate_web_summary.html"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium FFPE"
+   ],
+   "preservation": [
+    "FFPE"
+   ],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "VISDP000119",
+   "access": {
+    "category": "unresolved",
+    "route": "Originating vendor metadata are public. Current package access, licensing route and completeness require verification.",
+    "links": [
+     [
+      "Originating vendor dataset",
+      "https://cf.10xgenomics.com/samples/spatial-exp/1.3.0/Visium_FFPE_Human_Normal_Prostate/Visium_FFPE_Human_Normal_Prostate_web_summary.html"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000119"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Non-tumour prostate reference described by the exact originating 10x web summary. Molecular and image packages are unqualified. Candidate only; files and image linkage have not been qualified.",
+   "notes": [
+    "No independent-donor or eligible-patient count is assigned."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse230282",
+   "label": "GSE230282 spatial study",
+   "title": "Spatial transcriptomics of de novo NEPC and ARPC",
+   "citation": {
+    "authors": null,
+    "title": "Spatial Gene Expression Analysis Reveals Characteristic Gene Expression Patterns of De Novo Neuroendocrine Prostate Cancer Coexisting with Androgen Receptor Pathway Prostate Cancer.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.3390/ijms24108955",
+    "url": "https://doi.org/10.3390/ijms24108955"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE230282",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE230282",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE230282"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000184"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.3390/ijms24108955"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Contains de novo neuroendocrine and androgen-receptor prostate cancer; histological strata must remain separate. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse262276",
+   "label": "GSE262276 spatial study",
+   "title": "Spatial transcriptomics of intraductal carcinoma of the prostate (IDCP)",
+   "citation": {
+    "authors": null,
+    "title": "Unveiling the Genomic Landscape of Intraductal Carcinoma of the Prostate Using Spatial Gene Expression Analysis.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.3390/ijms25094818",
+    "url": "https://doi.org/10.3390/ijms25094818"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE262276",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE262276",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE262276"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000299"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.3390/ijms25094818"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Intraductal carcinoma of the prostate; keep this histological component distinct from conventional invasive acinar disease. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse278936",
+   "label": "GSE278936 spatial study",
+   "title": "Single cell and spatial transcriptomics highlight the interaction of club-like cells with immunosuppressive myeloid cells in prostate cancer",
+   "citation": {
+    "authors": null,
+    "title": "Single cell and spatial transcriptomics highlight the interaction of club-like cells with immunosuppressive myeloid cells in prostate cancer.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1038/s41467-024-54364-1",
+    "url": "https://doi.org/10.1038/s41467-024-54364-1"
+   },
+   "cancers": [
+    "PRAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "GSE278936",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE278936",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE278936"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000358"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41467-024-54364-1"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Prostate cancer treatment-timeline study also contains benign prostatic tissue; treatment and tissue roles need sample-level review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
   }
  ],
  "located_sections": [],

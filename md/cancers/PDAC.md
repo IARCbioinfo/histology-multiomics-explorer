@@ -1,6 +1,6 @@
 # Pancreatic ductal adenocarcinoma
 
-Code `PDAC`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=PDAC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PDAC). Data: [data/by-cancer/PDAC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PDAC.json).
+Code `PDAC`. Molecular screen; not screened by Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=PDAC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=PDAC). Data: [data/by-cancer/PDAC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/PDAC.json).
 
 Pancreatic ductal adenocarcinoma was not among the cancer types screened by Hausser et al. TCGA-PAAD meets the molecular screen; analyses use a histology-confirmed ductal adenocarcinoma cohort selected by documented pathology review rather than the whole project.
 
@@ -22,13 +22,25 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-3 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 1. These studies usually involve patients other than those in TCGA.
+15 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 1. Verification is pending for the others. One of them is a non-tumour reference, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | HTAN WUSTL (Mo et al. 2024) (`htan-wustl`); includes treated tissue; includes metastases | Visium, Visium FFPE | Free account | No count reported | Original H&E located: 20 sections with original H&E; 15 known patients |
 | Pei et al. 2025 (`pei-2025`); includes treated tissue; includes metastases | Visium | Open download | No count reported | Original H&E located: 55 sections with original H&E; 13 known patients |
 | Schmitt et al. 2026 (`schmitt-2026`) | Visium FFPE | Open download | 14 patients | Matched data with preview image: 14 sections with a preview image; 14 known patients |
+| GSE211895 spatial study (`cand-crost-gse211895`) | Visium | Open download | No count reported | Verification pending |
+| GSE233293 spatial study (`cand-crost-gse233293`); includes precursor lesions | Visium | Open download | No count reported | Verification pending |
+| GSE202740 spatial study (`cand-crost-gse202740`) | Visium | Open download | No count reported | Verification pending |
+| GSE254829 spatial study (`cand-crost-gse254829`); includes precursor lesions | Visium | Open download | No count reported | Verification pending |
+| GSE235315 spatial study (`cand-crost-gse235315`) | Visium | Open download | No count reported | Verification pending |
+| GSE224411 spatial study (`cand-crost-gse224411`); includes metastases; treatment review pending; includes precursor lesions | Visium | Open download | No count reported | Verification pending |
+| GSE274103 spatial study (`cand-crost-gse274103`) | Visium | Open download | No count reported | Verification pending |
+| GSE274665 spatial study (`cand-crost-gse274665`) | Visium | Open download | No count reported | Verification pending |
+| GSE281288 spatial study (`cand-crost-gse281288`); metastases only | Visium | Open download | No count reported | Verification pending |
+| GSE280634 spatial study (`cand-crost-gse280634`) | Xenium | Open download | No count reported | Verification pending |
+| GSE296626 non-tumour reference (`cand-crost-gse296626`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE278687 spatial study (`cand-crost-gse278687`) | Visium | Open download | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 

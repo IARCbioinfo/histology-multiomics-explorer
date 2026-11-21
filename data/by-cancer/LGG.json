@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -2588,6 +2588,435 @@
      }
     ]
    }
+  },
+  {
+   "id": "cand-crost-gse184510",
+   "label": "GSE184510 non-tumour reference",
+   "title": "Spatial transcriptomics: The effect of consecutive slices data integration on accurate cell type annotation and clustering",
+   "citation": {
+    "authors": null,
+    "title": "Size matters: the impact of nucleus size on results from spatial transcriptomics.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1186/s12967-023-04129-z",
+    "url": "https://doi.org/10.1186/s12967-023-04129-z"
+   },
+   "cancers": [
+    "LGG",
+    "GBM"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE184510",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE184510",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE184510"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000045"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1186/s12967-023-04129-z"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Orbitofrontal neocortex reference; region and staining must be checked before comparison with glioma. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse208747",
+   "label": "GSE208747 non-tumour reference",
+   "title": "Decoding spatial gene activity changes in multiple sclerosis lesion progression",
+   "citation": {
+    "authors": null,
+    "title": "Spatially resolved gene signatures of white matter lesion progression in multiple sclerosis.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1038/s41593-024-01765-6",
+    "url": "https://doi.org/10.1038/s41593-024-01765-6"
+   },
+   "cancers": [
+    "LGG",
+    "GBM"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE208747",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE208747",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE208747"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000277"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41593-024-01765-6"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Non-demented brain-control subset only; multiple sclerosis samples are excluded from this reference role. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse263034",
+   "label": "GSE263034 non-tumour reference",
+   "title": "Microglial mechanisms drive amyloid-β clearance in immunized patients with Alzheimer’s disease [dataset1]",
+   "citation": {
+    "authors": null,
+    "title": "Microglial mechanisms drive amyloid-β clearance in immunized patients with Alzheimer's disease.",
+    "journal": null,
+    "year": 2025,
+    "doi": "10.1038/s41591-025-03574-1",
+    "url": "https://doi.org/10.1038/s41591-025-03574-1"
+   },
+   "cancers": [
+    "LGG",
+    "GBM"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE263034",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE263034",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263034"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000339"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41591-025-03574-1"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Non-neurological control frontal-cortex subset only; immunised and untreated Alzheimer disease cases are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse279181",
+   "label": "GSE279181 non-tumour reference",
+   "title": "Cell type mapping reveals tissue niches and interactions in subcortical multiple sclerosis lesions [spatial transcriptomics]",
+   "citation": {
+    "authors": null,
+    "title": "Cell type mapping reveals tissue niches and interactions in subcortical multiple sclerosis lesions.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1038/s41593-024-01796-z",
+    "url": "https://doi.org/10.1038/s41593-024-01796-z"
+   },
+   "cancers": [
+    "LGG",
+    "GBM"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE279181",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE279181",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE279181"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000359"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41593-024-01796-z"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Control brain subset only; multiple sclerosis cases are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse280316",
+   "label": "GSE280316 non-tumour reference",
+   "title": "Spatially-resolved molecular sex differences at single cell resolution in the adult human hypothalamus",
+   "citation": {
+    "authors": null,
+    "title": "Spatially-resolved molecular sex differences at single cell resolution in the adult human hypothalamus",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE280316"
+   },
+   "cancers": [
+    "LGG",
+    "GBM"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE280316",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE280316",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE280316"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000365"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Postmortem adult hypothalamus reference. This is anatomically distinct from most glioma sampling sites; a cancer tag does not establish a region-matched comparator. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse264692",
+   "label": "GSE264692 non-tumour reference",
+   "title": "An integrated single-nucleus and spatial transcriptomics atlas reveals the molecular landscape of the human hippocampus [spatial-visium]",
+   "citation": {
+    "authors": null,
+    "title": "An integrated single-nucleus and spatial transcriptomics atlas reveals the molecular landscape of the human hippocampus [spatial-visium]",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE264692"
+   },
+   "cancers": [
+    "LGG",
+    "GBM"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE264692",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE264692",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE264692"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000423"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Postmortem hippocampal reference; CROST appends section suffixes to GSM identifiers. Raw suffixes are not exact GEO accessions or donor labels. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse313918",
+   "label": "GSE313918 non-tumour reference",
+   "title": "Differential Cellular Mechanisms Underlie Language and Executive Decline in Amyotrophic Lateral Sclerosis [Visium spatial transcriptomics]",
+   "citation": {
+    "authors": null,
+    "title": "Differential Cellular Mechanisms Underlie Language and Executive Decline in Amyotrophic Lateral Sclerosis [Visium spatial transcriptomics]",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE313918"
+   },
+   "cancers": [
+    "LGG",
+    "GBM"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE313918",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE313918",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE313918"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000463"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Control BA46 cortex subset only; ALS samples are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
   }
  ],
  "located_sections": [

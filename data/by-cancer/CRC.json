@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -1429,6 +1429,435 @@
    "notes": [
     "The source reports one patient, given the study-local label P1 on both sections; this is not an eligible-patient count. Treatment before sampling is unknown.",
     "Pooled colorectal coverage: the primary subsite (colon or rectum) is unknown, so the resource is listed under CRC only."
+   ]
+  },
+  {
+   "id": "cand-crost-gse158328",
+   "label": "GSE158328 non-tumour reference",
+   "title": "Spatiotemporal Analysis of Human Intestinal Development at Single Cell Resolution - Spatial Transcriptomics",
+   "citation": {
+    "authors": null,
+    "title": "Spatiotemporal analysis of human intestinal development at single-cell resolution.",
+    "journal": null,
+    "year": 2021,
+    "doi": "10.1016/j.cell.2020.12.016",
+    "url": "https://doi.org/10.1016/j.cell.2020.12.016"
+   },
+   "cancers": [
+    "CRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE158328",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE158328",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE158328"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000013"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1016/j.cell.2020.12.016"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Adult-colon subset only; fetal intestine samples are outside this reference route. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added.",
+    "Originating GEO GSM4797916 identifies the adult-colon A1 slide. Other fetal-intestine material in this developmental series is not part of the adult reference route."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-10x-102",
+   "label": "Human colorectal cancer, whole-transcriptome and targeted Visium",
+   "title": "Human colorectal cancer, whole-transcriptome and targeted Visium",
+   "citation": {
+    "authors": "10x Genomics",
+    "title": "Human colorectal cancer, whole-transcriptome and targeted Visium",
+    "journal": "10x Genomics datasets",
+    "year": 2020,
+    "doi": null,
+    "url": "https://www.10xgenomics.com/datasets/human-colorectal-cancer-whole-transcriptome-analysis-1-standard-1-2-0"
+   },
+   "cancers": [
+    "CRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [
+    "Fresh frozen"
+   ],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "VISDP000102",
+   "access": {
+    "category": "unresolved",
+    "route": "Originating vendor metadata are public. Current package access, licensing route and completeness require verification.",
+    "links": [
+     [
+      "Originating vendor dataset",
+      "https://www.10xgenomics.com/datasets/human-colorectal-cancer-whole-transcriptome-analysis-1-standard-1-2-0"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000102"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Same source library T1T2-E8 is used for the whole-transcriptome and targeted Gene Signature Panel routes; one resource, not two donors. Candidate only; files and image linkage have not been qualified.",
+   "notes": [
+    "No independent-donor or eligible-patient count is assigned."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-10x-154",
+   "label": "PRJNA811533 spatial study",
+   "title": "Effect of the intratumoral microbiota on spatial and cellular heterogeneity in cancer.",
+   "citation": {
+    "authors": null,
+    "title": "Effect of the intratumoral microbiota on spatial and cellular heterogeneity in cancer.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.1038/s41586-022-05435-0",
+    "url": "https://doi.org/10.1038/s41586-022-05435-0"
+   },
+   "cancers": [
+    "CRC",
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "PRJNA811533",
+   "access": {
+    "category": "unresolved",
+    "route": "Originating vendor metadata are public. Current package access, licensing route and completeness require verification.",
+    "links": [
+     [
+      "Originating study PRJNA811533",
+      "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA811533"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000154"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41586-022-05435-0"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Primary publication and BioProject PRJNA811533 establish CRC and oral squamous carcinoma spatial microbiota profiling. CROST includes an inconsistent ovarian label; the published origin governs this candidate, with individual sample joins pending. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse225857",
+   "label": "GSE225857 spatial study",
+   "title": "Single-cell and spatial transcriptome analysis reveals the cellular heterogeneity of liver metastatic colorectal cancer",
+   "citation": {
+    "authors": null,
+    "title": "Single-cell and spatial transcriptome analysis reveals the cellular heterogeneity of liver metastatic colorectal cancer.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1126/sciadv.adf5464",
+    "url": "https://doi.org/10.1126/sciadv.adf5464"
+   },
+   "cancers": [
+    "CRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "GSE225857",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE225857",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE225857"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000187"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1126/sciadv.adf5464"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "CRC primary and liver-metastasis study. The spatial specimens require source-level compartment review; primary colon versus rectal subsite is not assigned. The originating study reports preoperative chemotherapy and/or radiotherapy. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse251693",
+   "label": "GSE251693 non-tumour reference",
+   "title": "Double-negative B cells and DNASE1L3 colocalise with microbiota in gut-associated lymphoid tissue",
+   "citation": {
+    "authors": null,
+    "title": "Double-negative B cells and DNASE1L3 colocalise with microbiota in gut-associated lymphoid tissue.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1038/s41467-024-48267-4",
+    "url": "https://doi.org/10.1038/s41467-024-48267-4"
+   },
+   "cancers": [
+    "CRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE251693",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE251693",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE251693"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000209"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41467-024-48267-4"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse254364",
+   "label": "GSE254364 spatial study",
+   "title": "High-resolution analysis of mononuclear phagocytes reveals clinically relevant markers in human colo-rectal liver metastasis - Visium Spatial Transcriptomics",
+   "citation": {
+    "authors": null,
+    "title": "High-Resolution Analysis of Mononuclear Phagocytes Reveals GPNMB as a Prognostic Marker in Human Colorectal Liver Metastasis.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1158/2326-6066.CIR-22-0462",
+    "url": "https://doi.org/10.1158/2326-6066.CIR-22-0462"
+   },
+   "cancers": [
+    "CRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE254364",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE254364",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE254364"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000218"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1158/2326-6066.CIR-22-0462"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Colorectal liver-metastasis and invasive-margin study; no primary colon versus rectal subsite is assigned. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "metastatic-tumour"
+   ]
+  },
+  {
+   "id": "cand-crost-gse217414",
+   "label": "GSE217414 spatial study",
+   "title": "Liver metastases originating from 4 colorectal cancer patients (CRC-LM).",
+   "citation": {
+    "authors": null,
+    "title": "Inferring ligand-receptor cellular networks from bulk and spatial transcriptomic datasets with BulkSignalR.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1093/nar/gkad352",
+    "url": "https://doi.org/10.1093/nar/gkad352"
+   },
+   "cancers": [
+    "CRC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE217414",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE217414",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE217414"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000254"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1093/nar/gkad352"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Liver metastases from colorectal cancer; the source reports four patients, without establishing independence from other published CRC resources. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "metastatic-tumour"
    ]
   }
  ],

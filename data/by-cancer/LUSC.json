@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -408,6 +408,321 @@
      "sections_with_matching_coordinates": null
     }
    }
+  },
+  {
+   "id": "cand-crost-gse178361",
+   "label": "GSE178361 non-tumour reference",
+   "title": "Human distal lung maps and lineage hierarchies reveal a bipotent progenitor [Spatial transcriptomics]",
+   "citation": {
+    "authors": null,
+    "title": "Human distal lung maps and lineage hierarchies reveal a bipotent progenitor.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.1038/s41586-022-04541-3",
+    "url": "https://doi.org/10.1038/s41586-022-04541-3"
+   },
+   "cancers": [
+    "LUAD",
+    "LUSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE178361",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE178361",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE178361"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000035"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41586-022-04541-3"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-e-mtab-11640",
+   "label": "E-MTAB-11640 non-tumour reference",
+   "title": "A spatial multi-omics atlas of the human lung reveals a novel immune cell survival niche - Visium",
+   "citation": {
+    "authors": null,
+    "title": "A spatially resolved atlas of the human lung characterizes a gland-associated immune niche.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1038/s41588-022-01243-4",
+    "url": "https://doi.org/10.1038/s41588-022-01243-4"
+   },
+   "cancers": [
+    "LUAD",
+    "LUSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "E-MTAB-11640",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study E-MTAB-11640",
+      "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-11640"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000137"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41588-022-01243-4"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse172416",
+   "label": "GSE172416 non-tumour reference",
+   "title": "Cell type inference in human lung tissue by domain adaptation of single-cell and spatial transcriptomic data",
+   "citation": {
+    "authors": null,
+    "title": "CellDART: cell type inference by domain adaptation of single-cell and spatial transcriptomic data.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.1093/nar/gkac084",
+    "url": "https://doi.org/10.1093/nar/gkac084"
+   },
+   "cancers": [
+    "LUAD",
+    "LUSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE172416",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE172416",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE172416"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000235"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1093/nar/gkac084"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Primary GEO design establishes two normal-lung sections from one lung-cancer resection patient. Tumour-adjacent reference, not independent healthy controls. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "solid-normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse248082",
+   "label": "GSE248082 non-tumour reference",
+   "title": "Spatial deconvolution of tertiary lymphoid structure in human IPF lungs revealed novel CCL19-expressing mural cells",
+   "citation": {
+    "authors": null,
+    "title": "Distinct mural cells and fibroblasts promote pathogenic plasma cell accumulation in idiopathic pulmonary fibrosis.",
+    "journal": null,
+    "year": 2025,
+    "doi": "10.1183/13993003.01114-2024",
+    "url": "https://doi.org/10.1183/13993003.01114-2024"
+   },
+   "cancers": [
+    "LUAD",
+    "LUSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE248082",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE248082",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE248082"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000326"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1183/13993003.01114-2024"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Control-lung subset only; pulmonary fibrosis specimens are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse269354",
+   "label": "GSE269354 non-tumour reference",
+   "title": "Xenium In Situ Gene Expression of healthy and asthmatic lung endobronchial biopsies",
+   "citation": {
+    "authors": null,
+    "title": "A single-cell spatial chart of the airway wall reveals proinflammatory cellular ecosystems and their interactions in health and asthma.",
+    "journal": null,
+    "year": 2025,
+    "doi": "10.1038/s41590-025-02161-3",
+    "url": "https://doi.org/10.1038/s41590-025-02161-3"
+   },
+   "cancers": [
+    "LUAD",
+    "LUSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Xenium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE269354",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE269354",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE269354"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000386"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41590-025-02161-3"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Healthy endobronchial-biopsy subset only; asthma cases are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
   }
  ],
  "located_sections": [

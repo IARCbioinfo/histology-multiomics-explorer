@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -406,6 +406,67 @@
      }
     ]
    }
+  },
+  {
+   "id": "cand-crost-gse245704",
+   "label": "GSE245704 spatial study",
+   "title": "Spatial transcriptomic analysis of Gastric adenocarcinoma",
+   "citation": {
+    "authors": null,
+    "title": "Discovering cancer stem-like molecule, nuclear factor I X, using spatial transcriptome in gastric cancer.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1111/cas.16288",
+    "url": "https://doi.org/10.1111/cas.16288"
+   },
+   "cancers": [
+    "STAD"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE245704",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE245704",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245704"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000427"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1111/cas.16288"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Originating GEO record identifies gastric tubular adenocarcinoma. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
   }
  ],
  "located_sections": [

@@ -1,6 +1,6 @@
 # Head and neck squamous cell carcinoma
 
-Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
+Code `HNSC`. Borderline in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=HNSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=HNSC). Data: [data/by-cancer/HNSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/HNSC.json).
 
 Hausser et al. described head and neck cancer as borderline under their significance criterion. HPV status, keratinization and subsite are kept as separate strata because they correspond to different tumour biology.
 
@@ -22,7 +22,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-13 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+17 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 3. Verification is pending for the others. One of them is a non-tumour reference, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -36,9 +36,13 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Spatial Transcriptomic Analysis of Surgical Resection Specimens of Primary Head and Neck Squamous Cell Carcinoma Treated with Afatinib in a Window-of-Opportunity Study (EORTC 90111-24111) (`cand-beyaert2025-gse289908`) | Visium FFPE | Open download | No count reported | Verification pending |
 | TREM2-Expressing Multinucleated Giant Macrophages Are a Biomarker of Good Prognosis in Head and Neck Squamous Cell Carcinoma (`cand-gessain2024-e-mtab-14409`) | Visium FFPE | Open download | No count reported | Verification pending |
 | Deep spatial-omics analysis of Head & Neck carcinomas provides alternative therapeutic targets and rationale for treatment failure (`cand-causer2023-uq`) | Visium | Open download | No count reported | Verification pending |
+| GSE206621 non-tumour reference (`cand-crost-gse206621`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE220978 spatial study (`cand-crost-gse220978`); includes precursor lesions | Visium | Open download | No count reported | Verification pending |
+| GSE263498 spatial study (`cand-crost-gse263498`); includes metastases | Xenium | Open download | No count reported | Verification pending |
 | Cancer-associated fibroblast subsets in head and neck squamous cell carcinoma (`cand-li2024-hra005551-hra005576`) | Spatial RNA (protocol unverified) | Controlled access | No count reported | Verification pending |
 | Hypopharyngeal cancer chemoradiotherapy resistance, spatial transcriptomics (`cand-hypopharynx2025-ccrt`) | Visium CytAssist | Author request | No count reported | Verification pending |
 | Integrative spatiotemporal analysis of squamous tumorigenesis (`cand-oraltumorigenesis2025-preprint`) | Visium HD | Unresolved | No count reported | Verification pending |
+| PRJNA811533 spatial study (`cand-crost-10x-154`) | Visium | Unresolved | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 

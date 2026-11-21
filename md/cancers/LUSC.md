@@ -1,6 +1,6 @@
 # Lung squamous cell carcinoma
 
-Code `LUSC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=LUSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUSC). Data: [data/by-cancer/LUSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUSC.json).
+Code `LUSC`. Molecular screen; no geometry detected in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=LUSC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUSC). Data: [data/by-cancer/LUSC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUSC.json).
 
 Hausser et al. screened this cancer type and detected no significant archetype geometry in their RNA representation. It meets the molecular screen; about a quarter of retained patients have RNA-seq without 450k methylation.
 
@@ -22,12 +22,17 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-2 spatial resources are catalogued; matched molecular data with a preview image only for 1. Verification is pending for the other. These studies usually involve patients other than those in TCGA.
+7 spatial resources are catalogued; matched molecular data with a preview image only for 1. Verification is pending for the others. Five of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | De Zuani et al. 2024 (`cand-dezuani-cvejic-2024`); includes normal or adjacent tissue | Visium | Open download | 2 LUSC donors (Patients 11 and 19) | Matched data with preview image: 10 sections with a preview image; 2 known patients |
 | 10x Genomics lung SCC, Visium CytAssist FFPE (`lusc-10x-cytassist`) | Visium CytAssist | Free account | 1 sample (vendor specimen) | Verification pending |
+| GSE178361 non-tumour reference (`cand-crost-gse178361`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| E-MTAB-11640 non-tumour reference (`cand-crost-e-mtab-11640`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE172416 non-tumour reference (`cand-crost-gse172416`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE248082 non-tumour reference (`cand-crost-gse248082`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE269354 non-tumour reference (`cand-crost-gse269354`); non-tumour reference only, listed by organ | Xenium | Open download | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 

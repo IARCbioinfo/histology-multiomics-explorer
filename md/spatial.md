@@ -1,37 +1,37 @@
 # Spatial studies
 
-Release 0.11.3, 21 November 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
+Release 0.11.4, 21 November 2026. Web page: [spatial.html](https://iarcbioinfo.github.io/histology-multiomics-explorer/spatial.html). Data: [cohorts.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/cohorts.json) (resources with layer `matched-spatial`) and [captures.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/captures.json) (located tissue sections).
 
 Published spatial omics studies show where molecular programmes and cell states sit within a tumour and how they relate to its morphology. They usually come from patients other than those in TCGA, so they add tissue context to the reference but no measurements for TCGA patients.
 
-115 catalogued spatial resources: 16 with original H&E located, 31 with matched data and a preview image, and 68 not yet verified; 20 cancer types represented. 261 tissue section records have the original H&E, and 506 have a preview image from 267 known study-local patients; 250 listed sections have no patient ID. No eligible-patient total is established.
+184 catalogued spatial resources: 16 with original H&E located, 31 with matched data and a preview image, and 137 not yet verified; 20 cancer types represented. The 184 resources include 29 of non-tumour or adjacent-normal reference tissue; their cancer tags route them to the relevant organ pages and do not make them tumour cohorts. 261 tissue section records have the original H&E, and 506 have a preview image from 267 known study-local patients; 250 listed sections have no patient ID. No eligible-patient total is established.
 
 ## By cancer type
 
 | Cancer type | Code | Catalogued resources | Original H&E located | Matched data with preview image |
 | --- | --- | --- | --- | --- |
-| [Breast invasive carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BRCA.md) | BRCA | 8 | 2 | 2 |
+| [Breast invasive carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BRCA.md) | BRCA | 14 | 2 | 2 |
 | [Colon adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/COAD.md) | COAD | 11 | 3 | 3 |
 | [Rectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/READ.md) | READ | 11 | 3 | 3 |
-| [Colorectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CRC.md) | CRC | 13 | 3 | 5 |
-| [Thyroid carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/THCA.md) | THCA | 9 | 2 | 1 |
+| [Colorectal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CRC.md) | CRC | 20 (2 non-tumour references) | 3 | 5 |
+| [Thyroid carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/THCA.md) | THCA | 10 (1 non-tumour reference) | 2 | 1 |
 | [Bladder urothelial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/BLCA.md) | BLCA | 10 | 2 | 3 |
-| [Lower-grade glioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LGG.md) | LGG | 10 | 1 | 4 |
-| [Glioblastoma (historical TCGA diagnosis)](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GBM.md) | GBM | 3 | 1 | 1 |
-| [Diffuse glioma classification benchmark](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GLIOMA.md) | GLIOMA | 10 | 1 | 4 |
-| [Liver hepatocellular carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LIHC.md) | LIHC | 17 | 1 | 3 |
-| [Lung adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUAD.md) | LUAD | 11 | 2 | 3 |
-| [Head and neck squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/HNSC.md) | HNSC | 13 | 3 | 3 |
-| [Cervical squamous cell carcinoma and endocervical adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CESC.md) | CESC | 3 | 0 | 0 |
+| [Lower-grade glioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LGG.md) | LGG | 17 (7 non-tumour references) | 1 | 4 |
+| [Glioblastoma (historical TCGA diagnosis)](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GBM.md) | GBM | 19 (7 non-tumour references) | 1 | 1 |
+| [Diffuse glioma classification benchmark](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/GLIOMA.md) | GLIOMA | 26 (7 non-tumour references) | 1 | 4 |
+| [Liver hepatocellular carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LIHC.md) | LIHC | 21 (3 non-tumour references) | 1 | 3 |
+| [Lung adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUAD.md) | LUAD | 18 (5 non-tumour references) | 2 | 3 |
+| [Head and neck squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/HNSC.md) | HNSC | 17 (1 non-tumour reference) | 3 | 3 |
+| [Cervical squamous cell carcinoma and endocervical adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/CESC.md) | CESC | 4 (1 non-tumour reference) | 0 | 0 |
 | [Oesophageal carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/ESCA.md) | ESCA | 3 | 0 | 0 |
-| [Kidney renal clear cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRC.md) | KIRC | 4 | 0 | 2 |
-| [Kidney renal papillary cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRP.md) | KIRP | 2 | 0 | 0 |
-| [Lung squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUSC.md) | LUSC | 2 | 0 | 1 |
+| [Kidney renal clear cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRC.md) | KIRC | 11 (5 non-tumour references) | 0 | 2 |
+| [Kidney renal papillary cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/KIRP.md) | KIRP | 7 (5 non-tumour references) | 0 | 0 |
+| [Lung squamous cell carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/LUSC.md) | LUSC | 7 (5 non-tumour references) | 0 | 1 |
 | [Pheochromocytoma and paraganglioma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PCPG.md) | PCPG | 2 | 0 | 0 |
-| [Prostate adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PRAD.md) | PRAD | 4 | 0 | 0 |
-| [Stomach adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/STAD.md) | STAD | 2 | 0 | 2 |
-| [Uterine corpus endometrial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/UCEC.md) | UCEC | 2 | 0 | 2 |
-| [Pancreatic ductal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PDAC.md) | PDAC | 3 | 2 | 1 |
+| [Prostate adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PRAD.md) | PRAD | 8 (1 non-tumour reference) | 0 | 0 |
+| [Stomach adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/STAD.md) | STAD | 3 | 0 | 2 |
+| [Uterine corpus endometrial carcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/UCEC.md) | UCEC | 4 (2 non-tumour references) | 0 | 2 |
+| [Pancreatic ductal adenocarcinoma](https://iarcbioinfo.github.io/histology-multiomics-explorer/md/cancers/PDAC.md) | PDAC | 15 (1 non-tumour reference) | 2 | 1 |
 
 Catalogued resources are all listed spatial studies and vendor examples, including those not yet verified and those that need an access request. A resource with matched data counts once, at its best image level; registration, calibration and tissue QC may still be pending at either level. The pooled colorectal and glioma rows reuse the resources of their constituent cancers, and some studies cover several cancers, so the rows should not be summed.
 
@@ -288,16 +288,84 @@ These releases add no resources or patients to the totals above.
 | Deep versus standard spatial transcriptomic sequencing | `cand-gse283406` | LIHC | Candidate, not yet verified | Open download | Visium CytAssist |
 | Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma | `cand-knuch-2026` | LUAD | Candidate, not yet verified | Unresolved | Visium |
 | Deng et al. 2025 | `cand-deng-micropapillary-2025` | LUAD | Candidate, not yet verified | Author request | Visium CytAssist |
+| E-MTAB-11640 non-tumour reference | `cand-crost-e-mtab-11640` | LUAD, LUSC | Candidate, not yet verified | Open download | Visium |
+| E-MTAB-11721 non-tumour reference | `cand-crost-e-mtab-11721` | KIRC, KIRP | Candidate, not yet verified | Open download | Visium |
+| E-MTAB-9260 non-tumour reference | `cand-crost-e-mtab-9260` | UCEC | Candidate, not yet verified | Open download | Visium |
 | Erickson et al. 2022 | `prad-erickson-clonal` | PRAD | Candidate, not yet verified | Open download | Spatial Transcriptomics (legacy arrays), Visium |
 | Fan et al. 2024 | `cand-fan2024-hra006757` | LIHC | Candidate, not yet verified | Controlled access | Visium FFPE |
 | Gaspard-Boulinc et al. 2025 | `cand-gaspardboulin2025` | LGG | Candidate, not yet verified | Unresolved | Visium |
 | Grande et al. 2025 | `cand-dutreneo` | BLCA | Candidate, not yet verified | Open download | Visium FFPE |
+| GSE158328 non-tumour reference | `cand-crost-gse158328` | CRC | Candidate, not yet verified | Open download | Visium |
+| GSE171406 non-tumour reference | `cand-crost-gse171406` | KIRC, KIRP | Candidate, not yet verified | Open download | Visium |
+| GSE172416 non-tumour reference | `cand-crost-gse172416` | LUAD, LUSC | Candidate, not yet verified | Open download | Visium |
+| GSE178361 non-tumour reference | `cand-crost-gse178361` | LUAD, LUSC | Candidate, not yet verified | Open download | Visium |
+| GSE179572 spatial study | `cand-crost-gse179572` | LUAD, BRCA | Candidate, not yet verified | Open download | Visium |
+| GSE183456 non-tumour reference | `cand-crost-gse183456` | KIRC, KIRP | Candidate, not yet verified | Open download | Visium |
+| GSE184510 non-tumour reference | `cand-crost-gse184510` | LGG, GBM | Candidate, not yet verified | Open download | Visium |
+| GSE185477 non-tumour reference | `cand-crost-gse185477` | LIHC | Candidate, not yet verified | Open download | Visium |
+| GSE189042 spatial study | `cand-crost-gse189042` | BRCA | Candidate, not yet verified | Open download | Visium |
+| GSE194329 spatial study | `cand-crost-gse194329` | GBM | Candidate, not yet verified | Open download | Visium |
+| GSE202740 spatial study | `cand-crost-gse202740` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE206306 non-tumour reference | `cand-crost-gse206306` | KIRC, KIRP | Candidate, not yet verified | Open download | Visium |
+| GSE206621 non-tumour reference | `cand-crost-gse206621` | HNSC | Candidate, not yet verified | Open download | Visium |
+| GSE208747 non-tumour reference | `cand-crost-gse208747` | LGG, GBM | Candidate, not yet verified | Open download | Visium |
+| GSE210041 spatial study | `cand-crost-gse210041` | KIRC | Candidate, not yet verified | Open download | Visium |
+| GSE211895 spatial study | `cand-crost-gse211895` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE213688 spatial study | `cand-crost-gse213688` | BRCA | Candidate, not yet verified | Open download | Visium |
+| GSE217414 spatial study | `cand-crost-gse217414` | CRC | Candidate, not yet verified | Open download | Visium |
+| GSE220978 spatial study | `cand-crost-gse220978` | HNSC | Candidate, not yet verified | Open download | Visium |
+| GSE223559 non-tumour reference | `cand-crost-gse223559` | LIHC | Candidate, not yet verified | Open download | Visium |
+| GSE224411 spatial study | `cand-crost-gse224411` | LIHC, PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE225857 spatial study | `cand-crost-gse225857` | CRC | Candidate, not yet verified | Open download | Visium |
+| GSE230282 spatial study | `cand-crost-gse230282` | PRAD | Candidate, not yet verified | Open download | Visium |
+| GSE233293 spatial study | `cand-crost-gse233293` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE235315 spatial study | `cand-crost-gse235315` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE235672 spatial study | `cand-crost-gse235672` | GBM | Candidate, not yet verified | Open download | Visium |
+| GSE240429 non-tumour reference | `cand-crost-gse240429` | LIHC | Candidate, not yet verified | Open download | Visium |
+| GSE242311 spatial study | `cand-crost-gse242311` | BRCA | Candidate, not yet verified | Open download | Visium |
+| GSE243022 spatial study | `cand-crost-gse243022` | BRCA | Candidate, not yet verified | Open download | Visium |
+| GSE245704 spatial study | `cand-crost-gse245704` | STAD | Candidate, not yet verified | Open download | Visium |
+| GSE246495 non-tumour reference | `cand-crost-gse246495` | UCEC | Candidate, not yet verified | Open download | Visium |
+| GSE248082 non-tumour reference | `cand-crost-gse248082` | LUAD, LUSC | Candidate, not yet verified | Open download | Visium |
+| GSE248205 non-tumour reference | `cand-crost-gse248205` | THCA | Candidate, not yet verified | Open download | Visium |
+| GSE250138 non-tumour reference | `cand-crost-gse250138` | KIRC, KIRP | Candidate, not yet verified | Open download | Visium |
+| GSE250163 spatial study | `cand-crost-gse250163` | KIRC | Candidate, not yet verified | Open download | Visium |
+| GSE251693 non-tumour reference | `cand-crost-gse251693` | CRC | Candidate, not yet verified | Open download | Visium |
+| GSE253080 spatial study | `cand-crost-gse253080` | GBM | Candidate, not yet verified | Open download | Visium |
+| GSE254364 spatial study | `cand-crost-gse254364` | CRC | Candidate, not yet verified | Open download | Visium |
+| GSE254829 spatial study | `cand-crost-gse254829` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE262276 spatial study | `cand-crost-gse262276` | PRAD | Candidate, not yet verified | Open download | Visium |
+| GSE263034 non-tumour reference | `cand-crost-gse263034` | LGG, GBM | Candidate, not yet verified | Open download | Visium |
+| GSE263498 spatial study | `cand-crost-gse263498` | HNSC | Candidate, not yet verified | Open download | Xenium |
+| GSE264692 non-tumour reference | `cand-crost-gse264692` | LGG, GBM | Candidate, not yet verified | Open download | Visium |
+| GSE268049 spatial study | `cand-crost-gse268049` | LUAD | Candidate, not yet verified | Open download | Visium |
+| GSE268427 spatial study | `cand-crost-gse268427` | BRCA | Candidate, not yet verified | Open download | Visium |
+| GSE269354 non-tumour reference | `cand-crost-gse269354` | LUAD, LUSC | Candidate, not yet verified | Open download | Xenium |
+| GSE273275 spatial study | `cand-crost-gse273275` | GBM | Candidate, not yet verified | Open download | Visium |
+| GSE273432 spatial study | `cand-crost-gse273432` | GBM | Candidate, not yet verified | Open download | Visium |
+| GSE274103 spatial study | `cand-crost-gse274103` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE274665 spatial study | `cand-crost-gse274665` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE276841 spatial study | `cand-crost-gse276841` | GBM | Candidate, not yet verified | Open download | Visium |
+| GSE278687 spatial study | `cand-crost-gse278687` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE278936 spatial study | `cand-crost-gse278936` | PRAD | Candidate, not yet verified | Open download | Visium |
+| GSE279181 non-tumour reference | `cand-crost-gse279181` | LGG, GBM | Candidate, not yet verified | Open download | Visium |
+| GSE280316 non-tumour reference | `cand-crost-gse280316` | LGG, GBM | Candidate, not yet verified | Open download | Visium |
+| GSE280634 spatial study | `cand-crost-gse280634` | PDAC | Candidate, not yet verified | Open download | Xenium |
+| GSE281288 spatial study | `cand-crost-gse281288` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE286413 spatial study | `cand-crost-gse286413` | GBM | Candidate, not yet verified | Open download | Visium |
+| GSE290350 non-tumour reference | `cand-crost-gse290350` | CESC | Candidate, not yet verified | Open download | Visium |
+| GSE296577 spatial study | `cand-crost-gse296577` | GBM | Candidate, not yet verified | Open download | Xenium |
+| GSE296626 non-tumour reference | `cand-crost-gse296626` | PDAC | Candidate, not yet verified | Open download | Visium |
+| GSE313918 non-tumour reference | `cand-crost-gse313918` | LGG, GBM | Candidate, not yet verified | Open download | Visium |
 | Guo et al. 2023, HPV progression series | `cscc-hpv-gse208654` | CESC | Candidate, not yet verified | Open download | Spatial transcriptomics array (platform to confirm) |
 | Hirz et al. 2023 | `prad-hirz-slideseq` | PRAD | Candidate, not yet verified | Open download | Slide-seqV2 |
 | Hoefflin et al. 2026 | `cand-hoefflin2026` | LGG | Candidate, not yet verified | Open download | Visium |
 | HRA000776 / OMIX009524, multistage ESCC | `escc-hra000776-omix009524` | ESCA | Candidate, not yet verified | Controlled access | Visium (library details to verify) |
 | HRA007162, ESCC single-cell and spatial | `escc-hra007162` | ESCA | Candidate, not yet verified | Open download | Visium |
 | HTAN Vanderbilt colorectal CytAssist captures | `cand-crc-cottam-htan2025` | COAD, READ | Candidate, not yet verified | Free account | Visium CytAssist |
+| Human colorectal cancer, whole-transcriptome and targeted Visium | `cand-crost-10x-102` | CRC | Candidate, not yet verified | Unresolved | Visium |
+| Human glioblastoma, whole-transcriptome and targeted Visium | `cand-crost-10x-104` | GBM | Candidate, not yet verified | Unresolved | Visium |
+| Human normal prostate, Visium FFPE reference | `cand-crost-10x-119` | PRAD | Candidate, not yet verified | Unresolved | Visium FFPE |
 | Hypopharyngeal cancer chemoradiotherapy resistance, spatial transcriptomics | `cand-hypopharynx2025-ccrt` | HNSC | Candidate, not yet verified | Author request | Visium CytAssist |
 | Integrated single-cell and spatial transcriptomic profiling reveals higher intratumour heterogeneity and epithelial–fibroblast interactions in recurrent bladder cancer | `cand-xuzhou2023` | BLCA | Candidate, not yet verified | Unresolved | Visium |
 | Integrated spatial metabolomics and transcriptomics reveal the molecular landscape of papillary thyroid cancer and its lymph node metastasis | `cand-li-2025-s12967-07566` | THCA | Candidate, not yet verified | Author request | Visium |
@@ -316,6 +384,7 @@ These releases add no resources or patients to the totals above.
 | Murai et al. 2022 | `cand-jgad000422-hcc` | LIHC | Candidate, not yet verified | Controlled access | Visium |
 | Ou et al. 2022 | `cscc-ou-stereo` | CESC | Candidate, not yet verified | Unresolved | Stereo-seq |
 | Pribus et al. 2026 | `cand-pribus2026` | BLCA | Candidate, not yet verified | Open download | Visium |
+| PRJNA811533 spatial study | `cand-crost-10x-154` | CRC, HNSC | Candidate, not yet verified | Unresolved | Visium |
 | Ren et al. 2025 | `cand-crc-spatch-ren2025` | COAD, READ | Candidate, not yet verified | Open download | Visium HD |
 | Ren et al. 2025 | `cand-spatch-hcc` | LIHC | Candidate, not yet verified | Open download | Visium HD |
 | Schmauch et al. 2025 | `cand-crc-miso-petacc8` | COAD, READ | Candidate, not yet verified | Controlled access | Visium FFPE |

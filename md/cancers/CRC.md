@@ -1,6 +1,6 @@
 # Colorectal adenocarcinoma
 
-Code `CRC`. Pooled analysis cohort (COAD + READ). Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=CRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CRC). Data: [data/by-cancer/CRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CRC.json).
+Code `CRC`. Pooled analysis cohort (COAD + READ). Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=CRC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=CRC). Data: [data/by-cancer/CRC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/CRC.json).
 
 Colon and rectal adenocarcinomas pooled as one colorectal analysis cohort. The TCGA colorectal study characterised both together and found broadly similar genomic alterations outside the hypermutated group; molecular features also vary along the bowel. The submitted project, reported anatomical site, MSI/MMR status and methylation phenotype should be kept as annotations for location-association checks and colon-only sensitivity analyses. The administrative COAD/READ split should not be treated as a biological boundary.
 
@@ -25,7 +25,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-13 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 5. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+20 spatial resources are catalogued; the original H&E and matched molecular data are located for 3, and matched molecular data with a preview image only for 5. Verification is pending for the others. Two of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -40,8 +40,15 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors (`cand-crc-colonmap-heiser2023`) | Visium FFPE | Free account | No count reported | Verification pending |
 | Ren et al. 2025 (`cand-crc-spatch-ren2025`) | Visium HD | Open download | No count reported | Verification pending |
 | HTAN Vanderbilt colorectal CytAssist captures (`cand-crc-cottam-htan2025`) | Visium CytAssist | Free account | No count reported | Verification pending |
+| GSE158328 non-tumour reference (`cand-crost-gse158328`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE225857 spatial study (`cand-crost-gse225857`); treatment review pending | Visium | Open download | No count reported | Verification pending |
+| GSE251693 non-tumour reference (`cand-crost-gse251693`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE254364 spatial study (`cand-crost-gse254364`); metastases only | Visium | Open download | No count reported | Verification pending |
+| GSE217414 spatial study (`cand-crost-gse217414`); metastases only | Visium | Open download | No count reported | Verification pending |
 | Schmauch et al. 2025 (`cand-crc-miso-petacc8`) | Visium FFPE | Controlled access | No count reported | Verification pending |
 | Srinivasan et al. 2025 (`cand-crc-vri-dartmouth2025`) | Spatial Transcriptomics (legacy arrays), Visium CytAssist | Unresolved | No count reported | Verification pending |
+| Human colorectal cancer, whole-transcriptome and targeted Visium (`cand-crost-10x-102`) | Visium | Unresolved | No count reported | Verification pending |
+| PRJNA811533 spatial study (`cand-crost-10x-154`) | Visium | Unresolved | No count reported | Verification pending |
 
 Study-reported numbers keep each study's own unit and are not added together. Original H&E located means the original scan, measured expression and coordinates were found. Matched data with preview image means the expression and coordinates match a preview image released with them, and the original scan was not located; such sections support molecular maps, not whole-slide or tile models, morphology or distances. Neither level implies completed registration, calibration or tissue QC. Sections are records of each study, and known patients are study-local IDs given by the source; neither is an eligible-patient count.
 

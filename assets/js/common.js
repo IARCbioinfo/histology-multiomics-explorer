@@ -317,8 +317,13 @@ export const LABELS = {
   },
   specimen: {
     "clinical-tumour": "Clinical tumour tissue",
+    "clinical-reference": "Non-tumour clinical reference tissue",
     "cell-line": "Cell lines",
     mouse: "Mouse models",
+  },
+  // Shown with a resource of this specimen type.
+  specimenNote: {
+    "clinical-reference": "Non-tumour reference tissue, such as healthy-donor, control or tumour-adjacent tissue. Its cancer tags list it on the pages of the relevant organ; they do not mean that it contains tumour tissue or that its donors are eligible patients.",
   },
   routeState: {
     "public-download": "Public download works",
@@ -909,6 +914,7 @@ export function showCohort(d, id) {
   const body = `
     <div class="chips" style="margin-bottom:1rem">${chip("status", c.status)} ${chip("access", c.access.category)} ${chip("verification", c.verification)}</div>
     ${level}
+    ${LABELS.specimenNote[c.specimen] ? `<p class="small">${esc(LABELS.specimenNote[c.specimen])}</p>` : ""}
     ${c.description ? `<p>${esc(c.description)}</p>` : ""}
     <h3 class="section-title">Source</h3>
     <p class="small">${citationText(c.citation)}</p>
@@ -1277,9 +1283,19 @@ export function spatialResourcesFor(d, page) {
   return d.cohorts.filter(x => x.layer === "matched-spatial" && x.cancers.some(k => codes.includes(k)));
 }
 
-// One plain sentence on what is catalogued and what is verified.
-export function spatialSentence(n, original, preview = 0) {
+// Resources of non-tumour reference tissue, listed by organ; counted once per resource.
+export const referenceCount = list => list.filter(x => x.specimen === "clinical-reference").length;
+export const referenceText = r => `${fmt(r)} non-tumour ${r === 1 ? "reference" : "references"}`;
+
+// One plain sentence on what is catalogued and what is verified, and how many resources are non-tumour references.
+export function spatialSentence(n, original, preview = 0, refs = 0) {
   if (!n) return "No spatial resources are catalogued for this cancer type yet.";
+  const refNote = !refs ? "" : refs === n ? ` ${n === 1 ? "It is a non-tumour reference" : n === 2 ? "Both are non-tumour references" : "All of them are non-tumour references"}, listed by organ and not counted as tumour cohorts or patients.`
+    : ` ${refs === 1 ? "One of them is a non-tumour reference" : `${numberWord(refs)} of them are non-tumour references`}, listed by organ and not counted as tumour cohorts or patients.`;
+  return spatialLevels(n, original, preview) + refNote;
+}
+
+function spatialLevels(n, original, preview) {
   const head = `${numberWord(n)} spatial ${n === 1 ? "resource is" : "resources are"} catalogued`;
   if (!original && !preview) return `${head}. Verification of the matched image and molecular data is pending.`;
   const who = k => (k === n ? (n === 1 ? "it" : k === 2 ? "both" : "all of them") : numberWord(k).toLowerCase());

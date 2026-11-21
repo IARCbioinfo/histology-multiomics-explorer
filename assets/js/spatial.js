@@ -1,9 +1,10 @@
-import { loadData, esc, fmt, setFooter, showError, spatialResourcesFor, LABELS, tally, countedPreview, chip } from "./common.js";
+import { loadData, esc, fmt, setFooter, showError, spatialResourcesFor, LABELS, tally, countedPreview, chip, referenceCount, referenceText } from "./common.js";
 
 try {
   const d = await loadData();
   setFooter(d);
   const spatial = d.cohorts.filter(c => c.layer === "matched-spatial");
+  const refs = referenceCount(spatial);
   const located = spatial.filter(c => c.status === "verified").length, preview = spatial.filter(c => c.status === "preview").length;
   const caps = d.captures, counted = spatial.reduce((a, c) => a + countedPreview(d, c), 0);
   const secOrig = caps.filter(x => x.image_level === "original"), secPrev = caps.filter(x => x.image_level === "preview");
@@ -14,7 +15,7 @@ try {
   const represented = pages.filter(p => !p.includes && codes.has(p.code)).length + pages.filter(p => p.includes && codes.has(p.code)).length;
   const stat = (value, label) => `<div class="stat"><div class="value">${value}</div><div class="label">${label}</div></div>`;
   document.getElementById("stats").innerHTML = [
-    stat(fmt(spatial.length), "catalogued spatial resources"),
+    stat(fmt(spatial.length), `catalogued spatial resources${refs ? `, including ${referenceText(refs)}` : ""}`),
     stat(fmt(located), "resources with original H&amp;E located"),
     stat(fmt(preview), "more with matched data and a preview image"),
     stat(fmt(secOrig.length), "tissue sections with original H&amp;E"),
@@ -28,13 +29,13 @@ try {
     const url = `explore.html?view=cohorts&layer=matched-spatial&cancer=${[c.code, ...(c.includes || [])].join(",")}`;
     return `<tr>
       <td class="primary" data-label="Cancer type"><div><a href="cancers.html?c=${c.code}#spatial">${esc(c.name)}</a> <span class="mono muted small">${c.code}</span>${c.includes ? `<span class="cell-sub">pooled: includes ${c.includes.join(" and ")}</span>` : ""}</div></td>
-      <td class="num" data-label="Catalogued resources"><div>${list.length ? fmt(list.length) : '<span class="muted">None catalogued</span>'}</div></td>
+      <td class="num" data-label="Catalogued resources"><div>${list.length ? fmt(list.length) : '<span class="muted">None catalogued</span>'}${referenceCount(list) ? `<span class="cell-sub">${referenceText(referenceCount(list))}</span>` : ""}</div></td>
       <td class="num" data-label="Original H&amp;E located"><div>${!list.length ? '<span class="muted">—</span>' : fmt(nLoc)}</div></td>
       <td class="num" data-label="Matched data with preview image"><div>${!list.length ? '<span class="muted">—</span>' : fmt(nPrev)}</div></td>
       <td data-label="Explore resources"><div>${list.length ? `<a href="${url}">View resources</a>` : '<span class="muted">—</span>'}</div></td>
     </tr>`;
   }).join("");
-  document.getElementById("spatial-table").innerHTML = `<p class="small">Catalogued resources are all listed spatial studies and vendor examples, including those not yet verified and those that need an access request. A resource with matched data counts once, at its best <a href="#levels">image level</a>; registration, calibration and tissue QC may still be pending at either level.</p>
+  document.getElementById("spatial-table").innerHTML = `<p class="small">Catalogued resources are all listed spatial studies and vendor examples, including those not yet verified and those that need an access request. ${refs ? `The ${fmt(spatial.length)} resources include ${fmt(refs)} of non-tumour or adjacent-normal reference tissue; their cancer tags route them to the relevant organ pages and do not make them tumour cohorts. ` : ""}A resource with matched data counts once, at its best <a href="#levels">image level</a>; registration, calibration and tissue QC may still be pending at either level.</p>
     <div class="table-wrap"><table class="stack compact">
     <thead><tr><th scope="col">Cancer type</th><th scope="col" class="num">Catalogued resources</th><th scope="col" class="num">Original H&amp;E located</th><th scope="col" class="num">Matched data with preview image</th><th scope="col">Explore resources</th></tr></thead>
     <tbody>${rows}</tbody>

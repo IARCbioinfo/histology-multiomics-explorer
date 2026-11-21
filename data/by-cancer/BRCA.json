@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -765,6 +765,369 @@
      }
     ]
    }
+  },
+  {
+   "id": "cand-crost-gse179572",
+   "label": "GSE179572 spatial study",
+   "title": "Spatial transcriptomics of human brain metastases",
+   "citation": {
+    "authors": null,
+    "title": "Distinct phenotypic states and spatial distribution of CD8+ T cell clonotypes in human brain metastases.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.1016/j.xcrm.2022.100620",
+    "url": "https://doi.org/10.1016/j.xcrm.2022.100620"
+   },
+   "cancers": [
+    "LUAD",
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE179572",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE179572",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179572"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000040"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1016/j.xcrm.2022.100620"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Brain metastases from lung adenocarcinoma and breast carcinoma; other primary cancers in the series remain outside these routes. Primary subtype for the renal metastasis is not established here. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "metastatic-tumour"
+   ]
+  },
+  {
+   "id": "cand-crost-gse213688",
+   "label": "GSE213688 spatial study",
+   "title": "Spatial transcriptomics of human plastic and non-plastic breast cancer subtypes",
+   "citation": {
+    "authors": null,
+    "title": "Spatial Transcriptomics Reveal Pitfalls and Opportunities for the Detection of Rare High-Plasticity Breast Cancer Subtypes.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1016/j.labinv.2023.100258",
+    "url": "https://doi.org/10.1016/j.labinv.2023.100258"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE213688",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE213688",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE213688"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000251"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1016/j.labinv.2023.100258"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Claudin-low-like, metaplastic and other breast tumour subtypes; keep source histological and molecular labels distinct. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse242311",
+   "label": "GSE242311 spatial study",
+   "title": "Spatial heterogeneity of integrins and their ligands in primary breast tumors",
+   "citation": {
+    "authors": null,
+    "title": "Characterization of EpCAM-Positive and EpCAM-Negative Tumor Cells in Early-Stage Breast Cancer.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.3390/ijms252011109",
+    "url": "https://doi.org/10.3390/ijms252011109"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE242311",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE242311",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE242311"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000266"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.3390/ijms252011109"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Primary breast tumour spatial integrin and ligand study. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse243022",
+   "label": "GSE243022 spatial study",
+   "title": "Cancer-associated Fibroblast Spatial Heterogeneity and EMILIN1 Expression in Cancer Stroma Modulate TGF-b Activity and CD8+ T-Cell Infiltration in Breast Cancer",
+   "citation": {
+    "authors": null,
+    "title": "Cancer-associated fibroblast spatial heterogeneity and EMILIN1 expression in the tumor microenvironment modulate TGF-β activity and CD8+ T-cell infiltration in breast cancer.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.7150/thno.90627",
+    "url": "https://doi.org/10.7150/thno.90627"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE243022",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE243022",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE243022"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000287"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.7150/thno.90627"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Breast cancer-associated fibroblast spatial heterogeneity study. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse268427",
+   "label": "GSE268427 spatial study",
+   "title": "snPATHO-seq: unlocking the FFPE archives for single nucleus RNA profiling [Visium]",
+   "citation": {
+    "authors": null,
+    "title": "snPATHO-seq, a versatile FFPE single-nucleus RNA sequencing method to unlock pathology archives.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1038/s42003-024-07043-2",
+    "url": "https://doi.org/10.1038/s42003-024-07043-2"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE268427",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE268427",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE268427"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000306"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s42003-024-07043-2"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "snPATHO-seq spatial companion data include luminal breast cancer liver metastasis; do not label as primary breast tissue. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "metastatic-tumour"
+   ]
+  },
+  {
+   "id": "cand-crost-gse189042",
+   "label": "GSE189042 spatial study",
+   "title": "Spatial transcriptome analysis reveals the lymph node atlas of breast cancer metastases",
+   "citation": {
+    "authors": null,
+    "title": "Spatial transcriptome analysis reveals the lymph node atlas of breast cancer metastases",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189042"
+   },
+   "cancers": [
+    "BRCA"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE189042",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE189042",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189042"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000321"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Breast carcinoma-positive lymph-node spatial study. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "metastatic-tumour"
+   ]
   }
  ],
  "located_sections": [

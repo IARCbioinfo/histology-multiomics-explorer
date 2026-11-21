@@ -1,6 +1,6 @@
 # Thyroid carcinoma
 
-Code `THCA`. Significant geometry in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=THCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=THCA). Data: [data/by-cancer/THCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/THCA.json).
+Code `THCA`. Significant geometry in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=THCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=THCA). Data: [data/by-cancer/THCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/THCA.json).
 
 Thyroid carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Papillary carcinoma variants and background thyroiditis are recorded where sources report them.
 
@@ -22,13 +22,14 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-9 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 1. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+10 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 1. Verification is pending for the others. One of them is a non-tumour reference, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
 | Zhang et al. 2024 (thyroid) (`zhang-2024-thca`) | Visium | Open download | No count reported | Original H&E located: 2 sections with original H&E; 2 known patients |
 | Spatial and single-nuclei transcriptomics reveals idiosyncratic and generic patterns in papillary and anaplastic thyroid cancers (`cand-tourneur-2026-legacyst`) | Spatial Transcriptomics (legacy arrays) | Open download | No count reported | Original H&E located: 25 sections with original H&E; 10 known patients |
 | Liao et al. 2025 (`cand-liao-2025-gse250521`) | Visium | Open download | No count reported | Matched data with preview image: 12 sections with a preview image |
+| GSE248205 non-tumour reference (`cand-crost-gse248205`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
 | An integrated single-cell and spatial transcriptomic atlas of thyroid cancer progression identifies prognostic fibroblast subpopulations (`cand-loberg-2026-jci191990`) | Visium FFPE | Author request | No count reported | Verification pending |
 | Spatial transcriptomics reveals prognosis-associated cellular heterogeneity in the papillary thyroid carcinoma microenvironment (`cand-yan-2024-hra003537`) | Visium | Controlled access | No count reported | Verification pending |
 | Single-cell RNA-sequencing and spatial transcriptomic analysis reveal a distinct population of APOE-negative cells yielding pathological lymph node metastasis in papillary thyroid cancer (`cand-zhang-2025-prjca021247`) | Visium | Unresolved | No count reported | Verification pending |

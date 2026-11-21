@@ -1,6 +1,6 @@
 # Liver hepatocellular carcinoma
 
-Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
+Code `LIHC`. Significant geometry in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=LIHC](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LIHC). Data: [data/by-cancer/LIHC.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LIHC.json).
 
 Hepatocellular carcinoma met the strong significance criterion in Hausser et al. and contributed to the pooled analysis. Combined hepatocellular–cholangiocarcinoma and post-treatment cohorts are kept separate.
 
@@ -22,7 +22,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-17 spatial resources are catalogued; the original H&E and matched molecular data are located for 1, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+21 spatial resources are catalogued; the original H&E and matched molecular data are located for 1, and matched molecular data with a preview image only for 3. Verification is pending for the others. Three of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -34,6 +34,10 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Wu et al. 2021 (`cand-wu2021-hcc`) | Visium | Open download | No count reported | Verification pending |
 | Deep versus standard spatial transcriptomic sequencing (`cand-gse283406`) | Visium CytAssist | Open download | No count reported | Verification pending |
 | Lau et al. 2022 (`cand-prjna858545-hcc`) | Visium | Open download | No count reported | Verification pending |
+| GSE185477 non-tumour reference (`cand-crost-gse185477`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE223559 non-tumour reference (`cand-crost-gse223559`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE240429 non-tumour reference (`cand-crost-gse240429`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE224411 spatial study (`cand-crost-gse224411`); includes metastases; treatment review pending; includes precursor lesions | Visium | Open download | No count reported | Verification pending |
 | Jia et al. 2025 (`cand-times-hra006579`) | Visium FFPE | Unresolved | No count reported | Verification pending |
 | Jing et al. 2024 (`cand-he2024-new4plc`) | Visium | Controlled access | No count reported | Verification pending |
 | Fan et al. 2024 (`cand-fan2024-hra006757`) | Visium FFPE | Controlled access | No count reported | Verification pending |

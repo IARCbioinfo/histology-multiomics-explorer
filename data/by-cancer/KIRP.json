@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -395,6 +395,317 @@
      "sections_with_matching_coordinates": null
     }
    }
+  },
+  {
+   "id": "cand-crost-e-mtab-11721",
+   "label": "E-MTAB-11721 non-tumour reference",
+   "title": "Spatially resolved transcriptomes of healthy mammalian kidneys illustrate the molecular complexity and interactions of functional nephron segments",
+   "citation": {
+    "authors": null,
+    "title": "Spatially Resolved Transcriptomes of Mammalian Kidneys Illustrate the Molecular Complexity and Interactions of Functional Nephron Segments.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.3389/fmed.2022.873923",
+    "url": "https://doi.org/10.3389/fmed.2022.873923"
+   },
+   "cancers": [
+    "KIRC",
+    "KIRP"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "E-MTAB-11721",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study E-MTAB-11721",
+      "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-11721"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000007"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.3389/fmed.2022.873923"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse171406",
+   "label": "GSE171406 non-tumour reference",
+   "title": "Integration of spatial and single cell transcriptomics localizes epithelial-immune cross-talk in kidney injury",
+   "citation": {
+    "authors": null,
+    "title": "Integration of spatial and single-cell transcriptomics localizes epithelial cell-immune cross-talk in kidney injury.",
+    "journal": null,
+    "year": 2021,
+    "doi": "10.1172/jci.insight.147703",
+    "url": "https://doi.org/10.1172/jci.insight.147703"
+   },
+   "cancers": [
+    "KIRC",
+    "KIRP"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE171406",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE171406",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE171406"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000029"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1172/jci.insight.147703"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Nephrectomy reference tissue, not a claim of a healthy independent donor. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse206306",
+   "label": "GSE206306 non-tumour reference",
+   "title": "A Spatial Transcriptomic atlas of the human kidney papilla identifies significant immune injury in patients with stone disease",
+   "citation": {
+    "authors": null,
+    "title": "A Spatial Transcriptomic atlas of the human kidney papilla identifies significant immune injury in patients with stone disease",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE206306"
+   },
+   "cancers": [
+    "KIRC",
+    "KIRP"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE206306",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE206306",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE206306"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000166"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Reference kidney papilla only; stone-disease samples are not normal references. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse183456",
+   "label": "GSE183456 non-tumour reference",
+   "title": "Spatial localization with Spatial Transcriptomics for an atlas of healthy and injured cell states and niches in the human kidney [Visium ST]",
+   "citation": {
+    "authors": null,
+    "title": "An atlas of healthy and injured cell states and niches in the human kidney.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1038/s41586-023-05769-3",
+    "url": "https://doi.org/10.1038/s41586-023-05769-3"
+   },
+   "cancers": [
+    "KIRC",
+    "KIRP"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE183456",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE183456",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183456"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000238"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41586-023-05769-3"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Reference kidney subset of a healthy/injured atlas; do not treat all samples as normal. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse250138",
+   "label": "GSE250138 non-tumour reference",
+   "title": "Immune profiling-based targeting of pathogenic T cells with ustekinumab in ANCA-associated glomerulonephritis",
+   "citation": {
+    "authors": null,
+    "title": "Immune profiling-based targeting of pathogenic T cells with ustekinumab in ANCA-associated glomerulonephritis.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1038/s41467-024-52525-w",
+    "url": "https://doi.org/10.1038/s41467-024-52525-w"
+   },
+   "cancers": [
+    "KIRC",
+    "KIRP"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE250138",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE250138",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE250138"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000293"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41467-024-52525-w"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Control kidney subset only; ANCA-associated glomerulonephritis cases are not normal tissue. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
   }
  ],
  "located_sections": [],

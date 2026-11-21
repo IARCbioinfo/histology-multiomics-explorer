@@ -376,10 +376,11 @@ n_known = len({(x["cohort"], x["patient"]) for x in captures if x["patient"]})
 # Release 0.11.2 (21 November 2026) added two colorectal candidates (GSE206552, GSE236697); release 0.11.3 lists their six checked
 # preview sections (review batch crost-2026-11-21), so both are preview-level: 29 to 31 preview resources, 70 back to 68 candidates,
 # 500 to 506 preview sections, one new study-local patient (Zhou P1) and four sections without a patient ID (Garbarino).
+# Release 0.11.4 (21 November 2026) adds 69 CROST pan-cancer candidates without section records: 68 to 137 candidates.
 if (len(orig), len(prev), len(spatial) - len(orig) - len(prev), n_orig, n_prev_rows, n_prev_counted, len(captures), n_known, sum(not x["patient"] for x in captures)) \
-        != (16, 31, 68, 261, 506, 0, 767, 267, 250):
+        != (16, 31, 137, 261, 506, 0, 767, 267, 250):
     err(f"spatial: {len(orig)} original-level, {len(prev)} preview-level and {len(spatial) - len(orig) - len(prev)} candidate studies; {n_orig} original and "
-        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients. Expected 16, 31 and 68; 261 and 506 + 0 (767 study–section records); "
+        f"{n_prev_rows} + {n_prev_counted} preview sections; {n_known} known patients. Expected 16, 31 and 137; 261 and 506 + 0 (767 study–section records); "
         "267 known patients and 250 records without a patient ID")
 for cid, n_sec, n_area in (("cand-frontiers2026-zenodo18238293", 11, 4),):
     rows = [x for x in captures if x["cohort"] == cid]
@@ -407,6 +408,34 @@ if any(x["patient"] is not None or x["site"] != "Metastasis" or x["compartment"]
         or any(re.search(r"carcinoma|(?<!non-)tumou?r", f"{x['diagnosis']} {x['histology']}", re.I) for x in _zr if x["compartment"] == "solid-normal"):
     err("CROST sections: Garbarino metastases keep no donor; the two Zhou sections share one source-established donor, tumour and adjacent normal, "
         "and the adjacent-normal section does not carry tumour histology")
+# CROST pan-cancer candidates of release 0.11.4 (ids cand-crost-*): every earlier cohort object, all section records and all
+# TCGA files stay as in release 0.11.3; the 69 new entries are unqualified candidates without section records, and the 29
+# non-tumour references (specimen clinical-reference) carry only normal or adjacent-normal compartments. Update a pin only for a deliberate edit.
+_digest = lambda o: hashlib.sha256(json.dumps(o, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+_cr = [c for c in cohorts if c["id"].startswith("cand-crost-")]
+_cr_ids = {c["id"] for c in _cr}
+if _digest([c for c in cohorts if c["id"] not in _cr_ids]) != "dadb5f487e7b575c98967bc437cec3cbfd2f45f4cb5564f89d0d4a70a6c87f00":
+    err("cohorts: the 135 cohort objects of release 0.11.3 changed")
+for _name, _pin in (("captures", "fda67012e4e134f236db438d93cb656809ae4fa5bed1930647fbb9c8f41ff4d6"),
+                    ("tcga_counts", "be9cadf3f1a034054aed9c358f90e0c437f7cd2b119c4e4a915afc208a96155e"),
+                    ("tcga_patients", "b372dd0665eb8639d7540525ec451baa90d283309e51cb78314e7f2d2e90d112"),
+                    ("tcga_flags", "267a28550c4457dccd0810ae7ddd133bb272bb32c1eee5b9467067300e0cda5e"),
+                    ("tcga_reviews", "55340fc3510c48aeb44abfe98a0a6aa3d608d6341e947de8a1ddce2fda780eca"),
+                    ("tcga_patient_review", "f7eec595f12af3a3a55732c0064cb8402365d2de6b974504c62ac911563eb785"),
+                    ("tcga_eligibility", "b5f1cc7fa1f0c32e18fa1047d8a0b807732ac0b905aa8501231e11fa073b38a8"),
+                    ("tcga_resources", "016532d77d255bac7fd0d8f2509f1465b06e7cf569a68b3b03fd375d57bb2c97")):
+    if _digest(load(f"{_name}.json")) != _pin:
+        err(f"{_name}.json: changed since release 0.11.3")
+_ref = [c for c in _cr if c["specimen"] == "clinical-reference"]
+if len(_cr) != 69 or len(_ref) != 29 or any(c["specimen"] not in ("clinical-tumour", "clinical-reference") for c in _cr):
+    err(f"CROST candidates: 69 entries expected with 29 non-tumour references, found {len(_cr)} and {len(_ref)}")
+if any(c["layer"] != "matched-spatial" or c["status"] != "candidate" or c["verification"] != "metadata-checked" or c["linkage"] != "unverified"
+       or not {"package-unverified", "he-unverified"} <= set(c["gates"]) or {"reported", "spatial_review", "backlog_review", "followup_review"} & set(c)
+       for c in _cr) or any(x["cohort"] in _cr_ids for x in captures):
+    err("CROST candidates: unqualified candidates only, with no section records, reported counts or review promotion")
+if any(not set(c["compartments"]) <= {"normal", "solid-normal"} or "normal-reference" not in c["modalities"] or "reference" not in c["label"] or re.search(r"clinical tumou?r", c["label"] + c["description"], re.I)
+       for c in _ref) or any(c["specimen"] == "clinical-reference" for c in cohorts if c["id"] not in _cr_ids):
+    err("CROST references: non-tumour references carry only normal or adjacent-normal compartments, the normal-reference modality, and are not labelled clinical tumours")
 if any(c["cancers"] == ["SARC"] or "SARC" in c["cancers"] for c in spatial):
     err("spatial: no resource is assigned to TCGA-SARC")
 

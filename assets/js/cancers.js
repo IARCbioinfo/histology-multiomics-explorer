@@ -1,4 +1,4 @@
-import { loadData, LABELS, esc, chip, fmt, tally, setFooter, showCohort, showError, rationale, tcgaSection, loadTcgaReviews, analysisSection, pooledCohortSection, cohortExtras, tcgaOverview, spatialResourcesFor, spatialSentence, cohortScopeText, levelCounts } from "./common.js";
+import { loadData, LABELS, esc, chip, fmt, tally, setFooter, showCohort, showError, rationale, tcgaSection, loadTcgaReviews, analysisSection, pooledCohortSection, cohortExtras, tcgaOverview, spatialResourcesFor, spatialSentence, cohortScopeText, levelCounts, referenceCount, referenceText } from "./common.js";
 
 const root = document.getElementById("content");
 
@@ -37,7 +37,10 @@ function notesFor(d, c, codes) {
   if (tc === "treated" || tc === "baseline-and-on-treatment" || caps.some(x => x.treatment === "Post-treatment")) out.push("includes treated tissue");
   if (comps.length && comps.every(x => x === "metastatic-tumour")) out.push("metastases only");
   else if (comps.includes("metastatic-tumour") || caps.some(x => x.site === "Metastasis")) out.push("includes metastases");
-  if (comps.some(x => ["solid-normal", "normal", "peritumoral"].includes(x))) out.push("includes normal or adjacent tissue");
+  // CROST candidates of release 0.11.4 carry treatment status only in source text; their treatment-review gate is shown here.
+  if (c.id.startsWith("cand-crost-") && (c.gates || []).includes("treatment-review")) out.push("treatment review pending");
+  if (c.specimen === "clinical-reference") out.push("non-tumour reference only, listed by organ");
+  else if (comps.some(x => ["solid-normal", "normal", "peritumoral"].includes(x))) out.push("includes normal or adjacent tissue");
   if (comps.includes("precursor")) out.push("includes precursor lesions");
   if (c.linkage === "serial-section") out.push("H&E from serial sections");
   return out;
@@ -184,7 +187,7 @@ function renderCancer(d, code) {
     ${histology}
 
     <h2 id="spatial">Spatial studies</h2>
-    <p>${esc(spatialSentence(spatial.length, nLoc, nPrev))}${spatial.length ? ` These studies usually involve patients other than those in TCGA.` : ""}</p>
+    <p>${esc(spatialSentence(spatial.length, nLoc, nPrev, referenceCount(spatial)))}${spatial.length ? ` These studies usually involve patients other than those in TCGA.` : ""}</p>
     ${spatialTable(d, c, spatial)}
     ${locatedBreakdown(d, c, caps)}
     <p class="note">${spatial.length ? `<a href="${resourcesUrl(codes)}">List these resources in the data explorer</a>` : `<a href="spatial.html">All spatial studies</a>`}${caps.length ? ` · <a href="explore.html?cancer=${codes.join(",")}">Explore located data, with histology, site and treatment filters</a>` : ""}</p>
@@ -220,7 +223,7 @@ function renderIndex(d, message) {
     return `<tr>
       <td class="primary" data-label="Cancer type"><div><a href="cancers.html?c=${c.code}">${esc(c.name)}</a> <span class="mono muted small">${c.code}</span></div></td>
       <td class="num" data-label="TCGA patients, selected panel"><div>${tcga}</div></td>
-      <td class="num" data-label="Spatial resources"><div>${spatial.length ? `<a href="${resourcesUrl(codes)}">${fmt(spatial.length)}</a>` : '<span class="muted">None catalogued</span>'}</div></td>
+      <td class="num" data-label="Spatial resources"><div>${spatial.length ? `<a href="${resourcesUrl(codes)}">${fmt(spatial.length)}</a>${referenceCount(spatial) ? `<span class="cell-sub">${referenceText(referenceCount(spatial))}</span>` : ""}` : '<span class="muted">None catalogued</span>'}</div></td>
       <td class="num" data-label="Original H&amp;E located"><div>${!spatial.length ? '<span class="muted">—</span>' : fmt(nLoc)}</div></td>
       <td class="num" data-label="Matched data with preview image"><div>${!spatial.length ? '<span class="muted">—</span>' : fmt(nPrev)}</div></td>
     </tr>`;

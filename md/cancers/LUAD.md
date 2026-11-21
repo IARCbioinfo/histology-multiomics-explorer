@@ -1,6 +1,6 @@
 # Lung adenocarcinoma
 
-Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
+Code `LUAD`. Borderline in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=LUAD](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=LUAD). Data: [data/by-cancer/LUAD.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/LUAD.json).
 
 Hausser et al. described lung as borderline under their significance criterion, so it was not part of the pooled analysis. Predominant growth patterns are recorded for each tissue section where the source provides them.
 
@@ -22,7 +22,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-11 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 3. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+18 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 3. Verification is pending for the others. Five of them are non-tumour references, listed by organ and not counted as tumour cohorts or patients. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -34,6 +34,13 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Zhao et al. 2025 (`cand-zhao-htapp-2025`) | Visium | Open download | No count reported | Verification pending |
 | Visium HD CytAssist Gene Expression Human Lung Cancer post-Xenium experiment (`cand-10x-post-xenium-hd`) | Visium HD | Open download | No count reported | Verification pending |
 | METI lung adenocarcinoma sample LUAD-14C (`cand-meti-luad14c`) | Visium CytAssist | Open download | No count reported | Verification pending |
+| GSE178361 non-tumour reference (`cand-crost-gse178361`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE179572 spatial study (`cand-crost-gse179572`); metastases only | Visium | Open download | No count reported | Verification pending |
+| E-MTAB-11640 non-tumour reference (`cand-crost-e-mtab-11640`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE172416 non-tumour reference (`cand-crost-gse172416`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE268049 spatial study (`cand-crost-gse268049`) | Visium | Open download | No count reported | Verification pending |
+| GSE248082 non-tumour reference (`cand-crost-gse248082`); non-tumour reference only, listed by organ | Visium | Open download | No count reported | Verification pending |
+| GSE269354 non-tumour reference (`cand-crost-gse269354`); non-tumour reference only, listed by organ | Xenium | Open download | No count reported | Verification pending |
 | Defining the cellular and molecular identities of histologic subtypes in lung adenocarcinoma (`cand-knuch-2026`) | Visium | Unresolved | No count reported | Verification pending |
 | Deng et al. 2025 (`cand-deng-micropapillary-2025`) | Visium CytAssist | Author request | No count reported | Verification pending |
 | Wang et al. 2023 (`cand-lu-cell-discovery-2023`) | Visium | Controlled access | No count reported | Verification pending |

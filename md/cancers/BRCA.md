@@ -1,6 +1,6 @@
 # Breast invasive carcinoma
 
-Code `BRCA`. Significant geometry in Hausser et al. 2019. Release 0.11.3, 21 November 2026. Web page: [cancers.html?c=BRCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BRCA). Data: [data/by-cancer/BRCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BRCA.json).
+Code `BRCA`. Significant geometry in Hausser et al. 2019. Release 0.11.4, 21 November 2026. Web page: [cancers.html?c=BRCA](https://iarcbioinfo.github.io/histology-multiomics-explorer/cancers.html?c=BRCA). Data: [data/by-cancer/BRCA.json](https://iarcbioinfo.github.io/histology-multiomics-explorer/data/by-cancer/BRCA.json).
 
 Breast cancer is one of six TCGA cancer types in which Hausser et al. found significant within-type polyhedral structure in tumour expression, and one of the six pooled in their shared-task analysis. Ductal/NST and lobular carcinomas are kept as separate strata here.
 
@@ -22,7 +22,7 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 
 ## Spatial studies
 
-8 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 2. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
+14 spatial resources are catalogued; the original H&E and matched molecular data are located for 2, and matched molecular data with a preview image only for 2. Verification is pending for the others. These studies usually involve patients other than those in TCGA.
 
 | Study | Assay | Access | Reported by the study | Image level |
 | --- | --- | --- | --- | --- |
@@ -32,6 +32,12 @@ Broader availability, not the selected panel: all primary-tumour patients in the
 | Spatial transcriptomic analysis of a diverse patient cohort reveals a conserved architecture in triple-negative breast cancer (`cand-bassiouni-gse210616`) | Visium | Open download | No count reported | Matched data with preview image: 43 sections with a preview image; 22 known patients |
 | 10x Genomics human breast Visium demonstration datasets (`cand-official-10x-breast-demos`) | Visium HD, Visium CytAssist | Open download | No count reported | Verification pending |
 | Wang et al. 2024 (`cand-wang-venet-2024-legacy-st`) | Spatial Transcriptomics (legacy arrays) | Open download | 281 arrays | Verification pending |
+| GSE179572 spatial study (`cand-crost-gse179572`); metastases only | Visium | Open download | No count reported | Verification pending |
+| GSE213688 spatial study (`cand-crost-gse213688`) | Visium | Open download | No count reported | Verification pending |
+| GSE242311 spatial study (`cand-crost-gse242311`) | Visium | Open download | No count reported | Verification pending |
+| GSE243022 spatial study (`cand-crost-gse243022`) | Visium | Open download | No count reported | Verification pending |
+| GSE268427 spatial study (`cand-crost-gse268427`); metastases only | Visium | Open download | No count reported | Verification pending |
+| GSE189042 spatial study (`cand-crost-gse189042`); metastases only | Visium | Open download | No count reported | Verification pending |
 | Spatial atlas of tertiary lymphoid structures and high endothelial venules in breast cancer (`cand-bcarc-tls-hev-2026`) | Visium HD | Not released | No count reported | Verification pending |
 | TNBC spatial transcriptomics resource (AACR 2026 abstract 1442) (`cand-dartmouth-aacr2026-1442`) | Visium | Not released | No count reported | Verification pending |
 

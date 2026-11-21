@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -1192,6 +1192,254 @@
      }
     ]
    }
+  },
+  {
+   "id": "cand-crost-gse206621",
+   "label": "GSE206621 non-tumour reference",
+   "title": "Mapping the Spatial Dynamics of the Human Oral Mucosa in Chronic Inflammatory Disease",
+   "citation": {
+    "authors": null,
+    "title": "Spatially resolved transcriptomics reveals pro-inflammatory fibroblast involved in lymphocyte recruitment through CXCL8 and CXCL10.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.7554/eLife.81525",
+    "url": "https://doi.org/10.7554/eLife.81525"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE206621",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE206621",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE206621"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000142"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.7554/eLife.81525"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-10x-154",
+   "label": "PRJNA811533 spatial study",
+   "title": "Effect of the intratumoral microbiota on spatial and cellular heterogeneity in cancer.",
+   "citation": {
+    "authors": null,
+    "title": "Effect of the intratumoral microbiota on spatial and cellular heterogeneity in cancer.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.1038/s41586-022-05435-0",
+    "url": "https://doi.org/10.1038/s41586-022-05435-0"
+   },
+   "cancers": [
+    "CRC",
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "PRJNA811533",
+   "access": {
+    "category": "unresolved",
+    "route": "Originating vendor metadata are public. Current package access, licensing route and completeness require verification.",
+    "links": [
+     [
+      "Originating study PRJNA811533",
+      "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA811533"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000154"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41586-022-05435-0"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Primary publication and BioProject PRJNA811533 establish CRC and oral squamous carcinoma spatial microbiota profiling. CROST includes an inconsistent ovarian label; the published origin governs this candidate, with individual sample joins pending. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified"
+   ]
+  },
+  {
+   "id": "cand-crost-gse220978",
+   "label": "GSE220978 spatial study",
+   "title": "Spatial Multi-omics Reveals the Heterogeneity of Tumor Microenvironment in the OSF-Associated OSCC",
+   "citation": {
+    "authors": null,
+    "title": "Spatial Transcriptomic and Metabolomic Landscapes of Oral Submucous Fibrosis-Derived Oral Squamous Cell Carcinoma and its Tumor Microenvironment.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1002/advs.202306515",
+    "url": "https://doi.org/10.1002/advs.202306515"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE220978",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE220978",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE220978"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000204"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1002/advs.202306515"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Oral squamous carcinoma associated with oral submucous fibrosis; distinguish precursor and invasive tissue. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified",
+    "precursor"
+   ]
+  },
+  {
+   "id": "cand-crost-gse263498",
+   "label": "GSE263498 spatial study",
+   "title": "Open-ST: High-resolution spatial transcriptomics in 3D [xenium]",
+   "citation": {
+    "authors": null,
+    "title": "Open-ST: High-resolution spatial transcriptomics in 3D.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1016/j.cell.2024.05.055",
+    "url": "https://doi.org/10.1016/j.cell.2024.05.055"
+   },
+   "cancers": [
+    "HNSC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Xenium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE263498",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE263498",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263498"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000381"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1016/j.cell.2024.05.055"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Open-ST companion Xenium data from a laryngeal HNSCC and a matched metastatic lymph node; the assays do not add independent donors. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified",
+    "metastatic-tumour"
+   ]
   }
  ],
  "located_sections": [

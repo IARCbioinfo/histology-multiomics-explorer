@@ -42,7 +42,7 @@ One object per underlying study or resource.
 | `tcga_project`, `analysis_cohort` | For TCGA entries, the project code used in the `tcga_*` files and the analysis cohort it contributes to |
 | `compartments` | Tissue compartments: `primary-tumour`, `metastatic-tumour`, `tumour-unspecified`, `solid-normal` (tumour-adjacent), `peritumoral`, `normal` (not tumour-adjacent or adjacency not stated) and `precursor` |
 | `modalities`, `techniques`, `preservation` | What was measured and how |
-| `specimen` | `clinical-tumour`, `cell-line` or `mouse` |
+| `specimen` | `clinical-tumour`, `clinical-reference`, `cell-line` or `mouse`. `clinical-reference` marks a resource of non-tumour reference tissue (healthy-donor, control or tumour-adjacent; see `compartments`). Its `cancers` tags list it on the pages of the relevant organ only: they do not mean that it contains tumour tissue, a tumour diagnosis or eligible patients |
 | `linkage` | Level of H&E–RNA linkage (see Methods) |
 | `gates` | Open checks: for candidates, what prevents inclusion; for screened TCGA projects, the curation still to do |
 | `accession` | Repository accessions as recorded |

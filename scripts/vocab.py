@@ -12,7 +12,7 @@ ENUMS = {
     "access": {"open", "account", "controlled", "request", "unreleased", "unresolved"},
     "verification": {"source-described", "metadata-checked", "file-checked", "qc-complete", "not-audited"},
     "linkage": {"same-section", "same-section-mapping-pending", "listed-together", "serial-section", "same-patient", "unverified", "none"},
-    "specimen": {"clinical-tumour", "cell-line", "mouse"},
+    "specimen": {"clinical-tumour", "clinical-reference", "cell-line", "mouse"},
     "tier": {"core", "metastatic", "review", "outside-stratum", "held"},
     "treatment": {"Untreated", "Post-treatment", "Unknown"},
     "site": {"Primary", "Metastasis", "Unknown"},

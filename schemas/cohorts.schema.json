@@ -151,8 +151,10 @@
    },
    "specimen": {
     "type": "string",
+    "description": "Specimen type; clinical-reference marks non-tumour reference tissue whose cancer tags only route it to the relevant organ pages",
     "enum": [
      "cell-line",
+     "clinical-reference",
      "clinical-tumour",
      "mouse"
     ]

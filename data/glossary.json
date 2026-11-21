@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -443,8 +443,12 @@
   },
   "specimen": {
    "clinical-tumour": "Clinical tumour tissue",
+   "clinical-reference": "Non-tumour clinical reference tissue",
    "cell-line": "Cell lines",
    "mouse": "Mouse models"
+  },
+  "specimenNote": {
+   "clinical-reference": "Non-tumour reference tissue, such as healthy-donor, control or tumour-adjacent tissue. Its cancer tags list it on the pages of the relevant organ; they do not mean that it contains tumour tissue or that its donors are eligible patients."
   },
   "routeState": {
    "public-download": "Public download works",

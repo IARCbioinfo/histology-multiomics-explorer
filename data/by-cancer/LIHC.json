@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -1438,6 +1438,257 @@
      }
     ]
    }
+  },
+  {
+   "id": "cand-crost-gse185477",
+   "label": "GSE185477 non-tumour reference",
+   "title": "Single-Cell, Single-Nucleus and Spatial RNA Sequencing of the Human Liver Identifies Hepatic Stellate Cell and Cholangiocyte Heterogeneity",
+   "citation": {
+    "authors": null,
+    "title": "Single-Cell, Single-Nucleus, and Spatial RNA Sequencing of the Human Liver Identifies Cholangiocyte and Mesenchymal Heterogeneity.",
+    "journal": null,
+    "year": 2022,
+    "doi": "10.1002/hep4.1854",
+    "url": "https://doi.org/10.1002/hep4.1854"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE185477",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE185477",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE185477"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000053"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1002/hep4.1854"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse223559",
+   "label": "GSE223559 non-tumour reference",
+   "title": "Multimodal decoding of human liver regeneration [st_human]",
+   "citation": {
+    "authors": null,
+    "title": "Multimodal decoding of human liver regeneration [st_human]",
+    "journal": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223559"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE223559",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE223559",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223559"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000151"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Independently sampled non-tumour reference tissue; its clinical context and donor independence from other resources require source review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse240429",
+   "label": "GSE240429 non-tumour reference",
+   "title": "Single-cell and spatial transcriptomics characterisation of the immunological landscape in the healthy and PSC human liver",
+   "citation": {
+    "authors": null,
+    "title": "Single-cell, single-nucleus, and spatial transcriptomics characterization of the immunological landscape in the healthy and PSC human liver.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.1016/j.jhep.2023.12.023",
+    "url": "https://doi.org/10.1016/j.jhep.2023.12.023"
+   },
+   "cancers": [
+    "LIHC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE240429",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE240429",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE240429"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000230"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1016/j.jhep.2023.12.023"
+     ],
+     [
+      "Companion PSC GSE245620",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245620"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Healthy adult-liver control subset. GSE245620 is the PSC companion from the same publication, not a second new study. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse224411",
+   "label": "GSE224411 spatial study",
+   "title": "Uncovering the spatial landscape of molecular interactions within the tumor microenvironment through latent spaces",
+   "citation": {
+    "authors": null,
+    "title": "Uncovering the spatial landscape of molecular interactions within the tumor microenvironment through latent spaces.",
+    "journal": null,
+    "year": 2023,
+    "doi": "10.1016/j.cels.2023.03.004",
+    "url": "https://doi.org/10.1016/j.cels.2023.03.004"
+   },
+   "cancers": [
+    "LIHC",
+    "PDAC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-tumour",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity",
+    "treatment-review"
+   ],
+   "accession": "GSE224411",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE224411",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224411"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000259"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1016/j.cels.2023.03.004"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "SpaceMarkers study includes HCC, pancreatic cancer lymph-node metastasis and PanIN. Its source describes treated HCC and pancreatic samples; do not label the whole series untreated. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "tumour-unspecified",
+    "metastatic-tumour",
+    "precursor"
+   ]
   }
  ],
  "located_sections": [

@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -592,6 +592,68 @@
      "sections_with_matching_coordinates": null
     }
    }
+  },
+  {
+   "id": "cand-crost-gse290350",
+   "label": "GSE290350 non-tumour reference",
+   "title": "Spatial transcriptomics and in situ immune cell profiling of the host ectocervical landscape of HIV infected Kenyan sex working women",
+   "citation": {
+    "authors": null,
+    "title": "Spatial transcriptomics and in situ immune cell profiling of the host ectocervical landscape of HIV infected Kenyan sex working women.",
+    "journal": null,
+    "year": 2024,
+    "doi": "10.3389/fimmu.2024.1483346",
+    "url": "https://doi.org/10.3389/fimmu.2024.1483346"
+   },
+   "cancers": [
+    "CESC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE290350",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE290350",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE290350"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000373"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.3389/fimmu.2024.1483346"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Control ectocervix subset only; HIV-positive and control tissue remain distinct. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
   }
  ],
  "located_sections": [],

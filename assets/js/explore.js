@@ -140,7 +140,8 @@ function searchText(r) {
       stratumLabel(D, r.stratum), cancerName(D, r.cancer), r.cancer, r.technique].join(" ").toLowerCase();
   }
   return [r.label, r.title, r.citation?.authors, r.citation?.title, r.citation?.journal, r.citation?.doi, r.accession,
-    r.description, ...(r.cancers || []), ...(r.cancers || []).map(x => cancerName(D, x)), ...(r.techniques || [])].join(" ").toLowerCase();
+    r.description, ...(r.cancers || []), ...(r.cancers || []).map(x => cancerName(D, x)), ...(r.techniques || []),
+    LABELS.specimen[r.specimen], ...(r.compartments || []).map(x => LABELS.compartment[x]), ...(r.notes || [])].join(" ").toLowerCase();
 }
 
 function matches(r, except) {

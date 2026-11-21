@@ -53,7 +53,8 @@ KEY_POINTS = [
     "Spatial resources are shown at two image levels. \"Original H&E located\": the original scan, measured expression and coordinates were found. \"Matched data with preview image\": expression and coordinates match a released preview image, and the original scan was not located; such data support molecular spatial maps, not whole-slide or tile models, cell morphology, physical distances or registration sign-off. Registration, calibration and tissue QC may be pending at either level.",
     "Spatial section records are per study, not globally unique physical sections or independent assays. Patients are study-local IDs given by the source; sections without one add no patients, and no eligible-patient total is established.",
     "Counts reported by a study keep that study's own unit (sections, slides, samples, donors) and are never added across studies. An unknown count is absent, not zero.",
-    "Normal tissue comes from patients with cancer, not healthy donors.",
+    "TCGA normal tissue comes from patients with cancer, not healthy donors.",
+    "Spatial resources with specimen clinical-reference hold non-tumour reference tissue (healthy-donor, control or tumour-adjacent). Their cancer tags list them on the pages of the relevant organ; they do not mean that the resource contains tumour tissue or that its donors are eligible patients.",
     "There is no treated TCGA reference set: treatment-flagged patients were withheld, not collected as a treated group.",
     "The pooled glioma cohort (TCGA-LGG and TCGA-GBM) is a classification benchmark; integrated WHO CNS5 diagnoses are not adjudicated.",
     "Data remain at their original repositories. Listing a dataset does not mean access has been granted or requested.",
@@ -133,6 +134,15 @@ def link(path, frm=""):
     if SITE_URL:
         return SITE_URL + path
     return "../" * frm.count("/") + path
+
+
+def references(lst):
+    """Resources of non-tumour reference tissue, listed by organ; counted once per resource."""
+    return sum(c.get("specimen") == "clinical-reference" for c in lst)
+
+
+def reference_text(r):
+    return f"{fmt(r)} non-tumour {'reference' if r == 1 else 'references'}"
 
 
 def views(x):
@@ -245,7 +255,12 @@ class Site:
             out.append("metastases only")
         elif "metastatic-tumour" in comps or any(x["site"] == "Metastasis" for x in caps):
             out.append("includes metastases")
-        if any(x in ("solid-normal", "normal", "peritumoral") for x in comps):
+        # CROST candidates of release 0.11.4 carry treatment status only in source text; their treatment-review gate is shown here.
+        if c["id"].startswith("cand-crost-") and "treatment-review" in (c.get("gates") or []):
+            out.append("treatment review pending")
+        if c.get("specimen") == "clinical-reference":
+            out.append("non-tumour reference only, listed by organ")
+        elif any(x in ("solid-normal", "normal", "peritumoral") for x in comps):
             out.append("includes normal or adjacent tissue")
         if "precursor" in comps:
             out.append("includes precursor lesions")
@@ -299,7 +314,8 @@ class Site:
             return "no spatial resources catalogued yet"
         n, k = sum(x["status"] == "verified" for x in lst), sum(x["status"] == "preview" for x in lst)
         located = ", ".join(t for t in [f"{fmt(n)} with original H&E located" if n else "", f"{fmt(k)} with matched data and a preview image" if k else ""] if t)
-        return f"{plural(len(lst), 'spatial resource', 'spatial resources')}, " + (located or "verification pending")
+        r = references(lst)
+        return f"{plural(len(lst), 'spatial resource', 'spatial resources')}" + (f" ({reference_text(r)})" if r else "") + ", " + (located or "verification pending")
 
 
 # ---------------------------------------------------------------- per-cancer JSON and Markdown
@@ -392,6 +408,12 @@ def cancer_md(S, page):
         rest = len(spatial) - nloc - nprev
         sent = (f"{head_s}. Verification of the matched image and molecular data is pending." if not nloc and not nprev else
                 f"{head_s}; {', and '.join(b for b in bits if b)}." + (f" Verification is pending for the {'other' if rest == 1 else 'others'}." if rest else ""))
+        r, n = references(spatial), len(spatial)
+        if r:
+            words = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+            sent += (" " + ("It is a non-tumour reference" if n == 1 else "Both are non-tumour references" if n == 2 else "All of them are non-tumour references") if r == n else
+                     " " + ("One of them is a non-tumour reference" if r == 1 else f"{words[r] if r < len(words) else fmt(r)} of them are non-tumour references")) \
+                + ", listed by organ and not counted as tumour cohorts or patients."
         lines += [sent + " These studies usually involve patients other than those in TCGA.", ""]
         dependent = {"controlled", "request", "unreleased", "unresolved"}
         ranked = sorted(spatial, key=lambda c: 0 if c["status"] == "verified" else 1 if c["status"] == "preview" else 3 if c["access"]["category"] in dependent else 2)
@@ -544,7 +566,7 @@ def spatial_md(S):
         lst = S.spatial_for(p)
         n, k = sum(x["status"] == "verified" for x in lst), sum(x["status"] == "preview" for x in lst)
         md = link("md/cancers/" + p["code"] + ".md", frm)
-        rows.append([f"[{p['name']}]({md})", p["code"], fmt(len(lst)) if lst else "None catalogued", "—" if not lst else fmt(n), "—" if not lst else fmt(k)])
+        rows.append([f"[{p['name']}]({md})", p["code"], (fmt(len(lst)) + (f" ({reference_text(references(lst))})" if references(lst) else "")) if lst else "None catalogued", "—" if not lst else fmt(n), "—" if not lst else fmt(k)])
     route_reviewed = [c for c in S.spatial if (c.get("spatial_review") or {}).get("route_review")]
     pkg = [c for c in S.spatial if c.get("backlog_review")]
     states = lambda c: ((c.get("followup_review") or {}).get("states") or (c.get("backlog_review") or {}).get("states")
@@ -565,6 +587,7 @@ def spatial_md(S):
         "They usually come from patients other than those in TCGA, so they add tissue context to the reference but no measurements for TCGA patients.", "",
         f"{fmt(len(S.spatial))} catalogued spatial resources: {fmt(located)} with original H&E located, {fmt(preview)} with matched data and a preview image, and {fmt(len(S.spatial) - located - preview)} not yet verified; "
         f"{fmt(represented)} cancer types represented. "
+        + (f"The {fmt(len(S.spatial))} resources include {fmt(references(S.spatial))} of non-tumour or adjacent-normal reference tissue; their cancer tags route them to the relevant organ pages and do not make them tumour cohorts. " if references(S.spatial) else "") +
         f"{plural(len(s_o), 'tissue section record has', 'tissue section records have')} the original H&E, and {fmt(len(s_p) + counted)} have a preview image "
         + (f"({fmt(len(s_p))} listed one by one, {fmt(counted)} counted for their resource), " if counted else "") + f"from {plural(S.patients(S.captures), 'known study-local patient', 'known study-local patients')}; "
         f"{fmt(sum(not x['patient'] for x in S.captures))} listed sections have no patient ID. No eligible-patient total is established.", "",
@@ -691,6 +714,7 @@ DOCS = {
     ("cohorts", "[].reported"): "[value, unit, basis] or [value, unit, basis, cancer] in the source's own units; never added across studies",
     ("cohorts", "[].gates"): "Open checks: what prevents inclusion, or the curation still to do",
     ("cohorts", "[].linkage"): "Level of H&E to RNA linkage",
+    ("cohorts", "[].specimen"): "Specimen type; clinical-reference marks non-tumour reference tissue whose cancer tags only route it to the relevant organ pages",
     ("captures", "[].id"): "<cohort>:<capture>",
     ("captures", "[].tier"): "core: primary tumour within the histology stratum; other tiers are metastatic, under review, outside the stratum or held for QC",
     ("captures", "[].treatment"): "Treatment before sampling",

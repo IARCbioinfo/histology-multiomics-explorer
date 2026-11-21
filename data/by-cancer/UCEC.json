@@ -1,6 +1,6 @@
 {
  "release": {
-  "version": "0.11.3",
+  "version": "0.11.4",
   "date": "2026-11-21",
   "audit_dates": [
    "2026-10-09",
@@ -1084,6 +1084,130 @@
      }
     ]
    }
+  },
+  {
+   "id": "cand-crost-e-mtab-9260",
+   "label": "E-MTAB-9260 non-tumour reference",
+   "title": "Spatial transcriptomic reference of the endometrium and myometrium of women in reproductive age",
+   "citation": {
+    "authors": null,
+    "title": "Mapping the temporal and spatial dynamics of the human endometrium in vivo and in vitro.",
+    "journal": null,
+    "year": 2021,
+    "doi": "10.1038/s41588-021-00972-2",
+    "url": "https://doi.org/10.1038/s41588-021-00972-2"
+   },
+   "cancers": [
+    "UCEC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "E-MTAB-9260",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study E-MTAB-9260",
+      "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-9260"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000008"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1038/s41588-021-00972-2"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Endometrium and myometrium from women of reproductive age; retain the source tissue and menstrual-phase context, with no assumption that all specimens are endometrium. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
+  },
+  {
+   "id": "cand-crost-gse246495",
+   "label": "GSE246495 non-tumour reference",
+   "title": "Spatial transcriptomics in human mid luteal endometrial biopsies",
+   "citation": {
+    "authors": null,
+    "title": "Stalling of the endometrial decidual reaction determines the recurrence risk of miscarriage.",
+    "journal": null,
+    "year": 2025,
+    "doi": "10.1126/sciadv.adv1988",
+    "url": "https://doi.org/10.1126/sciadv.adv1988"
+   },
+   "cancers": [
+    "UCEC"
+   ],
+   "layer": "matched-spatial",
+   "status": "candidate",
+   "modalities": [
+    "spatial-rna",
+    "normal-reference"
+   ],
+   "techniques": [
+    "Visium"
+   ],
+   "preservation": [],
+   "specimen": "clinical-reference",
+   "linkage": "unverified",
+   "gates": [
+    "package-unverified",
+    "he-unverified",
+    "identity"
+   ],
+   "accession": "GSE246495",
+   "access": {
+    "category": "open",
+    "route": "Public originating metadata and processed-data route. File completeness, image type and section linkage require qualification.",
+    "links": [
+     [
+      "Originating study GSE246495",
+      "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE246495"
+     ],
+     [
+      "CROST secondary index",
+      "https://ngdc.cncb.ac.cn/crost/browse/VISDP000325"
+     ],
+     [
+      "Primary publication",
+      "https://doi.org/10.1126/sciadv.adv1988"
+     ]
+    ]
+   },
+   "verification": "metadata-checked",
+   "verified_on": "2026-11-21",
+   "description": "Mid-luteal endometrial reference biopsies in a reproductive study; cycle phase and clinical context require review. Candidate only: original H&E, image-to-assay linkage, coordinates and molecular-file integrity have not been qualified for this entry.",
+   "notes": [
+    "Treatment, donor independence, calibration, registration and scientific eligibility remain unresolved unless explicitly source-described above.",
+    "No new confirmed section records or eligible-patient counts are added."
+   ],
+   "compartments": [
+    "normal"
+   ]
   }
  ],
  "located_sections": [

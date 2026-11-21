@@ -1,4 +1,4 @@
-import { loadData, fmt, esc, LABELS, setFooter, showError, spatialResourcesFor, cohortScopeText } from "./common.js";
+import { loadData, fmt, esc, LABELS, setFooter, showError, spatialResourcesFor, cohortScopeText, referenceCount, referenceText } from "./common.js";
 
 const LAYER_TEXT = {
   "matched-spatial": ["H&E images, original scans or previews, with measured spatial RNA and coordinates from the same tissue", "Locating molecular programmes and cell states in tissue; relating them to morphology"],
@@ -46,7 +46,7 @@ try {
       : e ? `TCGA: ${fmt(e.selected_analysis.total)} patients in the selected panel${cohortScopeText(e.analysis_cohort) ? `, ${cohortScopeText(e.analysis_cohort)}` : ""}` : "No TCGA cohort";
     const list = spatialResourcesFor(d, c), nLoc = list.filter(x => x.status === "verified").length, nPrev = list.filter(x => x.status === "preview").length;
     const spatialText = !list.length ? "Spatial: none catalogued yet"
-      : `Spatial: ${fmt(list.length)} ${list.length === 1 ? "resource" : "resources"}, ${nLoc || nPrev ? [nLoc ? `${fmt(nLoc)} with original H&E` : "", nPrev ? `${fmt(nPrev)} with a preview image` : ""].filter(Boolean).join(", ") : "verification pending"}`;
+      : `Spatial: ${fmt(list.length)} ${list.length === 1 ? "resource" : "resources"}${referenceCount(list) ? ` (${referenceText(referenceCount(list))})` : ""}, ${nLoc || nPrev ? [nLoc ? `${fmt(nLoc)} with original H&E` : "", nPrev ? `${fmt(nPrev)} with a preview image` : ""].filter(Boolean).join(", ") : "verification pending"}`;
     return `<a class="card" href="cancers.html?c=${c.code}">
       <span class="code">${c.code}</span><h3>${esc(c.name)}</h3>
       <span class="meta">${esc(tcgaText)}<br>${esc(spatialText)}</span></a>`;
